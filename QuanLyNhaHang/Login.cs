@@ -34,9 +34,5 @@ namespace QuanLyNhaHang
                 e.Cancel = true;
             }
         }
-
-       
-
-       
     }
 }
