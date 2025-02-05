@@ -36,14 +36,7 @@
             this.btnHoaDon = new System.Windows.Forms.Button();
             this.btnDoanhThu = new System.Windows.Forms.Button();
             this.btnTaiKhoan = new System.Windows.Forms.Button();
-            this.ptbBanner = new System.Windows.Forms.PictureBox();
-            this.lbGiamonan = new System.Windows.Forms.Label();
-            this.lbTenmonan = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lbGia = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbBanner)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbTrangChu)).BeginInit();
             this.SuspendLayout();
             // 
             // btnTrangChu
@@ -84,7 +77,7 @@
             // 
             // btnHoaDon
             // 
-            this.btnHoaDon.Location = new System.Drawing.Point(83, 481);
+            this.btnHoaDon.Location = new System.Drawing.Point(12, 379);
             this.btnHoaDon.Name = "btnHoaDon";
             this.btnHoaDon.Size = new System.Drawing.Size(220, 53);
             this.btnHoaDon.TabIndex = 5;
@@ -93,7 +86,7 @@
             // 
             // btnDoanhThu
             // 
-            this.btnDoanhThu.Location = new System.Drawing.Point(83, 540);
+            this.btnDoanhThu.Location = new System.Drawing.Point(12, 438);
             this.btnDoanhThu.Name = "btnDoanhThu";
             this.btnDoanhThu.Size = new System.Drawing.Size(220, 50);
             this.btnDoanhThu.TabIndex = 6;
@@ -102,79 +95,18 @@
             // 
             // btnTaiKhoan
             // 
-            this.btnTaiKhoan.Location = new System.Drawing.Point(83, 596);
+            this.btnTaiKhoan.Location = new System.Drawing.Point(12, 494);
             this.btnTaiKhoan.Name = "btnTaiKhoan";
             this.btnTaiKhoan.Size = new System.Drawing.Size(220, 50);
             this.btnTaiKhoan.TabIndex = 7;
             this.btnTaiKhoan.Text = "Tài Khoản";
             this.btnTaiKhoan.UseVisualStyleBackColor = true;
             // 
-            // ptbBanner
-            // 
-            this.ptbBanner.Location = new System.Drawing.Point(12, 12);
-            this.ptbBanner.Name = "ptbBanner";
-            this.ptbBanner.Size = new System.Drawing.Size(1757, 113);
-            this.ptbBanner.TabIndex = 8;
-            this.ptbBanner.TabStop = false;
-            // 
-            // lbGiamonan
-            // 
-            this.lbGiamonan.AutoSize = true;
-            this.lbGiamonan.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbGiamonan.Location = new System.Drawing.Point(617, 374);
-            this.lbGiamonan.Name = "lbGiamonan";
-            this.lbGiamonan.Size = new System.Drawing.Size(134, 29);
-            this.lbGiamonan.TabIndex = 10;
-            this.lbGiamonan.Text = "69.000VNĐ";
-            // 
-            // lbTenmonan
-            // 
-            this.lbTenmonan.AutoSize = true;
-            this.lbTenmonan.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTenmonan.Location = new System.Drawing.Point(617, 425);
-            this.lbTenmonan.Name = "lbTenmonan";
-            this.lbTenmonan.Size = new System.Drawing.Size(218, 29);
-            this.lbTenmonan.TabIndex = 11;
-            this.lbTenmonan.Text = "Tôm hùm nấu chao";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(1112, 257);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(218, 197);
-            this.pictureBox1.TabIndex = 12;
-            this.pictureBox1.TabStop = false;
-            // 
-            // lbGia
-            // 
-            this.lbGia.AutoSize = true;
-            this.lbGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbGia.Location = new System.Drawing.Point(617, 322);
-            this.lbGia.Name = "lbGia";
-            this.lbGia.Size = new System.Drawing.Size(50, 29);
-            this.lbGia.TabIndex = 13;
-            this.lbGia.Text = "Giá";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(622, 486);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(158, 44);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // TrangChu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1841, 858);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.lbGia);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.lbTenmonan);
-            this.Controls.Add(this.lbGiamonan);
-            this.Controls.Add(this.ptbBanner);
+            this.ClientSize = new System.Drawing.Size(988, 740);
             this.Controls.Add(this.btnTaiKhoan);
             this.Controls.Add(this.btnDoanhThu);
             this.Controls.Add(this.btnHoaDon);
@@ -201,12 +133,6 @@
         private System.Windows.Forms.Button btnHoaDon;
         private System.Windows.Forms.Button btnDoanhThu;
         private System.Windows.Forms.Button btnTaiKhoan;
-        private System.Windows.Forms.PictureBox ptbBanner;
-        private System.Windows.Forms.Label lbGiamonan;
-        private System.Windows.Forms.Label lbTenmonan;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label lbGia;
-        private System.Windows.Forms.Button button1;
     }
 }
 
