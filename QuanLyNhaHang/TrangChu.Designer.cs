@@ -34,6 +34,9 @@
             this.btnDanhMuc = new System.Windows.Forms.Button();
             this.btnThucDon = new System.Windows.Forms.Button();
             this.btnBan = new System.Windows.Forms.Button();
+            this.btnHoaDon = new System.Windows.Forms.Button();
+            this.btnDoanhThu = new System.Windows.Forms.Button();
+            this.btnTaiKhoan = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ptbTrangChu)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,11 +85,41 @@
             this.btnBan.Text = "Bàn";
             this.btnBan.UseVisualStyleBackColor = true;
             // 
+            // btnHoaDon
+            // 
+            this.btnHoaDon.Location = new System.Drawing.Point(12, 379);
+            this.btnHoaDon.Name = "btnHoaDon";
+            this.btnHoaDon.Size = new System.Drawing.Size(220, 53);
+            this.btnHoaDon.TabIndex = 5;
+            this.btnHoaDon.Text = "Hoá Đơn";
+            this.btnHoaDon.UseVisualStyleBackColor = true;
+            // 
+            // btnDoanhThu
+            // 
+            this.btnDoanhThu.Location = new System.Drawing.Point(12, 438);
+            this.btnDoanhThu.Name = "btnDoanhThu";
+            this.btnDoanhThu.Size = new System.Drawing.Size(220, 50);
+            this.btnDoanhThu.TabIndex = 6;
+            this.btnDoanhThu.Text = "Doanh Thu";
+            this.btnDoanhThu.UseVisualStyleBackColor = true;
+            // 
+            // btnTaiKhoan
+            // 
+            this.btnTaiKhoan.Location = new System.Drawing.Point(12, 494);
+            this.btnTaiKhoan.Name = "btnTaiKhoan";
+            this.btnTaiKhoan.Size = new System.Drawing.Size(220, 50);
+            this.btnTaiKhoan.TabIndex = 7;
+            this.btnTaiKhoan.Text = "Tài Khoản";
+            this.btnTaiKhoan.UseVisualStyleBackColor = true;
+            // 
             // TrangChu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(988, 541);
+            this.ClientSize = new System.Drawing.Size(988, 740);
+            this.Controls.Add(this.btnTaiKhoan);
+            this.Controls.Add(this.btnDoanhThu);
+            this.Controls.Add(this.btnHoaDon);
             this.Controls.Add(this.btnBan);
             this.Controls.Add(this.btnThucDon);
             this.Controls.Add(this.btnDanhMuc);
@@ -108,6 +141,9 @@
         private System.Windows.Forms.Button btnDanhMuc;
         private System.Windows.Forms.Button btnThucDon;
         private System.Windows.Forms.Button btnBan;
+        private System.Windows.Forms.Button btnHoaDon;
+        private System.Windows.Forms.Button btnDoanhThu;
+        private System.Windows.Forms.Button btnTaiKhoan;
     }
 }
 
