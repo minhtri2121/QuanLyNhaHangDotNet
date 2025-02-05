@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrangChu));
-            this.ptbTrangChu = new System.Windows.Forms.PictureBox();
             this.btnTrangChu = new System.Windows.Forms.Button();
             this.btnDanhMuc = new System.Windows.Forms.Button();
             this.btnThucDon = new System.Windows.Forms.Button();
@@ -40,18 +39,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.ptbTrangChu)).BeginInit();
             this.SuspendLayout();
             // 
-            // ptbTrangChu
-            // 
-            this.ptbTrangChu.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.ptbTrangChu.Location = new System.Drawing.Point(12, 12);
-            this.ptbTrangChu.Name = "ptbTrangChu";
-            this.ptbTrangChu.Size = new System.Drawing.Size(220, 113);
-            this.ptbTrangChu.TabIndex = 0;
-            this.ptbTrangChu.TabStop = false;
-            // 
             // btnTrangChu
             // 
-            this.btnTrangChu.Location = new System.Drawing.Point(12, 131);
+            this.btnTrangChu.Location = new System.Drawing.Point(83, 233);
             this.btnTrangChu.Name = "btnTrangChu";
             this.btnTrangChu.Size = new System.Drawing.Size(220, 56);
             this.btnTrangChu.TabIndex = 1;
@@ -60,7 +50,7 @@
             // 
             // btnDanhMuc
             // 
-            this.btnDanhMuc.Location = new System.Drawing.Point(12, 193);
+            this.btnDanhMuc.Location = new System.Drawing.Point(83, 295);
             this.btnDanhMuc.Name = "btnDanhMuc";
             this.btnDanhMuc.Size = new System.Drawing.Size(220, 56);
             this.btnDanhMuc.TabIndex = 2;
@@ -69,7 +59,7 @@
             // 
             // btnThucDon
             // 
-            this.btnThucDon.Location = new System.Drawing.Point(12, 317);
+            this.btnThucDon.Location = new System.Drawing.Point(83, 419);
             this.btnThucDon.Name = "btnThucDon";
             this.btnThucDon.Size = new System.Drawing.Size(220, 56);
             this.btnThucDon.TabIndex = 3;
@@ -78,7 +68,7 @@
             // 
             // btnBan
             // 
-            this.btnBan.Location = new System.Drawing.Point(12, 255);
+            this.btnBan.Location = new System.Drawing.Point(83, 357);
             this.btnBan.Name = "btnBan";
             this.btnBan.Size = new System.Drawing.Size(220, 56);
             this.btnBan.TabIndex = 4;
@@ -124,19 +114,18 @@
             this.Controls.Add(this.btnThucDon);
             this.Controls.Add(this.btnDanhMuc);
             this.Controls.Add(this.btnTrangChu);
-            this.Controls.Add(this.ptbTrangChu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TrangChu";
             this.Text = "Trang Chủ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            ((System.ComponentModel.ISupportInitialize)(this.ptbTrangChu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbBanner)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox ptbTrangChu;
         private System.Windows.Forms.Button btnTrangChu;
         private System.Windows.Forms.Button btnDanhMuc;
         private System.Windows.Forms.Button btnThucDon;
