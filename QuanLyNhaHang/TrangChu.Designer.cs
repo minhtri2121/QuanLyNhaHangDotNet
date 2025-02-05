@@ -36,12 +36,11 @@
             this.btnHoaDon = new System.Windows.Forms.Button();
             this.btnDoanhThu = new System.Windows.Forms.Button();
             this.btnTaiKhoan = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbTrangChu)).BeginInit();
             this.SuspendLayout();
             // 
             // btnTrangChu
             // 
-            this.btnTrangChu.Location = new System.Drawing.Point(83, 233);
+            this.btnTrangChu.Location = new System.Drawing.Point(12, 131);
             this.btnTrangChu.Name = "btnTrangChu";
             this.btnTrangChu.Size = new System.Drawing.Size(220, 56);
             this.btnTrangChu.TabIndex = 1;
@@ -50,7 +49,7 @@
             // 
             // btnDanhMuc
             // 
-            this.btnDanhMuc.Location = new System.Drawing.Point(83, 295);
+            this.btnDanhMuc.Location = new System.Drawing.Point(12, 193);
             this.btnDanhMuc.Name = "btnDanhMuc";
             this.btnDanhMuc.Size = new System.Drawing.Size(220, 56);
             this.btnDanhMuc.TabIndex = 2;
@@ -59,7 +58,7 @@
             // 
             // btnThucDon
             // 
-            this.btnThucDon.Location = new System.Drawing.Point(83, 419);
+            this.btnThucDon.Location = new System.Drawing.Point(12, 317);
             this.btnThucDon.Name = "btnThucDon";
             this.btnThucDon.Size = new System.Drawing.Size(220, 56);
             this.btnThucDon.TabIndex = 3;
@@ -68,7 +67,7 @@
             // 
             // btnBan
             // 
-            this.btnBan.Location = new System.Drawing.Point(83, 357);
+            this.btnBan.Location = new System.Drawing.Point(12, 255);
             this.btnBan.Name = "btnBan";
             this.btnBan.Size = new System.Drawing.Size(220, 56);
             this.btnBan.TabIndex = 4;
@@ -118,10 +117,7 @@
             this.Name = "TrangChu";
             this.Text = "Trang Chủ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            ((System.ComponentModel.ISupportInitialize)(this.ptbBanner)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
