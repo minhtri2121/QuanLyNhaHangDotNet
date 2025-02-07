@@ -16,20 +16,23 @@ namespace QuanLyNhaHang
         {
             InitializeComponent();
         }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
+        private void thôngTinCáNhânToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            fAccountProfile f = new fAccountProfile();
+            f.ShowDialog();
+            this.Show();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void aDMINToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            fAdmin f = new fAdmin();
+            f.ShowDialog();
+            this.Show();
         }
     }
 }
