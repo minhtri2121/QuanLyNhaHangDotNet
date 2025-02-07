@@ -17,21 +17,19 @@ namespace QuanLyNhaHang
             InitializeComponent();
         }
 
-        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.Close();
+
         }
 
-        private void thôngTinCáNhânToolStripMenuItem_Click(object sender, EventArgs e)
+        private void panel3_Paint(object sender, PaintEventArgs e)
         {
-            FormAccountProfile f = new FormAccountProfile();
-            f.ShowDialog();
+
         }
 
-        private void aDMINToolStripMenuItem_Click(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            FormAdmin f = new FormAdmin();
-            f.ShowDialog();
+
         }
     }
 }
