@@ -17,7 +17,7 @@ namespace QuanLyNhaHang
 
         void LoadAccountList()
         {
-            string connectionString = "Data Source=LAPTOPMINHTRI\\SQLEXPRESS;Initial Catalog=QL_NhaHang;Integrated Security=True;";
+            string connectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=QL_NhaHang;Integrated Security=True;";
 
             SqlConnection conn = new SqlConnection(connectionString);
 
