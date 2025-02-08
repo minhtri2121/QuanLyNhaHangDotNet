@@ -112,6 +112,32 @@
             this.btnSuaTK = new System.Windows.Forms.Button();
             this.btnXoaTK = new System.Windows.Forms.Button();
             this.btnThemTK = new System.Windows.Forms.Button();
+            this.tpKho = new System.Windows.Forms.TabPage();
+            this.panel27 = new System.Windows.Forms.Panel();
+            this.panel34 = new System.Windows.Forms.Panel();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.lblHanSuDung = new System.Windows.Forms.Label();
+            this.panel33 = new System.Windows.Forms.Panel();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.lblGiaNhap = new System.Windows.Forms.Label();
+            this.btnOK = new System.Windows.Forms.Button();
+            this.panel28 = new System.Windows.Forms.Panel();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel29 = new System.Windows.Forms.Panel();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.lblTenMatHang = new System.Windows.Forms.Label();
+            this.panel30 = new System.Windows.Forms.Panel();
+            this.txtMatHangID = new System.Windows.Forms.TextBox();
+            this.lblMatHangID = new System.Windows.Forms.Label();
+            this.panel31 = new System.Windows.Forms.Panel();
+            this.dtgvKho = new System.Windows.Forms.DataGridView();
+            this.panel32 = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
             this.tcAdmin.SuspendLayout();
             this.tpDoanhThu.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -150,6 +176,16 @@
             this.panel25.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvTaiKhoan)).BeginInit();
             this.panel26.SuspendLayout();
+            this.tpKho.SuspendLayout();
+            this.panel27.SuspendLayout();
+            this.panel34.SuspendLayout();
+            this.panel33.SuspendLayout();
+            this.panel28.SuspendLayout();
+            this.panel29.SuspendLayout();
+            this.panel30.SuspendLayout();
+            this.panel31.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvKho)).BeginInit();
+            this.panel32.SuspendLayout();
             this.SuspendLayout();
             // 
             // tcAdmin
@@ -159,6 +195,7 @@
             this.tcAdmin.Controls.Add(this.tpDanhMuc);
             this.tcAdmin.Controls.Add(this.tpBanAn);
             this.tcAdmin.Controls.Add(this.tpTaiKhoan);
+            this.tcAdmin.Controls.Add(this.tpKho);
             this.tcAdmin.Location = new System.Drawing.Point(12, 12);
             this.tcAdmin.Name = "tcAdmin";
             this.tcAdmin.SelectedIndex = 0;
@@ -274,7 +311,7 @@
             // 
             // nmGia
             // 
-            this.nmGia.Location = new System.Drawing.Point(131, 23);
+            this.nmGia.Location = new System.Drawing.Point(131, 19);
             this.nmGia.Name = "nmGia";
             this.nmGia.Size = new System.Drawing.Size(239, 22);
             this.nmGia.TabIndex = 1;
@@ -424,7 +461,7 @@
             // 
             // btnXem
             // 
-            this.btnXem.Location = new System.Drawing.Point(249, 3);
+            this.btnXem.Location = new System.Drawing.Point(317, 3);
             this.btnXem.Name = "btnXem";
             this.btnXem.Size = new System.Drawing.Size(76, 71);
             this.btnXem.TabIndex = 3;
@@ -433,7 +470,7 @@
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(167, 3);
+            this.btnSua.Location = new System.Drawing.Point(235, 3);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(76, 71);
             this.btnSua.TabIndex = 2;
@@ -442,7 +479,7 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(85, 3);
+            this.btnXoa.Location = new System.Drawing.Point(153, 3);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(76, 71);
             this.btnXoa.TabIndex = 1;
@@ -451,7 +488,7 @@
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(3, 3);
+            this.btnThem.Location = new System.Drawing.Point(71, 3);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(76, 71);
             this.btnThem.TabIndex = 0;
@@ -503,7 +540,7 @@
             // 
             // btnXemDM
             // 
-            this.btnXemDM.Location = new System.Drawing.Point(249, 3);
+            this.btnXemDM.Location = new System.Drawing.Point(325, 3);
             this.btnXemDM.Name = "btnXemDM";
             this.btnXemDM.Size = new System.Drawing.Size(76, 71);
             this.btnXemDM.TabIndex = 3;
@@ -512,7 +549,7 @@
             // 
             // btnSuaDM
             // 
-            this.btnSuaDM.Location = new System.Drawing.Point(167, 3);
+            this.btnSuaDM.Location = new System.Drawing.Point(243, 3);
             this.btnSuaDM.Name = "btnSuaDM";
             this.btnSuaDM.Size = new System.Drawing.Size(76, 71);
             this.btnSuaDM.TabIndex = 2;
@@ -521,7 +558,7 @@
             // 
             // btnXoaDM
             // 
-            this.btnXoaDM.Location = new System.Drawing.Point(85, 3);
+            this.btnXoaDM.Location = new System.Drawing.Point(161, 3);
             this.btnXoaDM.Name = "btnXoaDM";
             this.btnXoaDM.Size = new System.Drawing.Size(76, 71);
             this.btnXoaDM.TabIndex = 1;
@@ -530,7 +567,7 @@
             // 
             // btnThemDM
             // 
-            this.btnThemDM.Location = new System.Drawing.Point(3, 3);
+            this.btnThemDM.Location = new System.Drawing.Point(79, 3);
             this.btnThemDM.Name = "btnThemDM";
             this.btnThemDM.Size = new System.Drawing.Size(76, 71);
             this.btnThemDM.TabIndex = 0;
@@ -722,7 +759,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(249, 3);
+            this.button1.Location = new System.Drawing.Point(318, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(76, 71);
             this.button1.TabIndex = 3;
@@ -731,7 +768,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(167, 3);
+            this.button2.Location = new System.Drawing.Point(236, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(76, 71);
             this.button2.TabIndex = 2;
@@ -740,7 +777,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(85, 3);
+            this.button3.Location = new System.Drawing.Point(154, 3);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(76, 71);
             this.button3.TabIndex = 1;
@@ -749,7 +786,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(3, 3);
+            this.button4.Location = new System.Drawing.Point(72, 3);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(76, 71);
             this.button4.TabIndex = 0;
@@ -902,7 +939,7 @@
             // 
             // btnXemTK
             // 
-            this.btnXemTK.Location = new System.Drawing.Point(249, 3);
+            this.btnXemTK.Location = new System.Drawing.Point(323, 3);
             this.btnXemTK.Name = "btnXemTK";
             this.btnXemTK.Size = new System.Drawing.Size(76, 71);
             this.btnXemTK.TabIndex = 3;
@@ -911,7 +948,7 @@
             // 
             // btnSuaTK
             // 
-            this.btnSuaTK.Location = new System.Drawing.Point(167, 3);
+            this.btnSuaTK.Location = new System.Drawing.Point(241, 3);
             this.btnSuaTK.Name = "btnSuaTK";
             this.btnSuaTK.Size = new System.Drawing.Size(76, 71);
             this.btnSuaTK.TabIndex = 2;
@@ -920,7 +957,7 @@
             // 
             // btnXoaTK
             // 
-            this.btnXoaTK.Location = new System.Drawing.Point(85, 3);
+            this.btnXoaTK.Location = new System.Drawing.Point(159, 3);
             this.btnXoaTK.Name = "btnXoaTK";
             this.btnXoaTK.Size = new System.Drawing.Size(76, 71);
             this.btnXoaTK.TabIndex = 1;
@@ -929,12 +966,254 @@
             // 
             // btnThemTK
             // 
-            this.btnThemTK.Location = new System.Drawing.Point(3, 3);
+            this.btnThemTK.Location = new System.Drawing.Point(77, 3);
             this.btnThemTK.Name = "btnThemTK";
             this.btnThemTK.Size = new System.Drawing.Size(76, 71);
             this.btnThemTK.TabIndex = 0;
             this.btnThemTK.Text = "Thêm";
             this.btnThemTK.UseVisualStyleBackColor = true;
+            // 
+            // tpKho
+            // 
+            this.tpKho.Controls.Add(this.panel27);
+            this.tpKho.Controls.Add(this.panel31);
+            this.tpKho.Controls.Add(this.panel32);
+            this.tpKho.Location = new System.Drawing.Point(4, 25);
+            this.tpKho.Name = "tpKho";
+            this.tpKho.Padding = new System.Windows.Forms.Padding(3);
+            this.tpKho.Size = new System.Drawing.Size(934, 562);
+            this.tpKho.TabIndex = 5;
+            this.tpKho.Text = "Kho";
+            this.tpKho.UseVisualStyleBackColor = true;
+            // 
+            // panel27
+            // 
+            this.panel27.Controls.Add(this.panel34);
+            this.panel27.Controls.Add(this.panel33);
+            this.panel27.Controls.Add(this.btnOK);
+            this.panel27.Controls.Add(this.panel28);
+            this.panel27.Controls.Add(this.panel29);
+            this.panel27.Controls.Add(this.panel30);
+            this.panel27.Location = new System.Drawing.Point(494, 92);
+            this.panel27.Name = "panel27";
+            this.panel27.Size = new System.Drawing.Size(434, 440);
+            this.panel27.TabIndex = 13;
+            // 
+            // panel34
+            // 
+            this.panel34.Controls.Add(this.textBox7);
+            this.panel34.Controls.Add(this.lblHanSuDung);
+            this.panel34.Location = new System.Drawing.Point(3, 201);
+            this.panel34.Name = "panel34";
+            this.panel34.Size = new System.Drawing.Size(434, 60);
+            this.panel34.TabIndex = 11;
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(192, 19);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(199, 22);
+            this.textBox7.TabIndex = 2;
+            // 
+            // lblHanSuDung
+            // 
+            this.lblHanSuDung.AutoSize = true;
+            this.lblHanSuDung.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHanSuDung.Location = new System.Drawing.Point(20, 16);
+            this.lblHanSuDung.Name = "lblHanSuDung";
+            this.lblHanSuDung.Size = new System.Drawing.Size(151, 24);
+            this.lblHanSuDung.TabIndex = 0;
+            this.lblHanSuDung.Text = "Hạn sử dụng : ";
+            // 
+            // panel33
+            // 
+            this.panel33.Controls.Add(this.textBox6);
+            this.panel33.Controls.Add(this.lblGiaNhap);
+            this.panel33.Location = new System.Drawing.Point(3, 135);
+            this.panel33.Name = "panel33";
+            this.panel33.Size = new System.Drawing.Size(434, 60);
+            this.panel33.TabIndex = 13;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(192, 19);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(199, 22);
+            this.textBox6.TabIndex = 2;
+            // 
+            // lblGiaNhap
+            // 
+            this.lblGiaNhap.AutoSize = true;
+            this.lblGiaNhap.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGiaNhap.Location = new System.Drawing.Point(20, 19);
+            this.lblGiaNhap.Name = "lblGiaNhap";
+            this.lblGiaNhap.Size = new System.Drawing.Size(114, 24);
+            this.lblGiaNhap.TabIndex = 0;
+            this.lblGiaNhap.Text = "Giá nhập : ";
+            // 
+            // btnOK
+            // 
+            this.btnOK.Location = new System.Drawing.Point(316, 333);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(94, 31);
+            this.btnOK.TabIndex = 12;
+            this.btnOK.Text = "Ok";
+            this.btnOK.UseVisualStyleBackColor = true;
+            // 
+            // panel28
+            // 
+            this.panel28.Controls.Add(this.comboBox2);
+            this.panel28.Controls.Add(this.label6);
+            this.panel28.Location = new System.Drawing.Point(3, 267);
+            this.panel28.Name = "panel28";
+            this.panel28.Size = new System.Drawing.Size(434, 60);
+            this.panel28.TabIndex = 11;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(195, 19);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(199, 24);
+            this.comboBox2.TabIndex = 2;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(23, 19);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(157, 24);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Loại mặt hàng :";
+            // 
+            // panel29
+            // 
+            this.panel29.Controls.Add(this.textBox5);
+            this.panel29.Controls.Add(this.lblTenMatHang);
+            this.panel29.Location = new System.Drawing.Point(3, 69);
+            this.panel29.Name = "panel29";
+            this.panel29.Size = new System.Drawing.Size(434, 60);
+            this.panel29.TabIndex = 10;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(192, 19);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(199, 22);
+            this.textBox5.TabIndex = 2;
+            // 
+            // lblTenMatHang
+            // 
+            this.lblTenMatHang.AutoSize = true;
+            this.lblTenMatHang.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTenMatHang.Location = new System.Drawing.Point(20, 19);
+            this.lblTenMatHang.Name = "lblTenMatHang";
+            this.lblTenMatHang.Size = new System.Drawing.Size(153, 24);
+            this.lblTenMatHang.TabIndex = 0;
+            this.lblTenMatHang.Text = "Tên mặt hàng :";
+            // 
+            // panel30
+            // 
+            this.panel30.Controls.Add(this.txtMatHangID);
+            this.panel30.Controls.Add(this.lblMatHangID);
+            this.panel30.Location = new System.Drawing.Point(3, 3);
+            this.panel30.Name = "panel30";
+            this.panel30.Size = new System.Drawing.Size(434, 60);
+            this.panel30.TabIndex = 9;
+            // 
+            // txtMatHangID
+            // 
+            this.txtMatHangID.Location = new System.Drawing.Point(192, 19);
+            this.txtMatHangID.Name = "txtMatHangID";
+            this.txtMatHangID.Size = new System.Drawing.Size(199, 22);
+            this.txtMatHangID.TabIndex = 2;
+            // 
+            // lblMatHangID
+            // 
+            this.lblMatHangID.AutoSize = true;
+            this.lblMatHangID.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMatHangID.Location = new System.Drawing.Point(20, 19);
+            this.lblMatHangID.Name = "lblMatHangID";
+            this.lblMatHangID.Size = new System.Drawing.Size(136, 24);
+            this.lblMatHangID.TabIndex = 0;
+            this.lblMatHangID.Text = "ID mặt hàng :";
+            // 
+            // panel31
+            // 
+            this.panel31.Controls.Add(this.dtgvKho);
+            this.panel31.Location = new System.Drawing.Point(6, 89);
+            this.panel31.Name = "panel31";
+            this.panel31.Size = new System.Drawing.Size(482, 467);
+            this.panel31.TabIndex = 12;
+            // 
+            // dtgvKho
+            // 
+            this.dtgvKho.AllowUserToOrderColumns = true;
+            this.dtgvKho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvKho.Location = new System.Drawing.Point(3, 3);
+            this.dtgvKho.Name = "dtgvKho";
+            this.dtgvKho.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dtgvKho.RowHeadersWidth = 51;
+            this.dtgvKho.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dtgvKho.RowTemplate.Height = 24;
+            this.dtgvKho.Size = new System.Drawing.Size(476, 461);
+            this.dtgvKho.TabIndex = 0;
+            // 
+            // panel32
+            // 
+            this.panel32.Controls.Add(this.button6);
+            this.panel32.Controls.Add(this.button7);
+            this.panel32.Controls.Add(this.button8);
+            this.panel32.Controls.Add(this.button9);
+            this.panel32.Location = new System.Drawing.Point(6, 6);
+            this.panel32.Name = "panel32";
+            this.panel32.Size = new System.Drawing.Size(482, 77);
+            this.panel32.TabIndex = 11;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(324, 3);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(76, 71);
+            this.button6.TabIndex = 3;
+            this.button6.Text = "Xem";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(242, 3);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(76, 71);
+            this.button7.TabIndex = 2;
+            this.button7.Text = "Sửa";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(160, 3);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(76, 71);
+            this.button8.TabIndex = 1;
+            this.button8.Text = "Xoá";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(78, 3);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(76, 71);
+            this.button9.TabIndex = 0;
+            this.button9.Text = "Thêm";
+            this.button9.UseVisualStyleBackColor = true;
+            // 
+            // entityCommand1
+            // 
+            this.entityCommand1.CommandTimeout = 0;
+            this.entityCommand1.CommandTree = null;
+            this.entityCommand1.Connection = null;
+            this.entityCommand1.EnablePlanCaching = true;
+            this.entityCommand1.Transaction = null;
             // 
             // fAdmin
             // 
@@ -997,6 +1276,21 @@
             this.panel25.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvTaiKhoan)).EndInit();
             this.panel26.ResumeLayout(false);
+            this.tpKho.ResumeLayout(false);
+            this.panel27.ResumeLayout(false);
+            this.panel34.ResumeLayout(false);
+            this.panel34.PerformLayout();
+            this.panel33.ResumeLayout(false);
+            this.panel33.PerformLayout();
+            this.panel28.ResumeLayout(false);
+            this.panel28.PerformLayout();
+            this.panel29.ResumeLayout(false);
+            this.panel29.PerformLayout();
+            this.panel30.ResumeLayout(false);
+            this.panel30.PerformLayout();
+            this.panel31.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvKho)).EndInit();
+            this.panel32.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1087,5 +1381,31 @@
         private System.Windows.Forms.Button btnXoaTK;
         private System.Windows.Forms.Button btnThemTK;
         private System.Windows.Forms.Button btnRePass;
+        private System.Windows.Forms.TabPage tpKho;
+        private System.Data.Entity.Core.EntityClient.EntityCommand entityCommand1;
+        private System.Windows.Forms.Panel panel27;
+        private System.Windows.Forms.Button btnOK;
+        private System.Windows.Forms.Panel panel28;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel29;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label lblTenMatHang;
+        private System.Windows.Forms.Panel panel30;
+        private System.Windows.Forms.TextBox txtMatHangID;
+        private System.Windows.Forms.Label lblMatHangID;
+        private System.Windows.Forms.Panel panel31;
+        private System.Windows.Forms.DataGridView dtgvKho;
+        private System.Windows.Forms.Panel panel32;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Panel panel34;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Label lblHanSuDung;
+        private System.Windows.Forms.Panel panel33;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label lblGiaNhap;
     }
 }
