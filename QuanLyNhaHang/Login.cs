@@ -4,9 +4,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QuanLyNhaHang.DAO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace QuanLyNhaHang
 {
@@ -18,11 +21,26 @@ namespace QuanLyNhaHang
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            FormTableManager f = new FormTableManager();
-            this.Hide();
-            f.ShowDialog();
-            this.Show();
+            string username = txtUserName.Text;
+            string password = txtPassword.Text;
+            if (Login(username, password))
+            {
+                FormTableManager f = new FormTableManager();
+                this.Hide();
+                f.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                MessageBox.Show("Sai tên tài khoản hoặc mật khẩu!");
+            }
         }
+
+        bool Login(string username, string password)
+        {
+            return AccountDAO.Instance.Login(username, password);
+        }
+
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
