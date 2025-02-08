@@ -51,9 +51,10 @@
             this.txtTuKhoa = new System.Windows.Forms.TextBox();
             this.lblTuKhoa = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.txtTenMon = new System.Windows.Forms.TextBox();
             this.lblFoodName = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.cbDanhMuc = new System.Windows.Forms.ComboBox();
+            this.cbNhomMon = new System.Windows.Forms.ComboBox();
             this.lblIdFood = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnTim = new System.Windows.Forms.Button();
@@ -134,7 +135,6 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
-            this.txbTenMon = new System.Windows.Forms.TextBox();
             this.tcAdmin.SuspendLayout();
             this.tpDoanhThu.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -344,6 +344,11 @@
             // nmGia
             // 
             this.nmGia.Location = new System.Drawing.Point(163, 19);
+            this.nmGia.Maximum = new decimal(new int[] {
+            -727379968,
+            232,
+            0,
+            0});
             this.nmGia.Name = "nmGia";
             this.nmGia.Size = new System.Drawing.Size(239, 22);
             this.nmGia.TabIndex = 1;
@@ -386,12 +391,19 @@
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.txbTenMon);
+            this.panel8.Controls.Add(this.txtTenMon);
             this.panel8.Controls.Add(this.lblFoodName);
             this.panel8.Location = new System.Drawing.Point(3, 71);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(428, 60);
             this.panel8.TabIndex = 2;
+            // 
+            // txtTenMon
+            // 
+            this.txtTenMon.Location = new System.Drawing.Point(163, 21);
+            this.txtTenMon.Name = "txtTenMon";
+            this.txtTenMon.Size = new System.Drawing.Size(239, 22);
+            this.txtTenMon.TabIndex = 4;
             // 
             // lblFoodName
             // 
@@ -405,20 +417,20 @@
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.cbDanhMuc);
+            this.panel7.Controls.Add(this.cbNhomMon);
             this.panel7.Controls.Add(this.lblIdFood);
             this.panel7.Location = new System.Drawing.Point(3, 137);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(428, 60);
             this.panel7.TabIndex = 1;
             // 
-            // cbDanhMuc
+            // cbNhomMon
             // 
-            this.cbDanhMuc.FormattingEnabled = true;
-            this.cbDanhMuc.Location = new System.Drawing.Point(163, 21);
-            this.cbDanhMuc.Name = "cbDanhMuc";
-            this.cbDanhMuc.Size = new System.Drawing.Size(239, 24);
-            this.cbDanhMuc.TabIndex = 1;
+            this.cbNhomMon.FormattingEnabled = true;
+            this.cbNhomMon.Location = new System.Drawing.Point(163, 21);
+            this.cbNhomMon.Name = "cbNhomMon";
+            this.cbNhomMon.Size = new System.Drawing.Size(239, 24);
+            this.cbNhomMon.TabIndex = 1;
             // 
             // lblIdFood
             // 
@@ -1168,13 +1180,6 @@
             this.entityCommand1.EnablePlanCaching = true;
             this.entityCommand1.Transaction = null;
             // 
-            // txbTenMon
-            // 
-            this.txbTenMon.Location = new System.Drawing.Point(163, 21);
-            this.txbTenMon.Name = "txbTenMon";
-            this.txbTenMon.Size = new System.Drawing.Size(239, 22);
-            this.txbTenMon.TabIndex = 4;
-            // 
             // fAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1281,12 +1286,11 @@
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label lblTuKhoa;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.TextBox txtTenMon;
         private System.Windows.Forms.Label lblFoodName;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label lblIdFood;
         private System.Windows.Forms.NumericUpDown nmGia;
-        private System.Windows.Forms.ComboBox cbDanhMuc;
+        private System.Windows.Forms.ComboBox cbNhomMon;
         private System.Windows.Forms.DataGridView dtgvDoanhThu;
         private System.Windows.Forms.DataGridView dtgvMonAn;
         private System.Windows.Forms.Panel panel17;
@@ -1361,6 +1365,6 @@
         private System.Windows.Forms.ComboBox cbDVT;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnNhapMon;
-        private System.Windows.Forms.TextBox txbTenMon;
+        private System.Windows.Forms.TextBox txtTenMon;
     }
 }
