@@ -41,7 +41,6 @@ namespace QuanLyNhaHang
 
             dtgvTaiKhoan.DataSource = data;
         }
-
         void LoadQuanLiKho()
         {
             string connectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=QL_NhaHang;Integrated Security=True;";
@@ -86,5 +85,7 @@ namespace QuanLyNhaHang
 
             dtgvMonAn.DataSource = data;
         }
+
+       
     }
 }
