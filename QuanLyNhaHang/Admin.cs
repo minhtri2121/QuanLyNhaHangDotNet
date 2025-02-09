@@ -21,6 +21,7 @@ namespace QuanLyNhaHang
 
             AddFoddBinding();
         }
+        // Code lại từ đây |
 
         void LoadAccountList() //không dùng cái này
         {
@@ -46,7 +47,7 @@ namespace QuanLyNhaHang
             txtTuKhoa.DataBindings.Add(new Binding("Text", dtgvMonAn.DataSource, "TuKhoa"));
             cbNhomMon.DataBindings.Add(new Binding("Text", dtgvMonAn.DataSource, "TenNhomMon"));
             cbDVT.DataBindings.Add(new Binding("Text", dtgvMonAn.DataSource, "TenDVT"));
-            nmGia.DataBindings.Add(new Binding("Value", dtgvMonAn.DataSource, "GiaTien"));
+            nmGia.DataBindings.Add(new Binding("Value"+"000", dtgvMonAn.DataSource, "GiaTien"));
         }
     }
 }
