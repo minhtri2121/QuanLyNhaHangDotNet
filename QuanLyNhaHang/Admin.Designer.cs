@@ -345,10 +345,15 @@
             // 
             this.nmGia.Location = new System.Drawing.Point(163, 19);
             this.nmGia.Maximum = new decimal(new int[] {
-            -727379968,
-            232,
+            1410065408,
+            2,
             0,
             0});
+            this.nmGia.Minimum = new decimal(new int[] {
+            1410065408,
+            2,
+            0,
+            -2147483648});
             this.nmGia.Name = "nmGia";
             this.nmGia.Size = new System.Drawing.Size(239, 22);
             this.nmGia.TabIndex = 1;

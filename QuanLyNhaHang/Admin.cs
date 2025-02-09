@@ -37,7 +37,7 @@ namespace QuanLyNhaHang
         }
         void LoadListFood() //không dùng cái này
         {
-            string query = "SELECT TuKhoa, TenMon, TenNhomMon , TenDVT, FORMAT(Gia,'N0') AS GiaTien\r\nFROM MON \r\nJOIN NHOM_MON ON MON.IDNhomMon = NHOM_MON.IDNhomMon\r\nJOIN DON_VI_TINH ON MON.IDDVT = DON_VI_TINH.IDDVT;";
+            string query = "SELECT TuKhoa, TenMon, TenNhomMon , TenDVT, Gia AS GiaTien\r\nFROM MON \r\nJOIN NHOM_MON ON MON.IDNhomMon = NHOM_MON.IDNhomMon\r\nJOIN DON_VI_TINH ON MON.IDDVT = DON_VI_TINH.IDDVT;";
 
             dtgvMonAn.DataSource = DataProvider.Instance.ExcuteQuery(query);
         }
@@ -47,7 +47,7 @@ namespace QuanLyNhaHang
             txtTuKhoa.DataBindings.Add(new Binding("Text", dtgvMonAn.DataSource, "TuKhoa"));
             cbNhomMon.DataBindings.Add(new Binding("Text", dtgvMonAn.DataSource, "TenNhomMon"));
             cbDVT.DataBindings.Add(new Binding("Text", dtgvMonAn.DataSource, "TenDVT"));
-            nmGia.DataBindings.Add(new Binding("Value"+"000", dtgvMonAn.DataSource, "GiaTien"));
+            nmGia.DataBindings.Add(new Binding("Value", dtgvMonAn.DataSource, "GiaTien"));
         }
     }
 }
