@@ -27,6 +27,8 @@ namespace QuanLyNhaHang
         {
             InitializeComponent();
 
+            LoadTable();
+
             this.LoginAccount = acc;
             ChangeAccount(loginAccount.Admin);
         }
