@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyNhaHang.DAO;
-using QuanLyNhaHang.DTO;
+using System.Drawing;
 
 namespace QuanLyNhaHang
 {
@@ -34,9 +34,6 @@ namespace QuanLyNhaHang
         {
             aDMINToolStripMenuItem.Enabled = admin == 1;
             
-        }
-
-            LoadTable(); 
         }
 
         #region Method
