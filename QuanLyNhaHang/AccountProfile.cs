@@ -87,8 +87,6 @@ namespace QuanLyNhaHang
         {
             UpdateAccount();
         }
-
-       
     }
     public class AccountEvent:EventArgs
     {
