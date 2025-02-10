@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyNhaHang.DAO;
+using QuanLyNhaHang.DTO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace QuanLyNhaHang
@@ -23,9 +24,12 @@ namespace QuanLyNhaHang
         {
             string username = txtUserName.Text;
             string password = txtPassword.Text;
+
+            
             if (Login(username, password))
             {
-                FormTableManager f = new FormTableManager();
+                Account LoginAccount = AccountDAO.Instance.GetAccountByUserName(username);
+                FormTableManager f = new FormTableManager(LoginAccount);
                 this.Hide();
                 f.ShowDialog();
                 this.Show();
@@ -52,5 +56,6 @@ namespace QuanLyNhaHang
                 e.Cancel = true;
             }
         }
+        
     }
 }
