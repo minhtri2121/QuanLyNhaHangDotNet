@@ -11,6 +11,7 @@ namespace QuanLyNhaHang
     public partial class fAdmin : Form
     {
         BindingSource Food = new BindingSource();
+        
         private readonly object cbFoodCategory;
 
         public fAdmin()
@@ -68,6 +69,10 @@ namespace QuanLyNhaHang
         {
             cb.DataSource = FoodDAO.Instance.GetDVT();
             cb.DisplayMember = "Name";
+        }
+        private void txtTuKhoa_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
