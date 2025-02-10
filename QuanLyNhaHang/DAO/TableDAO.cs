@@ -18,6 +18,9 @@ namespace QuanLyNhaHang.DAO
             private set { TableDAO.instance = value; }
         }
 
+        public static int TableWidth = 80;
+        public static int TableHieght = 80;
+
         private TableDAO() { }
 
         public List<Table> LoadTableList()
