@@ -48,9 +48,9 @@ namespace QuanLyNhaHang
                 Button btn = new Button()
                 {
                     Width = TableDAO.TableWidth,
-                    Height = TableDAO.TableHieght
+                    Height = TableDAO.TableHieght,
+                    Text = item.Name + Environment.NewLine + item.Status
                 };
-                Text = item.Name + Environment.NewLine + item.Status;
                 switch (item.Status)
                 {
                     case "Trống":
