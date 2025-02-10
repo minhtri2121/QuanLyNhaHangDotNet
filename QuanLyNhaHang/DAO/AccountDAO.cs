@@ -29,6 +29,11 @@ namespace QuanLyNhaHang.DAO
             return result.Rows.Count > 0;
         }
 
+        public bool UpdateAccount (string userName, string displayName , string pass, string newpass)
+        {
+           int result = DataProvider.Instance.ExcuteNonQuery("exec USP_UpdateAccount @userName  , @displayName  , @password , @newPassword", new object[] {userName,displayName,pass,newpass});
+            return result > 0;
+        }
 
         public Account GetAccountByUserName(string username)
         {
