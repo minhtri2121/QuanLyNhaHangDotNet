@@ -9,6 +9,8 @@ namespace QuanLyNhaHang
 {
     public partial class fAdmin : Form
     {
+        private readonly object cbFoodCategory;
+
         public fAdmin()
         {
             InitializeComponent();
@@ -18,6 +20,10 @@ namespace QuanLyNhaHang
             LoadQuanLiKho();
 
             LoadListFood();
+
+            LoadCategoryIntoComboBox(cbNhomMon);
+
+            LoadDVTIntoComboBox(cbDVT);
 
             AddFoddBinding();
         }
@@ -48,6 +54,21 @@ namespace QuanLyNhaHang
             cbNhomMon.DataBindings.Add(new Binding("Text", dtgvMonAn.DataSource, "TenNhomMon"));
             cbDVT.DataBindings.Add(new Binding("Text", dtgvMonAn.DataSource, "TenDVT"));
             nmGia.DataBindings.Add(new Binding("Value", dtgvMonAn.DataSource, "GiaTien"));
+        }
+        void LoadCategoryIntoComboBox(ComboBox cb)
+        {
+            cb.DataSource = CategoryDAO.Instance.GetCategory();
+            cb.DisplayMember = "Name";
+        }
+        void LoadDVTIntoComboBox(ComboBox cb)
+        {
+            cb.DataSource = FoodDAO.Instance.GetDVT();
+            cb.DisplayMember = "Name";
+        }
+
+        private void txtTuKhoa_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

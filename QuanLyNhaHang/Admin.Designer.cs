@@ -383,6 +383,7 @@
             this.txtTuKhoa.Name = "txtTuKhoa";
             this.txtTuKhoa.Size = new System.Drawing.Size(239, 22);
             this.txtTuKhoa.TabIndex = 3;
+            this.txtTuKhoa.TextChanged += new System.EventHandler(this.txtTuKhoa_TextChanged);
             // 
             // lblTuKhoa
             // 
