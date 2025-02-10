@@ -45,7 +45,7 @@
             this.txtReNewPass = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
-            this.btnAccess = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -198,22 +198,23 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // btnAccess
+            // btnUpdate
             // 
-            this.btnAccess.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAccess.Location = new System.Drawing.Point(355, 327);
-            this.btnAccess.Name = "btnAccess";
-            this.btnAccess.Size = new System.Drawing.Size(80, 41);
-            this.btnAccess.TabIndex = 7;
-            this.btnAccess.Text = "Xác nhận";
-            this.btnAccess.UseVisualStyleBackColor = true;
+            this.btnUpdate.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Location = new System.Drawing.Point(355, 327);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(80, 41);
+            this.btnUpdate.TabIndex = 7;
+            this.btnUpdate.Text = "Cập nhật";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // fAccountProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(569, 380);
-            this.Controls.Add(this.btnAccess);
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
@@ -256,6 +257,6 @@
         private System.Windows.Forms.TextBox txtReNewPass;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Button btnAccess;
+        private System.Windows.Forms.Button btnUpdate;
     }
 }

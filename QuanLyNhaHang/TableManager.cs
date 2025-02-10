@@ -20,7 +20,8 @@ namespace QuanLyNhaHang
             get { return loginAccount;}
             set
             {
-                loginAccount = value;            }
+                loginAccount = value;           
+            }
         }
 
         public FormTableManager(Account acc)
@@ -38,6 +39,7 @@ namespace QuanLyNhaHang
         void ChangeAccount(int admin)
         {
             aDMINToolStripMenuItem.Enabled = admin == 1;
+            thôngTinTàiKhoảnToolStripMenuItem.Text += " (" + loginAccount.tenNguoiDung + ")";
             
         }
 
@@ -90,12 +92,16 @@ namespace QuanLyNhaHang
         {
             this.Close();
         }
-
         private void thôngTinCáNhânToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            fAccountProfile f = new fAccountProfile();
+            fAccountProfile f = new fAccountProfile(LoginAccount);
+            f.OnUpdateAccount += f_OnUpdateAccount;
             f.ShowDialog();
-            this.Show();
+        }
+
+        private void f_OnUpdateAccount(object sender, AccountEvent e)
+        {
+            thôngTinTàiKhoảnToolStripMenuItem.Text = "Thông tin tài khoản (" + e.Acc.tenNguoiDung + ")"; 
         }
 
         private void aDMINToolStripMenuItem_Click(object sender, EventArgs e)
@@ -124,4 +130,5 @@ namespace QuanLyNhaHang
         }
         #endregion
     }
+    
 }
