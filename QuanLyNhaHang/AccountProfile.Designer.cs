@@ -60,7 +60,7 @@
             this.panel2.Location = new System.Drawing.Point(12, 12);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(550, 55);
-            this.panel2.TabIndex = 1;
+            this.panel2.TabIndex = 0;
             // 
             // txtUserName
             // 
@@ -68,7 +68,7 @@
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.ReadOnly = true;
             this.txtUserName.Size = new System.Drawing.Size(310, 22);
-            this.txtUserName.TabIndex = 2;
+            this.txtUserName.TabIndex = 0;
             // 
             // lblUserName
             // 
@@ -87,14 +87,14 @@
             this.panel1.Location = new System.Drawing.Point(12, 195);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(550, 55);
-            this.panel1.TabIndex = 2;
+            this.panel1.TabIndex = 3;
             // 
             // txtNewPass
             // 
             this.txtNewPass.Location = new System.Drawing.Point(215, 19);
             this.txtNewPass.Name = "txtNewPass";
             this.txtNewPass.Size = new System.Drawing.Size(310, 22);
-            this.txtNewPass.TabIndex = 2;
+            this.txtNewPass.TabIndex = 3;
             this.txtNewPass.UseSystemPasswordChar = true;
             // 
             // label1
@@ -114,7 +114,7 @@
             this.panel3.Location = new System.Drawing.Point(13, 134);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(550, 55);
-            this.panel3.TabIndex = 3;
+            this.panel3.TabIndex = 2;
             // 
             // txtPassWord
             // 
@@ -141,14 +141,14 @@
             this.panel4.Location = new System.Drawing.Point(12, 73);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(550, 55);
-            this.panel4.TabIndex = 4;
+            this.panel4.TabIndex = 1;
             // 
             // txtDisplay
             // 
             this.txtDisplay.Location = new System.Drawing.Point(215, 19);
             this.txtDisplay.Name = "txtDisplay";
             this.txtDisplay.Size = new System.Drawing.Size(310, 22);
-            this.txtDisplay.TabIndex = 2;
+            this.txtDisplay.TabIndex = 1;
             // 
             // label3
             // 
@@ -167,14 +167,14 @@
             this.panel5.Location = new System.Drawing.Point(13, 256);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(550, 55);
-            this.panel5.TabIndex = 5;
+            this.panel5.TabIndex = 4;
             // 
             // txtReNewPass
             // 
             this.txtReNewPass.Location = new System.Drawing.Point(215, 19);
             this.txtReNewPass.Name = "txtReNewPass";
             this.txtReNewPass.Size = new System.Drawing.Size(310, 22);
-            this.txtReNewPass.TabIndex = 2;
+            this.txtReNewPass.TabIndex = 4;
             this.txtReNewPass.UseSystemPasswordChar = true;
             // 
             // label4
@@ -204,7 +204,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(355, 327);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(80, 41);
-            this.btnUpdate.TabIndex = 7;
+            this.btnUpdate.TabIndex = 5;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
