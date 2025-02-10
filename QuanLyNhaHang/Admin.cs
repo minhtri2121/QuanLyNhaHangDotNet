@@ -31,13 +31,13 @@ namespace QuanLyNhaHang
         }
         void LoadQuanLiKho() //không dùng cái này
         {
-            string query = "SELECT *\r\nFROM LOAI_MAT_HANG JOIN MAT_HANG ON LOAI_MAT_HANG.IDLoaiMH = MAT_HANG.IDLoaiMH";
+            string query = "SELECT  LMH.IDLoaiMH,LMH.TenLoaiMH, MH.IDMatHang, MH.TenMatHang , FORMAT(MH.GiaNhap , '0' ) AS GiaNhap , MH.HanSuDung\r\nFROM LOAI_MAT_HANG LMH JOIN MAT_HANG MH\r\nON LMH.IDLoaiMH = MH.IDLoaiMH;\r\n";
 
             dtgvKho.DataSource = DataProvider.Instance.ExcuteQuery(query);
         }
         void LoadListFood() //không dùng cái này
         {
-            string query = "SELECT TuKhoa, TenMon, TenNhomMon , TenDVT, Gia AS GiaTien\r\nFROM MON \r\nJOIN NHOM_MON ON MON.IDNhomMon = NHOM_MON.IDNhomMon\r\nJOIN DON_VI_TINH ON MON.IDDVT = DON_VI_TINH.IDDVT;";
+            string query = "SELECT TuKhoa, TenMon, TenNhomMon , TenDVT,FORMAT ( Gia ,'0') AS GiaTien\r\nFROM MON \r\nJOIN NHOM_MON ON MON.IDNhomMon = NHOM_MON.IDNhomMon\r\nJOIN DON_VI_TINH ON MON.IDDVT = DON_VI_TINH.IDDVT;";
 
             dtgvMonAn.DataSource = DataProvider.Instance.ExcuteQuery(query);
         }
