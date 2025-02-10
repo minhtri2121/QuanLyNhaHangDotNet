@@ -45,4 +45,5 @@ namespace QuanLyNhaHang.DAO
             }
             return category;
         }
+    }
 }

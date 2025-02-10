@@ -4,11 +4,14 @@ using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using QuanLyNhaHang.DAO;
+using QuanLyNhaHang.DTO;
 
 namespace QuanLyNhaHang
 {
     public partial class fAdmin : Form
     {
+        BindingSource Food = new BindingSource();
+        
         private readonly object cbFoodCategory;
 
         public fAdmin()
@@ -26,6 +29,8 @@ namespace QuanLyNhaHang
             LoadDVTIntoComboBox(cbDVT);
 
             AddFoddBinding();
+
+            dtgvMonAn.DataSource = Food;
         }
         // Code lại từ đây |
 
@@ -39,7 +44,7 @@ namespace QuanLyNhaHang
         {
             string query = "SELECT  LMH.IDLoaiMH,LMH.TenLoaiMH, MH.IDMatHang, MH.TenMatHang , FORMAT(MH.GiaNhap , '0' ) AS GiaNhap , MH.HanSuDung\r\nFROM LOAI_MAT_HANG LMH JOIN MAT_HANG MH\r\nON LMH.IDLoaiMH = MH.IDLoaiMH;\r\n";
 
-            dtgvKho.DataSource = DataProvider.Instance.ExcuteQuery(query);
+            Food.DataSource = DataProvider.Instance.ExcuteQuery(query);
         }
         void LoadListFood() //không dùng cái này
         {
@@ -65,7 +70,6 @@ namespace QuanLyNhaHang
             cb.DataSource = FoodDAO.Instance.GetDVT();
             cb.DisplayMember = "Name";
         }
-
         private void txtTuKhoa_TextChanged(object sender, EventArgs e)
         {
 
