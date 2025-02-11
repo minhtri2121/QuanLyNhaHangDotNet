@@ -383,7 +383,6 @@
             this.txtTuKhoa.Name = "txtTuKhoa";
             this.txtTuKhoa.Size = new System.Drawing.Size(239, 22);
             this.txtTuKhoa.TabIndex = 3;
-            this.txtTuKhoa.TextChanged += new System.EventHandler(this.txtTuKhoa_TextChanged);
             // 
             // lblTuKhoa
             // 
@@ -520,6 +519,7 @@
             this.btnSua.TabIndex = 2;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnXoa
             // 
@@ -538,6 +538,7 @@
             this.btnThem.TabIndex = 0;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // tpBanAn
             // 
