@@ -30,7 +30,10 @@ namespace QuanLyNhaHang
 
             LoadTable();
 
+            LoadCategory();
+
             this.LoginAccount = acc;
+
             ChangeAccount(loginAccount.Admin);
         }
         void ChangeAccount(int admin)
@@ -41,6 +44,22 @@ namespace QuanLyNhaHang
         }
 
         #region Method
+
+        void LoadCategory()
+        {
+            List<Category> listCategory = CategoryDAO.Instance.GetCategory();
+            cbCategory.DataSource = listCategory;
+            cbCategory.DisplayMember = "Name";
+
+        }
+
+        void LoadFoodByCategoryID(int id)
+        {
+            List<Food> list = FoodDAO.Instance.GetFoodByCategoryID(id);
+            cbFood.DataSource = list;
+            cbFood.DisplayMember = "Name";
+        }
+
         void LoadTable()
         {
             List<Table> tablelist = TableDAO.Instance.LoadTableList();
@@ -90,6 +109,24 @@ namespace QuanLyNhaHang
             fAdmin f = new fAdmin();
             f.ShowDialog();
             this.Show();
+        }
+
+        private void cbCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int id = 0;
+
+            ComboBox cb = sender as ComboBox;
+
+            if (cb.SelectedItem == null)
+            {
+                return;
+            }
+
+            Category selected = cb.SelectedItem as Category;
+
+            id = selected.Id;
+
+            LoadFoodByCategoryID(id);
         }
         #endregion
     }
