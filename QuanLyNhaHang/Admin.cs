@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Data.SqlClient;
+using System.Diagnostics.Eventing.Reader;
 using System.Windows.Forms;
 using QuanLyNhaHang.DAO;
 using QuanLyNhaHang.DTO;
@@ -131,11 +132,11 @@ namespace QuanLyNhaHang
         }
         void AddFoddBinding()
         {
-            txtTenMon.DataBindings.Add(new Binding("Text", dtgvMonAn.DataSource, "TenMon"));
-            txtTuKhoa.DataBindings.Add(new Binding("Text", dtgvMonAn.DataSource, "TuKhoa"));
-            cbNhomMon.DataBindings.Add(new Binding("Text", dtgvMonAn.DataSource, "TenNhomMon"));
-            cbDVT.DataBindings.Add(new Binding("Text", dtgvMonAn.DataSource, "TenDVT"));
-            nmGia.DataBindings.Add(new Binding("Value", dtgvMonAn.DataSource, "GiaTien"));
+            txtTenMon.DataBindings.Add(new Binding("Text", dtgvMonAn.DataSource, "TenMon", true, DataSourceUpdateMode.Never));
+            txtTuKhoa.DataBindings.Add(new Binding("Text", dtgvMonAn.DataSource, "TuKhoa", true, DataSourceUpdateMode.Never));
+            cbNhomMon.DataBindings.Add(new Binding("Text", dtgvMonAn.DataSource, "TenNhomMon", true, DataSourceUpdateMode.Never));
+            cbDVT.DataBindings.Add(new Binding("Text", dtgvMonAn.DataSource, "TenDVT", true, DataSourceUpdateMode.Never));
+            nmGia.DataBindings.Add(new Binding("Value", dtgvMonAn.DataSource, "GiaTien", true, DataSourceUpdateMode.Never));
         }
         void LoadCategoryIntoComboBox(ComboBox cb)
         {
@@ -147,9 +148,47 @@ namespace QuanLyNhaHang
             cb.DataSource = FoodDAO.Instance.GetDVT();
             cb.DisplayMember = "Name";
         }
-        private void txtTuKhoa_TextChanged(object sender, EventArgs e)
-        {
 
+        #endregion
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            string tukhoa = txtTuKhoa.Text;
+            string tenmon = txtTenMon.Text;
+             int idnhommon = (cbNhomMon.SelectedItem as Category).Id;
+            int iddvt = (cbDVT.SelectedItem as DVT).Id;
+            float Gia = (float)nmGia.Value;
+
+            if (FoodDAO.Instance.InsertFood(tukhoa, tenmon, iddvt, idnhommon, (int)Gia))
+            {
+                MessageBox.Show("Thêm món ăn thành công.");
+                LoadListFood();
+            }       
+            else
+            {
+                MessageBox.Show("Có lỗi khi thêm món ăn.");
+            }            
+        }
+
+    
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            string tukhoa = txtTuKhoa.Text;
+            string tenmon = txtTenMon.Text;
+            int idnhommon = (cbNhomMon.SelectedItem as Category).Id;
+                int iddvt = (cbDVT.SelectedItem as DVT).Id;
+            float Gia = (float)nmGia.Value;
+
+            if (FoodDAO.Instance.InsertFood(tukhoa, tenmon, iddvt, idnhommon, (int)Gia))
+            {
+                MessageBox.Show("Sửa món ăn thành công.");
+                LoadListFood();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi khi Sửa món ăn.");
+            }
         }
 
         #endregion
