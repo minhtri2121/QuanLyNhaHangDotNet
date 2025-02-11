@@ -35,6 +35,10 @@ namespace QuanLyNhaHang.DAO
             return result > 0;
         }
 
+        public DataTable GetListAccount() 
+        {
+            return DataProvider.Instance.ExcuteQuery("SELECT TenDangNhap, TenNguoiDung, CAST(Admin AS INT) AS Admin FROM Nguoi_Dung\r\n");
+        }
         public Account GetAccountByUserName(string username)
         {
             DataTable data = DataProvider.Instance.ExcuteQuery("select * from NGUOI_DUNG where TenDangNhap = '" + username + "'");
@@ -48,6 +52,37 @@ namespace QuanLyNhaHang.DAO
         internal Account GetAccountByAdmin(object admin)
         {
             throw new NotImplementedException();
+        }
+
+        public bool InsertAccount (string name , string displayName , int type )
+        {
+            string querry = string.Format("INSERT dbo.NGUOI_DUNG(TenDangNhap, TenNguoiDung, Admin) VALUES (N'{0}', N'{1}', {2})", name,displayName,type);
+            int result = DataProvider.Instance.ExcuteNonQuery(querry);
+
+            return result > 0;
+        }
+
+        public bool UpdateAccount(string name, string displayName, int type)
+        {
+            string querry = string.Format("UPDATE dbo.NGUOI_DUNG SET  TenNguoiDung = N'{1}', Admin = {2}  WHERE  TenDangNhap= N'{0}'", name, displayName, type);
+            int result = DataProvider.Instance.ExcuteNonQuery(querry);
+
+            return result > 0;
+        }
+
+        public bool DeleteAccount(string name)
+        {
+            string querry = string.Format("DELETE NGUOI_DUNG WHERE TenDangNhap = N'{0}'", name);
+            int result = DataProvider.Instance.ExcuteNonQuery(querry);
+
+            return result > 0;
+        }
+        public bool ResetPassword(string name)
+        {
+            string querry = string.Format("UPDATE NGUOI_DUNG SET MatKhau = N'0' WHERE TenDangNhap = N'{0}'", name);
+            int result = DataProvider.Instance.ExcuteNonQuery(querry);
+
+            return result > 0;
         }
     }
 }

@@ -107,6 +107,7 @@ namespace QuanLyNhaHang
         private void aDMINToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fAdmin f = new fAdmin();
+            f.loginAccount = LoginAccount;
             f.ShowDialog();
             this.Show();
         }

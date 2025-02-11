@@ -11,7 +11,10 @@ namespace QuanLyNhaHang
     public partial class fAdmin : Form
     {
         BindingSource FoodList = new BindingSource();
-        
+
+        BindingSource accountList = new BindingSource();
+
+        public Account loginAccount;
         public fAdmin()
         {
             InitializeComponent();
@@ -27,24 +30,33 @@ namespace QuanLyNhaHang
         {
             dtgvMonAn.DataSource = FoodList;
 
-            LoadAccountList();
+            dtgvTaiKhoan.DataSource = accountList;
 
             LoadQuanLiKho();
 
             LoadListFood();
+
+            LoadAccount();
 
             LoadCategoryIntoComboBox(cbNhomMon);
 
             LoadDVTIntoComboBox(cbDVT);
 
             AddFoddBinding();
+
+            AddAccountBinding();
         }
 
-        void LoadAccountList() //không dùng cái này
+        void AddAccountBinding()
         {
-            string query = "SELECT TenDangNhap, TenNguoiDung, MatKhau, Admin FROM NGUOI_DUNG";
+            txtTenTk.DataBindings.Add(new Binding("Text", dtgvTaiKhoan.DataSource, "TenDangNhap",true, DataSourceUpdateMode.Never));
+            txtTenHienThi.DataBindings.Add(new Binding("Text", dtgvTaiKhoan.DataSource, "TenNguoiDung", true, DataSourceUpdateMode.Never));
+            nmLoaiTK.DataBindings.Add(new Binding("Value", dtgvTaiKhoan.DataSource, "Admin", true, DataSourceUpdateMode.Never));
+        }
 
-            dtgvTaiKhoan.DataSource = DataProvider.Instance.ExcuteQuery(query);
+        void LoadAccount()
+        {
+            accountList.DataSource = AccountDAO.Instance.GetListAccount();
         }
         void LoadListFood() //không dùng cái này
         {
@@ -57,6 +69,65 @@ namespace QuanLyNhaHang
             string query = "SELECT  LMH.IDLoaiMH,LMH.TenLoaiMH, MH.IDMatHang, MH.TenMatHang , FORMAT(MH.GiaNhap , '0' ) AS GiaNhap , MH.HanSuDung\r\nFROM LOAI_MAT_HANG LMH JOIN MAT_HANG MH\r\nON LMH.IDLoaiMH = MH.IDLoaiMH;\r\n";
 
             dtgvKho.DataSource = DataProvider.Instance.ExcuteQuery(query);
+        }
+
+        void AddAccount(string userName, string displayName, int type)
+        {
+          if (  AccountDAO.Instance.InsertAccount(userName, displayName, type))
+          {
+                MessageBox.Show("Thêm tài khoản thành công");
+          }
+          else
+          {
+                MessageBox.Show("Thêm tài khoản thất bại");
+          }
+
+          LoadAccount();
+        }
+
+        void EditAccount(string userName, string displayName, int type)
+        {
+            if (AccountDAO.Instance.UpdateAccount(userName, displayName, type))
+            {
+                MessageBox.Show("Cập nhật tài khoản thành công");
+            }
+            else
+            {
+                MessageBox.Show("Cập nhật tài khoản thất bại");
+            }
+
+            LoadAccount();
+        }
+
+        void DeleteAccount(string userName)
+        {
+            if (loginAccount.tenDangNhap.Equals(userName))
+            {
+                MessageBox.Show("Vui lòng đừng xoá chính bạn chứ");
+                return;
+            }
+            if (AccountDAO.Instance.DeleteAccount(userName))
+            {
+                MessageBox.Show("Xoá tài khoản thành công");
+            }
+            else
+            {
+                MessageBox.Show("Xoá tài khoản thất bại");
+            }
+
+            LoadAccount();
+        }
+
+        void ResetPass (string userName)
+        {
+            if (AccountDAO.Instance.ResetPassword(userName))
+            {
+                MessageBox.Show("Đặt lại mật khẩu thành công");
+            }
+            else
+            {
+                MessageBox.Show("Đặt lại mật khẩu thất bại");
+            }
         }
         void AddFoddBinding()
         {
@@ -80,6 +151,42 @@ namespace QuanLyNhaHang
         {
 
         }
+
         #endregion
+
+        private void btnXemTK_Click(object sender, EventArgs e)
+        {
+            LoadAccount();
+        }
+
+        private void btnThemTK_Click(object sender, EventArgs e)
+        {
+            string userName = txtTenTk.Text;
+            string displayName = txtTenHienThi.Text;
+            int type = (int)nmLoaiTK.Value;
+            
+            AddAccount(userName, displayName, type);
+        }
+
+        private void btnXoaTK_Click(object sender, EventArgs e)
+        {
+            string userName = txtTenTk.Text;
+            DeleteAccount(userName);
+        }
+
+        private void btnSuaTK_Click(object sender, EventArgs e)
+        {
+            string userName = txtTenTk.Text;
+            string displayName = txtTenHienThi.Text;
+            int type = (int)nmLoaiTK.Value;
+
+            EditAccount(userName, displayName, type);
+        }
+
+        private void btnRePass_Click(object sender, EventArgs e)
+        {
+            string userName = txtTenTk.Text;
+            ResetPass(userName);
+        }
     }
 }

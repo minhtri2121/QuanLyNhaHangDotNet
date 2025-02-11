@@ -88,7 +88,7 @@
             this.panel21 = new System.Windows.Forms.Panel();
             this.btnRePass = new System.Windows.Forms.Button();
             this.panel22 = new System.Windows.Forms.Panel();
-            this.cmLoaiTK = new System.Windows.Forms.ComboBox();
+            this.nmLoaiTK = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.panel23 = new System.Windows.Forms.Panel();
             this.txtTenHienThi = new System.Windows.Forms.TextBox();
@@ -163,6 +163,7 @@
             this.tpTaiKhoan.SuspendLayout();
             this.panel21.SuspendLayout();
             this.panel22.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nmLoaiTK)).BeginInit();
             this.panel23.SuspendLayout();
             this.panel24.SuspendLayout();
             this.panel25.SuspendLayout();
@@ -739,23 +740,28 @@
             this.btnRePass.TabIndex = 12;
             this.btnRePass.Text = "Đặt lại mật khẩu";
             this.btnRePass.UseVisualStyleBackColor = true;
+            this.btnRePass.Click += new System.EventHandler(this.btnRePass_Click);
             // 
             // panel22
             // 
-            this.panel22.Controls.Add(this.cmLoaiTK);
+            this.panel22.Controls.Add(this.nmLoaiTK);
             this.panel22.Controls.Add(this.label5);
             this.panel22.Location = new System.Drawing.Point(3, 135);
             this.panel22.Name = "panel22";
             this.panel22.Size = new System.Drawing.Size(428, 60);
             this.panel22.TabIndex = 11;
             // 
-            // cmLoaiTK
+            // nmLoaiTK
             // 
-            this.cmLoaiTK.FormattingEnabled = true;
-            this.cmLoaiTK.Location = new System.Drawing.Point(174, 19);
-            this.cmLoaiTK.Name = "cmLoaiTK";
-            this.cmLoaiTK.Size = new System.Drawing.Size(199, 24);
-            this.cmLoaiTK.TabIndex = 2;
+            this.nmLoaiTK.Location = new System.Drawing.Point(211, 19);
+            this.nmLoaiTK.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nmLoaiTK.Name = "nmLoaiTK";
+            this.nmLoaiTK.Size = new System.Drawing.Size(120, 22);
+            this.nmLoaiTK.TabIndex = 1;
             // 
             // label5
             // 
@@ -763,9 +769,9 @@
             this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(23, 19);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(143, 24);
+            this.label5.Size = new System.Drawing.Size(162, 24);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Loại tài khoản";
+            this.label5.Text = "Loại tài khoản : ";
             // 
             // panel23
             // 
@@ -778,7 +784,7 @@
             // 
             // txtTenHienThi
             // 
-            this.txtTenHienThi.Location = new System.Drawing.Point(171, 19);
+            this.txtTenHienThi.Location = new System.Drawing.Point(211, 19);
             this.txtTenHienThi.Name = "txtTenHienThi";
             this.txtTenHienThi.Size = new System.Drawing.Size(199, 22);
             this.txtTenHienThi.TabIndex = 2;
@@ -789,9 +795,9 @@
             this.lbl.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl.Location = new System.Drawing.Point(20, 19);
             this.lbl.Name = "lbl";
-            this.lbl.Size = new System.Drawing.Size(122, 24);
+            this.lbl.Size = new System.Drawing.Size(182, 24);
             this.lbl.TabIndex = 0;
-            this.lbl.Text = "Tên hiển thị";
+            this.lbl.Text = "Tên người dùng : ";
             // 
             // panel24
             // 
@@ -804,7 +810,7 @@
             // 
             // txtTenTk
             // 
-            this.txtTenTk.Location = new System.Drawing.Point(171, 19);
+            this.txtTenTk.Location = new System.Drawing.Point(211, 19);
             this.txtTenTk.Name = "txtTenTk";
             this.txtTenTk.Size = new System.Drawing.Size(199, 22);
             this.txtTenTk.TabIndex = 2;
@@ -815,9 +821,9 @@
             this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(20, 19);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(139, 24);
+            this.label7.Size = new System.Drawing.Size(171, 24);
             this.label7.TabIndex = 0;
-            this.label7.Text = "Tên tài khoản";
+            this.label7.Text = "Tên đăng nhập : ";
             // 
             // panel25
             // 
@@ -860,6 +866,7 @@
             this.btnXemTK.TabIndex = 3;
             this.btnXemTK.Text = "Xem";
             this.btnXemTK.UseVisualStyleBackColor = true;
+            this.btnXemTK.Click += new System.EventHandler(this.btnXemTK_Click);
             // 
             // btnSuaTK
             // 
@@ -869,6 +876,7 @@
             this.btnSuaTK.TabIndex = 2;
             this.btnSuaTK.Text = "Sửa";
             this.btnSuaTK.UseVisualStyleBackColor = true;
+            this.btnSuaTK.Click += new System.EventHandler(this.btnSuaTK_Click);
             // 
             // btnXoaTK
             // 
@@ -878,6 +886,7 @@
             this.btnXoaTK.TabIndex = 1;
             this.btnXoaTK.Text = "Xoá";
             this.btnXoaTK.UseVisualStyleBackColor = true;
+            this.btnXoaTK.Click += new System.EventHandler(this.btnXoaTK_Click);
             // 
             // btnThemTK
             // 
@@ -887,6 +896,7 @@
             this.btnThemTK.TabIndex = 0;
             this.btnThemTK.Text = "Thêm";
             this.btnThemTK.UseVisualStyleBackColor = true;
+            this.btnThemTK.Click += new System.EventHandler(this.btnThemTK_Click);
             // 
             // tpKho
             // 
@@ -1235,6 +1245,7 @@
             this.panel21.ResumeLayout(false);
             this.panel22.ResumeLayout(false);
             this.panel22.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nmLoaiTK)).EndInit();
             this.panel23.ResumeLayout(false);
             this.panel23.PerformLayout();
             this.panel24.ResumeLayout(false);
@@ -1318,7 +1329,6 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Panel panel21;
         private System.Windows.Forms.Panel panel22;
-        private System.Windows.Forms.ComboBox cmLoaiTK;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel23;
         private System.Windows.Forms.TextBox txtTenHienThi;
@@ -1372,5 +1382,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnNhapMon;
         private System.Windows.Forms.TextBox txtTenMon;
+        private System.Windows.Forms.NumericUpDown nmLoaiTK;
     }
 }

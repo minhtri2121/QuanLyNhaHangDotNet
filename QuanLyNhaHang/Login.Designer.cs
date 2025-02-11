@@ -51,7 +51,7 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(0, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(599, 171);
+            this.panel1.Size = new System.Drawing.Size(558, 171);
             this.panel1.TabIndex = 0;
             // 
             // btnExit
@@ -129,6 +129,7 @@
             // 
             // FormLogin
             // 
+            this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(560, 174);
