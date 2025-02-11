@@ -22,7 +22,15 @@ namespace QuanLyNhaHang.DTO
             this.tenDangNhap = row["TenDangNhap"].ToString();
             this.matKhau = row["MatKhau"].ToString();
             this.tenNguoiDung = row["TenNguoiDung"].ToString();
-            this.admin = (int)row["Admin"];
+
+            if (row["Admin"] != DBNull.Value)
+            {
+                this.admin = Convert.ToInt32(row["Admin"]);
+            }
+            else
+            {
+                this.admin = 0; 
+            }
         }
 
         public string TenDangNhap;
