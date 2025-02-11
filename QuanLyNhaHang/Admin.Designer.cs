@@ -313,7 +313,7 @@
             this.panel15.Location = new System.Drawing.Point(3, 203);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(428, 60);
-            this.panel15.TabIndex = 4;
+            this.panel15.TabIndex = 3;
             // 
             // cbDVT
             // 
@@ -340,7 +340,7 @@
             this.panel10.Location = new System.Drawing.Point(3, 269);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(428, 60);
-            this.panel10.TabIndex = 3;
+            this.panel10.TabIndex = 4;
             // 
             // nmGia
             // 
@@ -376,7 +376,7 @@
             this.panel9.Location = new System.Drawing.Point(3, 5);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(428, 60);
-            this.panel9.TabIndex = 3;
+            this.panel9.TabIndex = 0;
             // 
             // txtTuKhoa
             // 
@@ -403,7 +403,7 @@
             this.panel8.Location = new System.Drawing.Point(3, 71);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(428, 60);
-            this.panel8.TabIndex = 2;
+            this.panel8.TabIndex = 1;
             // 
             // txtTenMon
             // 
@@ -429,7 +429,7 @@
             this.panel7.Location = new System.Drawing.Point(3, 137);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(428, 60);
-            this.panel7.TabIndex = 1;
+            this.panel7.TabIndex = 2;
             // 
             // cbNhomMon
             // 
