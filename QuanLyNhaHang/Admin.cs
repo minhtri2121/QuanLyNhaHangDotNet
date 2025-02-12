@@ -191,8 +191,6 @@ namespace QuanLyNhaHang
             }
         }
 
-        #endregion
-
         private void btnXemTK_Click(object sender, EventArgs e)
         {
             LoadAccount();
@@ -227,5 +225,6 @@ namespace QuanLyNhaHang
             string userName = txtTenTk.Text;
             ResetPass(userName);
         }
+
     }
 }
