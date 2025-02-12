@@ -25,7 +25,7 @@ namespace QuanLyNhaHang.DAO
         public List<BillInfo> GetListBillInfo(int id)
         {
             List<BillInfo> listBillInfo = new List<BillInfo>();
-            string query = "EXEC GetListInfo @id; ";
+            string query = "exec GetListInfo @id ";
             DataTable data = DataProvider.Instance.ExcuteQuery(query,new object[] {id});
             foreach (DataRow item in data.Rows)
             {
