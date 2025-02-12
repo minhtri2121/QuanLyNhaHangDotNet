@@ -191,11 +191,6 @@ namespace QuanLyNhaHang
             }
         }
 
-        private void btnXemTK_Click(object sender, EventArgs e)
-        {
-            LoadAccount();
-        }
-
         private void btnThemTK_Click(object sender, EventArgs e)
         {
             string userName = txtTenTk.Text;

@@ -49,14 +49,14 @@
             this.panel1.Controls.Add(this.btnLogin);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(0, 1);
+            this.panel1.Location = new System.Drawing.Point(12, 177);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(558, 171);
+            this.panel1.Size = new System.Drawing.Size(420, 203);
             this.panel1.TabIndex = 0;
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(412, 125);
+            this.btnExit.Location = new System.Drawing.Point(254, 158);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(105, 34);
             this.btnExit.TabIndex = 3;
@@ -66,7 +66,7 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(282, 125);
+            this.btnLogin.Location = new System.Drawing.Point(57, 158);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(105, 34);
             this.btnLogin.TabIndex = 2;
@@ -80,14 +80,14 @@
             this.panel3.Controls.Add(this.lblPassword);
             this.panel3.Location = new System.Drawing.Point(3, 64);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(550, 55);
+            this.panel3.Size = new System.Drawing.Size(414, 55);
             this.panel3.TabIndex = 1;
             // 
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(215, 19);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(310, 22);
+            this.txtPassword.Size = new System.Drawing.Size(196, 22);
             this.txtPassword.TabIndex = 1;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
@@ -107,14 +107,14 @@
             this.panel2.Controls.Add(this.lblUserName);
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(550, 55);
+            this.panel2.Size = new System.Drawing.Size(414, 55);
             this.panel2.TabIndex = 0;
             // 
             // txtUserName
             // 
             this.txtUserName.Location = new System.Drawing.Point(215, 19);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(310, 22);
+            this.txtUserName.Size = new System.Drawing.Size(196, 22);
             this.txtUserName.TabIndex = 2;
             // 
             // lblUserName
@@ -132,8 +132,9 @@
             this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(560, 174);
+            this.ClientSize = new System.Drawing.Size(444, 384);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
