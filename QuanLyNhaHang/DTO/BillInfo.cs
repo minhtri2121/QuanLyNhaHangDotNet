@@ -8,10 +8,11 @@ namespace QuanLyNhaHang.DTO
 {
     public class BillInfo
     {
-        public BillInfo(int idhoadon, int idmon, int soluong, int dongia)
+        public BillInfo(int idhoadon, int idmon, string tenmon ,int soluong, int dongia)
         {
             this.IdHoaDon = idhoadon;
             this.IdMon = idmon;
+            this.TenMon = tenmon;
             this.SoLuong = soluong;
             this.DonGia = dongia;
         }
@@ -20,8 +21,16 @@ namespace QuanLyNhaHang.DTO
         {
             this.IdHoaDon = (int)row["IDHoaDon"];
             this.IdMon = (int)row["IDMon"];
+            this.TenMon = row["TenMon"].ToString();
+            string rawData = row["SoLuong"]?.ToString().Trim();
+            if (!int.TryParse(rawData, out int soLuong))
+            {
+                soLuong = 0; 
+            }
+            this.SoLuong = soLuong;
             this.SoLuong = (int)row["SoLuong"];
-            this.DonGia = (int)row["DonGia"];
+            this.DonGia = Convert.ToInt32(row["DonGia"]);
+
         }
 
         private int idHoaDon;
@@ -49,5 +58,7 @@ namespace QuanLyNhaHang.DTO
             get { return donGia; }
             set { donGia = value; }
         }
+
+        public object TenMon { get; internal set; }
     }
 }

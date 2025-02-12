@@ -9,26 +9,30 @@ namespace QuanLyNhaHang.DAO
 {
     public class BillInfoDAO
     {
-        private static BillInfoDAO intstance;
+        private static BillInfoDAO instance;
 
         public static BillInfoDAO Instance
         {
-            get { return intstance; }
-            private set { intstance = value; }
+            get 
+            { 
+                if (instance == null) instance = new BillInfoDAO(); 
+                return BillInfoDAO.instance; 
+            }
+            private set { BillInfoDAO.instance = value; }
         }
         private BillInfoDAO() { }
 
-        public  List<BillInfo> GetBillInfo()
+        public List<BillInfo> GetListBillInfo(int id)
         {
-            List<BillInfo> listBillInfos = new List<BillInfo>();
-            string query = "SELECT * FROM CTHOADON";
-            DataTable data = DataProvider.Instance.ExcuteQuery(query);
+            List<BillInfo> listBillInfo = new List<BillInfo>();
+            string query = "EXEC GetListInfo @id; ";
+            DataTable data = DataProvider.Instance.ExcuteQuery(query,new object[] {id});
             foreach (DataRow item in data.Rows)
             {
-                BillInfo bif = new BillInfo(item);
-                listBillInfos.Add(bif);
+                BillInfo info = new BillInfo(item);
+                listBillInfo.Add(info);
             }
-            return listBillInfos;
+            return listBillInfo;
         }
     }
 }

@@ -9,16 +9,31 @@ namespace QuanLyNhaHang.DAO
 {
     public class BillDAO
     {
-            private static BillDAO intstance;
+            private static BillDAO instance;
 
             public static BillDAO Instance
             {
-                get { return intstance; }
-                private set { intstance = value; }
+                get 
+                {
+                    if (instance == null) instance = new BillDAO();
+                    return instance; 
+                }
+                private set { BillDAO.instance = value; }
             }
             private BillDAO() { }
 
-            public List<Bill> GetBillInfo()
+            public int GetUncheckBillIDByTableID(int id)
+            {
+                DataTable data = DataProvider.Instance.ExcuteQuery("SELECT * FROM HOA_DON WHERE IDBan = " + id + " AND TrangThai = N'Chưa thanh toán'");
+                if (data.Rows.Count > 0)
+                {
+                    Bill bill = new Bill(data.Rows[0]);
+                    return bill.IdHoaDon;
+                }
+                return -1;
+            }
+
+        public List<Bill> GetBillInfo()
             {
                 List<Bill> listBillInfos = new List<Bill>();
                 string query = "SELECT * FROM CTHOADON";
