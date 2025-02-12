@@ -70,8 +70,13 @@ namespace QuanLyNhaHang
                 {
                     Width = TableDAO.TableWidth,
                     Height = TableDAO.TableHieght,
-                    Text = item.Name + Environment.NewLine + item.Status
                 };
+                btn.Text = item.Name + Environment.NewLine + item.Status;
+                btn.Click += btn_Click;
+                btn.Tag = item;
+
+
+
                 switch (item.Status)
                 {
                     case "Trống":
@@ -85,9 +90,42 @@ namespace QuanLyNhaHang
                 flpTable.Controls.Add(btn);
             }
         }
+        void ShowBill(int id) 
+        {
+            lsvBill.Items.Clear();
+
+            List<BillInfo> listBillInfo = BillInfoDAO.Instance.GetListBillInfo(BillDAO.Instance.GetUncheckBillIDByTableID(id));
+
+            foreach (BillInfo item in listBillInfo) 
+            {
+                ListViewItem lsvItem = new ListViewItem(item.IdHoaDon.ToString());
+
+                if (item != null && item.TenMon != null)
+                {
+                    lsvItem.SubItems.Add(item.TenMon.ToString());
+                }
+                else
+                {
+                    lsvItem.SubItems.Add("Chưa có tên");
+                }
+
+
+                lsvItem.SubItems.Add(item.SoLuong.ToString());
+                
+                lsvItem.SubItems.Add(item.DonGia.ToString());
+
+                lsvBill.Items.Add(lsvItem);
+            }
+        }
+
         #endregion
 
         #region Events
+        void btn_Click(object sender, EventArgs e)
+        {
+            int tableID = ((sender as Button).Tag as Table).ID;
+            ShowBill(tableID);
+        }
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();

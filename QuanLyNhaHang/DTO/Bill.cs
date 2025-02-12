@@ -25,8 +25,13 @@ namespace QuanLyNhaHang.DTO
         {
             this.IdHoaDon = (int)row["IDHoaDon"];
             this.NgayLap = (DateTime?)row["NgayLap"];
-            this.GioVao = (DateTime?)row["GioVao"];
-            this.GioThanhToan = (DateTime?)row["GioThanhToan"];
+
+            var GioVaoCheck = row["GioVao"];
+
+            if (GioVaoCheck.ToString() != "")
+                this.GioVao = row["GioVao"] is DBNull ? null : row["GioVao"] as DateTime?;
+
+            this.GioThanhToan = row["GioThanhToan"] as DateTime?;
             this.Ca = row["Ca"].ToString();
             this.IdNhanVien = (int)row["IDNguoiDung"];
             this.IdBan = (int)row["IDBan"];
