@@ -19,6 +19,7 @@ namespace QuanLyNhaHang.DTO
 
         public Account(DataRow row)
         {
+            this.idNguoiDung = (int)row["IDNguoiDung"];
             this.tenDangNhap = row["TenDangNhap"].ToString();
             this.matKhau = row["MatKhau"].ToString();
             this.tenNguoiDung = row["TenNguoiDung"].ToString();
@@ -63,6 +64,11 @@ namespace QuanLyNhaHang.DTO
             set { Admin = value; }
         }
 
-
+        public int idNguoiDung;
+        public int IdNguoiDung
+        {
+            get { return idNguoiDung; }
+            set { idNguoiDung = value; }
+        }
     }
 }

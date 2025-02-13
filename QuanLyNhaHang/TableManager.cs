@@ -36,14 +36,15 @@ namespace QuanLyNhaHang
 
             ChangeAccount(loginAccount.Admin);
         }
+
+        #region Method
+
         void ChangeAccount(int admin)
         {
             aDMINToolStripMenuItem.Enabled = admin == 1;
             thôngTinTàiKhoảnToolStripMenuItem.Text += " (" + loginAccount.tenNguoiDung + ")";
-            
-        }
 
-        #region Method
+        }
 
         void LoadCategory()
         {
@@ -62,6 +63,7 @@ namespace QuanLyNhaHang
 
         void LoadTable()
         {
+            flpTable.Controls.Clear();
             List<Table> tablelist = TableDAO.Instance.LoadTableList();
 
             foreach (Table item in tablelist)
@@ -94,28 +96,26 @@ namespace QuanLyNhaHang
         {
             lsvBill.Items.Clear();
 
-            List<BillInfo> listBillInfo = BillInfoDAO.Instance.GetListBillInfo(BillDAO.Instance.GetUncheckBillIDByTableID(id));
+            float tongTien = 0;
 
-            foreach (BillInfo item in listBillInfo) 
+            List<QuanLyNhaHang.DTO.Menu> listBillInfo = MenuDAO.Instance.GetMuneByTableID(id);
+
+            foreach (QuanLyNhaHang.DTO.Menu item in listBillInfo) 
             {
-                ListViewItem lsvItem = new ListViewItem(item.IdHoaDon.ToString());
-
-                if (item != null && item.TenMon != null)
-                {
-                    lsvItem.SubItems.Add(item.TenMon.ToString());
-                }
-                else
-                {
-                    lsvItem.SubItems.Add("Chưa có tên");
-                }
-
+                ListViewItem lsvItem = new ListViewItem(item.TenMon.ToString());
 
                 lsvItem.SubItems.Add(item.SoLuong.ToString());
                 
                 lsvItem.SubItems.Add(item.DonGia.ToString());
 
+                lsvItem.SubItems.Add(item.ThanhTien.ToString());
+
+                tongTien += item.ThanhTien;
+
                 lsvBill.Items.Add(lsvItem);
             }
+
+            txtTongTien.Text = tongTien.ToString("c");
         }
 
         #endregion
@@ -124,6 +124,7 @@ namespace QuanLyNhaHang
         void btn_Click(object sender, EventArgs e)
         {
             int tableID = ((sender as Button).Tag as Table).ID;
+            lsvBill.Tag = (sender as Button).Tag;
             ShowBill(tableID);
         }
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
@@ -167,6 +168,31 @@ namespace QuanLyNhaHang
 
             LoadFoodByCategoryID(id);
         }
+
+        private void btnAddFood_Click(object sender, EventArgs e)
+        {
+            Table table = lsvBill.Tag as Table;
+
+            Account acc = lsvBill.Tag as Account;
+
+            int idFood = (cbFood.SelectedItem as Food).Id;
+
+            int count = (int)nmFoodCount.Value;
+
+            int idBill = BillDAO.Instance.GetUncheckBillIDByTableID(table.ID);
+
+            if (idBill == -1)
+            {
+                BillDAO.Instance.InsertBill(table.ID, 2);//Lỗi không lấy đc IDNguoiDung
+                BillInfoDAO.Instance.InsertBillInfo(BillDAO.Instance.GetMaxIdBill(), idFood, count);
+            }
+            else
+            {
+                BillInfoDAO.Instance.InsertBillInfo(idBill, idFood, count);
+            }
+            ShowBill(table.ID);
+        }
+
         #endregion
     }
     
