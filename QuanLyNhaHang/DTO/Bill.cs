@@ -35,7 +35,8 @@ namespace QuanLyNhaHang.DTO
             this.Ca = row["Ca"].ToString();
             this.IdNhanVien = (int)row["IDNguoiDung"];
             this.IdBan = (int)row["IDBan"];
-            this.IdVAT = (int)row["IDVAT"];
+            this.IdVAT = row["IDVAT"] != DBNull.Value ? Convert.ToInt32(row["IDVAT"]) : 0;
+
         }
 
         private int idHoaDon;
