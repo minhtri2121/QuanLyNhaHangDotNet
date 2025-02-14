@@ -46,8 +46,8 @@
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnKhuyenMai = new System.Windows.Forms.Button();
-            this.txtKhuyenMai = new System.Windows.Forms.TextBox();
+            this.nmGiamGia = new System.Windows.Forms.NumericUpDown();
+            this.btnGiamGia = new System.Windows.Forms.Button();
             this.txtTongTien = new System.Windows.Forms.TextBox();
             this.cbSwitchTable = new System.Windows.Forms.ComboBox();
             this.btnSwitchTable = new System.Windows.Forms.Button();
@@ -58,6 +58,7 @@
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nmGiamGia)).BeginInit();
             this.SuspendLayout();
             // 
             // columnHeader9
@@ -189,17 +190,17 @@
             this.columnHeader7,
             this.columnHeader8,
             this.columnHeader9});
-            this.lsvBill.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.lsvBill.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lsvBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lsvBill.GridLines = true;
             this.lsvBill.HideSelection = false;
             this.lsvBill.Location = new System.Drawing.Point(2, 5);
             this.lsvBill.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lsvBill.Name = "lsvBill";
+            this.lsvBill.ShowGroups = false;
             this.lsvBill.Size = new System.Drawing.Size(575, 454);
             this.lsvBill.TabIndex = 0;
             this.lsvBill.UseCompatibleStateImageBehavior = false;
-            this.lsvBill.UseWaitCursor = true;
             this.lsvBill.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader6
@@ -220,8 +221,8 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.btnKhuyenMai);
-            this.panel3.Controls.Add(this.txtKhuyenMai);
+            this.panel3.Controls.Add(this.nmGiamGia);
+            this.panel3.Controls.Add(this.btnGiamGia);
             this.panel3.Controls.Add(this.txtTongTien);
             this.panel3.Controls.Add(this.cbSwitchTable);
             this.panel3.Controls.Add(this.btnSwitchTable);
@@ -232,22 +233,22 @@
             this.panel3.Size = new System.Drawing.Size(581, 84);
             this.panel3.TabIndex = 3;
             // 
-            // btnKhuyenMai
+            // nmGiamGia
             // 
-            this.btnKhuyenMai.Location = new System.Drawing.Point(127, 3);
-            this.btnKhuyenMai.Name = "btnKhuyenMai";
-            this.btnKhuyenMai.Size = new System.Drawing.Size(112, 38);
-            this.btnKhuyenMai.TabIndex = 10;
-            this.btnKhuyenMai.Text = "Khuyến mãi";
-            this.btnKhuyenMai.UseVisualStyleBackColor = true;
+            this.nmGiamGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nmGiamGia.Location = new System.Drawing.Point(127, 52);
+            this.nmGiamGia.Name = "nmGiamGia";
+            this.nmGiamGia.Size = new System.Drawing.Size(112, 28);
+            this.nmGiamGia.TabIndex = 11;
             // 
-            // txtKhuyenMai
+            // btnGiamGia
             // 
-            this.txtKhuyenMai.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtKhuyenMai.Location = new System.Drawing.Point(127, 54);
-            this.txtKhuyenMai.Name = "txtKhuyenMai";
-            this.txtKhuyenMai.Size = new System.Drawing.Size(112, 28);
-            this.txtKhuyenMai.TabIndex = 9;
+            this.btnGiamGia.Location = new System.Drawing.Point(127, 3);
+            this.btnGiamGia.Name = "btnGiamGia";
+            this.btnGiamGia.Size = new System.Drawing.Size(112, 38);
+            this.btnGiamGia.TabIndex = 10;
+            this.btnGiamGia.Text = "Giảm giá";
+            this.btnGiamGia.UseVisualStyleBackColor = true;
             // 
             // txtTongTien
             // 
@@ -279,6 +280,7 @@
             this.btnSwitchTable.TabIndex = 6;
             this.btnSwitchTable.Text = "Chuyển bàn";
             this.btnSwitchTable.UseVisualStyleBackColor = true;
+            this.btnSwitchTable.Click += new System.EventHandler(this.btnSwitchTable_Click);
             // 
             // btnCheck
             // 
@@ -324,6 +326,7 @@
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nmGiamGia)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -348,12 +351,12 @@
         private System.Windows.Forms.Button btnSwitchTable;
         private System.Windows.Forms.ComboBox cbSwitchTable;
         private System.Windows.Forms.FlowLayoutPanel flpTable;
-        private System.Windows.Forms.TextBox txtKhuyenMai;
         private System.Windows.Forms.TextBox txtTongTien;
-        private System.Windows.Forms.Button btnKhuyenMai;
+        private System.Windows.Forms.Button btnGiamGia;
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.NumericUpDown nmGiamGia;
     }
 }

@@ -37,5 +37,11 @@ namespace QuanLyNhaHang.DAO
 
             return tableList;
         }
+
+        public void SwitchTable(int id1, int id2, int idnguoidung)
+        {
+            string query = "USPSwitchTabe @idTable1 , @idTable2 , @idnguoidung ";
+            DataProvider.Instance.ExcuteQuery(query, new object[] { id1, id2, idnguoidung });
+        }
     }
 }

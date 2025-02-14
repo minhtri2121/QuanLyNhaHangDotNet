@@ -35,6 +35,8 @@ namespace QuanLyNhaHang
             this.LoginAccount = acc;
 
             ChangeAccount(loginAccount.Admin);
+
+            LoadComboBoxTable(cbSwitchTable);
         }
 
         #region Method
@@ -118,6 +120,12 @@ namespace QuanLyNhaHang
             txtTongTien.Text = tongTien.ToString("c");
         }
 
+        void LoadComboBoxTable(ComboBox cb)
+        {
+            cb.DataSource = TableDAO.Instance.LoadTableList();
+            cb.DisplayMember = "Name";
+        }
+
         #endregion
 
         #region Events
@@ -191,13 +199,56 @@ namespace QuanLyNhaHang
                 BillInfoDAO.Instance.InsertBillInfo(idBill, idFood, count);
             }
             ShowBill(table.ID);
+
+            LoadTable();
         }
 
         private void btnCheck_Click(object sender, EventArgs e)
         {
+            Table table = lsvBill.Tag as Table;
 
+            int idBill = BillDAO.Instance.GetUncheckBillIDByTableID(table.ID);
+
+            int giamGia = (int)nmGiamGia.Value;
+
+            double gia = Convert.ToDouble(txtTongTien.Text.Split(',')[0]);
+
+            double tongTien = gia - (gia/100)*giamGia;
+
+            if(idBill != -1)
+            {
+                if (MessageBox.Show(string.Format("Bạn có muốn thanh toán cho bàn {0} \nTổng tiền sau khi áp dụng giảm giá {1}% là: {2:N0} VNĐ", table.Name, giamGia, tongTien), "Thông báo!", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+                {
+                    BillDAO.Instance.CheckOut(idBill, giamGia, tongTien);
+                    ShowBill(table.ID);
+
+                    LoadTable();
+                }
+            }
+        }
+
+        private void btnSwitchTable_Click(object sender, EventArgs e)
+        {
+            Table table = lsvBill.Tag as Table;
+
+            int idBill = BillDAO.Instance.GetUncheckBillIDByTableID(table.ID);
+
+            int id1 = (lsvBill.Tag as Table).ID;
+
+            int id2 = (cbSwitchTable.SelectedItem as Table).ID;
+
+            int idNguoiDung = AccountDAO.CurrentUser?.IdNguoiDung ?? -1;
+
+            if (MessageBox.Show(string.Format("Bạn có muốn chuyển {0} sang {1} không!", (lsvBill.Tag as Table).Name, (cbSwitchTable.SelectedItem as Table).Name), "Thông báo!", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+
+                TableDAO.instance.SwitchTable(id1, id2, idNguoiDung);
+                ShowBill(table.ID);
+            }
+            LoadTable();
         }
         #endregion
+
     }
     
 }
