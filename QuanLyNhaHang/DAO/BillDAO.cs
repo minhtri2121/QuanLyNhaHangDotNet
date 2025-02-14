@@ -49,5 +49,11 @@ namespace QuanLyNhaHang.DAO
                 return 1;
             }
         }
+
+        public void CheckOut(int idhoadon)
+        {
+            string query = "UPDATE HOA_DON SET TrangThai = N'Đã thanh toán' WHERE IDHoaDon = " + idhoadon;
+            DataProvider.Instance.ExcuteNonQuery(query);
+        }
     }
 }

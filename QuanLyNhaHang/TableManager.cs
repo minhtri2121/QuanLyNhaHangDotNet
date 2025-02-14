@@ -191,11 +191,26 @@ namespace QuanLyNhaHang
                 BillInfoDAO.Instance.InsertBillInfo(idBill, idFood, count);
             }
             ShowBill(table.ID);
+
+            LoadTable();
         }
 
         private void btnCheck_Click(object sender, EventArgs e)
         {
+            Table table = lsvBill.Tag as Table;
 
+            int idBill = BillDAO.Instance.GetUncheckBillIDByTableID(table.ID);
+
+            if(idBill != -1)
+            {
+                if (MessageBox.Show("Bạn có muốn thanh toán cho bàn " + table.Name, "Thông báo!", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.OK)
+                {
+                    BillDAO.Instance.CheckOut(idBill);
+                    ShowBill(table.ID);
+
+                    LoadTable();
+                }
+            }
         }
         #endregion
     }
