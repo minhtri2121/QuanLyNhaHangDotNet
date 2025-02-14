@@ -173,17 +173,17 @@ namespace QuanLyNhaHang
         {
             Table table = lsvBill.Tag as Table;
 
-            Account acc = lsvBill.Tag as Account;
-
             int idFood = (cbFood.SelectedItem as Food).Id;
 
             int count = (int)nmFoodCount.Value;
 
             int idBill = BillDAO.Instance.GetUncheckBillIDByTableID(table.ID);
 
+            int idNguoiDung = AccountDAO.CurrentUser?.IdNguoiDung ?? -1;
+
             if (idBill == -1)
             {
-                BillDAO.Instance.InsertBill(table.ID, 2);//Lỗi không lấy đc IDNguoiDung
+                BillDAO.Instance.InsertBill(table.ID, idNguoiDung);
                 BillInfoDAO.Instance.InsertBillInfo(BillDAO.Instance.GetMaxIdBill(), idFood, count);
             }
             else
@@ -193,6 +193,10 @@ namespace QuanLyNhaHang
             ShowBill(table.ID);
         }
 
+        private void btnCheck_Click(object sender, EventArgs e)
+        {
+
+        }
         #endregion
     }
     

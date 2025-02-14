@@ -12,6 +12,7 @@ namespace QuanLyNhaHang.DAO
     public class AccountDAO
     {
         private static AccountDAO instance;
+        public static Account CurrentUser { get; private set; }
 
         public static AccountDAO Instance
         {
@@ -31,7 +32,13 @@ namespace QuanLyNhaHang.DAO
             string query = "EXEC LoadLogin @username , @password ";
 
             DataTable result = DataProvider.Instance.ExcuteQuery(query, new object[] { username, password });
-            return result.Rows.Count > 0;
+            if (result.Rows.Count > 0)
+            {
+                CurrentUser = new Account(result.Rows[0]); // Lưu tài khoản đăng nhập vào biến static
+                return true;
+            }
+
+            return false;
         }
 
         public bool UpdateAccount (string userName, string displayName , string pass, string newpass)
