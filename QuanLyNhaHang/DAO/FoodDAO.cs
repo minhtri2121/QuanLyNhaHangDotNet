@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace QuanLyNhaHang.DAO
 {
@@ -62,6 +63,20 @@ namespace QuanLyNhaHang.DAO
             int result = DataProvider.Instance.ExcuteNonQuery(query);
 
             return result > 0;
+        }
+
+        public List<SearchFood> SearchFood(string tenmon)
+        {
+            List<SearchFood> list = new List<SearchFood>();
+            string query = "Select m.IDMon ,m.TuKhoa, m.TenMon, nm.TenNhomMon, dvt.TenDVT, FORMAT ( m.Gia ,'0') AS Gia from Mon m join nhom_mon nm  on m.IDNhomMon = nm.IDNhomMon join Don_vi_tinh dvt on dvt.IDDVT = m.IDDVT WHERE m.TenMon LIKE N'%" + tenmon + "%'";
+            DataTable data = DataProvider.Instance.ExcuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                SearchFood sf = new SearchFood(item);
+                list.Add(sf);
+            }
+
+            return list;
         }
 
 

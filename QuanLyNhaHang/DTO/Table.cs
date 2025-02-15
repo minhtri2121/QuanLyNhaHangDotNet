@@ -33,6 +33,8 @@ namespace QuanLyNhaHang.DTO
             this.Zone = row["TenKhuVuc"].ToString();
         }
 
+        public Table() { }
+
         public int ID {
             get { return iD; }
             set { iD = value; }

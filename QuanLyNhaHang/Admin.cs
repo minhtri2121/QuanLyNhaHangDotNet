@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Data.SqlClient;
@@ -6,6 +7,7 @@ using System.Diagnostics.Eventing.Reader;
 using System.Windows.Forms;
 using QuanLyNhaHang.DAO;
 using QuanLyNhaHang.DTO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace QuanLyNhaHang
 {
@@ -23,7 +25,6 @@ namespace QuanLyNhaHang
             LoadAdmin();
         }
 
-        // Code lại từ đây |
 
         #region methods
 
@@ -46,10 +47,18 @@ namespace QuanLyNhaHang
             AddFoddBinding();
 
             AddAccountBinding();
+
+            LoadComboBoxTable(cbBan);
+
+            LoadListAccIntoComboBox(cbTenNguoiDung);
         }
 
         void AddAccountBinding()
         {
+            txtTenTk.DataBindings.Clear();
+            txtTenHienThi.DataBindings.Clear();
+            nmLoaiTK.DataBindings.Clear();
+
             txtTenTk.DataBindings.Add(new Binding("Text", dtgvTaiKhoan.DataSource, "TenDangNhap",true, DataSourceUpdateMode.Never));
             txtTenHienThi.DataBindings.Add(new Binding("Text", dtgvTaiKhoan.DataSource, "TenNguoiDung", true, DataSourceUpdateMode.Never));
             nmLoaiTK.DataBindings.Add(new Binding("Value", dtgvTaiKhoan.DataSource, "Admin", true, DataSourceUpdateMode.Never));
@@ -59,13 +68,13 @@ namespace QuanLyNhaHang
         {
             accountList.DataSource = AccountDAO.Instance.GetListAccount();
         }
-        void LoadListFood() //không dùng cái này
+        void LoadListFood() 
         {
-            string query = "SELECT IDMon, TuKhoa, TenMon, TenNhomMon , TenDVT,FORMAT ( Gia ,'0') AS GiaTien\r\nFROM MON \r\nJOIN NHOM_MON ON MON.IDNhomMon = NHOM_MON.IDNhomMon\r\nJOIN DON_VI_TINH ON MON.IDDVT = DON_VI_TINH.IDDVT;";
+            string query = "SELECT IDMon, TuKhoa, TenMon, TenNhomMon , TenDVT,FORMAT ( Gia ,'0') AS Gia\r\nFROM MON \r\nJOIN NHOM_MON ON MON.IDNhomMon = NHOM_MON.IDNhomMon\r\nJOIN DON_VI_TINH ON MON.IDDVT = DON_VI_TINH.IDDVT;";
 
             FoodList.DataSource = DataProvider.Instance.ExcuteQuery(query);
         }
-        void LoadQuanLiKho() //không dùng cái này
+        void LoadQuanLiKho() 
         {
             string query = "SELECT  LMH.IDLoaiMH,LMH.TenLoaiMH, MH.IDMatHang, MH.TenMatHang , FORMAT(MH.GiaNhap , '0' ) AS GiaNhap , MH.HanSuDung\r\nFROM LOAI_MAT_HANG LMH JOIN MAT_HANG MH\r\nON LMH.IDLoaiMH = MH.IDLoaiMH;\r\n";
 
@@ -132,12 +141,19 @@ namespace QuanLyNhaHang
         }
         void AddFoddBinding()
         {
+            txtIDMon.DataBindings.Clear();
+            txtTenMon.DataBindings.Clear();
+            txtTuKhoa.DataBindings.Clear();
+            cbNhomMon.DataBindings.Clear();
+            cbDVT.DataBindings.Clear();
+            nmGia.DataBindings.Clear();
+
             txtIDMon.DataBindings.Add(new Binding("Text", dtgvMonAn.DataSource, "IDMon", true, DataSourceUpdateMode.Never));
             txtTenMon.DataBindings.Add(new Binding("Text", dtgvMonAn.DataSource, "TenMon", true, DataSourceUpdateMode.Never));
             txtTuKhoa.DataBindings.Add(new Binding("Text", dtgvMonAn.DataSource, "TuKhoa", true, DataSourceUpdateMode.Never));
             cbNhomMon.DataBindings.Add(new Binding("Text", dtgvMonAn.DataSource, "TenNhomMon", true, DataSourceUpdateMode.Never));
             cbDVT.DataBindings.Add(new Binding("Text", dtgvMonAn.DataSource, "TenDVT", true, DataSourceUpdateMode.Never));
-            nmGia.DataBindings.Add(new Binding("Value", dtgvMonAn.DataSource, "GiaTien", true, DataSourceUpdateMode.Never));
+            nmGia.DataBindings.Add(new Binding("Value", dtgvMonAn.DataSource, "Gia", true, DataSourceUpdateMode.Never));
         }
         void LoadCategoryIntoComboBox(ComboBox cb)
         {
@@ -149,9 +165,48 @@ namespace QuanLyNhaHang
             cb.DataSource = FoodDAO.Instance.GetDVT();
             cb.DisplayMember = "Name";
         }
+        void LoadListAccIntoComboBox(ComboBox cb)
+        {
+            List<Account> accounts = AccountDAO.Instance.GetListAccounts();
+
+            // ✅ Thêm một giá trị rỗng vào đầu danh sách
+            accounts.Insert(0,item: new Account{ TenNguoiDung = "-- Chọn người dùng --" });
+
+            cb.DataSource = accounts;
+            cb.DisplayMember = "tenNguoiDung";
+
+            cb.SelectedIndex = 0;
+        }
+
+        void LoadComboBoxTable(ComboBox cb)
+        {
+            List<Table> table = TableDAO.Instance.LoadTableList();
+
+            table.Insert(0, item: new Table { Name = "-- Chọn Bàn --" });
+
+            cb.DataSource = table;
+            cb.DisplayMember = "Name";
+        }
+
+        void LoadDoanhThuByDate(DateTime date1, DateTime date2)
+        {
+            dtgvDoanhThu.DataSource = BillDAO.Instance.GetBillByDate(date1, date2);
+        }
+
+        void LoadDoanhThuByNguoiDung(string nguoidung)
+        {
+            dtgvDoanhThu.DataSource = BillDAO.Instance.GetBillByNguoiDung(nguoidung);
+        }
+
+        void LoadDoanhThuByBan(string ban)
+        {
+            dtgvDoanhThu.DataSource = BillDAO.Instance.GetBillByTenBan(ban);
+        }
 
         #endregion
 
+
+        #region Event
         private void btnThem_Click(object sender, EventArgs e)
         {
             string tukhoa = txtTuKhoa.Text;
@@ -179,8 +234,6 @@ namespace QuanLyNhaHang
             }
         }
 
-    
-
         private void btnSua_Click(object sender, EventArgs e)
         {
             string tukhoa = txtTuKhoa.Text;
@@ -195,6 +248,7 @@ namespace QuanLyNhaHang
                 FoodDAO.Instance.UpdateFood(idmon, tukhoa, tenmon, iddvt, idnhommon, (int)Gia);
                 MessageBox.Show("Sửa món ăn thành công.");
                 LoadListFood();
+                LoadAdmin();
             }
             else
             {
@@ -208,6 +262,24 @@ namespace QuanLyNhaHang
 
                     MessageBox.Show("Có lỗi khi Sửa món ăn.\n\nCó thể bạn đã sai khi nhập nhóm món và đơn vị tính hoặc giá!\n\nNhóm món: " + loi1 + "\n\nĐơn vị tính: " + loi2 + "\n\nGiá: " + loi3);
                 }
+            }
+        }
+
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+            dtgvMonAn.Controls.Clear();
+            List<SearchFood> listSearchFood = FoodDAO.Instance.SearchFood(txtScFoodName.Text);
+
+            if (listSearchFood != null && listSearchFood.Count > 0)
+            {
+                dtgvMonAn.DataSource = typeof(List<SearchFood>);
+                dtgvMonAn.DataSource = listSearchFood;
+                LoadListFood();
+                AddFoddBinding();
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy món ăn nào.");
             }
         }
 
@@ -245,6 +317,25 @@ namespace QuanLyNhaHang
             string userName = txtTenTk.Text;
             ResetPass(userName);
         }
+
+        private void btnXem_Click(object sender, EventArgs e)
+        {
+            LoadAdmin();
+        }
+
+        private void btnTraCuu_Click(object sender, EventArgs e)
+        {
+            DateTime fisrtDate = dtpStart.Value;
+            DateTime finalDate = dtpEnd.Value;
+            string tenBan = string.IsNullOrEmpty(cbBan.Text) ? null : cbBan.Text;
+            string nguoiDung = string.IsNullOrEmpty(cbTenNguoiDung.Text) ? null : cbTenNguoiDung.Text;
+
+            LoadDoanhThuByDate(finalDate, fisrtDate);
+            LoadDoanhThuByNguoiDung(nguoiDung);
+            LoadDoanhThuByBan(tenBan);
+        }
+        #endregion
+
 
     }
 }

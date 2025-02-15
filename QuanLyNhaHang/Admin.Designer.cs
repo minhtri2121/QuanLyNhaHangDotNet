@@ -32,6 +32,8 @@
             this.tcAdmin = new System.Windows.Forms.TabControl();
             this.tpDoanhThu = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cbBan = new System.Windows.Forms.ComboBox();
+            this.cbTenNguoiDung = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnTraCuu = new System.Windows.Forms.Button();
             this.dtpEnd = new System.Windows.Forms.DateTimePicker();
@@ -40,6 +42,9 @@
             this.dtgvDoanhThu = new System.Windows.Forms.DataGridView();
             this.tpMonAn = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.txtIDMon = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel15 = new System.Windows.Forms.Panel();
             this.cbDVT = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -134,9 +139,6 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.txtIDMon = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.tcAdmin.SuspendLayout();
             this.tpDoanhThu.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -144,6 +146,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDoanhThu)).BeginInit();
             this.tpMonAn.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.panel16.SuspendLayout();
             this.panel15.SuspendLayout();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmGia)).BeginInit();
@@ -183,7 +186,6 @@
             this.panel31.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvKho)).BeginInit();
             this.panel32.SuspendLayout();
-            this.panel16.SuspendLayout();
             this.SuspendLayout();
             // 
             // tcAdmin
@@ -213,53 +215,80 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.cbBan);
+            this.panel2.Controls.Add(this.cbTenNguoiDung);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.btnTraCuu);
             this.panel2.Controls.Add(this.dtpEnd);
             this.panel2.Controls.Add(this.dtpStart);
-            this.panel2.Location = new System.Drawing.Point(6, 6);
+            this.panel2.Location = new System.Drawing.Point(884, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(663, 36);
+            this.panel2.Size = new System.Drawing.Size(279, 679);
             this.panel2.TabIndex = 1;
+            // 
+            // cbBan
+            // 
+            this.cbBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbBan.FormattingEnabled = true;
+            this.cbBan.Location = new System.Drawing.Point(28, 179);
+            this.cbBan.Name = "cbBan";
+            this.cbBan.Size = new System.Drawing.Size(248, 30);
+            this.cbBan.TabIndex = 5;
+            this.cbBan.Text = "Tên bàn";
+            // 
+            // cbTenNguoiDung
+            // 
+            this.cbTenNguoiDung.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTenNguoiDung.FormattingEnabled = true;
+            this.cbTenNguoiDung.Location = new System.Drawing.Point(28, 120);
+            this.cbTenNguoiDung.Name = "cbTenNguoiDung";
+            this.cbTenNguoiDung.Size = new System.Drawing.Size(248, 30);
+            this.cbTenNguoiDung.TabIndex = 4;
+            this.cbTenNguoiDung.Text = "Tên nhân viên";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(209, 12);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 16);
+            this.label1.Size = new System.Drawing.Size(43, 22);
             this.label1.TabIndex = 3;
             this.label1.Text = "Đến";
             // 
             // btnTraCuu
             // 
-            this.btnTraCuu.Location = new System.Drawing.Point(490, 6);
+            this.btnTraCuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTraCuu.Location = new System.Drawing.Point(28, 241);
             this.btnTraCuu.Name = "btnTraCuu";
-            this.btnTraCuu.Size = new System.Drawing.Size(156, 23);
+            this.btnTraCuu.Size = new System.Drawing.Size(248, 55);
             this.btnTraCuu.TabIndex = 2;
             this.btnTraCuu.Text = "Tra Cứu";
             this.btnTraCuu.UseVisualStyleBackColor = true;
+            this.btnTraCuu.Click += new System.EventHandler(this.btnTraCuu_Click);
             // 
             // dtpEnd
             // 
-            this.dtpEnd.Location = new System.Drawing.Point(264, 7);
+            this.dtpEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpEnd.Location = new System.Drawing.Point(28, 59);
             this.dtpEnd.Name = "dtpEnd";
-            this.dtpEnd.Size = new System.Drawing.Size(189, 22);
+            this.dtpEnd.Size = new System.Drawing.Size(248, 28);
             this.dtpEnd.TabIndex = 1;
             // 
             // dtpStart
             // 
-            this.dtpStart.Location = new System.Drawing.Point(3, 7);
+            this.dtpStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpStart.Location = new System.Drawing.Point(28, 3);
             this.dtpStart.Name = "dtpStart";
-            this.dtpStart.Size = new System.Drawing.Size(189, 22);
+            this.dtpStart.Size = new System.Drawing.Size(248, 28);
             this.dtpStart.TabIndex = 0;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.dtgvDoanhThu);
-            this.panel1.Location = new System.Drawing.Point(6, 48);
+            this.panel1.Location = new System.Drawing.Point(6, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1154, 637);
+            this.panel1.Size = new System.Drawing.Size(872, 682);
             this.panel1.TabIndex = 0;
             // 
             // dtgvDoanhThu
@@ -270,7 +299,7 @@
             this.dtgvDoanhThu.Name = "dtgvDoanhThu";
             this.dtgvDoanhThu.RowHeadersWidth = 51;
             this.dtgvDoanhThu.RowTemplate.Height = 24;
-            this.dtgvDoanhThu.Size = new System.Drawing.Size(1148, 629);
+            this.dtgvDoanhThu.Size = new System.Drawing.Size(865, 676);
             this.dtgvDoanhThu.TabIndex = 0;
             // 
             // tpMonAn
@@ -299,6 +328,33 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(434, 590);
             this.panel6.TabIndex = 3;
+            // 
+            // panel16
+            // 
+            this.panel16.Controls.Add(this.txtIDMon);
+            this.panel16.Controls.Add(this.label9);
+            this.panel16.Location = new System.Drawing.Point(2, 3);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(428, 60);
+            this.panel16.TabIndex = 5;
+            // 
+            // txtIDMon
+            // 
+            this.txtIDMon.Location = new System.Drawing.Point(163, 22);
+            this.txtIDMon.Name = "txtIDMon";
+            this.txtIDMon.ReadOnly = true;
+            this.txtIDMon.Size = new System.Drawing.Size(239, 22);
+            this.txtIDMon.TabIndex = 3;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(20, 19);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(114, 24);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Mã món ăn";
             // 
             // panel15
             // 
@@ -454,6 +510,7 @@
             this.btnTim.TabIndex = 4;
             this.btnTim.Text = "Tìm";
             this.btnTim.UseVisualStyleBackColor = true;
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
             // txtScFoodName
             // 
@@ -500,6 +557,7 @@
             this.btnXem.TabIndex = 3;
             this.btnXem.Text = "Xem";
             this.btnXem.UseVisualStyleBackColor = true;
+            this.btnXem.Click += new System.EventHandler(this.btnXem_Click);
             // 
             // btnSua
             // 
@@ -1186,38 +1244,11 @@
             this.entityCommand1.EnablePlanCaching = true;
             this.entityCommand1.Transaction = null;
             // 
-            // panel16
-            // 
-            this.panel16.Controls.Add(this.txtIDMon);
-            this.panel16.Controls.Add(this.label9);
-            this.panel16.Location = new System.Drawing.Point(2, 3);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(428, 60);
-            this.panel16.TabIndex = 5;
-            // 
-            // txtIDMon
-            // 
-            this.txtIDMon.Location = new System.Drawing.Point(163, 22);
-            this.txtIDMon.Name = "txtIDMon";
-            this.txtIDMon.ReadOnly = true;
-            this.txtIDMon.Size = new System.Drawing.Size(239, 22);
-            this.txtIDMon.TabIndex = 3;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(20, 19);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(114, 24);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Mã món ăn";
-            // 
             // fAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1186, 747);
+            this.ClientSize = new System.Drawing.Size(1193, 747);
             this.Controls.Add(this.tcAdmin);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "fAdmin";
@@ -1231,6 +1262,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvDoanhThu)).EndInit();
             this.tpMonAn.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
             this.panel10.ResumeLayout(false);
@@ -1288,8 +1321,6 @@
             this.panel31.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvKho)).EndInit();
             this.panel32.ResumeLayout(false);
-            this.panel16.ResumeLayout(false);
-            this.panel16.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1404,5 +1435,7 @@
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.TextBox txtIDMon;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox cbTenNguoiDung;
+        private System.Windows.Forms.ComboBox cbBan;
     }
 }

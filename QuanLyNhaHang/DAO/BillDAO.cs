@@ -55,5 +55,25 @@ namespace QuanLyNhaHang.DAO
             string query = "UPDATE HOA_DON SET TrangThai = N'Đã thanh toán', GioThanhToan = CONVERT(TIME(7), GETDATE()), Ca = CASE \r\nWHEN GioVao >= '00:00:00' AND GioVao < '06:00:00' THEN N'Khuya'\r\nWHEN GioVao >= '06:00:00' AND GioVao < '12:00:00' THEN N'Sáng'\r\nWHEN GioVao >= '12:00:00' AND GioVao < '18:00:00' THEN N'Chiều'\r\nELSE N'Tối' END, GiamGia = " + giamgia + ", TongTien = " + tongtien + " WHERE IDHoaDon = " + idhoadon;
             DataProvider.Instance.ExcuteNonQuery(query);
         }
+
+        public DataTable GetBillByDate(DateTime date1, DateTime date2)
+        {
+            string query = "EXEC DoanhThuByNgay @fisrtDate , @finalDate ";
+
+            return DataProvider.Instance.ExcuteQuery(query, new object[] {date1, date2});
+        }
+
+        public DataTable GetBillByNguoiDung(string NguoiDung)
+        {
+            string query = "EXEC DoanhThuByNguoiDung @idNguoiDung ";
+
+            return DataProvider.Instance.ExcuteQuery(query, new object[] { NguoiDung });
+        }
+        public DataTable GetBillByTenBan(string tenBan)
+        {
+            string query = "EXEC DoanhThuByBan @tenBan ";
+
+            return DataProvider.Instance.ExcuteQuery(query, new object[] { tenBan });
+        }
     }
 }

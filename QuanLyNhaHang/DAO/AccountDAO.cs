@@ -49,8 +49,25 @@ namespace QuanLyNhaHang.DAO
 
         public DataTable GetListAccount() 
         {
-            return DataProvider.Instance.ExcuteQuery("SELECT TenDangNhap, TenNguoiDung, CAST(Admin AS INT) AS Admin FROM Nguoi_Dung\r\n");
+            return DataProvider.Instance.ExcuteQuery("SELECT TenDangNhap, TenNguoiDung, CAST(Admin AS INT) AS Admin FROM Nguoi_Dung");
         }
+
+        public List<Account> GetListAccounts()
+        {
+            List<Account> list = new List<Account>();
+
+            string query = "SELECT * FROM NGUOI_DUNG";
+            DataTable data = DataProvider.Instance.ExcuteQuery(query);
+
+            foreach (DataRow row in data.Rows)
+            {
+                Account account = new Account(row);
+                list.Add(account);
+            }
+
+            return list;
+        }
+
         public Account GetAccountByUserName(string username)
         {
             DataTable data = DataProvider.Instance.ExcuteQuery("select * from NGUOI_DUNG where TenDangNhap = '" + username + "'");

@@ -113,6 +113,7 @@
     <Compile Include="DTO\DVT.cs" />
     <Compile Include="DTO\Food.cs" />
     <Compile Include="DTO\Menu.cs" />
+    <Compile Include="DTO\SearchFood.cs" />
     <Compile Include="DTO\Table.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>

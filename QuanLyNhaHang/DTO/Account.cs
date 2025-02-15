@@ -9,8 +9,9 @@ namespace QuanLyNhaHang.DTO
 {
     public class Account
     {
-        public Account(string TenDangNhap, string TenNguoiDung, int Admin, string MatKhau = null) 
+        public Account(int idnguoidung,string TenDangNhap, string TenNguoiDung, int Admin, string MatKhau = null) 
         { 
+            this.IdNguoiDung = idnguoidung;
             this.tenDangNhap = TenDangNhap;
             this.matKhau = MatKhau;
             this.tenNguoiDung = TenNguoiDung;   
@@ -19,7 +20,7 @@ namespace QuanLyNhaHang.DTO
 
         public Account(DataRow row)
         {
-            this.idNguoiDung = (int)row["IDNguoiDung"];
+            this.idNguoiDung = Convert.ToInt32(row["IDNguoiDung"]);
             this.tenDangNhap = row["TenDangNhap"].ToString();
             this.matKhau = row["MatKhau"].ToString();
             this.tenNguoiDung = row["TenNguoiDung"].ToString();
@@ -33,6 +34,8 @@ namespace QuanLyNhaHang.DTO
                 this.admin = 0; 
             }
         }
+
+        public Account() { }
 
         public string TenDangNhap;
         public string tenDangNhap
