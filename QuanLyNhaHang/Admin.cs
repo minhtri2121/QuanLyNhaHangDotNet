@@ -61,7 +61,7 @@ namespace QuanLyNhaHang
         }
         void LoadListFood() //không dùng cái này
         {
-            string query = "SELECT TuKhoa, TenMon, TenNhomMon , TenDVT,FORMAT ( Gia ,'0') AS GiaTien\r\nFROM MON \r\nJOIN NHOM_MON ON MON.IDNhomMon = NHOM_MON.IDNhomMon\r\nJOIN DON_VI_TINH ON MON.IDDVT = DON_VI_TINH.IDDVT;";
+            string query = "SELECT IDMon, TuKhoa, TenMon, TenNhomMon , TenDVT,FORMAT ( Gia ,'0') AS GiaTien\r\nFROM MON \r\nJOIN NHOM_MON ON MON.IDNhomMon = NHOM_MON.IDNhomMon\r\nJOIN DON_VI_TINH ON MON.IDDVT = DON_VI_TINH.IDDVT;";
 
             FoodList.DataSource = DataProvider.Instance.ExcuteQuery(query);
         }
@@ -132,6 +132,7 @@ namespace QuanLyNhaHang
         }
         void AddFoddBinding()
         {
+            txtIDMon.DataBindings.Add(new Binding("Text", dtgvMonAn.DataSource, "IDMon", true, DataSourceUpdateMode.Never));
             txtTenMon.DataBindings.Add(new Binding("Text", dtgvMonAn.DataSource, "TenMon", true, DataSourceUpdateMode.Never));
             txtTuKhoa.DataBindings.Add(new Binding("Text", dtgvMonAn.DataSource, "TuKhoa", true, DataSourceUpdateMode.Never));
             cbNhomMon.DataBindings.Add(new Binding("Text", dtgvMonAn.DataSource, "TenNhomMon", true, DataSourceUpdateMode.Never));
@@ -155,19 +156,27 @@ namespace QuanLyNhaHang
         {
             string tukhoa = txtTuKhoa.Text;
             string tenmon = txtTenMon.Text;
-             int idnhommon = (cbNhomMon.SelectedItem as Category).Id;
-            int iddvt = (cbDVT.SelectedItem as DVT).Id;
+            int? idnhommon = (cbNhomMon.SelectedItem as Category)?.Id;
+            int? iddvt = (cbDVT.SelectedItem as DVT)?.Id;
             float Gia = (float)nmGia.Value;
 
-            if (FoodDAO.Instance.InsertFood(tukhoa, tenmon, iddvt, idnhommon, (int)Gia))
+            if ( Gia > 0 && idnhommon != null && iddvt != null)
             {
+                FoodDAO.Instance.InsertFood(tukhoa, tenmon, iddvt, idnhommon, (int)Gia);
                 MessageBox.Show("Thêm món ăn thành công.");
                 LoadListFood();
             }       
             else
+            if ((cbNhomMon.SelectedItem as Category)?.Id == null && (cbDVT.SelectedItem as DVT)?.Id == null)
             {
-                MessageBox.Show("Có lỗi khi thêm món ăn.");
-            }            
+                string loi1 = "Lỗi, Vui lòng chọn đúng nhóm món";
+
+                string loi2 = "Lỗi, Vui lòng chọn đúng đơn vị tính";
+
+                string loi3 = "Lỗi, Giá nhỏ hơn hoặc bằng 0";
+
+                MessageBox.Show("Có lỗi khi Thêm món ăn.\n\nCó thể bạn đã sai khi nhập nhóm món và đơn vị tính hoặc giá!\n\nNhóm món: " + loi1 + "\n\nĐơn vị tính: " + loi2 + "\n\nGiá: " + loi3);
+            }
         }
 
     
@@ -176,18 +185,29 @@ namespace QuanLyNhaHang
         {
             string tukhoa = txtTuKhoa.Text;
             string tenmon = txtTenMon.Text;
-            int idnhommon = (cbNhomMon.SelectedItem as Category).Id;
-                int iddvt = (cbDVT.SelectedItem as DVT).Id;
+            int? idnhommon = (cbNhomMon.SelectedItem as Category)?.Id;
+            int? iddvt = (cbDVT.SelectedItem as DVT)?.Id;
             float Gia = (float)nmGia.Value;
+            int idmon = Convert.ToInt32(txtIDMon.Text);
 
-            if (FoodDAO.Instance.InsertFood(tukhoa, tenmon, iddvt, idnhommon, (int)Gia))
+            if ((int)Gia > 0 && idnhommon != null && iddvt != null)
             {
+                FoodDAO.Instance.UpdateFood(idmon, tukhoa, tenmon, iddvt, idnhommon, (int)Gia);
                 MessageBox.Show("Sửa món ăn thành công.");
                 LoadListFood();
             }
             else
             {
-                MessageBox.Show("Có lỗi khi Sửa món ăn.");
+                if ((cbNhomMon.SelectedItem as Category)?.Id == null && (cbDVT.SelectedItem as DVT)?.Id == null)
+                {
+                    string loi1 = "Lỗi, Vui lòng chọn đúng nhóm món";
+
+                    string loi2 = "Lỗi, Vui lòng chọn đúng đơn vị tính";
+
+                    string loi3 = "Lỗi, Giá nhỏ hơn hoặc bằng 0";
+
+                    MessageBox.Show("Có lỗi khi Sửa món ăn.\n\nCó thể bạn đã sai khi nhập nhóm món và đơn vị tính hoặc giá!\n\nNhóm món: " + loi1 + "\n\nĐơn vị tính: " + loi2 + "\n\nGiá: " + loi3);
+                }
             }
         }
 

@@ -40,7 +40,6 @@
             this.dtgvDoanhThu = new System.Windows.Forms.DataGridView();
             this.tpMonAn = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.btnNhapMon = new System.Windows.Forms.Button();
             this.panel15 = new System.Windows.Forms.Panel();
             this.cbDVT = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -135,6 +134,9 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.txtIDMon = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.tcAdmin.SuspendLayout();
             this.tpDoanhThu.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -181,6 +183,7 @@
             this.panel31.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvKho)).BeginInit();
             this.panel32.SuspendLayout();
+            this.panel16.SuspendLayout();
             this.SuspendLayout();
             // 
             // tcAdmin
@@ -286,7 +289,7 @@
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.btnNhapMon);
+            this.panel6.Controls.Add(this.panel16);
             this.panel6.Controls.Add(this.panel15);
             this.panel6.Controls.Add(this.panel10);
             this.panel6.Controls.Add(this.panel9);
@@ -297,20 +300,11 @@
             this.panel6.Size = new System.Drawing.Size(434, 590);
             this.panel6.TabIndex = 3;
             // 
-            // btnNhapMon
-            // 
-            this.btnNhapMon.Location = new System.Drawing.Point(344, 344);
-            this.btnNhapMon.Name = "btnNhapMon";
-            this.btnNhapMon.Size = new System.Drawing.Size(87, 38);
-            this.btnNhapMon.TabIndex = 5;
-            this.btnNhapMon.Text = "Nhập";
-            this.btnNhapMon.UseVisualStyleBackColor = true;
-            // 
             // panel15
             // 
             this.panel15.Controls.Add(this.cbDVT);
             this.panel15.Controls.Add(this.label8);
-            this.panel15.Location = new System.Drawing.Point(3, 203);
+            this.panel15.Location = new System.Drawing.Point(2, 267);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(428, 60);
             this.panel15.TabIndex = 3;
@@ -337,7 +331,7 @@
             // 
             this.panel10.Controls.Add(this.nmGia);
             this.panel10.Controls.Add(this.lblGia);
-            this.panel10.Location = new System.Drawing.Point(3, 269);
+            this.panel10.Location = new System.Drawing.Point(2, 333);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(428, 60);
             this.panel10.TabIndex = 4;
@@ -350,11 +344,6 @@
             2,
             0,
             0});
-            this.nmGia.Minimum = new decimal(new int[] {
-            1410065408,
-            2,
-            0,
-            -2147483648});
             this.nmGia.Name = "nmGia";
             this.nmGia.Size = new System.Drawing.Size(239, 22);
             this.nmGia.TabIndex = 1;
@@ -373,7 +362,7 @@
             // 
             this.panel9.Controls.Add(this.txtTuKhoa);
             this.panel9.Controls.Add(this.lblTuKhoa);
-            this.panel9.Location = new System.Drawing.Point(3, 5);
+            this.panel9.Location = new System.Drawing.Point(2, 69);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(428, 60);
             this.panel9.TabIndex = 0;
@@ -399,7 +388,7 @@
             // 
             this.panel8.Controls.Add(this.txtTenMon);
             this.panel8.Controls.Add(this.lblFoodName);
-            this.panel8.Location = new System.Drawing.Point(3, 71);
+            this.panel8.Location = new System.Drawing.Point(2, 135);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(428, 60);
             this.panel8.TabIndex = 1;
@@ -425,7 +414,7 @@
             // 
             this.panel7.Controls.Add(this.cbNhomMon);
             this.panel7.Controls.Add(this.lblIdFood);
-            this.panel7.Location = new System.Drawing.Point(3, 137);
+            this.panel7.Location = new System.Drawing.Point(2, 201);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(428, 60);
             this.panel7.TabIndex = 2;
@@ -1197,6 +1186,33 @@
             this.entityCommand1.EnablePlanCaching = true;
             this.entityCommand1.Transaction = null;
             // 
+            // panel16
+            // 
+            this.panel16.Controls.Add(this.txtIDMon);
+            this.panel16.Controls.Add(this.label9);
+            this.panel16.Location = new System.Drawing.Point(2, 3);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(428, 60);
+            this.panel16.TabIndex = 5;
+            // 
+            // txtIDMon
+            // 
+            this.txtIDMon.Location = new System.Drawing.Point(163, 22);
+            this.txtIDMon.Name = "txtIDMon";
+            this.txtIDMon.ReadOnly = true;
+            this.txtIDMon.Size = new System.Drawing.Size(239, 22);
+            this.txtIDMon.TabIndex = 3;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(20, 19);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(114, 24);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Mã món ăn";
+            // 
             // fAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1272,6 +1288,8 @@
             this.panel31.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvKho)).EndInit();
             this.panel32.ResumeLayout(false);
+            this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1381,8 +1399,10 @@
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.ComboBox cbDVT;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btnNhapMon;
         private System.Windows.Forms.TextBox txtTenMon;
         private System.Windows.Forms.NumericUpDown nmLoaiTK;
+        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.TextBox txtIDMon;
+        private System.Windows.Forms.Label label9;
     }
 }
