@@ -169,7 +169,6 @@ namespace QuanLyNhaHang
         {
             List<Account> accounts = AccountDAO.Instance.GetListAccounts();
 
-            // ✅ Thêm một giá trị rỗng vào đầu danh sách
             accounts.Insert(0,item: new Account{ TenNguoiDung = "-- Chọn người dùng --" });
 
             cb.DataSource = accounts;
@@ -215,14 +214,14 @@ namespace QuanLyNhaHang
             int? iddvt = (cbDVT.SelectedItem as DVT)?.Id;
             float Gia = (float)nmGia.Value;
 
-            if ( Gia > 0 && idnhommon != null && iddvt != null)
+            if ( (int)Gia > 0 && idnhommon != null && iddvt != null)
             {
                 FoodDAO.Instance.InsertFood(tukhoa, tenmon, iddvt, idnhommon, (int)Gia);
                 MessageBox.Show("Thêm món ăn thành công.");
                 LoadListFood();
             }       
             else
-            if ((cbNhomMon.SelectedItem as Category)?.Id == null && (cbDVT.SelectedItem as DVT)?.Id == null)
+            if ((cbNhomMon.SelectedItem as Category)?.Id == null || (cbDVT.SelectedItem as DVT)?.Id == null || (int)Gia <= 0)
             {
                 string loi1 = "Lỗi, Vui lòng chọn đúng nhóm món";
 
@@ -252,7 +251,7 @@ namespace QuanLyNhaHang
             }
             else
             {
-                if ((cbNhomMon.SelectedItem as Category)?.Id == null && (cbDVT.SelectedItem as DVT)?.Id == null)
+                if ((cbNhomMon.SelectedItem as Category)?.Id == null || (cbDVT.SelectedItem as DVT)?.Id == null || (int)Gia <= 0)
                 {
                     string loi1 = "Lỗi, Vui lòng chọn đúng nhóm món";
 
@@ -275,7 +274,6 @@ namespace QuanLyNhaHang
                 dtgvMonAn.DataSource = typeof(List<SearchFood>);
                 dtgvMonAn.DataSource = listSearchFood;
                 LoadListFood();
-                AddFoddBinding();
             }
             else
             {
