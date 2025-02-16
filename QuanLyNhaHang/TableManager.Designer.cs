@@ -194,7 +194,7 @@
             this.lsvBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lsvBill.GridLines = true;
             this.lsvBill.HideSelection = false;
-            this.lsvBill.Location = new System.Drawing.Point(2, 5);
+            this.lsvBill.Location = new System.Drawing.Point(3, 2);
             this.lsvBill.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lsvBill.Name = "lsvBill";
             this.lsvBill.ShowGroups = false;
