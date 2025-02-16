@@ -5,6 +5,7 @@ using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Data.SqlClient;
 using System.Diagnostics.Eventing.Reader;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 using QuanLyNhaHang.DAO;
 using QuanLyNhaHang.DTO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
@@ -21,6 +22,10 @@ namespace QuanLyNhaHang
         public fAdmin()
         {
             InitializeComponent();
+
+            LoadDateTimePickerBill();
+
+            LoadDoanhThuByDate(dtpStart.Value.ToString("yyyy-MM-dd"), dtpEnd.Value.ToString("yyyy-MM-dd"));
 
             LoadAdmin();
         }
@@ -187,19 +192,32 @@ namespace QuanLyNhaHang
             cb.DisplayMember = "Name";
         }
 
-        void LoadDoanhThuByDate(DateTime date1, DateTime date2)
+        void LoadDoanhThuByDate(string date1, string date2)
         {
             dtgvDoanhThu.DataSource = BillDAO.Instance.GetBillByDate(date1, date2);
         }
 
-        void LoadDoanhThuByNguoiDung(string nguoidung)
+        void LoadDoanhThuByNguoiDung(string date1, string date2, string nguoidung)
         {
-            dtgvDoanhThu.DataSource = BillDAO.Instance.GetBillByNguoiDung(nguoidung);
+            dtgvDoanhThu.DataSource = BillDAO.Instance.GetBillByNguoiDung(date1, date2, nguoidung);
         }
 
-        void LoadDoanhThuByBan(string ban)
+        void LoadDoanhThuByBan(string date1, string date2, string ban)
         {
-            dtgvDoanhThu.DataSource = BillDAO.Instance.GetBillByTenBan(ban);
+            dtgvDoanhThu.DataSource = BillDAO.Instance.GetBillByTenBan(date1, date2, ban);
+        }
+
+        void LoadDoanhThuByAll(string date1, string date2, string ban, string nguoiDung)
+        {
+            dtgvDoanhThu.DataSource = BillDAO.Instance.GetBillByAll(date1, date2, ban, nguoiDung);
+        }
+
+        void LoadDateTimePickerBill()
+        {
+            DateTime today = DateTime.Now;
+
+            dtpStart.Value = new DateTime(today.Year, today.Month, 1);
+            dtpEnd.Value = dtpStart.Value.AddMonths(1).AddDays(-1);
         }
 
         #endregion
@@ -323,17 +341,39 @@ namespace QuanLyNhaHang
 
         private void btnTraCuu_Click(object sender, EventArgs e)
         {
-            DateTime fisrtDate = dtpStart.Value;
-            DateTime finalDate = dtpEnd.Value;
-            string tenBan = string.IsNullOrEmpty(cbBan.Text) ? null : cbBan.Text;
-            string nguoiDung = string.IsNullOrEmpty(cbTenNguoiDung.Text) ? null : cbTenNguoiDung.Text;
+            string firstDateStr = dtpStart.Value.ToString("yyyy-MM-dd");
+            string finalDateStr = dtpEnd.Value.ToString("yyyy-MM-dd");
 
-            LoadDoanhThuByDate(finalDate, fisrtDate);
-            LoadDoanhThuByNguoiDung(nguoiDung);
-            LoadDoanhThuByBan(tenBan);
+            DataTable dt = BillDAO.Instance.GetBillByDate(firstDateStr, finalDateStr);
+
+            string nguoiDung = cbTenNguoiDung.SelectedIndex > 0 ? cbTenNguoiDung.Text : "";
+            string tenBan = cbBan.SelectedIndex > 0 ? cbBan.Text : "";
+
+            string caseValue = (string.IsNullOrEmpty(tenBan) ? "0" : "1") + (string.IsNullOrEmpty(nguoiDung) ? "0" : "2");
+
+            switch (caseValue)
+            {
+                case "00": 
+                    LoadDoanhThuByDate(firstDateStr, finalDateStr);
+                    break;
+
+                case "10": 
+                    LoadDoanhThuByBan(firstDateStr, finalDateStr, tenBan);
+                    break;
+
+                case "02": 
+                    LoadDoanhThuByNguoiDung(firstDateStr, finalDateStr, nguoiDung);
+                    break;
+
+                case "12": 
+                    LoadDoanhThuByAll(firstDateStr, finalDateStr, tenBan, nguoiDung);
+                    break;
+
+                default:
+                    MessageBox.Show("Lựa chọn không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    break;
+            }
         }
-        #endregion
-
-
     }
+    #endregion
 }

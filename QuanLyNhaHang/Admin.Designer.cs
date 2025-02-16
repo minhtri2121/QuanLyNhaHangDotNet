@@ -269,6 +269,7 @@
             // 
             // dtpEnd
             // 
+            this.dtpEnd.Checked = false;
             this.dtpEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpEnd.Location = new System.Drawing.Point(28, 59);
             this.dtpEnd.Name = "dtpEnd";
@@ -277,6 +278,7 @@
             // 
             // dtpStart
             // 
+            this.dtpStart.Checked = false;
             this.dtpStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpStart.Location = new System.Drawing.Point(28, 3);
             this.dtpStart.Name = "dtpStart";

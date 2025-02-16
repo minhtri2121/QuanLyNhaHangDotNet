@@ -56,24 +56,32 @@ namespace QuanLyNhaHang.DAO
             DataProvider.Instance.ExcuteNonQuery(query);
         }
 
-        public DataTable GetBillByDate(DateTime date1, DateTime date2)
+        public DataTable GetBillByDate(string date1, string date2)
         {
             string query = "EXEC DoanhThuByNgay @fisrtDate , @finalDate ";
 
-            return DataProvider.Instance.ExcuteQuery(query, new object[] {date1, date2});
+            return DataProvider.Instance.ExcuteQuery(query, new object[] { date1, date2 });
         }
 
-        public DataTable GetBillByNguoiDung(string NguoiDung)
-        {
-            string query = "EXEC DoanhThuByNguoiDung @idNguoiDung ";
 
-            return DataProvider.Instance.ExcuteQuery(query, new object[] { NguoiDung });
+        public DataTable GetBillByNguoiDung(string date1, string date2, string NguoiDung)
+        {
+            string query = "EXEC DoanhThuByNguoiDung @fisrtDate , @finalDate , @tenNguoiDung ";
+
+            return DataProvider.Instance.ExcuteQuery(query, new object[] { date1, date2, NguoiDung });
         }
-        public DataTable GetBillByTenBan(string tenBan)
+        public DataTable GetBillByTenBan(string date1, string date2, string tenBan)
         {
-            string query = "EXEC DoanhThuByBan @tenBan ";
+            string query = "EXEC DoanhThuByBan @fisrtDate , @finalDate , @tenBan ";
 
-            return DataProvider.Instance.ExcuteQuery(query, new object[] { tenBan });
+            return DataProvider.Instance.ExcuteQuery(query, new object[] { date1, date2, tenBan });
+        }
+
+        public DataTable GetBillByAll(string date1, string date2, string tenBan, string NguoiDung)
+        {
+
+            string query = "EXEC DoanhThuByBanAndNguoiDung @fisrtDate , @finalDate  , @tenBan , @tenNguoiDung ";
+            return DataProvider.Instance.ExcuteQuery(query, new object[] { date1, date2, tenBan, NguoiDung });
         }
     }
 }
