@@ -13,10 +13,10 @@ namespace QuanLyNhaHang.DAO
 
         public static BillDAO Instance
         {
-            get 
+            get
             {
                 if (instance == null) instance = new BillDAO();
-                return instance; 
+                return instance;
             }
             private set { BillDAO.instance = value; }
         }
@@ -35,7 +35,7 @@ namespace QuanLyNhaHang.DAO
 
         public void InsertBill(int idban, int idnguoidung)
         {
-            DataProvider.Instance.ExcuteQuery("EXEC InsertBill @idban , @idnguoidung ", new object[] { idban, idnguoidung});
+            DataProvider.Instance.ExcuteQuery("EXEC InsertBill @idban , @idnguoidung ", new object[] { idban, idnguoidung });
         }
 
         public int GetMaxIdBill()
