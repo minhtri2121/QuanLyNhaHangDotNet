@@ -35,9 +35,10 @@ namespace QuanLyNhaHang.DAO
             return listBillInfo;
         }
 
-        public void InsertBillInfo(int idhoadon, int idmon, int soluong)
+        public bool InsertBillInfo(int idhoadon, int idmon, int soluong)
         {
-            DataProvider.Instance.ExcuteQuery("EXEC InsertBillInfo @idhoadon , @idmon , @soluong ", new object[] { idhoadon, idmon, soluong });
+            int result = DataProvider.Instance.ExcuteNonQuery("EXEC InsertBillInfo @idhoadon , @idmon , @soluong ", new object[] { idhoadon, idmon, soluong });
+            return result > 0;
         }
     }
 }

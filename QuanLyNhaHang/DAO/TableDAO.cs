@@ -40,7 +40,12 @@ namespace QuanLyNhaHang.DAO
 
         public void SwitchTable(int id1, int id2, int idnguoidung)
         {
-            string query = "USPSwitchTabe @idTable1 , @idTable2 , @idnguoidung ";
+            string query = "EXEC USPSwitchTabe @idTable1 , @idTable2 , @idnguoidung ";
+            DataProvider.Instance.ExcuteQuery(query, new object[] { id1, id2, idnguoidung });
+        }
+        public void MergeTable(int id1, int id2, int idnguoidung)
+        {
+            string query = "EXEC MergeTable @idTable1 , @idTable2 , @idnguoidung ";
             DataProvider.Instance.ExcuteQuery(query, new object[] { id1, id2, idnguoidung });
         }
         public List<Table> GetTableList()
