@@ -37,7 +37,10 @@ namespace QuanLyNhaHang
             ChangeAccount(loginAccount.Admin);
 
             LoadComboBoxTable(cbSwitchTable);
-         
+
+            lsvBill.SelectedIndexChanged += lsvBill_SelectedIndexChanged;
+
+            InitializeListView();
         }
 
         #region Method
@@ -60,16 +63,17 @@ namespace QuanLyNhaHang
         }
 
 
-        void LoadFoodByCategoryID(int categoryId)
+        private void LoadFoodByCategoryID(int categoryId)
         {
+
             List<Food> list = FoodDAO.Instance.GetFoodByCategoryID(categoryId);
             list.Insert(0, new Food { Id = -1, Name = "Chọn món ăn" });
 
             cbFood.DataSource = list;
             cbFood.DisplayMember = "Name";
             cbFood.ValueMember = "Id";
-        }
 
+        }
 
         void LoadTable()
         {
@@ -103,11 +107,27 @@ namespace QuanLyNhaHang
             }
         }
 
-        private void ResizeListViewColumns()
+        private void InitializeListView()
         {
-            // Tự động điều chỉnh chiều rộng cột dựa trên nội dung
-            lsvBill.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent); // Theo nội dung
-            lsvBill.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize); // Theo tiêu đề
+            InitializeListViewColumns();
+
+            lsvBill.FullRowSelect = true;
+            lsvBill.GridLines = true;
+            lsvBill.MultiSelect = false;
+        }
+        private void InitializeListViewColumns()
+        {
+            lsvBill.Columns.Clear();
+
+            int totalWidth = lsvBill.Width;
+
+            lsvBill.Columns.Add("Tên món", (int)(totalWidth * 0.3));
+            lsvBill.Columns.Add("Số lượng", (int)(totalWidth * 0.15));
+            lsvBill.Columns.Add("Đơn giá", (int)(totalWidth * 0.19));
+            lsvBill.Columns.Add("Thành tiền", (int)(totalWidth * 0.19));
+            lsvBill.Columns.Add("CategoryID", (int)(totalWidth * 0.17));
+
+            lsvBill.View = View.Details;
         }
 
         void ShowBill(int id) 
@@ -128,14 +148,83 @@ namespace QuanLyNhaHang
 
                 lsvItem.SubItems.Add(item.ThanhTien.ToString());
 
+                lsvItem.SubItems.Add(item.IdNhomMon.ToString());
+
                 tongTien += item.ThanhTien;
 
                 lsvBill.Items.Add(lsvItem);
             }
 
             txtTongTien.Text = tongTien.ToString("c");
+        }
 
-            ResizeListViewColumns();
+        private void lsvBill_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lsvBill.SelectedItems.Count > 0)
+            {
+                ListViewItem selectedItem = lsvBill.SelectedItems[0];
+
+                string tenMon = selectedItem.SubItems[0].Text;
+               
+                if (selectedItem.SubItems.Count > 4)
+                {
+                    int categoryId = Convert.ToInt32(selectedItem.SubItems[4].Text);
+
+                    UpdateCategoryComboBox(categoryId);
+
+                    LoadFoodByCategoryID(categoryId);
+
+                    SelectFoodInComboBox(tenMon, categoryId);
+                }
+                else
+                {
+                    ResetFoodComboBox();
+                }
+            }
+            else
+            {
+                ResetFoodComboBox();
+            }
+        }
+
+        private void SelectFoodInComboBox(string tenMon, int categoryId)
+        {
+            foreach (Category category in cbCategory.Items)
+            {
+                if (category.Id == categoryId)
+                {
+                    cbCategory.SelectedValue = categoryId;
+                    break;
+                }
+            }
+            foreach (Food food in cbFood.Items)
+            {
+                if (food.Name == tenMon)
+                {
+                    cbFood.SelectedItem = food;
+                    break;
+                }
+            }
+        }
+
+        private void UpdateCategoryComboBox(int categoryId)
+        {
+            foreach (Category category in cbCategory.Items)
+            {
+                if (category.Id == categoryId)
+                {
+                    cbCategory.SelectedValue = categoryId;
+                    break;
+                }
+            }
+        }
+
+        private void ResetFoodComboBox()
+        {
+            cbFood.DataSource = null;
+            cbFood.Items.Clear();
+            cbFood.Items.Add("Chọn món ăn");
+            cbFood.SelectedIndex = 0;
         }
 
         void LoadComboBoxTable(ComboBox cb)
@@ -403,11 +492,6 @@ namespace QuanLyNhaHang
         }
 
         #endregion
-
-        private void lsvBill_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 
 }

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTableManager));
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnMergeTable = new System.Windows.Forms.Button();
             this.nmGiamGia = new System.Windows.Forms.NumericUpDown();
             this.btnGiamGia = new System.Windows.Forms.Button();
             this.txtTongTien = new System.Windows.Forms.TextBox();
@@ -39,9 +39,6 @@
             this.btnSwitchTable = new System.Windows.Forms.Button();
             this.btnCheck = new System.Windows.Forms.Button();
             this.lsvBill = new System.Windows.Forms.ListView();
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.nmFoodCount = new System.Windows.Forms.NumericUpDown();
             this.btnAddFood = new System.Windows.Forms.Button();
             this.cbFood = new System.Windows.Forms.ComboBox();
@@ -52,7 +49,6 @@
             this.thôngTinCáNhânToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.flpTable = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnMergeTable = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmGiamGia)).BeginInit();
@@ -60,16 +56,9 @@
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "Thành tiền";
-            this.columnHeader9.Width = 116;
-            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.lsvBill);
             this.panel1.Controls.Add(this.nmFoodCount);
             this.panel1.Controls.Add(this.btnAddFood);
             this.panel1.Controls.Add(this.cbFood);
@@ -77,7 +66,7 @@
             this.panel1.Location = new System.Drawing.Point(636, 34);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(780, 654);
+            this.panel1.Size = new System.Drawing.Size(531, 82);
             this.panel1.TabIndex = 0;
             // 
             // panel3
@@ -92,23 +81,34 @@
             this.panel3.Controls.Add(this.btnSwitchTable);
             this.panel3.Controls.Add(this.btnCheck);
             this.panel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(527, 2);
+            this.panel3.Location = new System.Drawing.Point(1170, 34);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(248, 650);
+            this.panel3.Size = new System.Drawing.Size(248, 639);
             this.panel3.TabIndex = 3;
+            // 
+            // btnMergeTable
+            // 
+            this.btnMergeTable.Location = new System.Drawing.Point(130, 2);
+            this.btnMergeTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnMergeTable.Name = "btnMergeTable";
+            this.btnMergeTable.Size = new System.Drawing.Size(118, 39);
+            this.btnMergeTable.TabIndex = 12;
+            this.btnMergeTable.Text = "Gộp bàn";
+            this.btnMergeTable.UseVisualStyleBackColor = true;
+            this.btnMergeTable.Click += new System.EventHandler(this.btnMergeTable_Click);
             // 
             // nmGiamGia
             // 
             this.nmGiamGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nmGiamGia.Location = new System.Drawing.Point(133, 487);
+            this.nmGiamGia.Location = new System.Drawing.Point(132, 481);
             this.nmGiamGia.Name = "nmGiamGia";
             this.nmGiamGia.Size = new System.Drawing.Size(112, 34);
             this.nmGiamGia.TabIndex = 11;
             // 
             // btnGiamGia
             // 
-            this.btnGiamGia.Location = new System.Drawing.Point(3, 483);
+            this.btnGiamGia.Location = new System.Drawing.Point(2, 477);
             this.btnGiamGia.Name = "btnGiamGia";
             this.btnGiamGia.Size = new System.Drawing.Size(112, 42);
             this.btnGiamGia.TabIndex = 10;
@@ -118,7 +118,7 @@
             // txtTongTien
             // 
             this.txtTongTien.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTongTien.Location = new System.Drawing.Point(3, 531);
+            this.txtTongTien.Location = new System.Drawing.Point(2, 525);
             this.txtTongTien.Name = "txtTongTien";
             this.txtTongTien.ReadOnly = true;
             this.txtTongTien.Size = new System.Drawing.Size(242, 28);
@@ -138,7 +138,7 @@
             // 
             // btnSwitchTable
             // 
-            this.btnSwitchTable.Location = new System.Drawing.Point(3, 2);
+            this.btnSwitchTable.Location = new System.Drawing.Point(6, 2);
             this.btnSwitchTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSwitchTable.Name = "btnSwitchTable";
             this.btnSwitchTable.Size = new System.Drawing.Size(118, 39);
@@ -149,7 +149,7 @@
             // 
             // btnCheck
             // 
-            this.btnCheck.Location = new System.Drawing.Point(3, 564);
+            this.btnCheck.Location = new System.Drawing.Point(2, 558);
             this.btnCheck.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCheck.Name = "btnCheck";
             this.btnCheck.Size = new System.Drawing.Size(242, 80);
@@ -160,42 +160,20 @@
             // 
             // lsvBill
             // 
-            this.lsvBill.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lsvBill.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lsvBill.AutoArrange = false;
-            this.lsvBill.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader6,
-            this.columnHeader7,
-            this.columnHeader8,
-            this.columnHeader9});
             this.lsvBill.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lsvBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lsvBill.GridLines = true;
             this.lsvBill.HideSelection = false;
-            this.lsvBill.Location = new System.Drawing.Point(1, 98);
+            this.lsvBill.Location = new System.Drawing.Point(640, 120);
             this.lsvBill.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lsvBill.Name = "lsvBill";
             this.lsvBill.ShowGroups = false;
             this.lsvBill.Size = new System.Drawing.Size(523, 553);
-            this.lsvBill.TabIndex = 0;
+            this.lsvBill.TabIndex = 4;
             this.lsvBill.UseCompatibleStateImageBehavior = false;
             this.lsvBill.View = System.Windows.Forms.View.Details;
-            this.lsvBill.SelectedIndexChanged += new System.EventHandler(this.lsvBill_SelectedIndexChanged);
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Tên món";
-            this.columnHeader6.Width = 221;
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "SL";
-            this.columnHeader7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader7.Width = 70;
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "Đơn giá";
-            this.columnHeader8.Width = 116;
             // 
             // nmFoodCount
             // 
@@ -302,25 +280,16 @@
             this.flpTable.Location = new System.Drawing.Point(12, 34);
             this.flpTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flpTable.Name = "flpTable";
-            this.flpTable.Size = new System.Drawing.Size(618, 654);
+            this.flpTable.Size = new System.Drawing.Size(618, 825);
             this.flpTable.TabIndex = 4;
-            // 
-            // btnMergeTable
-            // 
-            this.btnMergeTable.Location = new System.Drawing.Point(127, 2);
-            this.btnMergeTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnMergeTable.Name = "btnMergeTable";
-            this.btnMergeTable.Size = new System.Drawing.Size(118, 39);
-            this.btnMergeTable.TabIndex = 12;
-            this.btnMergeTable.Text = "Gộp bàn";
-            this.btnMergeTable.UseVisualStyleBackColor = true;
-            this.btnMergeTable.Click += new System.EventHandler(this.btnMergeTable_Click);
             // 
             // FormTableManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1418, 691);
+            this.ClientSize = new System.Drawing.Size(1418, 862);
+            this.Controls.Add(this.lsvBill);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.flpTable);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
@@ -362,10 +331,6 @@
         private System.Windows.Forms.FlowLayoutPanel flpTable;
         private System.Windows.Forms.TextBox txtTongTien;
         private System.Windows.Forms.Button btnGiamGia;
-        private System.Windows.Forms.ColumnHeader columnHeader9;
-        private System.Windows.Forms.ColumnHeader columnHeader6;
-        private System.Windows.Forms.ColumnHeader columnHeader7;
-        private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.NumericUpDown nmGiamGia;
         private System.Windows.Forms.Button btnMergeTable;
     }
