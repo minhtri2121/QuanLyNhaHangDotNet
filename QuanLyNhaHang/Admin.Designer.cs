@@ -72,14 +72,11 @@
             this.btnThem = new System.Windows.Forms.Button();
             this.tpBanAn = new System.Windows.Forms.TabPage();
             this.panel17 = new System.Windows.Forms.Panel();
-            this.panel20 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel18 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNameTable = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel19 = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtIDTableName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
             this.dtgvBanAn = new System.Windows.Forms.DataGridView();
@@ -139,6 +136,9 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
+            this.panel35 = new System.Windows.Forms.Panel();
+            this.lblKhuVuc = new System.Windows.Forms.Label();
+            this.cbKhuVuc = new System.Windows.Forms.ComboBox();
             this.tcAdmin.SuspendLayout();
             this.tpDoanhThu.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -159,7 +159,6 @@
             this.panel3.SuspendLayout();
             this.tpBanAn.SuspendLayout();
             this.panel17.SuspendLayout();
-            this.panel20.SuspendLayout();
             this.panel18.SuspendLayout();
             this.panel19.SuspendLayout();
             this.panel14.SuspendLayout();
@@ -186,6 +185,7 @@
             this.panel31.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvKho)).BeginInit();
             this.panel32.SuspendLayout();
+            this.panel35.SuspendLayout();
             this.SuspendLayout();
             // 
             // tcAdmin
@@ -605,7 +605,7 @@
             // 
             // panel17
             // 
-            this.panel17.Controls.Add(this.panel20);
+            this.panel17.Controls.Add(this.panel35);
             this.panel17.Controls.Add(this.panel18);
             this.panel17.Controls.Add(this.panel19);
             this.panel17.Location = new System.Drawing.Point(726, 89);
@@ -613,48 +613,21 @@
             this.panel17.Size = new System.Drawing.Size(434, 587);
             this.panel17.TabIndex = 7;
             // 
-            // panel20
-            // 
-            this.panel20.Controls.Add(this.comboBox1);
-            this.panel20.Controls.Add(this.label4);
-            this.panel20.Location = new System.Drawing.Point(0, 135);
-            this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(431, 60);
-            this.panel20.TabIndex = 11;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(174, 19);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(199, 24);
-            this.comboBox1.TabIndex = 2;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(20, 19);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(106, 24);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Trạng thái";
-            // 
             // panel18
             // 
-            this.panel18.Controls.Add(this.textBox1);
+            this.panel18.Controls.Add(this.txtNameTable);
             this.panel18.Controls.Add(this.label2);
             this.panel18.Location = new System.Drawing.Point(3, 69);
             this.panel18.Name = "panel18";
             this.panel18.Size = new System.Drawing.Size(428, 60);
             this.panel18.TabIndex = 10;
             // 
-            // textBox1
+            // txtNameTable
             // 
-            this.textBox1.Location = new System.Drawing.Point(171, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(199, 22);
-            this.textBox1.TabIndex = 2;
+            this.txtNameTable.Location = new System.Drawing.Point(171, 19);
+            this.txtNameTable.Name = "txtNameTable";
+            this.txtNameTable.Size = new System.Drawing.Size(199, 22);
+            this.txtNameTable.TabIndex = 2;
             // 
             // label2
             // 
@@ -668,19 +641,19 @@
             // 
             // panel19
             // 
-            this.panel19.Controls.Add(this.textBox4);
+            this.panel19.Controls.Add(this.txtIDTableName);
             this.panel19.Controls.Add(this.label3);
             this.panel19.Location = new System.Drawing.Point(3, 3);
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(428, 60);
             this.panel19.TabIndex = 9;
             // 
-            // textBox4
+            // txtIDTableName
             // 
-            this.textBox4.Location = new System.Drawing.Point(171, 19);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(199, 22);
-            this.textBox4.TabIndex = 2;
+            this.txtIDTableName.Location = new System.Drawing.Point(171, 19);
+            this.txtIDTableName.Name = "txtIDTableName";
+            this.txtIDTableName.Size = new System.Drawing.Size(199, 22);
+            this.txtIDTableName.TabIndex = 2;
             // 
             // label3
             // 
@@ -697,7 +670,7 @@
             this.panel14.Controls.Add(this.dtgvBanAn);
             this.panel14.Location = new System.Drawing.Point(6, 89);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(714, 593);
+            this.panel14.Size = new System.Drawing.Size(568, 593);
             this.panel14.TabIndex = 6;
             // 
             // dtgvBanAn
@@ -708,7 +681,7 @@
             this.dtgvBanAn.Name = "dtgvBanAn";
             this.dtgvBanAn.RowHeadersWidth = 51;
             this.dtgvBanAn.RowTemplate.Height = 24;
-            this.dtgvBanAn.Size = new System.Drawing.Size(708, 587);
+            this.dtgvBanAn.Size = new System.Drawing.Size(561, 587);
             this.dtgvBanAn.TabIndex = 0;
             // 
             // panel12
@@ -730,6 +703,7 @@
             this.button1.TabIndex = 3;
             this.button1.Text = "Xem";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -1246,6 +1220,33 @@
             this.entityCommand1.EnablePlanCaching = true;
             this.entityCommand1.Transaction = null;
             // 
+            // panel35
+            // 
+            this.panel35.Controls.Add(this.cbKhuVuc);
+            this.panel35.Controls.Add(this.lblKhuVuc);
+            this.panel35.Location = new System.Drawing.Point(3, 135);
+            this.panel35.Name = "panel35";
+            this.panel35.Size = new System.Drawing.Size(428, 60);
+            this.panel35.TabIndex = 12;
+            // 
+            // lblKhuVuc
+            // 
+            this.lblKhuVuc.AutoSize = true;
+            this.lblKhuVuc.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKhuVuc.Location = new System.Drawing.Point(20, 19);
+            this.lblKhuVuc.Name = "lblKhuVuc";
+            this.lblKhuVuc.Size = new System.Drawing.Size(92, 24);
+            this.lblKhuVuc.TabIndex = 0;
+            this.lblKhuVuc.Text = "Khu Vực";
+            // 
+            // cbKhuVuc
+            // 
+            this.cbKhuVuc.FormattingEnabled = true;
+            this.cbKhuVuc.Location = new System.Drawing.Point(171, 22);
+            this.cbKhuVuc.Name = "cbKhuVuc";
+            this.cbKhuVuc.Size = new System.Drawing.Size(199, 24);
+            this.cbKhuVuc.TabIndex = 1;
+            // 
             // fAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1284,8 +1285,6 @@
             this.panel3.ResumeLayout(false);
             this.tpBanAn.ResumeLayout(false);
             this.panel17.ResumeLayout(false);
-            this.panel20.ResumeLayout(false);
-            this.panel20.PerformLayout();
             this.panel18.ResumeLayout(false);
             this.panel18.PerformLayout();
             this.panel19.ResumeLayout(false);
@@ -1323,6 +1322,8 @@
             this.panel31.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvKho)).EndInit();
             this.panel32.ResumeLayout(false);
+            this.panel35.ResumeLayout(false);
+            this.panel35.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1363,13 +1364,11 @@
         private System.Windows.Forms.DataGridView dtgvDoanhThu;
         private System.Windows.Forms.DataGridView dtgvMonAn;
         private System.Windows.Forms.Panel panel17;
-        private System.Windows.Forms.Panel panel20;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel18;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNameTable;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel19;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtIDTableName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.DataGridView dtgvBanAn;
@@ -1378,7 +1377,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Panel panel21;
         private System.Windows.Forms.Panel panel22;
         private System.Windows.Forms.Label label5;
@@ -1439,5 +1437,8 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cbTenNguoiDung;
         private System.Windows.Forms.ComboBox cbBan;
+        private System.Windows.Forms.Panel panel35;
+        private System.Windows.Forms.Label lblKhuVuc;
+        private System.Windows.Forms.ComboBox cbKhuVuc;
     }
 }

@@ -43,5 +43,16 @@ namespace QuanLyNhaHang.DAO
             string query = "USPSwitchTabe @idTable1 , @idTable2 , @idnguoidung ";
             DataProvider.Instance.ExcuteQuery(query, new object[] { id1, id2, idnguoidung });
         }
+        public List<Table> GetTableList()
+        {
+            List<Table> tableList = new List<Table>();
+            DataTable data = DataProvider.Instance.ExcuteQuery("SELECT BAN.IDBan, BAN.TenBan, BAN.TrangThai, KHU_VUC.IDKhuVuc, KHU_VUC.TenKhuVuc FROM BAN INNER JOIN KHU_VUC ON BAN.IDKhuVuc = KHU_VUC.IDKhuVuc ");
+            foreach (DataRow item in data.Rows)
+            {
+                Table table = new Table(item);
+                tableList.Add(table);
+            }
+            return tableList;
+        }
     }
 }

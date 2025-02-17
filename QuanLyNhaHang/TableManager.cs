@@ -37,6 +37,7 @@ namespace QuanLyNhaHang
             ChangeAccount(loginAccount.Admin);
 
             LoadComboBoxTable(cbSwitchTable);
+         
         }
 
         #region Method
@@ -94,6 +95,7 @@ namespace QuanLyNhaHang
                 flpTable.Controls.Add(btn);
             }
         }
+
         void ShowBill(int id) 
         {
             lsvBill.Items.Clear();
@@ -139,6 +141,7 @@ namespace QuanLyNhaHang
         {
             this.Close();
         }
+
         private void thôngTinCáNhânToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fAccountProfile f = new fAccountProfile(LoginAccount);

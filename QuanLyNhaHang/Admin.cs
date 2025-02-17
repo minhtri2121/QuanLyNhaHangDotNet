@@ -47,6 +47,8 @@ namespace QuanLyNhaHang
 
             LoadCategoryIntoComboBox(cbNhomMon);
 
+            LoadTableStatus(cbKhuVuc);
+
             LoadDVTIntoComboBox(cbDVT);
 
             AddFoddBinding();
@@ -56,6 +58,10 @@ namespace QuanLyNhaHang
             LoadComboBoxTable(cbBan);
 
             LoadListAccIntoComboBox(cbTenNguoiDung);
+
+            LoadBanAn();
+
+            AddTableFood();
         }
 
         void AddAccountBinding()
@@ -73,12 +79,14 @@ namespace QuanLyNhaHang
         {
             accountList.DataSource = AccountDAO.Instance.GetListAccount();
         }
+
         void LoadListFood() 
         {
             string query = "SELECT IDMon, TuKhoa, TenMon, TenNhomMon , TenDVT,FORMAT ( Gia ,'0') AS Gia\r\nFROM MON \r\nJOIN NHOM_MON ON MON.IDNhomMon = NHOM_MON.IDNhomMon\r\nJOIN DON_VI_TINH ON MON.IDDVT = DON_VI_TINH.IDDVT;";
 
             FoodList.DataSource = DataProvider.Instance.ExcuteQuery(query);
         }
+
         void LoadQuanLiKho() 
         {
             string query = "SELECT  LMH.IDLoaiMH,LMH.TenLoaiMH, MH.IDMatHang, MH.TenMatHang , FORMAT(MH.GiaNhap , '0' ) AS GiaNhap , MH.HanSuDung\r\nFROM LOAI_MAT_HANG LMH JOIN MAT_HANG MH\r\nON LMH.IDLoaiMH = MH.IDLoaiMH;\r\n";
@@ -144,6 +152,7 @@ namespace QuanLyNhaHang
                 MessageBox.Show("Đặt lại mật khẩu thất bại");
             }
         }
+
         void AddFoddBinding()
         {
             txtIDMon.DataBindings.Clear();
@@ -160,16 +169,25 @@ namespace QuanLyNhaHang
             cbDVT.DataBindings.Add(new Binding("Text", dtgvMonAn.DataSource, "TenDVT", true, DataSourceUpdateMode.Never));
             nmGia.DataBindings.Add(new Binding("Value", dtgvMonAn.DataSource, "Gia", true, DataSourceUpdateMode.Never));
         }
+
         void LoadCategoryIntoComboBox(ComboBox cb)
         {
             cb.DataSource = CategoryDAO.Instance.GetCategory();
             cb.DisplayMember = "Name";
         }
+
+        void LoadTableStatus(ComboBox cb) 
+        {
+            cb.DataSource = ZoneDAO.Instance.GetTableListStatus();
+            cb.DisplayMember = "name";
+        }
+      
         void LoadDVTIntoComboBox(ComboBox cb)
         {
             cb.DataSource = FoodDAO.Instance.GetDVT();
             cb.DisplayMember = "Name";
         }
+
         void LoadListAccIntoComboBox(ComboBox cb)
         {
             List<Account> accounts = AccountDAO.Instance.GetListAccounts();
@@ -219,6 +237,25 @@ namespace QuanLyNhaHang
             dtpStart.Value = new DateTime(today.Year, today.Month, 1);
             dtpEnd.Value = dtpStart.Value.AddMonths(1).AddDays(-1);
         }
+
+        void LoadBanAn()
+        {
+            dtgvBanAn.DataSource = TableDAO.Instance.GetTableList();
+        }
+
+        void AddTableFood() 
+        {
+            txtIDTableName.DataBindings.Clear();
+            txtNameTable.DataBindings.Clear();
+            cbKhuVuc.DataBindings.Clear();
+
+
+            txtIDTableName.DataBindings.Add(new Binding("Text", dtgvBanAn.DataSource, "ID", true, DataSourceUpdateMode.Never));
+            txtNameTable.DataBindings.Add(new Binding("Text", dtgvBanAn.DataSource, "Name", true, DataSourceUpdateMode.Never));
+            cbKhuVuc.DataBindings.Add(new Binding("Text", dtgvBanAn.DataSource, "Zone", true, DataSourceUpdateMode.Never));
+
+        }
+
 
         #endregion
 
@@ -373,6 +410,11 @@ namespace QuanLyNhaHang
                     MessageBox.Show("Lựa chọn không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     break;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LoadBanAn();
         }
     }
     #endregion
