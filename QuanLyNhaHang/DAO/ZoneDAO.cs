@@ -24,7 +24,7 @@ namespace QuanLyNhaHang.DAO
         public List<Zone> GetTableListStatus()
         {
             List<Zone> tableListStatus = new List<Zone>();
-            DataTable data = DataProvider.Instance.ExcuteQuery("SELECT * from KHU_VUC ");
+            DataTable data = DataProvider.Instance.ExcuteQuery("SELECT IDKhuVuc, TenKhuVuc from KHU_VUC ");
             foreach (DataRow item in data.Rows)
             {
                 Zone table = new Zone(item);

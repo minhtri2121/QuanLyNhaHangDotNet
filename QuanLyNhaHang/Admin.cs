@@ -240,7 +240,7 @@ namespace QuanLyNhaHang
 
         void LoadBanAn()
         {
-            dtgvBanAn.DataSource = BanAnDAO.Instance.GetTableList();
+            dtgvBanAn.DataSource = TableDAO.Instance.GetTableList();
         }
 
         void AddTableFood() 
@@ -250,9 +250,9 @@ namespace QuanLyNhaHang
             cbKhuVuc.DataBindings.Clear();
 
 
-            txtIDTableName.DataBindings.Add(new Binding("Text", dtgvBanAn.DataSource, "id", true, DataSourceUpdateMode.Never));
-            txtNameTable.DataBindings.Add(new Binding("Text", dtgvBanAn.DataSource, "name", true, DataSourceUpdateMode.Never));
-            cbKhuVuc.DataBindings.Add(new Binding("Text", dtgvBanAn.DataSource, "tenkhuvuc", true, DataSourceUpdateMode.Never));
+            txtIDTableName.DataBindings.Add(new Binding("Text", dtgvBanAn.DataSource, "ID", true, DataSourceUpdateMode.Never));
+            txtNameTable.DataBindings.Add(new Binding("Text", dtgvBanAn.DataSource, "Name", true, DataSourceUpdateMode.Never));
+            cbKhuVuc.DataBindings.Add(new Binding("Text", dtgvBanAn.DataSource, "Zone", true, DataSourceUpdateMode.Never));
 
         }
 
