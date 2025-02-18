@@ -28,6 +28,8 @@ namespace QuanLyNhaHang.DTO
             this.Gia = (float)Convert.ToDouble(row["Gia"]);
         }
 
+        public Food() { }
+
         private int id;
         private string name;
         private string idnhom;

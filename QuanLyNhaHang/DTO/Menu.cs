@@ -10,12 +10,13 @@ namespace QuanLyNhaHang.DTO
 {
     public class Menu
     {
-        public Menu(string tenmon, int soluong, int dongia, int thanhtien)
+        public Menu(string tenmon, int soluong, int dongia, int thanhtien, int idnhomon)
         {
             this.TenMon = tenmon;
             this.SoLuong = soluong;
             this.DonGia = dongia;
             this.ThanhTien = thanhtien;
+            this.IdNhomMon = idnhomon;
         }
 
         public Menu(DataRow row)
@@ -24,12 +25,14 @@ namespace QuanLyNhaHang.DTO
             this.SoLuong = (int)row["SoLuong"];
             this.DonGia = Convert.ToInt32(row["Gia"]);
             this.ThanhTien = Convert.ToInt32(row["DonGia"]);
+            this.IdNhomMon = (int)row["IDNhomMon"];
         }
 
         private string tenMon;
         private int soLuong;
         private int donGia;
         private int thanhTien;
+        private int idNhomMon;
 
         public string TenMon
         {
@@ -50,6 +53,12 @@ namespace QuanLyNhaHang.DTO
         {
             get { return donGia; }
             set { donGia = value; }
+        }
+
+        public int IdNhomMon
+        {
+            get { return idNhomMon; }
+            set { idNhomMon = value; }
         }
     }
 }
