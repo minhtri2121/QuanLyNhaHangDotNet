@@ -45,5 +45,33 @@ namespace QuanLyNhaHang.DAO
             }
             return category;
         }
+
+        public List<Items> GetItems()
+        {
+            List<Items> list = new List<Items>();
+            string query = "select *\r\nfrom LOAI_MAT_HANG";
+            DataTable data = DataProvider.Instance.ExcuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                Items i = new Items(item);
+                list.Add(i);
+            }
+
+            return list;
+        }
+
+        public List<Supplier> GetSupplier()
+        {
+            List<Supplier> list = new List<Supplier>();
+            string query = "select *\r\nfrom NHA_CUNG_CAP";
+            DataTable data = DataProvider.Instance.ExcuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                Supplier s = new Supplier(item);
+                list.Add(s);
+            }
+
+            return list;
+        }
     }
 }

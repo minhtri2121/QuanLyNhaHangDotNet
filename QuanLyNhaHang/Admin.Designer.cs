@@ -113,16 +113,17 @@
             this.button5 = new System.Windows.Forms.Button();
             this.panel27 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.cbLoaiMH = new System.Windows.Forms.ComboBox();
+            this.cbNhaCC = new System.Windows.Forms.ComboBox();
             this.lblNhaCungCap = new System.Windows.Forms.Label();
             this.panel34 = new System.Windows.Forms.Panel();
             this.txtHSD = new System.Windows.Forms.TextBox();
             this.lblHanSuDung = new System.Windows.Forms.Label();
             this.panel33 = new System.Windows.Forms.Panel();
+            this.nmGiaNhap = new System.Windows.Forms.NumericUpDown();
             this.lblGiaNhap = new System.Windows.Forms.Label();
             this.btnNhap = new System.Windows.Forms.Button();
             this.panel28 = new System.Windows.Forms.Panel();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbLoaiMH = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel29 = new System.Windows.Forms.Panel();
             this.txtTenMatHang = new System.Windows.Forms.TextBox();
@@ -138,7 +139,6 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
-            this.nmGiaNhap = new System.Windows.Forms.NumericUpDown();
             this.tcAdmin.SuspendLayout();
             this.tpDoanhThu.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -180,13 +180,13 @@
             this.panel13.SuspendLayout();
             this.panel34.SuspendLayout();
             this.panel33.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nmGiaNhap)).BeginInit();
             this.panel28.SuspendLayout();
             this.panel29.SuspendLayout();
             this.panel30.SuspendLayout();
             this.panel31.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvKho)).BeginInit();
             this.panel32.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nmGiaNhap)).BeginInit();
             this.SuspendLayout();
             // 
             // tcAdmin
@@ -1006,20 +1006,20 @@
             // 
             // panel13
             // 
-            this.panel13.Controls.Add(this.cbLoaiMH);
+            this.panel13.Controls.Add(this.cbNhaCC);
             this.panel13.Controls.Add(this.lblNhaCungCap);
             this.panel13.Location = new System.Drawing.Point(3, 333);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(419, 60);
             this.panel13.TabIndex = 14;
             // 
-            // cbLoaiMH
+            // cbNhaCC
             // 
-            this.cbLoaiMH.FormattingEnabled = true;
-            this.cbLoaiMH.Location = new System.Drawing.Point(195, 19);
-            this.cbLoaiMH.Name = "cbLoaiMH";
-            this.cbLoaiMH.Size = new System.Drawing.Size(199, 24);
-            this.cbLoaiMH.TabIndex = 2;
+            this.cbNhaCC.FormattingEnabled = true;
+            this.cbNhaCC.Location = new System.Drawing.Point(195, 19);
+            this.cbNhaCC.Name = "cbNhaCC";
+            this.cbNhaCC.Size = new System.Drawing.Size(199, 24);
+            this.cbNhaCC.TabIndex = 2;
             // 
             // lblNhaCungCap
             // 
@@ -1066,6 +1066,18 @@
             this.panel33.Size = new System.Drawing.Size(419, 60);
             this.panel33.TabIndex = 13;
             // 
+            // nmGiaNhap
+            // 
+            this.nmGiaNhap.Location = new System.Drawing.Point(192, 23);
+            this.nmGiaNhap.Maximum = new decimal(new int[] {
+            -727379969,
+            232,
+            0,
+            0});
+            this.nmGiaNhap.Name = "nmGiaNhap";
+            this.nmGiaNhap.Size = new System.Drawing.Size(199, 22);
+            this.nmGiaNhap.TabIndex = 2;
+            // 
             // lblGiaNhap
             // 
             this.lblGiaNhap.AutoSize = true;
@@ -1087,20 +1099,20 @@
             // 
             // panel28
             // 
-            this.panel28.Controls.Add(this.comboBox2);
+            this.panel28.Controls.Add(this.cbLoaiMH);
             this.panel28.Controls.Add(this.label6);
             this.panel28.Location = new System.Drawing.Point(3, 267);
             this.panel28.Name = "panel28";
             this.panel28.Size = new System.Drawing.Size(419, 60);
             this.panel28.TabIndex = 11;
             // 
-            // comboBox2
+            // cbLoaiMH
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(195, 19);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(199, 24);
-            this.comboBox2.TabIndex = 2;
+            this.cbLoaiMH.FormattingEnabled = true;
+            this.cbLoaiMH.Location = new System.Drawing.Point(195, 19);
+            this.cbLoaiMH.Name = "cbLoaiMH";
+            this.cbLoaiMH.Size = new System.Drawing.Size(199, 24);
+            this.cbLoaiMH.TabIndex = 2;
             // 
             // label6
             // 
@@ -1241,18 +1253,6 @@
             this.entityCommand1.EnablePlanCaching = true;
             this.entityCommand1.Transaction = null;
             // 
-            // nmGiaNhap
-            // 
-            this.nmGiaNhap.Location = new System.Drawing.Point(192, 23);
-            this.nmGiaNhap.Maximum = new decimal(new int[] {
-            -727379969,
-            232,
-            0,
-            0});
-            this.nmGiaNhap.Name = "nmGiaNhap";
-            this.nmGiaNhap.Size = new System.Drawing.Size(199, 22);
-            this.nmGiaNhap.TabIndex = 2;
-            // 
             // fAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1321,6 +1321,7 @@
             this.panel34.PerformLayout();
             this.panel33.ResumeLayout(false);
             this.panel33.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nmGiaNhap)).EndInit();
             this.panel28.ResumeLayout(false);
             this.panel28.PerformLayout();
             this.panel29.ResumeLayout(false);
@@ -1330,7 +1331,6 @@
             this.panel31.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvKho)).EndInit();
             this.panel32.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.nmGiaNhap)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1406,7 +1406,7 @@
         private System.Windows.Forms.Panel panel27;
         private System.Windows.Forms.Button btnNhap;
         private System.Windows.Forms.Panel panel28;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbLoaiMH;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel29;
         private System.Windows.Forms.TextBox txtTenMatHang;
@@ -1430,7 +1430,7 @@
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.ComboBox cbLoaiMH;
+        private System.Windows.Forms.ComboBox cbNhaCC;
         private System.Windows.Forms.Label lblNhaCungCap;
         private System.Windows.Forms.TextBox txtTuKhoa;
         private System.Windows.Forms.Panel panel15;
