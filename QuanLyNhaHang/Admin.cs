@@ -436,7 +436,6 @@ namespace QuanLyNhaHang
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            // Kiểm tra xem txtIDMon có giá trị hợp lệ không
             if (string.IsNullOrEmpty(txtIDMon.Text))
             {
                 MessageBox.Show("Vui lòng nhập ID món cần xóa.");
@@ -452,10 +451,8 @@ namespace QuanLyNhaHang
 
             try
             {
-                // Thực hiện câu lệnh DELETE và lấy số hàng bị ảnh hưởng
                 int rowsAffected = DataProvider.Instance.ExcuteNonQuery("DELETE FROM MON WHERE IDMon = " + id);
 
-                // Kiểm tra số hàng bị ảnh hưởng
                 if (rowsAffected > 0)
                 {
                     MessageBox.Show("Xóa món thành công.");
@@ -467,11 +464,9 @@ namespace QuanLyNhaHang
             }
             catch (Exception ex)
             {
-                // Xử lý ngoại lệ nếu có lỗi xảy ra
                 MessageBox.Show("Lỗi khi xóa món: " + ex.Message);
             }
 
-            // Tải lại danh sách món ăn
             LoadListFood();
         }
     }
