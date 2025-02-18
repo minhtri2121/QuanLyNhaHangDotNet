@@ -113,7 +113,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.panel27 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.cbLoaiMH = new System.Windows.Forms.ComboBox();
+            this.cbNhaCC = new System.Windows.Forms.ComboBox();
             this.lblNhaCungCap = new System.Windows.Forms.Label();
             this.panel34 = new System.Windows.Forms.Panel();
             this.txtHSD = new System.Windows.Forms.TextBox();
@@ -123,7 +123,7 @@
             this.lblGiaNhap = new System.Windows.Forms.Label();
             this.btnNhap = new System.Windows.Forms.Button();
             this.panel28 = new System.Windows.Forms.Panel();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbLoaiMH = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel29 = new System.Windows.Forms.Panel();
             this.txtTenMatHang = new System.Windows.Forms.TextBox();
@@ -1007,20 +1007,20 @@
             // 
             // panel13
             // 
-            this.panel13.Controls.Add(this.cbLoaiMH);
+            this.panel13.Controls.Add(this.cbNhaCC);
             this.panel13.Controls.Add(this.lblNhaCungCap);
             this.panel13.Location = new System.Drawing.Point(3, 333);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(419, 60);
             this.panel13.TabIndex = 14;
             // 
-            // cbLoaiMH
+            // cbNhaCC
             // 
-            this.cbLoaiMH.FormattingEnabled = true;
-            this.cbLoaiMH.Location = new System.Drawing.Point(195, 19);
-            this.cbLoaiMH.Name = "cbLoaiMH";
-            this.cbLoaiMH.Size = new System.Drawing.Size(199, 24);
-            this.cbLoaiMH.TabIndex = 2;
+            this.cbNhaCC.FormattingEnabled = true;
+            this.cbNhaCC.Location = new System.Drawing.Point(195, 19);
+            this.cbNhaCC.Name = "cbNhaCC";
+            this.cbNhaCC.Size = new System.Drawing.Size(199, 24);
+            this.cbNhaCC.TabIndex = 2;
             // 
             // lblNhaCungCap
             // 
@@ -1100,20 +1100,20 @@
             // 
             // panel28
             // 
-            this.panel28.Controls.Add(this.comboBox2);
+            this.panel28.Controls.Add(this.cbLoaiMH);
             this.panel28.Controls.Add(this.label6);
             this.panel28.Location = new System.Drawing.Point(3, 267);
             this.panel28.Name = "panel28";
             this.panel28.Size = new System.Drawing.Size(419, 60);
             this.panel28.TabIndex = 11;
             // 
-            // comboBox2
+            // cbLoaiMH
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(195, 19);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(199, 24);
-            this.comboBox2.TabIndex = 2;
+            this.cbLoaiMH.FormattingEnabled = true;
+            this.cbLoaiMH.Location = new System.Drawing.Point(195, 19);
+            this.cbLoaiMH.Name = "cbLoaiMH";
+            this.cbLoaiMH.Size = new System.Drawing.Size(199, 24);
+            this.cbLoaiMH.TabIndex = 2;
             // 
             // label6
             // 
@@ -1407,7 +1407,7 @@
         private System.Windows.Forms.Panel panel27;
         private System.Windows.Forms.Button btnNhap;
         private System.Windows.Forms.Panel panel28;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbLoaiMH;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel29;
         private System.Windows.Forms.TextBox txtTenMatHang;
@@ -1431,7 +1431,7 @@
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.ComboBox cbLoaiMH;
+        private System.Windows.Forms.ComboBox cbNhaCC;
         private System.Windows.Forms.Label lblNhaCungCap;
         private System.Windows.Forms.TextBox txtTuKhoa;
         private System.Windows.Forms.Panel panel15;

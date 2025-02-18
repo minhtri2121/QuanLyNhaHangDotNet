@@ -47,6 +47,10 @@ namespace QuanLyNhaHang
 
             LoadCategoryIntoComboBox(cbNhomMon);
 
+            LoadCategoryItemsIntoComboBox(cbLoaiMH);
+
+            LoadCategorySupplierIntoComboBox(cbNhaCC);
+
             LoadTableStatus(cbKhuVuc);
 
             LoadDVTIntoComboBox(cbDVT);
@@ -85,11 +89,25 @@ namespace QuanLyNhaHang
             txtHSD.DataBindings.Clear();
             cbLoaiMH.DataBindings.Clear();
 
+
             txtMatHangID.DataBindings.Add(new Binding("Text", dtgvKho.DataSource, "IDMatHang", true, DataSourceUpdateMode.Never));
             txtTenMatHang.DataBindings.Add(new Binding("Text", dtgvKho.DataSource, "TenMatHang", true, DataSourceUpdateMode.Never));
             nmGiaNhap.DataBindings.Add(new Binding("text", dtgvKho.DataSource, "GiaNhap", true, DataSourceUpdateMode.Never));
             txtHSD.DataBindings.Add(new Binding("Text", dtgvKho.DataSource, "HanSuDung", true, DataSourceUpdateMode.Never));
-            cbLoaiMH.DataBindings.Add(new Binding("Text", dtgvKho.DataSource, "IDLoaiMH", true, DataSourceUpdateMode.Never));
+            cbLoaiMH.DataBindings.Add(new Binding("Text", dtgvKho.DataSource, "TenLoaiMH", true, DataSourceUpdateMode.Never));
+            cbNhaCC.DataBindings.Add(new Binding("Text", dtgvKho.DataSource, "TenNCC", true, DataSourceUpdateMode.Never));
+        }
+
+        void LoadCategoryItemsIntoComboBox(ComboBox cb)
+        {
+            cb.DataSource = CategoryDAO.Instance.GetItems();
+            cb.DisplayMember = "Name";
+        }
+
+        void LoadCategorySupplierIntoComboBox(ComboBox cb)
+        {
+            cb.DataSource = SupplierDAO.Instance.GetSupplier();
+            cb.DisplayMember = "tenncc";
         }
 
         void LoadAccount()
@@ -106,7 +124,7 @@ namespace QuanLyNhaHang
 
         void LoadQuanLiKho() 
         {
-            string query = "SELECT  LMH.IDLoaiMH,LMH.TenLoaiMH, MH.IDMatHang, MH.TenMatHang , FORMAT(MH.GiaNhap , '0' ) AS GiaNhap , MH.HanSuDung\r\nFROM LOAI_MAT_HANG LMH JOIN MAT_HANG MH\r\nON LMH.IDLoaiMH = MH.IDLoaiMH;\r\n";
+            string query = "SELECT \r\n    MH.IDMatHang, \r\n    LMH.TenLoaiMH, \r\n    MH.TenMatHang, \r\n    MH.GiaNhap, \r\n    MH.HanSuDung, \r\n    NCC.TenNCC\r\nFROM MAT_HANG MH\r\nJOIN LOAI_MAT_HANG LMH ON MH.IDLoaiMH = LMH.IDLoaiMH\r\nCROSS JOIN NHA_CUNG_CAP NCC;";
 
             dtgvKho.DataSource = DataProvider.Instance.ExcuteQuery(query);
         }
@@ -258,6 +276,11 @@ namespace QuanLyNhaHang
         void LoadBanAn()
         {
             dtgvBanAn.DataSource = TableDAO.Instance.GetTableList();
+        }
+
+        void LoadSupplier()
+        {
+            dtgvKho.DataSource = SupplierDAO.Instance.GetSupplier();
         }
 
         void AddTableFood() 
