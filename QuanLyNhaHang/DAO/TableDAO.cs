@@ -59,5 +59,23 @@ namespace QuanLyNhaHang.DAO
             }
             return tableList;
         }
+
+        public bool InsertTableFood (string name , int idzone)
+        {
+            string query = string.Format(
+                "INSERT BAN( TenBan, IDKhuVuc ) VALUES( N'{0}', {1})",
+                name, idzone
+            );
+            int result = DataProvider.Instance.ExcuteNonQuery(query);
+
+            return result > 0;
+        }
+        public bool UpdateTableFood(int idban , string name, int? idzone)
+        {
+            string query = string.Format("UPDATE BAN SET TenBan = N'{0}', IDKhuVuc = {1} WHERE IDBan = {2}", name, idzone, idban);
+
+            int result = DataProvider.Instance.ExcuteNonQuery(query);
+            return result > 0;
+        }
     }
 }
