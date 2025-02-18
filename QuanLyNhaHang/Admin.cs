@@ -62,6 +62,8 @@ namespace QuanLyNhaHang
             LoadBanAn();
 
             AddTableFood();
+
+            AddCategoryBinding();
         }
 
         void AddAccountBinding()
@@ -73,6 +75,21 @@ namespace QuanLyNhaHang
             txtTenTk.DataBindings.Add(new Binding("Text", dtgvTaiKhoan.DataSource, "TenDangNhap",true, DataSourceUpdateMode.Never));
             txtTenHienThi.DataBindings.Add(new Binding("Text", dtgvTaiKhoan.DataSource, "TenNguoiDung", true, DataSourceUpdateMode.Never));
             nmLoaiTK.DataBindings.Add(new Binding("Value", dtgvTaiKhoan.DataSource, "Admin", true, DataSourceUpdateMode.Never));
+        }
+
+        void AddCategoryBinding()
+        {
+            txtMatHangID.DataBindings.Clear();
+            txtTenMatHang.DataBindings.Clear();
+            nmGiaNhap.DataBindings.Clear();
+            txtHSD.DataBindings.Clear();
+            cbLoaiMH.DataBindings.Clear();
+
+            txtMatHangID.DataBindings.Add(new Binding("Text", dtgvKho.DataSource, "IDMatHang", true, DataSourceUpdateMode.Never));
+            txtTenMatHang.DataBindings.Add(new Binding("Text", dtgvKho.DataSource, "TenMatHang", true, DataSourceUpdateMode.Never));
+            nmGiaNhap.DataBindings.Add(new Binding("text", dtgvKho.DataSource, "GiaNhap", true, DataSourceUpdateMode.Never));
+            txtHSD.DataBindings.Add(new Binding("Text", dtgvKho.DataSource, "HanSuDung", true, DataSourceUpdateMode.Never));
+            cbLoaiMH.DataBindings.Add(new Binding("Text", dtgvKho.DataSource, "IDLoaiMH", true, DataSourceUpdateMode.Never));
         }
 
         void LoadAccount()

@@ -72,6 +72,9 @@
             this.btnThem = new System.Windows.Forms.Button();
             this.tpBanAn = new System.Windows.Forms.TabPage();
             this.panel17 = new System.Windows.Forms.Panel();
+            this.panel35 = new System.Windows.Forms.Panel();
+            this.cbKhuVuc = new System.Windows.Forms.ComboBox();
+            this.lblKhuVuc = new System.Windows.Forms.Label();
             this.panel18 = new System.Windows.Forms.Panel();
             this.txtNameTable = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -110,20 +113,19 @@
             this.button5 = new System.Windows.Forms.Button();
             this.panel27 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.cbLoaiMH = new System.Windows.Forms.ComboBox();
             this.lblNhaCungCap = new System.Windows.Forms.Label();
             this.panel34 = new System.Windows.Forms.Panel();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtHSD = new System.Windows.Forms.TextBox();
             this.lblHanSuDung = new System.Windows.Forms.Label();
             this.panel33 = new System.Windows.Forms.Panel();
-            this.textBox6 = new System.Windows.Forms.TextBox();
             this.lblGiaNhap = new System.Windows.Forms.Label();
             this.btnNhap = new System.Windows.Forms.Button();
             this.panel28 = new System.Windows.Forms.Panel();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel29 = new System.Windows.Forms.Panel();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtTenMatHang = new System.Windows.Forms.TextBox();
             this.lblTenMatHang = new System.Windows.Forms.Label();
             this.panel30 = new System.Windows.Forms.Panel();
             this.txtMatHangID = new System.Windows.Forms.TextBox();
@@ -136,9 +138,7 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
-            this.panel35 = new System.Windows.Forms.Panel();
-            this.lblKhuVuc = new System.Windows.Forms.Label();
-            this.cbKhuVuc = new System.Windows.Forms.ComboBox();
+            this.nmGiaNhap = new System.Windows.Forms.NumericUpDown();
             this.tcAdmin.SuspendLayout();
             this.tpDoanhThu.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -159,6 +159,7 @@
             this.panel3.SuspendLayout();
             this.tpBanAn.SuspendLayout();
             this.panel17.SuspendLayout();
+            this.panel35.SuspendLayout();
             this.panel18.SuspendLayout();
             this.panel19.SuspendLayout();
             this.panel14.SuspendLayout();
@@ -185,7 +186,7 @@
             this.panel31.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvKho)).BeginInit();
             this.panel32.SuspendLayout();
-            this.panel35.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nmGiaNhap)).BeginInit();
             this.SuspendLayout();
             // 
             // tcAdmin
@@ -613,6 +614,33 @@
             this.panel17.Size = new System.Drawing.Size(434, 587);
             this.panel17.TabIndex = 7;
             // 
+            // panel35
+            // 
+            this.panel35.Controls.Add(this.cbKhuVuc);
+            this.panel35.Controls.Add(this.lblKhuVuc);
+            this.panel35.Location = new System.Drawing.Point(3, 135);
+            this.panel35.Name = "panel35";
+            this.panel35.Size = new System.Drawing.Size(428, 60);
+            this.panel35.TabIndex = 12;
+            // 
+            // cbKhuVuc
+            // 
+            this.cbKhuVuc.FormattingEnabled = true;
+            this.cbKhuVuc.Location = new System.Drawing.Point(171, 22);
+            this.cbKhuVuc.Name = "cbKhuVuc";
+            this.cbKhuVuc.Size = new System.Drawing.Size(199, 24);
+            this.cbKhuVuc.TabIndex = 1;
+            // 
+            // lblKhuVuc
+            // 
+            this.lblKhuVuc.AutoSize = true;
+            this.lblKhuVuc.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKhuVuc.Location = new System.Drawing.Point(20, 19);
+            this.lblKhuVuc.Name = "lblKhuVuc";
+            this.lblKhuVuc.Size = new System.Drawing.Size(92, 24);
+            this.lblKhuVuc.TabIndex = 0;
+            this.lblKhuVuc.Text = "Khu Vực";
+            // 
             // panel18
             // 
             this.panel18.Controls.Add(this.txtNameTable);
@@ -978,20 +1006,20 @@
             // 
             // panel13
             // 
-            this.panel13.Controls.Add(this.comboBox4);
+            this.panel13.Controls.Add(this.cbLoaiMH);
             this.panel13.Controls.Add(this.lblNhaCungCap);
             this.panel13.Location = new System.Drawing.Point(3, 333);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(419, 60);
             this.panel13.TabIndex = 14;
             // 
-            // comboBox4
+            // cbLoaiMH
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(195, 19);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(199, 24);
-            this.comboBox4.TabIndex = 2;
+            this.cbLoaiMH.FormattingEnabled = true;
+            this.cbLoaiMH.Location = new System.Drawing.Point(195, 19);
+            this.cbLoaiMH.Name = "cbLoaiMH";
+            this.cbLoaiMH.Size = new System.Drawing.Size(199, 24);
+            this.cbLoaiMH.TabIndex = 2;
             // 
             // lblNhaCungCap
             // 
@@ -1005,19 +1033,19 @@
             // 
             // panel34
             // 
-            this.panel34.Controls.Add(this.textBox7);
+            this.panel34.Controls.Add(this.txtHSD);
             this.panel34.Controls.Add(this.lblHanSuDung);
             this.panel34.Location = new System.Drawing.Point(3, 201);
             this.panel34.Name = "panel34";
             this.panel34.Size = new System.Drawing.Size(419, 60);
             this.panel34.TabIndex = 11;
             // 
-            // textBox7
+            // txtHSD
             // 
-            this.textBox7.Location = new System.Drawing.Point(192, 19);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(199, 22);
-            this.textBox7.TabIndex = 2;
+            this.txtHSD.Location = new System.Drawing.Point(192, 19);
+            this.txtHSD.Name = "txtHSD";
+            this.txtHSD.Size = new System.Drawing.Size(199, 22);
+            this.txtHSD.TabIndex = 2;
             // 
             // lblHanSuDung
             // 
@@ -1031,19 +1059,12 @@
             // 
             // panel33
             // 
-            this.panel33.Controls.Add(this.textBox6);
+            this.panel33.Controls.Add(this.nmGiaNhap);
             this.panel33.Controls.Add(this.lblGiaNhap);
             this.panel33.Location = new System.Drawing.Point(3, 135);
             this.panel33.Name = "panel33";
             this.panel33.Size = new System.Drawing.Size(419, 60);
             this.panel33.TabIndex = 13;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(192, 19);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(199, 22);
-            this.textBox6.TabIndex = 2;
             // 
             // lblGiaNhap
             // 
@@ -1093,19 +1114,19 @@
             // 
             // panel29
             // 
-            this.panel29.Controls.Add(this.textBox5);
+            this.panel29.Controls.Add(this.txtTenMatHang);
             this.panel29.Controls.Add(this.lblTenMatHang);
             this.panel29.Location = new System.Drawing.Point(3, 69);
             this.panel29.Name = "panel29";
             this.panel29.Size = new System.Drawing.Size(419, 60);
             this.panel29.TabIndex = 10;
             // 
-            // textBox5
+            // txtTenMatHang
             // 
-            this.textBox5.Location = new System.Drawing.Point(192, 19);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(199, 22);
-            this.textBox5.TabIndex = 2;
+            this.txtTenMatHang.Location = new System.Drawing.Point(192, 19);
+            this.txtTenMatHang.Name = "txtTenMatHang";
+            this.txtTenMatHang.Size = new System.Drawing.Size(199, 22);
+            this.txtTenMatHang.TabIndex = 2;
             // 
             // lblTenMatHang
             // 
@@ -1220,32 +1241,17 @@
             this.entityCommand1.EnablePlanCaching = true;
             this.entityCommand1.Transaction = null;
             // 
-            // panel35
+            // nmGiaNhap
             // 
-            this.panel35.Controls.Add(this.cbKhuVuc);
-            this.panel35.Controls.Add(this.lblKhuVuc);
-            this.panel35.Location = new System.Drawing.Point(3, 135);
-            this.panel35.Name = "panel35";
-            this.panel35.Size = new System.Drawing.Size(428, 60);
-            this.panel35.TabIndex = 12;
-            // 
-            // lblKhuVuc
-            // 
-            this.lblKhuVuc.AutoSize = true;
-            this.lblKhuVuc.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKhuVuc.Location = new System.Drawing.Point(20, 19);
-            this.lblKhuVuc.Name = "lblKhuVuc";
-            this.lblKhuVuc.Size = new System.Drawing.Size(92, 24);
-            this.lblKhuVuc.TabIndex = 0;
-            this.lblKhuVuc.Text = "Khu Vực";
-            // 
-            // cbKhuVuc
-            // 
-            this.cbKhuVuc.FormattingEnabled = true;
-            this.cbKhuVuc.Location = new System.Drawing.Point(171, 22);
-            this.cbKhuVuc.Name = "cbKhuVuc";
-            this.cbKhuVuc.Size = new System.Drawing.Size(199, 24);
-            this.cbKhuVuc.TabIndex = 1;
+            this.nmGiaNhap.Location = new System.Drawing.Point(192, 23);
+            this.nmGiaNhap.Maximum = new decimal(new int[] {
+            -727379969,
+            232,
+            0,
+            0});
+            this.nmGiaNhap.Name = "nmGiaNhap";
+            this.nmGiaNhap.Size = new System.Drawing.Size(199, 22);
+            this.nmGiaNhap.TabIndex = 2;
             // 
             // fAdmin
             // 
@@ -1285,6 +1291,8 @@
             this.panel3.ResumeLayout(false);
             this.tpBanAn.ResumeLayout(false);
             this.panel17.ResumeLayout(false);
+            this.panel35.ResumeLayout(false);
+            this.panel35.PerformLayout();
             this.panel18.ResumeLayout(false);
             this.panel18.PerformLayout();
             this.panel19.ResumeLayout(false);
@@ -1322,8 +1330,7 @@
             this.panel31.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvKho)).EndInit();
             this.panel32.ResumeLayout(false);
-            this.panel35.ResumeLayout(false);
-            this.panel35.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nmGiaNhap)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1402,7 +1409,7 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel29;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtTenMatHang;
         private System.Windows.Forms.Label lblTenMatHang;
         private System.Windows.Forms.Panel panel30;
         private System.Windows.Forms.TextBox txtMatHangID;
@@ -1415,16 +1422,15 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Panel panel34;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtHSD;
         private System.Windows.Forms.Label lblHanSuDung;
         private System.Windows.Forms.Panel panel33;
-        private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label lblGiaNhap;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox cbLoaiMH;
         private System.Windows.Forms.Label lblNhaCungCap;
         private System.Windows.Forms.TextBox txtTuKhoa;
         private System.Windows.Forms.Panel panel15;
@@ -1440,5 +1446,6 @@
         private System.Windows.Forms.Panel panel35;
         private System.Windows.Forms.Label lblKhuVuc;
         private System.Windows.Forms.ComboBox cbKhuVuc;
+        private System.Windows.Forms.NumericUpDown nmGiaNhap;
     }
 }
