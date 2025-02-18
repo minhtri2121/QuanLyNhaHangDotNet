@@ -33,9 +33,10 @@ namespace QuanLyNhaHang.DAO
             return -1;
         }
 
-        public void InsertBill(int idban, int idnguoidung)
+        public bool InsertBill(int idban, int idnguoidung)
         {
-            DataProvider.Instance.ExcuteQuery("EXEC InsertBill @idban , @idnguoidung ", new object[] { idban, idnguoidung });
+            int result = DataProvider.Instance.ExcuteNonQuery("EXEC InsertBill @idban , @idnguoidung ", new object[] { idban, idnguoidung });
+            return result > 0;
         }
 
         public int GetMaxIdBill()
@@ -50,10 +51,11 @@ namespace QuanLyNhaHang.DAO
             }
         }
 
-        public void CheckOut(int idhoadon, int giamgia, double tongtien)
+        public bool CheckOut(int idhoadon, int giamgia, double tongtien)
         {
             string query = "UPDATE HOA_DON SET TrangThai = N'Đã thanh toán', GioThanhToan = CONVERT(TIME(7), GETDATE()), Ca = CASE \r\nWHEN GioVao >= '00:00:00' AND GioVao < '06:00:00' THEN N'Khuya'\r\nWHEN GioVao >= '06:00:00' AND GioVao < '12:00:00' THEN N'Sáng'\r\nWHEN GioVao >= '12:00:00' AND GioVao < '18:00:00' THEN N'Chiều'\r\nELSE N'Tối' END, GiamGia = " + giamgia + ", TongTien = " + tongtien + " WHERE IDHoaDon = " + idhoadon;
-            DataProvider.Instance.ExcuteNonQuery(query);
+            int resutl = DataProvider.Instance.ExcuteNonQuery(query);
+            return resutl > 0;
         }
 
         public DataTable GetBillByDate(string date1, string date2)
