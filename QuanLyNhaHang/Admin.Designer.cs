@@ -119,6 +119,7 @@
             this.txtHSD = new System.Windows.Forms.TextBox();
             this.lblHanSuDung = new System.Windows.Forms.Label();
             this.panel33 = new System.Windows.Forms.Panel();
+            this.nmGiaNhap = new System.Windows.Forms.NumericUpDown();
             this.lblGiaNhap = new System.Windows.Forms.Label();
             this.btnNhap = new System.Windows.Forms.Button();
             this.panel28 = new System.Windows.Forms.Panel();
@@ -138,7 +139,6 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
-            this.nmGiaNhap = new System.Windows.Forms.NumericUpDown();
             this.tcAdmin.SuspendLayout();
             this.tpDoanhThu.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -180,13 +180,13 @@
             this.panel13.SuspendLayout();
             this.panel34.SuspendLayout();
             this.panel33.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nmGiaNhap)).BeginInit();
             this.panel28.SuspendLayout();
             this.panel29.SuspendLayout();
             this.panel30.SuspendLayout();
             this.panel31.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvKho)).BeginInit();
             this.panel32.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nmGiaNhap)).BeginInit();
             this.SuspendLayout();
             // 
             // tcAdmin
@@ -580,6 +580,7 @@
             this.btnXoa.TabIndex = 1;
             this.btnXoa.Text = "Xoá";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnThem
             // 
@@ -1066,6 +1067,18 @@
             this.panel33.Size = new System.Drawing.Size(419, 60);
             this.panel33.TabIndex = 13;
             // 
+            // nmGiaNhap
+            // 
+            this.nmGiaNhap.Location = new System.Drawing.Point(192, 23);
+            this.nmGiaNhap.Maximum = new decimal(new int[] {
+            -727379969,
+            232,
+            0,
+            0});
+            this.nmGiaNhap.Name = "nmGiaNhap";
+            this.nmGiaNhap.Size = new System.Drawing.Size(199, 22);
+            this.nmGiaNhap.TabIndex = 2;
+            // 
             // lblGiaNhap
             // 
             this.lblGiaNhap.AutoSize = true;
@@ -1241,18 +1254,6 @@
             this.entityCommand1.EnablePlanCaching = true;
             this.entityCommand1.Transaction = null;
             // 
-            // nmGiaNhap
-            // 
-            this.nmGiaNhap.Location = new System.Drawing.Point(192, 23);
-            this.nmGiaNhap.Maximum = new decimal(new int[] {
-            -727379969,
-            232,
-            0,
-            0});
-            this.nmGiaNhap.Name = "nmGiaNhap";
-            this.nmGiaNhap.Size = new System.Drawing.Size(199, 22);
-            this.nmGiaNhap.TabIndex = 2;
-            // 
             // fAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1321,6 +1322,7 @@
             this.panel34.PerformLayout();
             this.panel33.ResumeLayout(false);
             this.panel33.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nmGiaNhap)).EndInit();
             this.panel28.ResumeLayout(false);
             this.panel28.PerformLayout();
             this.panel29.ResumeLayout(false);
@@ -1330,7 +1332,6 @@
             this.panel31.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvKho)).EndInit();
             this.panel32.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.nmGiaNhap)).EndInit();
             this.ResumeLayout(false);
 
         }
