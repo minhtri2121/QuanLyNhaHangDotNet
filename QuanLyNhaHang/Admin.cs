@@ -30,7 +30,6 @@ namespace QuanLyNhaHang
             LoadAdmin();
         }
 
-
         #region methods
 
         private void LoadAdmin()
@@ -260,7 +259,6 @@ namespace QuanLyNhaHang
 
         #endregion
 
-
         #region Event
         private void btnThem_Click(object sender, EventArgs e)
         {
@@ -418,6 +416,7 @@ namespace QuanLyNhaHang
             LoadBanAn();
         }
 
+        public event EventHandler OnTableAdded;
         private void btnAddTableFood_Click(object sender, EventArgs e)
         {
             string name = txtNameTable.Text;
@@ -432,8 +431,10 @@ namespace QuanLyNhaHang
                 MessageBox.Show("Thêm bàn thất bại");
             }
             LoadAdmin();
+            OnTableAdded?.Invoke(this, EventArgs.Empty);
         }
 
+        public event EventHandler OnTableUpdated;
         private void btnEditTableFood_Click(object sender, EventArgs e)
         {
             string name = txtNameTable.Text;
@@ -454,6 +455,30 @@ namespace QuanLyNhaHang
                 MessageBox.Show("Sửa bàn thất bại");
             }
 
+            LoadAdmin();
+            OnTableUpdated?.Invoke(this, EventArgs.Empty);
+        }
+
+        public event EventHandler OnTableDeleted;
+        private void btnDeleteTableFood_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(txtIDTableName.Text);
+            string status = TableDAO.Instance.GetTableByStatus(id);
+            if (status == "Có Người")
+            {
+                MessageBox.Show("Bàn đang có người, không thể xoá!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; 
+            }
+            if (TableDAO.instance.DeleteTableFood(id))
+            {
+                MessageBox.Show("Xoá bàn thành công");
+                LoadBanAn();
+                OnTableDeleted?.Invoke(this, EventArgs.Empty);
+            }
+            else
+            {
+                MessageBox.Show("Xoá bàn thất bại");
+            }
             LoadAdmin();
         }
     }

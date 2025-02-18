@@ -619,8 +619,9 @@
             // 
             // txtTableStatus
             // 
-            this.txtTableStatus.Location = new System.Drawing.Point(171, 19);
+            this.txtTableStatus.Location = new System.Drawing.Point(174, 19);
             this.txtTableStatus.Name = "txtTableStatus";
+            this.txtTableStatus.ReadOnly = true;
             this.txtTableStatus.Size = new System.Drawing.Size(199, 22);
             this.txtTableStatus.TabIndex = 2;
             // 
@@ -710,6 +711,7 @@
             // 
             this.txtIDTableName.Location = new System.Drawing.Point(171, 19);
             this.txtIDTableName.Name = "txtIDTableName";
+            this.txtIDTableName.ReadOnly = true;
             this.txtIDTableName.Size = new System.Drawing.Size(199, 22);
             this.txtIDTableName.TabIndex = 2;
             // 
@@ -728,7 +730,7 @@
             this.panel14.Controls.Add(this.dtgvBanAn);
             this.panel14.Location = new System.Drawing.Point(6, 89);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(568, 593);
+            this.panel14.Size = new System.Drawing.Size(714, 593);
             this.panel14.TabIndex = 6;
             // 
             // dtgvBanAn
@@ -739,7 +741,7 @@
             this.dtgvBanAn.Name = "dtgvBanAn";
             this.dtgvBanAn.RowHeadersWidth = 51;
             this.dtgvBanAn.RowTemplate.Height = 24;
-            this.dtgvBanAn.Size = new System.Drawing.Size(561, 587);
+            this.dtgvBanAn.Size = new System.Drawing.Size(708, 587);
             this.dtgvBanAn.TabIndex = 0;
             // 
             // panel12
@@ -781,6 +783,7 @@
             this.btnDeleteTableFood.TabIndex = 1;
             this.btnDeleteTableFood.Text = "Xoá";
             this.btnDeleteTableFood.UseVisualStyleBackColor = true;
+            this.btnDeleteTableFood.Click += new System.EventHandler(this.btnDeleteTableFood_Click);
             // 
             // btnAddTableFood
             // 

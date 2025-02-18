@@ -62,7 +62,6 @@ namespace QuanLyNhaHang
             cbCategory.ValueMember = "Id";
         }
 
-
         private void LoadFoodByCategoryID(int categoryId)
         {
 
@@ -74,6 +73,7 @@ namespace QuanLyNhaHang
             cbFood.ValueMember = "Id";
 
         }
+
 
         void LoadTable()
         {
@@ -115,6 +115,7 @@ namespace QuanLyNhaHang
             lsvBill.GridLines = true;
             lsvBill.MultiSelect = false;
         }
+
         private void InitializeListViewColumns()
         {
             lsvBill.Columns.Clear();
@@ -242,6 +243,7 @@ namespace QuanLyNhaHang
             lsvBill.Tag = (sender as Button).Tag;
             ShowBill(tableID);
         }
+
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -263,8 +265,27 @@ namespace QuanLyNhaHang
         {
             fAdmin f = new fAdmin();
             f.loginAccount = LoginAccount;
+            f.OnTableDeleted += F_OnTableDeleted;
+            f.OnTableUpdated += F_OnTableUpdated;
+            f.OnTableAdded += F_OnTableAdded;
             f.ShowDialog();
             this.Show();
+        }
+
+        private void F_OnTableDeleted(object sender, EventArgs e)
+        {
+            LoadTable();
+        }
+
+
+        private void F_OnTableUpdated(object sender, EventArgs e)
+        {
+            LoadTable();
+        }
+
+        private void F_OnTableAdded(object sender, EventArgs e)
+        {
+            LoadTable();
         }
 
         private void cbCategory_SelectedIndexChanged(object sender, EventArgs e)
@@ -355,7 +376,6 @@ namespace QuanLyNhaHang
             }
         }
 
-
         private void btnCheck_Click(object sender, EventArgs e)
         {
             Table table = lsvBill.Tag as Table;
@@ -403,7 +423,6 @@ namespace QuanLyNhaHang
                 }
             }
         }
-
 
         private void btnSwitchTable_Click(object sender, EventArgs e)
         {
