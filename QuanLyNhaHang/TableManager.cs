@@ -355,6 +355,34 @@ namespace QuanLyNhaHang
             }
         }
 
+        private void btnXoaMon_Click(object sender, EventArgs e)
+        {
+            Table table = lsvBill.Tag as Table;
+            if (table == null)
+            {
+                MessageBox.Show("Xin hãy chọn bàn để hủy món!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int idBill = BillDAO.Instance.GetUncheckBillIDByTableID(table.ID);
+            if (idBill == -1)
+            {
+                MessageBox.Show("Bàn này chưa gọi món hoặc đã thanh toán!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int idFood = (cbFood.SelectedItem as Food)?.Id ?? -1;
+            if (idFood == -1)
+            {
+                MessageBox.Show("Xin chọn món để hủy!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            BillInfoDAO.Instance.DeleteBillInfo(idBill, idFood);
+
+            ShowBill(table.ID);
+            LoadTable();
+        }
+
 
         private void btnCheck_Click(object sender, EventArgs e)
         {
@@ -396,6 +424,7 @@ namespace QuanLyNhaHang
 
                     ShowBill(table.ID);
                     LoadTable();
+                    nmGiamGia.Value = 0;
                 }
                 else
                 {
@@ -492,6 +521,7 @@ namespace QuanLyNhaHang
         }
 
         #endregion
+
     }
 
 }
