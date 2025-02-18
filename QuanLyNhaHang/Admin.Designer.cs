@@ -112,16 +112,12 @@
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.button5 = new System.Windows.Forms.Button();
             this.panel27 = new System.Windows.Forms.Panel();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.cbNhaCC = new System.Windows.Forms.ComboBox();
-            this.lblNhaCungCap = new System.Windows.Forms.Label();
             this.panel34 = new System.Windows.Forms.Panel();
             this.txtHSD = new System.Windows.Forms.TextBox();
             this.lblHanSuDung = new System.Windows.Forms.Label();
             this.panel33 = new System.Windows.Forms.Panel();
             this.nmGiaNhap = new System.Windows.Forms.NumericUpDown();
             this.lblGiaNhap = new System.Windows.Forms.Label();
-            this.btnNhap = new System.Windows.Forms.Button();
             this.panel28 = new System.Windows.Forms.Panel();
             this.cbLoaiMH = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -177,7 +173,6 @@
             this.tpKho.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel27.SuspendLayout();
-            this.panel13.SuspendLayout();
             this.panel34.SuspendLayout();
             this.panel33.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmGiaNhap)).BeginInit();
@@ -993,10 +988,8 @@
             // 
             // panel27
             // 
-            this.panel27.Controls.Add(this.panel13);
             this.panel27.Controls.Add(this.panel34);
             this.panel27.Controls.Add(this.panel33);
-            this.panel27.Controls.Add(this.btnNhap);
             this.panel27.Controls.Add(this.panel28);
             this.panel27.Controls.Add(this.panel29);
             this.panel27.Controls.Add(this.panel30);
@@ -1004,33 +997,6 @@
             this.panel27.Name = "panel27";
             this.panel27.Size = new System.Drawing.Size(434, 593);
             this.panel27.TabIndex = 13;
-            // 
-            // panel13
-            // 
-            this.panel13.Controls.Add(this.cbNhaCC);
-            this.panel13.Controls.Add(this.lblNhaCungCap);
-            this.panel13.Location = new System.Drawing.Point(3, 333);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(419, 60);
-            this.panel13.TabIndex = 14;
-            // 
-            // cbNhaCC
-            // 
-            this.cbNhaCC.FormattingEnabled = true;
-            this.cbNhaCC.Location = new System.Drawing.Point(195, 19);
-            this.cbNhaCC.Name = "cbNhaCC";
-            this.cbNhaCC.Size = new System.Drawing.Size(199, 24);
-            this.cbNhaCC.TabIndex = 2;
-            // 
-            // lblNhaCungCap
-            // 
-            this.lblNhaCungCap.AutoSize = true;
-            this.lblNhaCungCap.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNhaCungCap.Location = new System.Drawing.Point(20, 16);
-            this.lblNhaCungCap.Name = "lblNhaCungCap";
-            this.lblNhaCungCap.Size = new System.Drawing.Size(159, 24);
-            this.lblNhaCungCap.TabIndex = 0;
-            this.lblNhaCungCap.Text = "Nhà cung cấp : ";
             // 
             // panel34
             // 
@@ -1088,15 +1054,6 @@
             this.lblGiaNhap.Size = new System.Drawing.Size(114, 24);
             this.lblGiaNhap.TabIndex = 0;
             this.lblGiaNhap.Text = "Giá nhập : ";
-            // 
-            // btnNhap
-            // 
-            this.btnNhap.Location = new System.Drawing.Point(328, 413);
-            this.btnNhap.Name = "btnNhap";
-            this.btnNhap.Size = new System.Drawing.Size(94, 31);
-            this.btnNhap.TabIndex = 12;
-            this.btnNhap.Text = "Nhập";
-            this.btnNhap.UseVisualStyleBackColor = true;
             // 
             // panel28
             // 
@@ -1316,8 +1273,6 @@
             this.tpKho.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel27.ResumeLayout(false);
-            this.panel13.ResumeLayout(false);
-            this.panel13.PerformLayout();
             this.panel34.ResumeLayout(false);
             this.panel34.PerformLayout();
             this.panel33.ResumeLayout(false);
@@ -1405,7 +1360,6 @@
         private System.Windows.Forms.TabPage tpKho;
         private System.Data.Entity.Core.EntityClient.EntityCommand entityCommand1;
         private System.Windows.Forms.Panel panel27;
-        private System.Windows.Forms.Button btnNhap;
         private System.Windows.Forms.Panel panel28;
         private System.Windows.Forms.ComboBox cbLoaiMH;
         private System.Windows.Forms.Label label6;
@@ -1430,9 +1384,6 @@
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.ComboBox cbNhaCC;
-        private System.Windows.Forms.Label lblNhaCungCap;
         private System.Windows.Forms.TextBox txtTuKhoa;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.ComboBox cbDVT;

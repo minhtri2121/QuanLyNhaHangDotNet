@@ -56,21 +56,6 @@ namespace QuanLyNhaHang.DAO
                 Items i = new Items(item);
                 list.Add(i);
             }
-
-            return list;
-        }
-
-        public List<Supplier> GetSupplier()
-        {
-            List<Supplier> list = new List<Supplier>();
-            string query = "select *\r\nfrom NHA_CUNG_CAP";
-            DataTable data = DataProvider.Instance.ExcuteQuery(query);
-            foreach (DataRow item in data.Rows)
-            {
-                Supplier s = new Supplier(item);
-                list.Add(s);
-            }
-
             return list;
         }
     }

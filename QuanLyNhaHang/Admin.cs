@@ -49,8 +49,6 @@ namespace QuanLyNhaHang
 
             LoadCategoryItemsIntoComboBox(cbLoaiMH);
 
-            LoadCategorySupplierIntoComboBox(cbNhaCC);
-
             LoadTableStatus(cbKhuVuc);
 
             LoadDVTIntoComboBox(cbDVT);
@@ -95,19 +93,12 @@ namespace QuanLyNhaHang
             nmGiaNhap.DataBindings.Add(new Binding("text", dtgvKho.DataSource, "GiaNhap", true, DataSourceUpdateMode.Never));
             txtHSD.DataBindings.Add(new Binding("Text", dtgvKho.DataSource, "HanSuDung", true, DataSourceUpdateMode.Never));
             cbLoaiMH.DataBindings.Add(new Binding("Text", dtgvKho.DataSource, "TenLoaiMH", true, DataSourceUpdateMode.Never));
-            cbNhaCC.DataBindings.Add(new Binding("Text", dtgvKho.DataSource, "TenNCC", true, DataSourceUpdateMode.Never));
         }
 
         void LoadCategoryItemsIntoComboBox(ComboBox cb)
         {
             cb.DataSource = CategoryDAO.Instance.GetItems();
             cb.DisplayMember = "Name";
-        }
-
-        void LoadCategorySupplierIntoComboBox(ComboBox cb)
-        {
-            cb.DataSource = SupplierDAO.Instance.GetSupplier();
-            cb.DisplayMember = "tenncc";
         }
 
         void LoadAccount()
@@ -124,7 +115,7 @@ namespace QuanLyNhaHang
 
         void LoadQuanLiKho() 
         {
-            string query = "SELECT \r\n    MH.IDMatHang, \r\n    LMH.TenLoaiMH, \r\n    MH.TenMatHang, \r\n    MH.GiaNhap, \r\n    MH.HanSuDung, \r\n    NCC.TenNCC\r\nFROM MAT_HANG MH\r\nJOIN LOAI_MAT_HANG LMH ON MH.IDLoaiMH = LMH.IDLoaiMH\r\nCROSS JOIN NHA_CUNG_CAP NCC;";
+            string query = "SELECT MH.IDMatHang, LMH.TenLoaiMH, MH.TenMatHang, MH.GiaNhap, MH.HanSuDung\r\nFROM MAT_HANG MH JOIN LOAI_MAT_HANG LMH ON MH.IDLoaiMH = LMH.IDLoaiMH";
 
             dtgvKho.DataSource = DataProvider.Instance.ExcuteQuery(query);
         }
@@ -276,11 +267,6 @@ namespace QuanLyNhaHang
         void LoadBanAn()
         {
             dtgvBanAn.DataSource = TableDAO.Instance.GetTableList();
-        }
-
-        void LoadSupplier()
-        {
-            dtgvKho.DataSource = SupplierDAO.Instance.GetSupplier();
         }
 
         void AddTableFood() 
