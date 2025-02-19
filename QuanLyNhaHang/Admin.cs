@@ -46,6 +46,8 @@ namespace QuanLyNhaHang
 
             LoadCategoryIntoComboBox(cbNhomMon);
 
+            LoadCategoryItemsIntoComboBox(cbLoaiMH);
+
             LoadTableStatus(cbKhuVuc);
 
             LoadDVTIntoComboBox(cbDVT);
@@ -61,6 +63,8 @@ namespace QuanLyNhaHang
             LoadBanAn();
 
             AddTableFood();
+
+            AddCategoryBinding();
         }
 
         void AddAccountBinding()
@@ -72,6 +76,28 @@ namespace QuanLyNhaHang
             txtTenTk.DataBindings.Add(new Binding("Text", dtgvTaiKhoan.DataSource, "TenDangNhap", true, DataSourceUpdateMode.Never));
             txtTenHienThi.DataBindings.Add(new Binding("Text", dtgvTaiKhoan.DataSource, "TenNguoiDung", true, DataSourceUpdateMode.Never));
             nmLoaiTK.DataBindings.Add(new Binding("Value", dtgvTaiKhoan.DataSource, "Admin", true, DataSourceUpdateMode.Never));
+        }
+
+        void AddCategoryBinding()
+        {
+            txtMatHangID.DataBindings.Clear();
+            txtTenMatHang.DataBindings.Clear();
+            nmGiaNhap.DataBindings.Clear();
+            txtHSD.DataBindings.Clear();
+            cbLoaiMH.DataBindings.Clear();
+
+
+            txtMatHangID.DataBindings.Add(new Binding("Text", dtgvKho.DataSource, "IDMatHang", true, DataSourceUpdateMode.Never));
+            txtTenMatHang.DataBindings.Add(new Binding("Text", dtgvKho.DataSource, "TenMatHang", true, DataSourceUpdateMode.Never));
+            nmGiaNhap.DataBindings.Add(new Binding("text", dtgvKho.DataSource, "GiaNhap", true, DataSourceUpdateMode.Never));
+            txtHSD.DataBindings.Add(new Binding("Text", dtgvKho.DataSource, "HanSuDung", true, DataSourceUpdateMode.Never));
+            cbLoaiMH.DataBindings.Add(new Binding("Text", dtgvKho.DataSource, "TenLoaiMH", true, DataSourceUpdateMode.Never));
+        }
+
+        void LoadCategoryItemsIntoComboBox(ComboBox cb)
+        {
+            cb.DataSource = CategoryDAO.Instance.GetItems();
+            cb.DisplayMember = "Name";
         }
 
         void LoadAccount()
@@ -88,7 +114,7 @@ namespace QuanLyNhaHang
 
         void LoadQuanLiKho()
         {
-            string query = "SELECT  LMH.IDLoaiMH,LMH.TenLoaiMH, MH.IDMatHang, MH.TenMatHang , FORMAT(MH.GiaNhap , '0' ) AS GiaNhap , MH.HanSuDung\r\nFROM LOAI_MAT_HANG LMH JOIN MAT_HANG MH\r\nON LMH.IDLoaiMH = MH.IDLoaiMH;\r\n";
+            string query = "SELECT MH.IDMatHang, LMH.TenLoaiMH, MH.TenMatHang, MH.GiaNhap, MH.HanSuDung\r\nFROM MAT_HANG MH JOIN LOAI_MAT_HANG LMH ON MH.IDLoaiMH = LMH.IDLoaiMH";
 
             dtgvKho.DataSource = DataProvider.Instance.ExcuteQuery(query);
         }
@@ -480,6 +506,40 @@ namespace QuanLyNhaHang
                 MessageBox.Show("Xoá bàn thất bại");
             }
             LoadAdmin();
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtIDMon.Text))
+            {
+                MessageBox.Show("Vui lòng nhập ID món cần xóa.");
+                return;
+            }
+
+            int id;
+            if (!int.TryParse(txtIDMon.Text, out id))
+            {
+                MessageBox.Show("ID món không hợp lệ.");
+                return;
+            }
+
+            try
+            {
+                int rowsAffected = DataProvider.Instance.ExcuteNonQuery("DELETE FROM MON WHERE IDMon = " + id);
+
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Xóa món thành công.");
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy món có ID này để xóa.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi xóa món: " + ex.Message);
+            }
+
+            LoadListFood();
         }
     }
     #endregion

@@ -113,6 +113,7 @@
     <Compile Include="DTO\Category.cs" />
     <Compile Include="DTO\DVT.cs" />
     <Compile Include="DTO\Food.cs" />
+    <Compile Include="DTO\Items.cs" />
     <Compile Include="DTO\Menu.cs" />
     <Compile Include="DTO\SearchFood.cs" />
     <Compile Include="DTO\Table.cs" />
@@ -152,6 +153,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="DAO\.editorconfig" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

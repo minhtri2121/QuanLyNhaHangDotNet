@@ -40,5 +40,11 @@ namespace QuanLyNhaHang.DAO
             int result = DataProvider.Instance.ExcuteNonQuery("EXEC InsertBillInfo @idhoadon , @idmon , @soluong ", new object[] { idhoadon, idmon, soluong });
             return result > 0;
         }
+
+        public bool DeleteBillInfo(int idhoadon, int idmon)
+        {
+            int result = DataProvider.Instance.ExcuteNonQuery("EXEC DeleteFoodinBillInfo @idhoadon , @idmon", new object[] { idhoadon, idmon });
+            return result > 0;
+        }
     }
 }
