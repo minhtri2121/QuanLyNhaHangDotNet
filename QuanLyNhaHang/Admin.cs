@@ -38,15 +38,13 @@ namespace QuanLyNhaHang
 
             dtgvTaiKhoan.DataSource = accountList;
 
-            LoadQuanLiKho();
+            //LoadQuanLiKho();
 
             LoadListFood();
 
             LoadAccount();
 
             LoadCategoryIntoComboBox(cbNhomMon);
-
-            LoadCategoryItemsIntoComboBox(cbLoaiMH);
 
             LoadTableStatus(cbKhuVuc);
 
@@ -63,8 +61,6 @@ namespace QuanLyNhaHang
             LoadBanAn();
 
             AddTableFood();
-
-            AddCategoryBinding();
         }
 
         void AddAccountBinding()
@@ -76,28 +72,6 @@ namespace QuanLyNhaHang
             txtTenTk.DataBindings.Add(new Binding("Text", dtgvTaiKhoan.DataSource, "TenDangNhap", true, DataSourceUpdateMode.Never));
             txtTenHienThi.DataBindings.Add(new Binding("Text", dtgvTaiKhoan.DataSource, "TenNguoiDung", true, DataSourceUpdateMode.Never));
             nmLoaiTK.DataBindings.Add(new Binding("Value", dtgvTaiKhoan.DataSource, "Admin", true, DataSourceUpdateMode.Never));
-        }
-
-        void AddCategoryBinding()
-        {
-            txtMatHangID.DataBindings.Clear();
-            txtTenMatHang.DataBindings.Clear();
-            nmGiaNhap.DataBindings.Clear();
-            dtpKho.DataBindings.Clear();
-            cbLoaiMH.DataBindings.Clear();
-
-
-            txtMatHangID.DataBindings.Add(new Binding("Text", dtgvKho.DataSource, "IDMatHang", true, DataSourceUpdateMode.Never));
-            txtTenMatHang.DataBindings.Add(new Binding("Text", dtgvKho.DataSource, "TenMatHang", true, DataSourceUpdateMode.Never));
-            nmGiaNhap.DataBindings.Add(new Binding("text", dtgvKho.DataSource, "GiaNhap", true, DataSourceUpdateMode.Never));
-            dtpKho.DataBindings.Add(new Binding("Text", dtgvKho.DataSource, "HanSuDung", true, DataSourceUpdateMode.Never));
-            cbLoaiMH.DataBindings.Add(new Binding("Text", dtgvKho.DataSource, "TenLoaiMH", true, DataSourceUpdateMode.Never));
-        }
-
-        void LoadCategoryItemsIntoComboBox(ComboBox cb)
-        {
-            cb.DataSource = CategoryDAO.Instance.GetItems();
-            cb.DisplayMember = "Name";
         }
 
         void LoadAccount()
@@ -112,12 +86,12 @@ namespace QuanLyNhaHang
             FoodList.DataSource = DataProvider.Instance.ExcuteQuery(query);
         }
 
-        void LoadQuanLiKho()
-        {
-            string query = "SELECT MH.IDMatHang, LMH.TenLoaiMH, MH.TenMatHang, MH.GiaNhap, MH.HanSuDung\r\nFROM MAT_HANG MH JOIN LOAI_MAT_HANG LMH ON MH.IDLoaiMH = LMH.IDLoaiMH";
+        //void LoadQuanLiKho()
+        //{
+        //    string query = "EXEC GetListKho";
 
-            dtgvKho.DataSource = DataProvider.Instance.ExcuteQuery(query);
-        }
+        //    dtgvKho.DataSource = DataProvider.Instance.ExcuteQuery(query);
+        //}
 
         void AddAccount(string userName, string displayName, int type)
         {
@@ -284,7 +258,10 @@ namespace QuanLyNhaHang
             txtTableStatus.DataBindings.Add(new Binding("Text", dtgvBanAn.DataSource, "Status", true, DataSourceUpdateMode.Never));
         }
 
-
+        void GetListWarehouseByDate(string date1, string date2)
+        {
+            dtgvKho.DataSource = WarehouseDAO.Instance.GetListWarehouseByDate(date1, date2);
+        }
         #endregion
 
         #region Event
@@ -544,6 +521,15 @@ namespace QuanLyNhaHang
             }
 
             LoadListFood();
+        }
+
+        private void btnTraCuuKho_Click(object sender, EventArgs e)
+        {
+            string date1 = dtpKho1.Value.ToString("yyyy-MM-dd");
+            string date2 = dtpKho2.Value.ToString("yyyy-MM-dd");
+
+            GetListWarehouseByDate(date1, date2);
+            LoadAdmin();
         }
     }
     #endregion
