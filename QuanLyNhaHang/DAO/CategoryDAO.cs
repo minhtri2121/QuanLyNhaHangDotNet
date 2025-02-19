@@ -85,7 +85,7 @@ namespace QuanLyNhaHang.DAO
                 SearchCategory sc = new SearchCategory(item);
                 list.Add(sc);
             }
-
+            //
             return list;
         }
     }
