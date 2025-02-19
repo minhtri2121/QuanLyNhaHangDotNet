@@ -58,35 +58,5 @@ namespace QuanLyNhaHang.DAO
             }
             return list;
         }
-
-        public bool InsertCategory(string tenmathang, int gianhap, string hansudung, int? idloaimh)
-        {
-            string query = "INSERT MAT_HANG( TenMatHang, GiaNhap, HanSuDung, IDLoaiMH ) VALUES ( N'" + tenmathang + "', " + gianhap + ", '" + hansudung + "', " + idloaimh + ")";
-            int result = DataProvider.Instance.ExcuteNonQuery(query);
-
-            return result > 0;
-        }
-
-        public bool UpdateCategory(int idmathang, string tenmathang, int gianhap, string hansudung, int? idloaimh)
-        {
-            string query = "EditMatHang @idMatHang , @tenMatHang , @giaNhap  , @hanSD , @idLoaiMH  ";
-            int result = DataProvider.Instance.ExcuteNonQuery(query, new object[] { idmathang, tenmathang, gianhap, hansudung, idloaimh });
-
-            return result > 0;
-        }
-
-        public List<SearchCategory> SearchCategory(string tenmathang)
-        {
-            List<SearchCategory> list = new List<SearchCategory>();
-            string query = "select MH.IDMatHang, MH.TenMatHang, FORMAT ( MH.GiaNhap ,'0') AS GiaNhap, MH.HanSuDung, MH.IDLoaiMH from MAT_HANG MH JOIN LOAI_MAT_HANG LMH on MH.IDMatHang = LMH.IDLoaiMH WHERE MH.TenMatHang LIKE N'%" + tenmathang + "%'";
-            DataTable data = DataProvider.Instance.ExcuteQuery(query);
-            foreach (DataRow item in data.Rows)
-            {
-                SearchCategory sc = new SearchCategory(item);
-                list.Add(sc);
-            }
-
-            return list;
-        }
     }
 }
