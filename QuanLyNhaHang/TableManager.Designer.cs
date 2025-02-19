@@ -65,7 +65,7 @@
             this.panel1.Controls.Add(this.btnAddFood);
             this.panel1.Controls.Add(this.cbFood);
             this.panel1.Controls.Add(this.cbCategory);
-            this.panel1.Location = new System.Drawing.Point(636, 34);
+            this.panel1.Location = new System.Drawing.Point(633, 34);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(531, 128);
@@ -147,7 +147,7 @@
             this.panel3.Controls.Add(this.btnSwitchTable);
             this.panel3.Controls.Add(this.btnCheck);
             this.panel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(1170, 34);
+            this.panel3.Location = new System.Drawing.Point(1167, 34);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(248, 643);
@@ -155,7 +155,9 @@
             // 
             // btnMergeTable
             // 
-            this.btnMergeTable.Location = new System.Drawing.Point(127, 14);
+            this.btnMergeTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMergeTable.Location = new System.Drawing.Point(130, 2);
+            this.btnMergeTable.Location = new System.Drawing.Point(127, 14); 
             this.btnMergeTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMergeTable.Name = "btnMergeTable";
             this.btnMergeTable.Size = new System.Drawing.Size(118, 39);
@@ -204,6 +206,8 @@
             // 
             // btnSwitchTable
             // 
+            this.btnSwitchTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSwitchTable.Location = new System.Drawing.Point(6, 2);
             this.btnSwitchTable.Location = new System.Drawing.Point(3, 14);
             this.btnSwitchTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSwitchTable.Name = "btnSwitchTable";
@@ -232,6 +236,7 @@
             this.lsvBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lsvBill.GridLines = true;
             this.lsvBill.HideSelection = false;
+            this.lsvBill.Location = new System.Drawing.Point(633, 120);
             this.lsvBill.Location = new System.Drawing.Point(636, 166);
             this.lsvBill.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lsvBill.Name = "lsvBill";
@@ -250,7 +255,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1418, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1415, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -294,14 +299,14 @@
             this.flpTable.Location = new System.Drawing.Point(12, 34);
             this.flpTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flpTable.Name = "flpTable";
-            this.flpTable.Size = new System.Drawing.Size(618, 643);
+            this.flpTable.Size = new System.Drawing.Size(615, 643);
             this.flpTable.TabIndex = 4;
             // 
             // FormTableManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1418, 680);
+            this.ClientSize = new System.Drawing.Size(1415, 680);
             this.Controls.Add(this.lsvBill);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.flpTable);

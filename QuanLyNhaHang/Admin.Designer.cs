@@ -71,6 +71,9 @@
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.tpBanAn = new System.Windows.Forms.TabPage();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.txtTableStatus = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel17 = new System.Windows.Forms.Panel();
             this.panel35 = new System.Windows.Forms.Panel();
             this.cbKhuVuc = new System.Windows.Forms.ComboBox();
@@ -84,10 +87,10 @@
             this.panel14 = new System.Windows.Forms.Panel();
             this.dtgvBanAn = new System.Windows.Forms.DataGridView();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnXemTableFood = new System.Windows.Forms.Button();
+            this.btnEditTableFood = new System.Windows.Forms.Button();
+            this.btnDeleteTableFood = new System.Windows.Forms.Button();
+            this.btnAddTableFood = new System.Windows.Forms.Button();
             this.tpTaiKhoan = new System.Windows.Forms.TabPage();
             this.panel21 = new System.Windows.Forms.Panel();
             this.btnRePass = new System.Windows.Forms.Button();
@@ -154,6 +157,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvMonAn)).BeginInit();
             this.panel3.SuspendLayout();
             this.tpBanAn.SuspendLayout();
+            this.panel20.SuspendLayout();
             this.panel17.SuspendLayout();
             this.panel35.SuspendLayout();
             this.panel18.SuspendLayout();
@@ -589,6 +593,7 @@
             // 
             // tpBanAn
             // 
+            this.tpBanAn.Controls.Add(this.panel20);
             this.tpBanAn.Controls.Add(this.panel17);
             this.tpBanAn.Controls.Add(this.panel14);
             this.tpBanAn.Controls.Add(this.panel12);
@@ -599,6 +604,33 @@
             this.tpBanAn.TabIndex = 3;
             this.tpBanAn.Text = "Bàn ăn";
             this.tpBanAn.UseVisualStyleBackColor = true;
+            // 
+            // panel20
+            // 
+            this.panel20.Controls.Add(this.txtTableStatus);
+            this.panel20.Controls.Add(this.label4);
+            this.panel20.Location = new System.Drawing.Point(726, 290);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(428, 60);
+            this.panel20.TabIndex = 13;
+            // 
+            // txtTableStatus
+            // 
+            this.txtTableStatus.Location = new System.Drawing.Point(174, 19);
+            this.txtTableStatus.Name = "txtTableStatus";
+            this.txtTableStatus.ReadOnly = true;
+            this.txtTableStatus.Size = new System.Drawing.Size(199, 22);
+            this.txtTableStatus.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(20, 19);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(106, 24);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Trạng thái";
             // 
             // panel17
             // 
@@ -676,6 +708,7 @@
             // 
             this.txtIDTableName.Location = new System.Drawing.Point(171, 19);
             this.txtIDTableName.Name = "txtIDTableName";
+            this.txtIDTableName.ReadOnly = true;
             this.txtIDTableName.Size = new System.Drawing.Size(199, 22);
             this.txtIDTableName.TabIndex = 2;
             // 
@@ -694,7 +727,7 @@
             this.panel14.Controls.Add(this.dtgvBanAn);
             this.panel14.Location = new System.Drawing.Point(6, 89);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(568, 593);
+            this.panel14.Size = new System.Drawing.Size(714, 593);
             this.panel14.TabIndex = 6;
             // 
             // dtgvBanAn
@@ -705,56 +738,59 @@
             this.dtgvBanAn.Name = "dtgvBanAn";
             this.dtgvBanAn.RowHeadersWidth = 51;
             this.dtgvBanAn.RowTemplate.Height = 24;
-            this.dtgvBanAn.Size = new System.Drawing.Size(561, 587);
+            this.dtgvBanAn.Size = new System.Drawing.Size(708, 587);
             this.dtgvBanAn.TabIndex = 0;
             // 
             // panel12
             // 
-            this.panel12.Controls.Add(this.button1);
-            this.panel12.Controls.Add(this.button2);
-            this.panel12.Controls.Add(this.button3);
-            this.panel12.Controls.Add(this.button4);
+            this.panel12.Controls.Add(this.btnXemTableFood);
+            this.panel12.Controls.Add(this.btnEditTableFood);
+            this.panel12.Controls.Add(this.btnDeleteTableFood);
+            this.panel12.Controls.Add(this.btnAddTableFood);
             this.panel12.Location = new System.Drawing.Point(6, 6);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(714, 77);
             this.panel12.TabIndex = 5;
             // 
-            // button1
+            // btnXemTableFood
             // 
-            this.button1.Location = new System.Drawing.Point(249, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(76, 71);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Xem";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnXemTableFood.Location = new System.Drawing.Point(249, 3);
+            this.btnXemTableFood.Name = "btnXemTableFood";
+            this.btnXemTableFood.Size = new System.Drawing.Size(76, 71);
+            this.btnXemTableFood.TabIndex = 3;
+            this.btnXemTableFood.Text = "Xem";
+            this.btnXemTableFood.UseVisualStyleBackColor = true;
+            this.btnXemTableFood.Click += new System.EventHandler(this.btnXemTableFood_Click);
             // 
-            // button2
+            // btnEditTableFood
             // 
-            this.button2.Location = new System.Drawing.Point(167, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(76, 71);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Sửa";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnEditTableFood.Location = new System.Drawing.Point(167, 3);
+            this.btnEditTableFood.Name = "btnEditTableFood";
+            this.btnEditTableFood.Size = new System.Drawing.Size(76, 71);
+            this.btnEditTableFood.TabIndex = 2;
+            this.btnEditTableFood.Text = "Sửa";
+            this.btnEditTableFood.UseVisualStyleBackColor = true;
+            this.btnEditTableFood.Click += new System.EventHandler(this.btnEditTableFood_Click);
             // 
-            // button3
+            // btnDeleteTableFood
             // 
-            this.button3.Location = new System.Drawing.Point(85, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(76, 71);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "Xoá";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnDeleteTableFood.Location = new System.Drawing.Point(85, 3);
+            this.btnDeleteTableFood.Name = "btnDeleteTableFood";
+            this.btnDeleteTableFood.Size = new System.Drawing.Size(76, 71);
+            this.btnDeleteTableFood.TabIndex = 1;
+            this.btnDeleteTableFood.Text = "Xoá";
+            this.btnDeleteTableFood.UseVisualStyleBackColor = true;
+            this.btnDeleteTableFood.Click += new System.EventHandler(this.btnDeleteTableFood_Click);
             // 
-            // button4
+            // btnAddTableFood
             // 
-            this.button4.Location = new System.Drawing.Point(3, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(76, 71);
-            this.button4.TabIndex = 0;
-            this.button4.Text = "Thêm";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnAddTableFood.Location = new System.Drawing.Point(3, 3);
+            this.btnAddTableFood.Name = "btnAddTableFood";
+            this.btnAddTableFood.Size = new System.Drawing.Size(76, 71);
+            this.btnAddTableFood.TabIndex = 0;
+            this.btnAddTableFood.Text = "Thêm";
+            this.btnAddTableFood.UseVisualStyleBackColor = true;
+            this.btnAddTableFood.Click += new System.EventHandler(this.btnAddTableFood_Click);
             // 
             // tpTaiKhoan
             // 
@@ -1248,6 +1284,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvMonAn)).EndInit();
             this.panel3.ResumeLayout(false);
             this.tpBanAn.ResumeLayout(false);
+            this.panel20.ResumeLayout(false);
+            this.panel20.PerformLayout();
             this.panel17.ResumeLayout(false);
             this.panel35.ResumeLayout(false);
             this.panel35.PerformLayout();
@@ -1336,10 +1374,10 @@
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.DataGridView dtgvBanAn;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnXemTableFood;
+        private System.Windows.Forms.Button btnEditTableFood;
+        private System.Windows.Forms.Button btnDeleteTableFood;
+        private System.Windows.Forms.Button btnAddTableFood;
         private System.Windows.Forms.Panel panel21;
         private System.Windows.Forms.Panel panel22;
         private System.Windows.Forms.Label label5;
@@ -1398,6 +1436,10 @@
         private System.Windows.Forms.Panel panel35;
         private System.Windows.Forms.Label lblKhuVuc;
         private System.Windows.Forms.ComboBox cbKhuVuc;
+        private System.Windows.Forms.Panel panel20;
+        private System.Windows.Forms.TextBox txtTableStatus;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown nmGiaNhap;
+
     }
 }

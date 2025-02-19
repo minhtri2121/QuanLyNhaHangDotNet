@@ -30,7 +30,6 @@ namespace QuanLyNhaHang
             LoadAdmin();
         }
 
-
         #region methods
 
         private void LoadAdmin()
@@ -74,7 +73,7 @@ namespace QuanLyNhaHang
             txtTenHienThi.DataBindings.Clear();
             nmLoaiTK.DataBindings.Clear();
 
-            txtTenTk.DataBindings.Add(new Binding("Text", dtgvTaiKhoan.DataSource, "TenDangNhap",true, DataSourceUpdateMode.Never));
+            txtTenTk.DataBindings.Add(new Binding("Text", dtgvTaiKhoan.DataSource, "TenDangNhap", true, DataSourceUpdateMode.Never));
             txtTenHienThi.DataBindings.Add(new Binding("Text", dtgvTaiKhoan.DataSource, "TenNguoiDung", true, DataSourceUpdateMode.Never));
             nmLoaiTK.DataBindings.Add(new Binding("Value", dtgvTaiKhoan.DataSource, "Admin", true, DataSourceUpdateMode.Never));
         }
@@ -106,14 +105,14 @@ namespace QuanLyNhaHang
             accountList.DataSource = AccountDAO.Instance.GetListAccount();
         }
 
-        void LoadListFood() 
+        void LoadListFood()
         {
             string query = "SELECT IDMon, TuKhoa, TenMon, TenNhomMon , TenDVT,FORMAT ( Gia ,'0') AS Gia\r\nFROM MON \r\nJOIN NHOM_MON ON MON.IDNhomMon = NHOM_MON.IDNhomMon\r\nJOIN DON_VI_TINH ON MON.IDDVT = DON_VI_TINH.IDDVT;";
 
             FoodList.DataSource = DataProvider.Instance.ExcuteQuery(query);
         }
 
-        void LoadQuanLiKho() 
+        void LoadQuanLiKho()
         {
             string query = "SELECT MH.IDMatHang, LMH.TenLoaiMH, MH.TenMatHang, MH.GiaNhap, MH.HanSuDung\r\nFROM MAT_HANG MH JOIN LOAI_MAT_HANG LMH ON MH.IDLoaiMH = LMH.IDLoaiMH";
 
@@ -122,16 +121,16 @@ namespace QuanLyNhaHang
 
         void AddAccount(string userName, string displayName, int type)
         {
-          if (  AccountDAO.Instance.InsertAccount(userName, displayName, type))
-          {
+            if (AccountDAO.Instance.InsertAccount(userName, displayName, type))
+            {
                 MessageBox.Show("Thêm tài khoản thành công");
-          }
-          else
-          {
+            }
+            else
+            {
                 MessageBox.Show("Thêm tài khoản thất bại");
-          }
+            }
 
-          LoadAccount();
+            LoadAccount();
         }
 
         void EditAccount(string userName, string displayName, int type)
@@ -167,7 +166,7 @@ namespace QuanLyNhaHang
             LoadAccount();
         }
 
-        void ResetPass (string userName)
+        void ResetPass(string userName)
         {
             if (AccountDAO.Instance.ResetPassword(userName))
             {
@@ -202,12 +201,12 @@ namespace QuanLyNhaHang
             cb.DisplayMember = "Name";
         }
 
-        void LoadTableStatus(ComboBox cb) 
+        void LoadTableStatus(ComboBox cb)
         {
             cb.DataSource = ZoneDAO.Instance.GetTableListStatus();
             cb.DisplayMember = "name";
         }
-      
+
         void LoadDVTIntoComboBox(ComboBox cb)
         {
             cb.DataSource = FoodDAO.Instance.GetDVT();
@@ -218,7 +217,7 @@ namespace QuanLyNhaHang
         {
             List<Account> accounts = AccountDAO.Instance.GetListAccounts();
 
-            accounts.Insert(0,item: new Account{ TenNguoiDung = "-- Chọn người dùng --" });
+            accounts.Insert(0, item: new Account { TenNguoiDung = "-- Chọn người dùng --" });
 
             cb.DataSource = accounts;
             cb.DisplayMember = "tenNguoiDung";
@@ -269,22 +268,22 @@ namespace QuanLyNhaHang
             dtgvBanAn.DataSource = TableDAO.Instance.GetTableList();
         }
 
-        void AddTableFood() 
+        void AddTableFood()
         {
             txtIDTableName.DataBindings.Clear();
             txtNameTable.DataBindings.Clear();
             cbKhuVuc.DataBindings.Clear();
+            txtTableStatus.DataBindings.Clear();
 
 
             txtIDTableName.DataBindings.Add(new Binding("Text", dtgvBanAn.DataSource, "ID", true, DataSourceUpdateMode.Never));
             txtNameTable.DataBindings.Add(new Binding("Text", dtgvBanAn.DataSource, "Name", true, DataSourceUpdateMode.Never));
             cbKhuVuc.DataBindings.Add(new Binding("Text", dtgvBanAn.DataSource, "Zone", true, DataSourceUpdateMode.Never));
-
+            txtTableStatus.DataBindings.Add(new Binding("Text", dtgvBanAn.DataSource, "Status", true, DataSourceUpdateMode.Never));
         }
 
 
         #endregion
-
 
         #region Event
         private void btnThem_Click(object sender, EventArgs e)
@@ -295,12 +294,12 @@ namespace QuanLyNhaHang
             int? iddvt = (cbDVT.SelectedItem as DVT)?.Id;
             float Gia = (float)nmGia.Value;
 
-            if ( (int)Gia > 0 && idnhommon != null && iddvt != null)
+            if ((int)Gia > 0 && idnhommon != null && iddvt != null)
             {
                 FoodDAO.Instance.InsertFood(tukhoa, tenmon, iddvt, idnhommon, (int)Gia);
                 MessageBox.Show("Thêm món ăn thành công.");
                 LoadListFood();
-            }       
+            }
             else
             if ((cbNhomMon.SelectedItem as Category)?.Id == null || (cbDVT.SelectedItem as DVT)?.Id == null || (int)Gia <= 0)
             {
@@ -372,7 +371,7 @@ namespace QuanLyNhaHang
             string userName = txtTenTk.Text;
             string displayName = txtTenHienThi.Text;
             int type = (int)nmLoaiTK.Value;
-            
+
             AddAccount(userName, displayName, type);
         }
 
@@ -416,19 +415,19 @@ namespace QuanLyNhaHang
 
             switch (caseValue)
             {
-                case "00": 
+                case "00":
                     LoadDoanhThuByDate(firstDateStr, finalDateStr);
                     break;
 
-                case "10": 
+                case "10":
                     LoadDoanhThuByBan(firstDateStr, finalDateStr, tenBan);
                     break;
 
-                case "02": 
+                case "02":
                     LoadDoanhThuByNguoiDung(firstDateStr, finalDateStr, nguoiDung);
                     break;
 
-                case "12": 
+                case "12":
                     LoadDoanhThuByAll(firstDateStr, finalDateStr, tenBan, nguoiDung);
                     break;
 
@@ -438,11 +437,75 @@ namespace QuanLyNhaHang
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnXemTableFood_Click(object sender, EventArgs e)
         {
             LoadBanAn();
         }
 
+        public event EventHandler OnTableAdded;
+        private void btnAddTableFood_Click(object sender, EventArgs e)
+        {
+            string name = txtNameTable.Text;
+            int idzone = (cbKhuVuc.SelectedItem as Zone).Id;
+            if (TableDAO.instance.InsertTableFood(name,idzone))
+            {
+                MessageBox.Show("Thêm bàn thành công");
+                LoadBanAn();
+            }
+            else
+            {
+                MessageBox.Show("Thêm bàn thất bại");
+            }
+            LoadAdmin();
+            OnTableAdded?.Invoke(this, EventArgs.Empty);
+        }
+
+        public event EventHandler OnTableUpdated;
+        private void btnEditTableFood_Click(object sender, EventArgs e)
+        {
+            string name = txtNameTable.Text;
+            int? idzone = (cbKhuVuc.SelectedItem as Zone)?.Id;
+            if(idzone == null)
+            {
+                MessageBox.Show("Vui lòng chọn khu vực");
+                return;
+            }
+            int id = Convert.ToInt32(txtIDTableName.Text);
+            if (TableDAO.instance.UpdateTableFood(  id, name, idzone))
+            {
+                MessageBox.Show("Sửa bàn thành công");
+                LoadBanAn();
+            }
+            else
+            {
+                MessageBox.Show("Sửa bàn thất bại");
+            }
+
+            LoadAdmin();
+            OnTableUpdated?.Invoke(this, EventArgs.Empty);
+        }
+
+        public event EventHandler OnTableDeleted;
+        private void btnDeleteTableFood_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(txtIDTableName.Text);
+            string status = TableDAO.Instance.GetTableByStatus(id);
+            if (status == "Có Người")
+            {
+                MessageBox.Show("Bàn đang có người, không thể xoá!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; 
+            }
+            if (TableDAO.instance.DeleteTableFood(id))
+            {
+                MessageBox.Show("Xoá bàn thành công");
+                LoadBanAn();
+                OnTableDeleted?.Invoke(this, EventArgs.Empty);
+            }
+            else
+            {
+                MessageBox.Show("Xoá bàn thất bại");
+            }
+            LoadAdmin();
         private void btnXoa_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtIDMon.Text))
