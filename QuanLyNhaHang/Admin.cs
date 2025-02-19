@@ -83,14 +83,14 @@ namespace QuanLyNhaHang
             txtMatHangID.DataBindings.Clear();
             txtTenMatHang.DataBindings.Clear();
             nmGiaNhap.DataBindings.Clear();
-            txtHSD.DataBindings.Clear();
+            dtpHSD.DataBindings.Clear();
             cbLoaiMH.DataBindings.Clear();
 
 
             txtMatHangID.DataBindings.Add(new Binding("Text", dtgvKho.DataSource, "IDMatHang", true, DataSourceUpdateMode.Never));
             txtTenMatHang.DataBindings.Add(new Binding("Text", dtgvKho.DataSource, "TenMatHang", true, DataSourceUpdateMode.Never));
             nmGiaNhap.DataBindings.Add(new Binding("text", dtgvKho.DataSource, "GiaNhap", true, DataSourceUpdateMode.Never));
-            txtHSD.DataBindings.Add(new Binding("Text", dtgvKho.DataSource, "HanSuDung", true, DataSourceUpdateMode.Never));
+            dtpHSD.DataBindings.Add(new Binding("Text", dtgvKho.DataSource, "HanSuDung", true, DataSourceUpdateMode.Never));
             cbLoaiMH.DataBindings.Add(new Binding("Text", dtgvKho.DataSource, "TenLoaiMH", true, DataSourceUpdateMode.Never));
         }
 
@@ -493,7 +493,7 @@ namespace QuanLyNhaHang
             if (status == "Có Người")
             {
                 MessageBox.Show("Bàn đang có người, không thể xoá!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return; 
+                return;
             }
             if (TableDAO.instance.DeleteTableFood(id))
             {
@@ -506,6 +506,7 @@ namespace QuanLyNhaHang
                 MessageBox.Show("Xoá bàn thất bại");
             }
             LoadAdmin();
+        }
         private void btnXoa_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtIDMon.Text))
@@ -540,6 +541,32 @@ namespace QuanLyNhaHang
             }
 
             LoadListFood();
+        }
+
+        private void btnthemkho_Click(object sender, EventArgs e)
+        {
+            string tenmathang = txtTenMatHang.Text;
+            float gianhap = (float)nmGiaNhap.Value;
+            string hansudung = dtpHSD.Value.ToString("yyyy-MM-dd");
+            int? idloaimh = (cbLoaiMH.SelectedItem as Items)?.Id;
+
+
+            if ((int)gianhap > 0 && idloaimh != null)
+            {
+                CategoryDAO.Instance.InsertCategory(tenmathang, (int)gianhap, hansudung, idloaimh);
+                MessageBox.Show("Thêm mặt hàng thành công.");
+                LoadQuanLiKho();
+                LoadAdmin();
+            }
+            else
+            if ((cbLoaiMH.SelectedItem as Items)?.Id == null || (int)gianhap <= 0)
+            {
+                string loi1 = "Lỗi, Vui lòng chọn đúng loại mặt hàng.";
+
+                string loi2 = "Lỗi, Giá nhập nhỏ hơn hoặc bằng 0";
+
+                MessageBox.Show("Có lỗi khi Thêm mặt hàng.\n\nCó thể bạn đã sai khi nhập nhóm món hoặc giá!\n\nNhóm món: " + loi1 + "\n\nGiá: " + loi2);
+            }
         }
     }
     #endregion

@@ -58,5 +58,13 @@ namespace QuanLyNhaHang.DAO
             }
             return list;
         }
+
+        public bool InsertCategory(string tenmathang, int gianhap, string hansudung, int? idloaimh)
+        {
+            string query = "INSERT MAT_HANG( TenMatHang, GiaNhap, HanSuDung, IDLoaiMH ) VALUES ( N'" + tenmathang + "', " + gianhap + ", '" + hansudung + "', " + idloaimh + ")";
+            int result = DataProvider.Instance.ExcuteNonQuery(query);
+
+            return result > 0;
+        }
     }
 }

@@ -116,7 +116,6 @@
             this.button5 = new System.Windows.Forms.Button();
             this.panel27 = new System.Windows.Forms.Panel();
             this.panel34 = new System.Windows.Forms.Panel();
-            this.txtHSD = new System.Windows.Forms.TextBox();
             this.lblHanSuDung = new System.Windows.Forms.Label();
             this.panel33 = new System.Windows.Forms.Panel();
             this.nmGiaNhap = new System.Windows.Forms.NumericUpDown();
@@ -136,8 +135,9 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.btnthemkho = new System.Windows.Forms.Button();
             this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
+            this.dtpHSD = new System.Windows.Forms.DateTimePicker();
             this.tcAdmin.SuspendLayout();
             this.tpDoanhThu.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -1036,19 +1036,12 @@
             // 
             // panel34
             // 
-            this.panel34.Controls.Add(this.txtHSD);
+            this.panel34.Controls.Add(this.dtpHSD);
             this.panel34.Controls.Add(this.lblHanSuDung);
             this.panel34.Location = new System.Drawing.Point(3, 201);
             this.panel34.Name = "panel34";
             this.panel34.Size = new System.Drawing.Size(419, 60);
             this.panel34.TabIndex = 11;
-            // 
-            // txtHSD
-            // 
-            this.txtHSD.Location = new System.Drawing.Point(192, 19);
-            this.txtHSD.Name = "txtHSD";
-            this.txtHSD.Size = new System.Drawing.Size(199, 22);
-            this.txtHSD.TabIndex = 2;
             // 
             // lblHanSuDung
             // 
@@ -1197,7 +1190,7 @@
             this.panel32.Controls.Add(this.button6);
             this.panel32.Controls.Add(this.button7);
             this.panel32.Controls.Add(this.button8);
-            this.panel32.Controls.Add(this.button9);
+            this.panel32.Controls.Add(this.btnthemkho);
             this.panel32.Location = new System.Drawing.Point(6, 6);
             this.panel32.Name = "panel32";
             this.panel32.Size = new System.Drawing.Size(709, 77);
@@ -1230,14 +1223,15 @@
             this.button8.Text = "Xoá";
             this.button8.UseVisualStyleBackColor = true;
             // 
-            // button9
+            // btnthemkho
             // 
-            this.button9.Location = new System.Drawing.Point(3, 3);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(76, 71);
-            this.button9.TabIndex = 0;
-            this.button9.Text = "Thêm";
-            this.button9.UseVisualStyleBackColor = true;
+            this.btnthemkho.Location = new System.Drawing.Point(3, 3);
+            this.btnthemkho.Name = "btnthemkho";
+            this.btnthemkho.Size = new System.Drawing.Size(76, 71);
+            this.btnthemkho.TabIndex = 0;
+            this.btnthemkho.Text = "Thêm";
+            this.btnthemkho.UseVisualStyleBackColor = true;
+            this.btnthemkho.Click += new System.EventHandler(this.btnthemkho_Click);
             // 
             // entityCommand1
             // 
@@ -1246,6 +1240,13 @@
             this.entityCommand1.Connection = null;
             this.entityCommand1.EnablePlanCaching = true;
             this.entityCommand1.Transaction = null;
+            // 
+            // dtpHSD
+            // 
+            this.dtpHSD.Location = new System.Drawing.Point(192, 16);
+            this.dtpHSD.Name = "dtpHSD";
+            this.dtpHSD.Size = new System.Drawing.Size(199, 22);
+            this.dtpHSD.TabIndex = 1;
             // 
             // fAdmin
             // 
@@ -1413,9 +1414,8 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button btnthemkho;
         private System.Windows.Forms.Panel panel34;
-        private System.Windows.Forms.TextBox txtHSD;
         private System.Windows.Forms.Label lblHanSuDung;
         private System.Windows.Forms.Panel panel33;
         private System.Windows.Forms.Label lblGiaNhap;
@@ -1440,6 +1440,6 @@
         private System.Windows.Forms.TextBox txtTableStatus;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown nmGiaNhap;
-
+        private System.Windows.Forms.DateTimePicker dtpHSD;
     }
 }
