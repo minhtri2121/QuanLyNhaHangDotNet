@@ -524,7 +524,7 @@ namespace QuanLyNhaHang
 
             try
             {
-                int rowsAffected = DataProvider.Instance.ExcuteNonQuery("DELETE FROM MON WHERE IDMon = " + id);
+                int rowsAffected = DataProvider.Instance.ExcuteNonQuery("DELETE MON WHERE IDMon = " + id);
 
                 if (rowsAffected > 0)
                 {
@@ -565,9 +565,91 @@ namespace QuanLyNhaHang
 
                 string loi2 = "Lỗi, Giá nhập nhỏ hơn hoặc bằng 0";
 
-                MessageBox.Show("Có lỗi khi Thêm mặt hàng.\n\nCó thể bạn đã sai khi nhập nhóm món hoặc giá!\n\nNhóm món: " + loi1 + "\n\nGiá: " + loi2);
+                MessageBox.Show("Có lỗi khi Thêm mặt hàng.\n\nCó thể bạn đã sai khi nhập loại mặt hàng hoặc giá!\n\nNhóm món: " + loi1 + "\n\nGiá: " + loi2);
+            }
+        }
+       
+        private void btnSuaKho_Click_1(object sender, EventArgs e)
+        {
+            int idMH = Convert.ToInt32(txtMatHangID.Text);
+            string tenMH = txtTenMatHang.Text.ToString();
+            int giaNhap = (int)nmGiaNhap.Value;
+            string hsd = dtpHSD.Value.ToString("yyyy-MM-dd");
+            int? idLoaiMH = (cbLoaiMH.SelectedItem as Items).Id;
+
+            CategoryDAO.Instance.UpdateCategory(idMH, tenMH, giaNhap, hsd, idLoaiMH);
+            LoadQuanLiKho();
+
+            if ((int)giaNhap > 0 && idLoaiMH != null)
+            {
+                CategoryDAO.Instance.InsertCategory(tenMH, (int)giaNhap, hsd, idLoaiMH);
+                MessageBox.Show("Sửa mặt hàng thành công.");
+                LoadQuanLiKho();
+                LoadAdmin();
+            }
+            else
+           if ((cbLoaiMH.SelectedItem as Items)?.Id == null || (int)giaNhap <= 0)
+            {
+                string loi1 = "Lỗi, Vui lòng chọn đúng loại mặt hàng.";
+
+                string loi2 = "Lỗi, Giá nhập nhỏ hơn hoặc bằng 0";
+
+                MessageBox.Show("Có lỗi khi Sửa mặt hàng.\n\nCó thể bạn đã sai khi nhập loại mặt hàng hoặc giá!\n\nNhóm món: " + loi1 + "\n\nGiá: " + loi2);
+            }
+        }
+
+        private void btnXoaKho_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtMatHangID.Text))
+            {
+                MessageBox.Show("Vui lòng nhập ID mặt hàng cần xóa.");
+                return;
+            }
+
+            int id;
+            if (!int.TryParse(txtMatHangID.Text, out id))
+            {
+                MessageBox.Show("ID mặt hàng không hợp lệ.");
+                return;
+            }
+
+            try
+            {
+                int rowsAffected = DataProvider.Instance.ExcuteNonQuery("DELETE MAT_HANG WHERE IDMatHang = " + id);
+
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Xóa món thành công.");
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy mặt hàng có ID này để xóa.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi xóa mặt hàng: " + ex.Message);
+            }
+
+            LoadQuanLiKho();
+        }
+
+        private void btnTimKho_Click(object sender, EventArgs e)
+        {
+            dtgvKho.Controls.Clear();
+            List<SearchCategory> listSearchCategory = CategoryDAO.Instance.SearchCategory(txtSCCategoryName.Text);
+
+            if (listSearchCategory != null && listSearchCategory.Count > 0)
+            {
+                dtgvKho.DataSource = typeof(List<SearchCategory>);
+                dtgvKho.DataSource = listSearchCategory;
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy mặt hàng nào.");
             }
         }
     }
+    
     #endregion
 }

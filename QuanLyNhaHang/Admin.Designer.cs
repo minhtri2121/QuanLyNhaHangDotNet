@@ -112,10 +112,10 @@
             this.btnThemTK = new System.Windows.Forms.Button();
             this.tpKho = new System.Windows.Forms.TabPage();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnTimKho = new System.Windows.Forms.Button();
             this.panel27 = new System.Windows.Forms.Panel();
             this.panel34 = new System.Windows.Forms.Panel();
+            this.dtpHSD = new System.Windows.Forms.DateTimePicker();
             this.lblHanSuDung = new System.Windows.Forms.Label();
             this.panel33 = new System.Windows.Forms.Panel();
             this.nmGiaNhap = new System.Windows.Forms.NumericUpDown();
@@ -133,11 +133,11 @@
             this.dtgvKho = new System.Windows.Forms.DataGridView();
             this.panel32 = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.btnSuaKho = new System.Windows.Forms.Button();
+            this.btnXoaKho = new System.Windows.Forms.Button();
             this.btnthemkho = new System.Windows.Forms.Button();
             this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
-            this.dtpHSD = new System.Windows.Forms.DateTimePicker();
+            this.txtSCCategoryName = new System.Windows.Forms.TextBox();
             this.tcAdmin.SuspendLayout();
             this.tpDoanhThu.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -998,29 +998,22 @@
             // 
             // panel11
             // 
-            this.panel11.Controls.Add(this.comboBox3);
-            this.panel11.Controls.Add(this.button5);
+            this.panel11.Controls.Add(this.txtSCCategoryName);
+            this.panel11.Controls.Add(this.btnTimKho);
             this.panel11.Location = new System.Drawing.Point(724, 6);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(434, 77);
             this.panel11.TabIndex = 14;
             // 
-            // comboBox3
+            // btnTimKho
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(27, 27);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(283, 24);
-            this.comboBox3.TabIndex = 5;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(355, 3);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(76, 71);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Tìm";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnTimKho.Location = new System.Drawing.Point(355, 3);
+            this.btnTimKho.Name = "btnTimKho";
+            this.btnTimKho.Size = new System.Drawing.Size(76, 71);
+            this.btnTimKho.TabIndex = 4;
+            this.btnTimKho.Text = "Tìm";
+            this.btnTimKho.UseVisualStyleBackColor = true;
+            this.btnTimKho.Click += new System.EventHandler(this.btnTimKho_Click);
             // 
             // panel27
             // 
@@ -1042,6 +1035,13 @@
             this.panel34.Name = "panel34";
             this.panel34.Size = new System.Drawing.Size(419, 60);
             this.panel34.TabIndex = 11;
+            // 
+            // dtpHSD
+            // 
+            this.dtpHSD.Location = new System.Drawing.Point(192, 16);
+            this.dtpHSD.Name = "dtpHSD";
+            this.dtpHSD.Size = new System.Drawing.Size(199, 22);
+            this.dtpHSD.TabIndex = 1;
             // 
             // lblHanSuDung
             // 
@@ -1188,8 +1188,8 @@
             // panel32
             // 
             this.panel32.Controls.Add(this.button6);
-            this.panel32.Controls.Add(this.button7);
-            this.panel32.Controls.Add(this.button8);
+            this.panel32.Controls.Add(this.btnSuaKho);
+            this.panel32.Controls.Add(this.btnXoaKho);
             this.panel32.Controls.Add(this.btnthemkho);
             this.panel32.Location = new System.Drawing.Point(6, 6);
             this.panel32.Name = "panel32";
@@ -1205,23 +1205,25 @@
             this.button6.Text = "Xem";
             this.button6.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // btnSuaKho
             // 
-            this.button7.Location = new System.Drawing.Point(167, 3);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(76, 71);
-            this.button7.TabIndex = 2;
-            this.button7.Text = "Sửa";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnSuaKho.Location = new System.Drawing.Point(167, 3);
+            this.btnSuaKho.Name = "btnSuaKho";
+            this.btnSuaKho.Size = new System.Drawing.Size(76, 71);
+            this.btnSuaKho.TabIndex = 2;
+            this.btnSuaKho.Text = "Sửa";
+            this.btnSuaKho.UseVisualStyleBackColor = true;
+            this.btnSuaKho.Click += new System.EventHandler(this.btnSuaKho_Click_1);
             // 
-            // button8
+            // btnXoaKho
             // 
-            this.button8.Location = new System.Drawing.Point(85, 3);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(76, 71);
-            this.button8.TabIndex = 1;
-            this.button8.Text = "Xoá";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btnXoaKho.Location = new System.Drawing.Point(85, 3);
+            this.btnXoaKho.Name = "btnXoaKho";
+            this.btnXoaKho.Size = new System.Drawing.Size(76, 71);
+            this.btnXoaKho.TabIndex = 1;
+            this.btnXoaKho.Text = "Xoá";
+            this.btnXoaKho.UseVisualStyleBackColor = true;
+            this.btnXoaKho.Click += new System.EventHandler(this.btnXoaKho_Click);
             // 
             // btnthemkho
             // 
@@ -1241,12 +1243,12 @@
             this.entityCommand1.EnablePlanCaching = true;
             this.entityCommand1.Transaction = null;
             // 
-            // dtpHSD
+            // txtSCCategoryName
             // 
-            this.dtpHSD.Location = new System.Drawing.Point(192, 16);
-            this.dtpHSD.Name = "dtpHSD";
-            this.dtpHSD.Size = new System.Drawing.Size(199, 22);
-            this.dtpHSD.TabIndex = 1;
+            this.txtSCCategoryName.Location = new System.Drawing.Point(24, 27);
+            this.txtSCCategoryName.Name = "txtSCCategoryName";
+            this.txtSCCategoryName.Size = new System.Drawing.Size(296, 22);
+            this.txtSCCategoryName.TabIndex = 5;
             // 
             // fAdmin
             // 
@@ -1311,6 +1313,7 @@
             this.panel26.ResumeLayout(false);
             this.tpKho.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
             this.panel27.ResumeLayout(false);
             this.panel34.ResumeLayout(false);
             this.panel34.PerformLayout();
@@ -1412,16 +1415,15 @@
         private System.Windows.Forms.DataGridView dtgvKho;
         private System.Windows.Forms.Panel panel32;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button btnSuaKho;
+        private System.Windows.Forms.Button btnXoaKho;
         private System.Windows.Forms.Button btnthemkho;
         private System.Windows.Forms.Panel panel34;
         private System.Windows.Forms.Label lblHanSuDung;
         private System.Windows.Forms.Panel panel33;
         private System.Windows.Forms.Label lblGiaNhap;
         private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnTimKho;
         private System.Windows.Forms.TextBox txtTuKhoa;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.ComboBox cbDVT;
@@ -1441,5 +1443,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown nmGiaNhap;
         private System.Windows.Forms.DateTimePicker dtpHSD;
+        private System.Windows.Forms.TextBox txtSCCategoryName;
     }
 }
