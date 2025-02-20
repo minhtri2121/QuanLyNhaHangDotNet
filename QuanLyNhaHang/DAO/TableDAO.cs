@@ -100,19 +100,16 @@ namespace QuanLyNhaHang.DAO
 
         public bool DeleteTableFood(int idban)
         {
-            // Bước 1: Xóa các bản ghi trong CTHOADON liên quan đến IDHoaDon (nếu có)
+            
             string deleteCTHoaDonQuery = string.Format("DELETE FROM CTHOADON WHERE IDHoaDon IN (SELECT IDHoaDon FROM HOA_DON WHERE IDBan = {0})", idban);
             DataProvider.Instance.ExcuteNonQuery(deleteCTHoaDonQuery);
 
-            // Bước 2: Xóa các bản ghi trong HOA_DON liên quan đến IDBan
             string deleteHoaDonQuery = string.Format("DELETE FROM HOA_DON WHERE IDBan = {0}", idban);
             DataProvider.Instance.ExcuteNonQuery(deleteHoaDonQuery);
 
-            // Bước 3: Xóa bản ghi trong BAN
             string query = string.Format("DELETE FROM BAN WHERE IDBan = {0}", idban);
             int result = DataProvider.Instance.ExcuteNonQuery(query);
 
-            // Trả về true nếu xóa thành công, ngược lại trả về false
             return result > 0;
         }
     }

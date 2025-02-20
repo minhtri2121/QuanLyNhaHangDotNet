@@ -103,6 +103,7 @@
     <Compile Include="DAO\BillInfoDAO.cs" />
     <Compile Include="DAO\CategoryDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DAO\EntryFormDAO.cs" />
     <Compile Include="DAO\FoodDAO.cs" />
     <Compile Include="DAO\MenuDAO.cs" />
     <Compile Include="DAO\TableDAO.cs" />
@@ -113,6 +114,7 @@
     <Compile Include="DTO\BillInfo.cs" />
     <Compile Include="DTO\Category.cs" />
     <Compile Include="DTO\DVT.cs" />
+    <Compile Include="DTO\EntryForm.cs" />
     <Compile Include="DTO\Food.cs" />
     <Compile Include="DTO\Items.cs" />
     <Compile Include="DTO\Menu.cs" />
@@ -120,6 +122,12 @@
     <Compile Include="DTO\SearchFood.cs" />
     <Compile Include="DTO\Table.cs" />
     <Compile Include="DTO\Zone.cs" />
+    <Compile Include="EntryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EntryForm.Designer.cs">
+      <DependentUpon>EntryForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +147,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin.resx">
       <DependentUpon>Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntryForm.resx">
+      <DependentUpon>EntryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
