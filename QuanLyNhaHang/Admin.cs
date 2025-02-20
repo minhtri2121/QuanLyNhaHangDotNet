@@ -61,6 +61,15 @@ namespace QuanLyNhaHang
             LoadBanAn();
 
             AddTableFood();
+
+            LoadListEntryForm();
+
+            dtgvPhieuNhap.CellClick += dtgvPhieuNhap_CellClick;
+
+            this.btnTimPN.Click += new System.EventHandler(this.btnTimPN_Click);
+
+            this.txtMaPhieuNhap.KeyDown += new KeyEventHandler(this.txtMaPhieuNhap_KeyDown);
+
         }
 
         void AddAccountBinding()
@@ -237,10 +246,16 @@ namespace QuanLyNhaHang
             dtgvDoanhThu.DataSource = BillDAO.Instance.GetBillByAll(date1, date2, ban, nguoiDung);
         }
 
-        
+
         void LoadBanAn()
         {
             dtgvBanAn.DataSource = TableDAO.Instance.GetTableList();
+        }
+
+        void LoadListEntryForm()
+        {
+            List<DTO.EntryForm> entryFormList = EntryFormDAO.Instance.LoadEntryFormList(); 
+            dtgvPhieuNhap.DataSource = entryFormList;
         }
 
         void AddTableFood()
@@ -426,7 +441,7 @@ namespace QuanLyNhaHang
         {
             string name = txtNameTable.Text;
             int idzone = (cbKhuVuc.SelectedItem as Zone).Id;
-            if (TableDAO.instance.InsertTableFood(name,idzone))
+            if (TableDAO.instance.InsertTableFood(name, idzone))
             {
                 MessageBox.Show("Thêm bàn thành công");
                 LoadBanAn();
@@ -444,13 +459,13 @@ namespace QuanLyNhaHang
         {
             string name = txtNameTable.Text;
             int? idzone = (cbKhuVuc.SelectedItem as Zone)?.Id;
-            if(idzone == null)
+            if (idzone == null)
             {
                 MessageBox.Show("Vui lòng chọn khu vực");
                 return;
             }
             int id = Convert.ToInt32(txtIDTableName.Text);
-            if (TableDAO.instance.UpdateTableFood(  id, name, idzone))
+            if (TableDAO.instance.UpdateTableFood(id, name, idzone))
             {
                 MessageBox.Show("Sửa bàn thành công");
                 LoadBanAn();
@@ -530,6 +545,73 @@ namespace QuanLyNhaHang
             GetListWarehouseByDate(date1, date2);
             LoadAdmin();
         }
+
+        private void dtgvPhieuNhap_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0) 
+            {
+                DataGridViewRow row = dtgvPhieuNhap.Rows[e.RowIndex];
+                int idPhieuNhap = Convert.ToInt32(row.Cells["MaPhieuNhap"].Value); 
+
+                LoadDetailEntryForm(idPhieuNhap);
+            }
+        }
+        private void LoadDetailEntryForm(int maPhieuNhap)
+        {
+            string query = "SELECT MAT_HANG.TenMatHang, LOAI_MAT_HANG.TenLoaiMH, CTPHIEUNHAP.SoLuong, MAT_HANG.GiaNhap " +
+                           "FROM CTPHIEUNHAP " +
+                           "JOIN MAT_HANG ON CTPHIEUNHAP.IDMatHang = MAT_HANG.IDMatHang " +
+                           "JOIN LOAI_MAT_HANG ON MAT_HANG.IDLoaiMH = LOAI_MAT_HANG.IDLoaiMH " +
+                           "WHERE CTPHIEUNHAP.IDPhieuNhap = " + maPhieuNhap;
+
+            DataTable data = DataProvider.Instance.ExcuteQuery(query);
+            dtgvChiTietPhieuNhap.DataSource = data;
+        }
+
+        #endregion
+
+
+        private void btnTimPN_Click(object sender, EventArgs e)
+        {
+            string maPhieuNhap = txtMaPhieuNhap.Text.Trim();
+
+            if (string.IsNullOrEmpty(maPhieuNhap))
+            {
+                MessageBox.Show("Vui lòng nhập mã phiếu nhập cần tìm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string query = "SELECT PHIEU_NHAP.IDPhieuNhap AS MaPhieuNhap, PHIEU_NHAP.NgayLapPN AS NgayNhap, " +
+                           "PHIEU_NHAP.NguoiGiao as NguoiGiao, NHA_CUNG_CAP.TenNCC AS NhaCungCap " +
+                           "FROM PHIEU_NHAP " +
+                           "JOIN NHA_CUNG_CAP ON NHA_CUNG_CAP.IDNCC = PHIEU_NHAP.IDNCC " +
+                           "WHERE PHIEU_NHAP.IDPhieuNhap = @MaPhieuNhap";
+
+            DataTable data = DataProvider.Instance.ExcuteQuery(query, new object[] { maPhieuNhap });
+
+            if (data.Rows.Count > 0)
+            {
+                dtgvPhieuNhap.DataSource = data;
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy phiếu nhập!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dtgvPhieuNhap.DataSource = null;
+            }
+        }
+
+        private void txtMaPhieuNhap_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnTimPN.PerformClick(); 
+            }
+        }
+
+        private void btnTaoPhieuNhap_Click(object sender, EventArgs e)
+        {
+            FormPhieuNhap f = new FormPhieuNhap();
+            f.ShowDialog();
+        }
     }
-    #endregion
 }
