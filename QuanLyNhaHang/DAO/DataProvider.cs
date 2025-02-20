@@ -21,7 +21,7 @@ namespace QuanLyNhaHang.DAO
 
         private DataProvider() { }
 
-        private string connectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=QL_NhaHang;Integrated Security=True;";
+        public string connectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=QL_NhaHang;Integrated Security=True;";
 
         public DataTable ExcuteQuery(string query, object[] paremeter = null)
         {

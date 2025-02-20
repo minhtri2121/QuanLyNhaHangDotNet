@@ -68,6 +68,8 @@ namespace QuanLyNhaHang
 
             this.btnTimPN.Click += new System.EventHandler(this.btnTimPN_Click);
 
+            this.btnTimPN.Click -= new System.EventHandler(this.btnTimPN_Click);
+
             this.txtMaPhieuNhap.KeyDown += new KeyEventHandler(this.txtMaPhieuNhap_KeyDown);
 
         }
