@@ -238,7 +238,6 @@ namespace QuanLyNhaHang
         }
 
         
-
         void LoadBanAn()
         {
             dtgvBanAn.DataSource = TableDAO.Instance.GetTableList();
