@@ -38,8 +38,6 @@ namespace QuanLyNhaHang
 
             dtgvTaiKhoan.DataSource = accountList;
 
-            //LoadQuanLiKho();
-
             LoadListFood();
 
             LoadAccount();
@@ -96,14 +94,6 @@ namespace QuanLyNhaHang
 
             FoodList.DataSource = DataProvider.Instance.ExcuteQuery(query);
         }
-
-        //void LoadQuanLiKho()
-        //{
-        //    string query = "EXEC GetListKho";
-
-        //    dtgvKho.DataSource = DataProvider.Instance.ExcuteQuery(query);
-        //}
-
         void AddAccount(string userName, string displayName, int type)
         {
             if (AccountDAO.Instance.InsertAccount(userName, displayName, type))
@@ -613,7 +603,13 @@ namespace QuanLyNhaHang
         private void btnTaoPhieuNhap_Click(object sender, EventArgs e)
         {
             FormPhieuNhap f = new FormPhieuNhap();
+            f.XacNhan += F_XacNhan;
             f.ShowDialog();
+        }
+
+        private void F_XacNhan(object sender, EventArgs e)
+        {
+            LoadAdmin();
         }
     }
 }

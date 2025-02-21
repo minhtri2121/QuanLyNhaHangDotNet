@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,7 @@ namespace QuanLyNhaHang
 
             dtpkNgayNhap.ValueChanged += CheckEntryFormCompletion;
 
-            txtNguoiGiao.TextChanged += CheckEntryFormCompletion;
+            txtShipper.TextChanged += CheckEntryFormCompletion;
 
             cbNhaCungCap.TextChanged += CheckEntryFormCompletion;
 
@@ -58,7 +59,7 @@ namespace QuanLyNhaHang
         {
             return !string.IsNullOrWhiteSpace(txtMaPhieuNhap.Text) &&
                    dtpkNgayNhap.Value != null &&
-                   !string.IsNullOrWhiteSpace(txtNguoiGiao.Text) &&
+                   !string.IsNullOrWhiteSpace(txtShipper.Text) &&
                    !string.IsNullOrWhiteSpace(cbNhaCungCap.Text);
         }
         private void CheckEntryFormCompletion(object sender, EventArgs e)
@@ -80,7 +81,6 @@ namespace QuanLyNhaHang
             txtShipper.Clear();
             cbNhaCungCap.DataSource = null;
             LoadNhaCungCap();
-
             txtTenMatHang.Clear();
             cbLoaiMatHang.SelectedIndex = -1;
             nmSoLuong.Value = 0;
@@ -115,12 +115,30 @@ namespace QuanLyNhaHang
 
         private void LoadNhaCungCap()
         {
-            string query = "SELECT IDNCC, TenNCC FROM NHA_CUNG_CAP";
-            DataTable dt = DataProvider.Instance.ExcuteQuery(query);
-            cbNhaCungCap.DataSource = dt;
-            cbNhaCungCap.DisplayMember = "TenNCC";
-            cbNhaCungCap.ValueMember = "IDNCC";
+            try
+            {
+                string query = "SELECT IDNCC, TenNCC FROM NHA_CUNG_CAP";
+                DataTable dt = DataProvider.Instance.ExcuteQuery(query);
+
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    cbNhaCungCap.DataSource = dt;
+                    cbNhaCungCap.DisplayMember = "TenNCC";
+                    cbNhaCungCap.ValueMember = "IDNCC";
+                }
+                else
+                {
+                    cbNhaCungCap.DataSource = null;
+                }
+
+                cbNhaCungCap.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải danh sách nhà cung cấp: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
         private void LoadLoaiMatHang()
         {
@@ -133,7 +151,7 @@ namespace QuanLyNhaHang
         }
 
 
-
+        public event EventHandler XacNhan;
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtMaPhieuNhap.Text))
@@ -229,12 +247,13 @@ namespace QuanLyNhaHang
                     MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            XacNhan?.Invoke(this, EventArgs.Empty);
         }
 
         private void btnTaoPN_Click(object sender, EventArgs e)
         {
             string ngayNhap = dtpkNgayNhap.Value.ToString("yyyy-MM-dd");
-            string nguoiGiao = txtNguoiGiao.Text;
+            string nguoiGiao = txtShipper.Text;
 
             if (cbNhaCungCap.SelectedValue == null)
             {
@@ -279,5 +298,18 @@ namespace QuanLyNhaHang
                 }
             }
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            ProfilePN profile = new ProfilePN();
+            NhaCungCap f = new NhaCungCap();
+            f.AddNCCOn += AddNCC;
+            profile.ShowDialog();
+        }
+        private void AddNCC(object sender, EventArgs e)
+        {
+            LoadNhaCungCap();
+        }
+
     }
 }

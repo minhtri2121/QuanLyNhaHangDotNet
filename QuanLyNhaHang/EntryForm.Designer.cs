@@ -29,12 +29,10 @@
         private void InitializeComponent()
         {
             this.gbPhieuNhap = new System.Windows.Forms.GroupBox();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.txtShipper = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.dtpkNgayNhap = new System.Windows.Forms.DateTimePicker();
-            this.lblNgayNhap = new System.Windows.Forms.Label();
             this.btnTaoPN = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.cbNhaCungCap = new System.Windows.Forms.ComboBox();
@@ -42,10 +40,16 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtMaPhieuNhap = new System.Windows.Forms.TextBox();
             this.lblUserName = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dtpkNgayNhap = new System.Windows.Forms.DateTimePicker();
+            this.lblNgayNhap = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtNguoiGiao = new System.Windows.Forms.TextBox();
             this.lblNguoiGiao = new System.Windows.Forms.Label();
             this.gbChiTietPhieuNhap = new System.Windows.Forms.GroupBox();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.dtpHsd = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnXacNhan = new System.Windows.Forms.Button();
             this.btnHuy = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -61,16 +65,14 @@
             this.nmGiaNhap = new System.Windows.Forms.NumericUpDown();
             this.lblGiaNhap = new System.Windows.Forms.Label();
             this.dtgvPhieuNhap = new System.Windows.Forms.DataGridView();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dtpHsd = new System.Windows.Forms.DateTimePicker();
             this.gbPhieuNhap.SuspendLayout();
             this.panel9.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.gbChiTietPhieuNhap.SuspendLayout();
+            this.panel10.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmSoLuong)).BeginInit();
             this.panel7.SuspendLayout();
@@ -78,11 +80,11 @@
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmGiaNhap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvPhieuNhap)).BeginInit();
-            this.panel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbPhieuNhap
             // 
+            this.gbPhieuNhap.Controls.Add(this.btnUpdate);
             this.gbPhieuNhap.Controls.Add(this.panel9);
             this.gbPhieuNhap.Controls.Add(this.btnTaoPN);
             this.gbPhieuNhap.Controls.Add(this.panel4);
@@ -93,6 +95,16 @@
             this.gbPhieuNhap.TabIndex = 0;
             this.gbPhieuNhap.TabStop = false;
             this.gbPhieuNhap.Text = "Phiếu nhập";
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(6, 217);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(144, 54);
+            this.btnUpdate.TabIndex = 8;
+            this.btnUpdate.Text = "Thêm thông tin cho phiếu nhập";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // panel9
             // 
@@ -119,32 +131,6 @@
             this.label1.Size = new System.Drawing.Size(115, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "Người giao";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.dtpkNgayNhap);
-            this.panel1.Controls.Add(this.lblNgayNhap);
-            this.panel1.Location = new System.Drawing.Point(12, 82);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(539, 43);
-            this.panel1.TabIndex = 2;
-            // 
-            // dtpkNgayNhap
-            // 
-            this.dtpkNgayNhap.Location = new System.Drawing.Point(215, 10);
-            this.dtpkNgayNhap.Name = "dtpkNgayNhap";
-            this.dtpkNgayNhap.Size = new System.Drawing.Size(310, 22);
-            this.dtpkNgayNhap.TabIndex = 3;
-            // 
-            // lblNgayNhap
-            // 
-            this.lblNgayNhap.AutoSize = true;
-            this.lblNgayNhap.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNgayNhap.Location = new System.Drawing.Point(20, 8);
-            this.lblNgayNhap.Name = "lblNgayNhap";
-            this.lblNgayNhap.Size = new System.Drawing.Size(130, 24);
-            this.lblNgayNhap.TabIndex = 0;
-            this.lblNgayNhap.Text = "Ngày nhập : ";
             // 
             // btnTaoPN
             // 
@@ -196,6 +182,7 @@
             // 
             this.txtMaPhieuNhap.Location = new System.Drawing.Point(215, 11);
             this.txtMaPhieuNhap.Name = "txtMaPhieuNhap";
+            this.txtMaPhieuNhap.ReadOnly = true;
             this.txtMaPhieuNhap.Size = new System.Drawing.Size(310, 22);
             this.txtMaPhieuNhap.TabIndex = 2;
             // 
@@ -208,6 +195,32 @@
             this.lblUserName.Size = new System.Drawing.Size(162, 24);
             this.lblUserName.TabIndex = 0;
             this.lblUserName.Text = "Mã phiếu nhập :";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dtpkNgayNhap);
+            this.panel1.Controls.Add(this.lblNgayNhap);
+            this.panel1.Location = new System.Drawing.Point(12, 82);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(539, 43);
+            this.panel1.TabIndex = 2;
+            // 
+            // dtpkNgayNhap
+            // 
+            this.dtpkNgayNhap.Location = new System.Drawing.Point(215, 10);
+            this.dtpkNgayNhap.Name = "dtpkNgayNhap";
+            this.dtpkNgayNhap.Size = new System.Drawing.Size(310, 22);
+            this.dtpkNgayNhap.TabIndex = 3;
+            // 
+            // lblNgayNhap
+            // 
+            this.lblNgayNhap.AutoSize = true;
+            this.lblNgayNhap.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNgayNhap.Location = new System.Drawing.Point(20, 8);
+            this.lblNgayNhap.Name = "lblNgayNhap";
+            this.lblNgayNhap.Size = new System.Drawing.Size(130, 24);
+            this.lblNgayNhap.TabIndex = 0;
+            this.lblNgayNhap.Text = "Ngày nhập : ";
             // 
             // panel3
             // 
@@ -251,13 +264,39 @@
             this.gbChiTietPhieuNhap.TabStop = false;
             this.gbChiTietPhieuNhap.Text = "Chi tiết phiếu nhập";
             // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.dtpHsd);
+            this.panel10.Controls.Add(this.label2);
+            this.panel10.Location = new System.Drawing.Point(6, 216);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(539, 43);
+            this.panel10.TabIndex = 6;
+            // 
+            // dtpHsd
+            // 
+            this.dtpHsd.Location = new System.Drawing.Point(215, 10);
+            this.dtpHsd.Name = "dtpHsd";
+            this.dtpHsd.Size = new System.Drawing.Size(201, 22);
+            this.dtpHsd.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(20, 10);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(151, 24);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Hạn sử dụng : ";
+            // 
             // btnXacNhan
             // 
             this.btnXacNhan.Location = new System.Drawing.Point(406, 265);
             this.btnXacNhan.Name = "btnXacNhan";
             this.btnXacNhan.Size = new System.Drawing.Size(123, 54);
             this.btnXacNhan.TabIndex = 5;
-            this.btnXacNhan.Text = "Xác nhận";
+            this.btnXacNhan.Text = "Thêm";
             this.btnXacNhan.UseVisualStyleBackColor = true;
             this.btnXacNhan.Click += new System.EventHandler(this.btnXacNhan_Click);
             // 
@@ -386,32 +425,6 @@
             this.dtgvPhieuNhap.Size = new System.Drawing.Size(1112, 406);
             this.dtgvPhieuNhap.TabIndex = 3;
             // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.dtpHsd);
-            this.panel10.Controls.Add(this.label2);
-            this.panel10.Location = new System.Drawing.Point(6, 216);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(539, 43);
-            this.panel10.TabIndex = 6;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(20, 10);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(151, 24);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Hạn sử dụng : ";
-            // 
-            // dtpHsd
-            // 
-            this.dtpHsd.Location = new System.Drawing.Point(215, 10);
-            this.dtpHsd.Name = "dtpHsd";
-            this.dtpHsd.Size = new System.Drawing.Size(201, 22);
-            this.dtpHsd.TabIndex = 1;
-            // 
             // FormPhieuNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -429,15 +442,17 @@
             this.gbPhieuNhap.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.gbChiTietPhieuNhap.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmSoLuong)).EndInit();
@@ -449,8 +464,6 @@
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmGiaNhap)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvPhieuNhap)).EndInit();
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -493,5 +506,6 @@
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.DateTimePicker dtpHsd;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnUpdate;
     }
 }
