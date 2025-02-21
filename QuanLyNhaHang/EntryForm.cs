@@ -40,9 +40,6 @@ namespace QuanLyNhaHang
             LoadNhaCungCap();
 
             LoadLoaiMatHang();
-
-            LoadShowEntryFormList();
-
         }
 
         private void FormPhieuNhap_Load(object sender, EventArgs e)
@@ -251,7 +248,7 @@ namespace QuanLyNhaHang
             }
             XacNhan?.Invoke(this, EventArgs.Empty);
 
-            LoadShowEntryFormList();
+            LoadShowEntryFormList(idPhieuNhap);
         }
 
         private void btnTaoPN_Click(object sender, EventArgs e)
@@ -284,12 +281,13 @@ namespace QuanLyNhaHang
 
                         if (result != null)
                         {
+                            
                             txtMaPhieuNhap.Text = result.ToString();
                             MessageBox.Show("Tạo phiếu nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             EnableDetailControls(true);
 
-                            LoadShowEntryFormList();
+                           
                         }
                         else
                         {
@@ -303,6 +301,9 @@ namespace QuanLyNhaHang
                     MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            int idPhieuNhap = Convert.ToInt32(txtMaPhieuNhap.Text);
+            LoadShowEntryFormList(idPhieuNhap);
+
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -313,10 +314,11 @@ namespace QuanLyNhaHang
             profile.ShowDialog();
         }
 
-        void LoadShowEntryFormList()
+        void LoadShowEntryFormList(int idPhieuNhap)
         {
-            List< DTO.ShowEntryForm > showEntryForms = ShowEntryFormDAO.Instance.LoadShowEntryFormList();
+            List<DTO.ShowEntryForm> showEntryForms = ShowEntryFormDAO.Instance.LoadShowEntryFormList(idPhieuNhap);
             dtgvHienThiPhieuNhap.DataSource = showEntryForms;
         }
+
     }
 }
