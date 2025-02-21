@@ -25,7 +25,8 @@ namespace QuanLyNhaHang
 
         private void btnLoaiMH_Click(object sender, EventArgs e)
         {
-
+            LoaiMatHang f = new LoaiMatHang();
+            f.ShowDialog();
         }
     }
 }
