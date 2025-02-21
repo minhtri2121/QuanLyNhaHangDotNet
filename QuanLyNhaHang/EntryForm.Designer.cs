@@ -64,7 +64,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.nmGiaNhap = new System.Windows.Forms.NumericUpDown();
             this.lblGiaNhap = new System.Windows.Forms.Label();
-            this.dtgvPhieuNhap = new System.Windows.Forms.DataGridView();
+            this.dtgvHienThiPhieuNhap = new System.Windows.Forms.DataGridView();
             this.gbPhieuNhap.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -79,7 +79,7 @@
             this.panel8.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmGiaNhap)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvPhieuNhap)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvHienThiPhieuNhap)).BeginInit();
             this.SuspendLayout();
             // 
             // gbPhieuNhap
@@ -415,22 +415,22 @@
             this.lblGiaNhap.TabIndex = 0;
             this.lblGiaNhap.Text = "Giá nhập : ";
             // 
-            // dtgvPhieuNhap
+            // dtgvHienThiPhieuNhap
             // 
-            this.dtgvPhieuNhap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvPhieuNhap.Location = new System.Drawing.Point(15, 345);
-            this.dtgvPhieuNhap.Name = "dtgvPhieuNhap";
-            this.dtgvPhieuNhap.RowHeadersWidth = 51;
-            this.dtgvPhieuNhap.RowTemplate.Height = 24;
-            this.dtgvPhieuNhap.Size = new System.Drawing.Size(1112, 406);
-            this.dtgvPhieuNhap.TabIndex = 3;
+            this.dtgvHienThiPhieuNhap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvHienThiPhieuNhap.Location = new System.Drawing.Point(15, 345);
+            this.dtgvHienThiPhieuNhap.Name = "dtgvHienThiPhieuNhap";
+            this.dtgvHienThiPhieuNhap.RowHeadersWidth = 51;
+            this.dtgvHienThiPhieuNhap.RowTemplate.Height = 24;
+            this.dtgvHienThiPhieuNhap.Size = new System.Drawing.Size(1112, 406);
+            this.dtgvHienThiPhieuNhap.TabIndex = 3;
             // 
             // FormPhieuNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1134, 759);
-            this.Controls.Add(this.dtgvPhieuNhap);
+            this.Controls.Add(this.dtgvHienThiPhieuNhap);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gbChiTietPhieuNhap);
             this.Controls.Add(this.gbPhieuNhap);
@@ -463,7 +463,7 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmGiaNhap)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvPhieuNhap)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvHienThiPhieuNhap)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -502,7 +502,7 @@
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.TextBox txtShipper;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dtgvPhieuNhap;
+        private System.Windows.Forms.DataGridView dtgvHienThiPhieuNhap;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.DateTimePicker dtpHsd;
         private System.Windows.Forms.Label label2;

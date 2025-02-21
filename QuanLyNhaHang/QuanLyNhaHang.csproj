@@ -106,6 +106,7 @@
     <Compile Include="DAO\EntryFormDAO.cs" />
     <Compile Include="DAO\FoodDAO.cs" />
     <Compile Include="DAO\MenuDAO.cs" />
+    <Compile Include="DAO\ShowEntryFormDAO.cs" />
     <Compile Include="DAO\TableDAO.cs" />
     <Compile Include="DAO\WarehouseDAO.cs" />
     <Compile Include="DAO\ZoneDAO.cs" />
@@ -120,6 +121,7 @@
     <Compile Include="DTO\Menu.cs" />
     <Compile Include="DTO\SearchCategory.cs" />
     <Compile Include="DTO\SearchFood.cs" />
+    <Compile Include="DTO\ShowEntryForm.cs" />
     <Compile Include="DTO\Table.cs" />
     <Compile Include="DTO\Zone.cs" />
     <Compile Include="EntryForm.cs">

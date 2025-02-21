@@ -41,6 +41,8 @@ namespace QuanLyNhaHang
 
             LoadLoaiMatHang();
 
+            LoadShowEntryFormList();
+
         }
 
         private void FormPhieuNhap_Load(object sender, EventArgs e)
@@ -248,6 +250,8 @@ namespace QuanLyNhaHang
                 }
             }
             XacNhan?.Invoke(this, EventArgs.Empty);
+
+            LoadShowEntryFormList();
         }
 
         private void btnTaoPN_Click(object sender, EventArgs e)
@@ -284,6 +288,8 @@ namespace QuanLyNhaHang
                             MessageBox.Show("Tạo phiếu nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             EnableDetailControls(true);
+
+                            LoadShowEntryFormList();
                         }
                         else
                         {
@@ -307,5 +313,10 @@ namespace QuanLyNhaHang
             profile.ShowDialog();
         }
 
+        void LoadShowEntryFormList()
+        {
+            List< DTO.ShowEntryForm > showEntryForms = ShowEntryFormDAO.Instance.LoadShowEntryFormList();
+            dtgvHienThiPhieuNhap.DataSource = showEntryForms;
+        }
     }
 }
