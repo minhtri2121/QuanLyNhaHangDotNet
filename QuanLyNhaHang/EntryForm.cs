@@ -301,14 +301,10 @@ namespace QuanLyNhaHang
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            this.Hide();
             ProfilePN profile = new ProfilePN();
             NhaCungCap f = new NhaCungCap();
-            f.AddNCCOn += AddNCC;
             profile.ShowDialog();
-        }
-        private void AddNCC(object sender, EventArgs e)
-        {
-            LoadNhaCungCap();
         }
 
     }

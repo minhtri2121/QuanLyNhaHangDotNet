@@ -1,6 +1,6 @@
 ﻿namespace QuanLyNhaHang
 {
-    partial class NhaCungCap
+    partial class LoaiMatHang
     {
         /// <summary>
         /// Required designer variable.
@@ -99,7 +99,6 @@
             this.btnDeleteNCC.TabIndex = 4;
             this.btnDeleteNCC.Text = "Xoá";
             this.btnDeleteNCC.UseVisualStyleBackColor = true;
-            this.btnDeleteNCC.Click += new System.EventHandler(this.btnDeleteNCC_Click);
             // 
             // txtDiaChi
             // 
@@ -116,7 +115,6 @@
             this.btnEditNCC.TabIndex = 3;
             this.btnEditNCC.Text = "Sửa";
             this.btnEditNCC.UseVisualStyleBackColor = true;
-            this.btnEditNCC.Click += new System.EventHandler(this.btnEditNCC_Click);
             // 
             // label3
             // 
@@ -135,7 +133,6 @@
             this.btnAddNCC.TabIndex = 2;
             this.btnAddNCC.Text = "Thêm";
             this.btnAddNCC.UseVisualStyleBackColor = true;
-            this.btnAddNCC.Click += new System.EventHandler(this.btnAddNCC_Click);
             // 
             // txtSDT
             // 
@@ -143,8 +140,6 @@
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(237, 22);
             this.txtSDT.TabIndex = 3;
-            this.txtSDT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSDT_KeyPress);
-            this.txtSDT.Leave += new System.EventHandler(this.txtSDT_Leave);
             // 
             // label2
             // 

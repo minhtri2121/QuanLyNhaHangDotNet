@@ -22,5 +22,10 @@ namespace QuanLyNhaHang
             NhaCungCap ncc = new NhaCungCap();
             ncc.ShowDialog();
         }
+
+        private void btnLoaiMH_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

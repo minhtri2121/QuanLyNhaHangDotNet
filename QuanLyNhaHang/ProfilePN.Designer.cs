@@ -50,6 +50,7 @@
             this.btnLoaiMH.TabIndex = 1;
             this.btnLoaiMH.Text = "Loại mặt hàng";
             this.btnLoaiMH.UseVisualStyleBackColor = true;
+            this.btnLoaiMH.Click += new System.EventHandler(this.btnLoaiMH_Click);
             // 
             // ProfilePN
             // 
@@ -59,6 +60,7 @@
             this.Controls.Add(this.btnLoaiMH);
             this.Controls.Add(this.btnNCC);
             this.Name = "ProfilePN";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProfilePN";
             this.ResumeLayout(false);
 
