@@ -68,7 +68,7 @@ namespace QuanLyNhaHang
 
             this.btnTimPN.Click -= new System.EventHandler(this.btnTimPN_Click);
 
-            this.txtMaPhieuNhap.KeyDown += new KeyEventHandler(this.txtMaPhieuNhap_KeyDown);
+            this.txtNhaCungCap.KeyDown += new KeyEventHandler(this.txtMaPhieuNhap_KeyDown);
 
         }
 
@@ -108,9 +108,9 @@ namespace QuanLyNhaHang
             LoadAccount();
         }
 
-        void EditAccount(string userName, string displayName, int type)
+        void EditAccount(string @userName, string @displayName, int @type)
         {
-            if (AccountDAO.Instance.UpdateAccount(userName, displayName, type))
+            if (AccountDAO.Instance.UpdateAccount(@userName, @displayName, @type))
             {
                 MessageBox.Show("Cập nhật tài khoản thành công");
             }
@@ -373,7 +373,7 @@ namespace QuanLyNhaHang
             string displayName = txtTenHienThi.Text;
             int type = (int)nmLoaiTK.Value;
 
-            EditAccount(userName, displayName, type);
+            EditAccount(@userName, @displayName, @type);
         }
 
         private void btnRePass_Click(object sender, EventArgs e)
@@ -565,21 +565,17 @@ namespace QuanLyNhaHang
 
         private void btnTimPN_Click(object sender, EventArgs e)
         {
-            string maPhieuNhap = txtMaPhieuNhap.Text.Trim();
+            string nhaCungCap = txtNhaCungCap.Text.Trim();
 
-            if (string.IsNullOrEmpty(maPhieuNhap))
+            if (string.IsNullOrEmpty(nhaCungCap))
             {
                 MessageBox.Show("Vui lòng nhập mã phiếu nhập cần tìm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            string query = "SELECT PHIEU_NHAP.IDPhieuNhap AS MaPhieuNhap, PHIEU_NHAP.NgayLapPN AS NgayNhap, " +
-                           "PHIEU_NHAP.NguoiGiao as NguoiGiao, NHA_CUNG_CAP.TenNCC AS NhaCungCap " +
-                           "FROM PHIEU_NHAP " +
-                           "JOIN NHA_CUNG_CAP ON NHA_CUNG_CAP.IDNCC = PHIEU_NHAP.IDNCC " +
-                           "WHERE PHIEU_NHAP.IDPhieuNhap = @MaPhieuNhap";
+            string query = "SELECT PHIEU_NHAP.IDPhieuNhap AS MaPhieuNhap, PHIEU_NHAP.NgayLapPN AS NgayNhap,PHIEU_NHAP.NguoiGiao AS NguoiGiao, NHA_CUNG_CAP.TenNCC AS NhaCungCap FROM PHIEU_NHAP JOIN NHA_CUNG_CAP ON NHA_CUNG_CAP.IDNCC = PHIEU_NHAP.IDNCC WHERE NHA_CUNG_CAP.TenNCC LIKE @TenNCC";
 
-            DataTable data = DataProvider.Instance.ExcuteQuery(query, new object[] { maPhieuNhap });
+            DataTable data = DataProvider.Instance.ExcuteQuery(query, new object[] { "%" + nhaCungCap + "%" });
 
             if (data.Rows.Count > 0)
             {
@@ -590,8 +586,7 @@ namespace QuanLyNhaHang
                 MessageBox.Show("Không tìm thấy phiếu nhập!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dtgvPhieuNhap.DataSource = null;
             }
-        }
-
+        } 
         private void txtMaPhieuNhap_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)

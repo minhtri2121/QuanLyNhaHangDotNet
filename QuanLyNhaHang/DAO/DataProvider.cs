@@ -23,38 +23,39 @@ namespace QuanLyNhaHang.DAO
 
         public string connectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=QL_NhaHang;Integrated Security=True;";
 
-        public DataTable ExcuteQuery(string query, object[] paremeter = null)
+        public DataTable ExcuteQuery(string query, object[] parameters = null)
         {
             DataTable data = new DataTable();
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                conn.Open();
-
-                SqlCommand sqlCommand = new SqlCommand(query, conn);
-
-                if (paremeter != null) 
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    string[] ListPara = query.Split(' ');
-                    int i = 0;
-                    foreach (string item in ListPara)
+                    if (parameters != null)
                     {
-                        if (item.Contains('@'))
+                        string[] listParams = query.Split(' ');
+                        int i = 0;
+                        foreach (string item in listParams)
                         {
-                            sqlCommand.Parameters.AddWithValue(item, paremeter[i]);
-                            i++;
+                            if (item.Contains("@"))
+                            {
+                                if (parameters[i] == null || parameters[i].ToString() == "")
+                                {
+                                    parameters[i] = DBNull.Value; // Gán giá trị NULL nếu tham số rỗng
+                                }
+                                command.Parameters.AddWithValue(item, parameters[i]);
+                                i++;
+                            }
                         }
                     }
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    adapter.Fill(data);
                 }
-
-                SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand);
-
-                adapter.Fill(data);
-
-                conn.Close();
             }
             return data;
         }
+
 
         public int ExcuteNonQuery(string query, object[] paremeter = null)
         {
