@@ -618,5 +618,11 @@ namespace QuanLyNhaHang
             ProfileMonAn f = new ProfileMonAn();
             f.ShowDialog();
         }
+
+        private void bntAddKV_Click(object sender, EventArgs e)
+        {
+            KhuVuc f = new KhuVuc();
+            f.ShowDialog();
+        }
     }
 }

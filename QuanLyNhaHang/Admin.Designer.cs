@@ -135,6 +135,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
+            this.bntAddKV = new System.Windows.Forms.Button();
             this.tcAdmin.SuspendLayout();
             this.tpDoanhThu.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -678,6 +679,7 @@
             // 
             // panel17
             // 
+            this.panel17.Controls.Add(this.bntAddKV);
             this.panel17.Controls.Add(this.panel35);
             this.panel17.Controls.Add(this.panel18);
             this.panel17.Controls.Add(this.panel19);
@@ -1319,6 +1321,16 @@
             this.entityCommand1.EnablePlanCaching = true;
             this.entityCommand1.Transaction = null;
             // 
+            // bntAddKV
+            // 
+            this.bntAddKV.Location = new System.Drawing.Point(255, 278);
+            this.bntAddKV.Name = "bntAddKV";
+            this.bntAddKV.Size = new System.Drawing.Size(144, 46);
+            this.bntAddKV.TabIndex = 13;
+            this.bntAddKV.Text = "Thêm KV mới";
+            this.bntAddKV.UseVisualStyleBackColor = true;
+            this.bntAddKV.Click += new System.EventHandler(this.bntAddKV_Click);
+            // 
             // fAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1505,5 +1517,6 @@
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.TextBox txtIDNguoiDung;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button bntAddKV;
     }
 }
