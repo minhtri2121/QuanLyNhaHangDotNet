@@ -148,6 +148,12 @@
     <Compile Include="NhaCungCap.Designer.cs">
       <DependentUpon>NhaCungCap.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProfileMonAn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProfileMonAn.Designer.cs">
+      <DependentUpon>ProfileMonAn.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProfilePN.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NhaCungCap.resx">
       <DependentUpon>NhaCungCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfileMonAn.resx">
+      <DependentUpon>ProfileMonAn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProfilePN.resx">
       <DependentUpon>ProfilePN.cs</DependentUpon>
