@@ -543,12 +543,15 @@ namespace QuanLyNhaHang
             if (e.RowIndex >= 0) 
             {
                 DataGridViewRow row = dtgvPhieuNhap.Rows[e.RowIndex];
-                int idPhieuNhap = Convert.ToInt32(row.Cells["MaPhieuNhap"].Value); 
+                int? idPhieuNhap = DBNull.Value.Equals(row.Cells["MaPhieuNhap"].Value) ? (int?) null : Convert.ToInt32(row.Cells["MaPhieuNhap"].Value);
 
-                LoadDetailEntryForm(idPhieuNhap);
+                if (idPhieuNhap > 0)
+                {
+                    LoadDetailEntryForm(idPhieuNhap);
+                }
             }
         }
-        private void LoadDetailEntryForm(int maPhieuNhap)
+        private void LoadDetailEntryForm(int? maPhieuNhap)
         {
             string query = "SELECT MAT_HANG.TenMatHang, LOAI_MAT_HANG.TenLoaiMH, CTPHIEUNHAP.SoLuong, MAT_HANG.GiaNhap " +
                            "FROM CTPHIEUNHAP " +

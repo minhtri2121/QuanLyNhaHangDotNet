@@ -131,6 +131,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
+            this.btnTuyChon = new System.Windows.Forms.Button();
             this.tcAdmin.SuspendLayout();
             this.tpDoanhThu.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -322,6 +323,7 @@
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.btnTuyChon);
             this.panel6.Controls.Add(this.panel16);
             this.panel6.Controls.Add(this.panel15);
             this.panel6.Controls.Add(this.panel10);
@@ -1181,6 +1183,9 @@
             this.btnTaoPhieuNhap.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnTaoPhieuNhap.Name = "btnTaoPhieuNhap";
             this.btnTaoPhieuNhap.Size = new System.Drawing.Size(98, 24);
+            this.btnTaoPhieuNhap.Location = new System.Drawing.Point(426, 21);
+            this.btnTaoPhieuNhap.Name = "btnTaoPhieuNhap";
+            this.btnTaoPhieuNhap.Size = new System.Drawing.Size(130, 29);
             this.btnTaoPhieuNhap.TabIndex = 4;
             this.btnTaoPhieuNhap.Text = "Tạo phiếu nhập";
             this.btnTaoPhieuNhap.UseVisualStyleBackColor = true;
@@ -1287,6 +1292,15 @@
             this.entityCommand1.Connection = null;
             this.entityCommand1.EnablePlanCaching = true;
             this.entityCommand1.Transaction = null;
+            // 
+            // btnTuyChon
+            // 
+            this.btnTuyChon.Location = new System.Drawing.Point(231, 399);
+            this.btnTuyChon.Name = "btnTuyChon";
+            this.btnTuyChon.Size = new System.Drawing.Size(173, 62);
+            this.btnTuyChon.TabIndex = 6;
+            this.btnTuyChon.Text = "Tuỳ chọn khác";
+            this.btnTuyChon.UseVisualStyleBackColor = true;
             // 
             // fAdmin
             // 
@@ -1468,5 +1482,6 @@
         private System.Windows.Forms.Button btnTimPN;
         private System.Windows.Forms.DataGridView dtgvPhieuNhap;
         private System.Windows.Forms.Button btnTaoPhieuNhap;
+        private System.Windows.Forms.Button btnTuyChon;
     }
 }
