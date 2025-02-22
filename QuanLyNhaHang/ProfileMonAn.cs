@@ -19,11 +19,14 @@ namespace QuanLyNhaHang
 
         private void btnNhomMon_Click(object sender, EventArgs e)
         {
-
+            NhomMon f = new NhomMon();
+            f.ShowDialog();
         }
 
         private void btnDVT_Click(object sender, EventArgs e)
         {
+            DonViTinh f = new DonViTinh();
+            f.ShowDialog();
 
         }
     }

@@ -48,7 +48,7 @@
             this.btnDVT.Name = "btnDVT";
             this.btnDVT.Size = new System.Drawing.Size(167, 162);
             this.btnDVT.TabIndex = 1;
-            this.btnDVT.Text = "Loại mặt hàng";
+            this.btnDVT.Text = "Đơn vị tính";
             this.btnDVT.UseVisualStyleBackColor = true;
             this.btnDVT.Click += new System.EventHandler(this.btnDVT_Click);
             // 

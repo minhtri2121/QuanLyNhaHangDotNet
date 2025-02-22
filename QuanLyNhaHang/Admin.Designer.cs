@@ -348,6 +348,7 @@
             this.btnTuyChon.TabIndex = 6;
             this.btnTuyChon.Text = "Tuỳ chọn khác";
             this.btnTuyChon.UseVisualStyleBackColor = true;
+            this.btnTuyChon.Click += new System.EventHandler(this.btnTuyChon_Click);
             // 
             // panel16
             // 

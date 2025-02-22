@@ -41,7 +41,7 @@ namespace QuanLyNhaHang.DAO
                             {
                                 if (parameters[i] == null || parameters[i].ToString() == "")
                                 {
-                                    parameters[i] = DBNull.Value; // Gán giá trị NULL nếu tham số rỗng
+                                    parameters[i] = DBNull.Value;
                                 }
                                 command.Parameters.AddWithValue(item, parameters[i]);
                                 i++;

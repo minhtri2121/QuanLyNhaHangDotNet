@@ -130,6 +130,18 @@
     <Compile Include="EntryForm.Designer.cs">
       <DependentUpon>EntryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DonViTinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DonViTinh.Designer.cs">
+      <DependentUpon>DonViTinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NhomMon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhomMon.Designer.cs">
+      <DependentUpon>NhomMon.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,6 +188,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EntryForm.resx">
       <DependentUpon>EntryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DonViTinh.resx">
+      <DependentUpon>DonViTinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhomMon.resx">
+      <DependentUpon>NhomMon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

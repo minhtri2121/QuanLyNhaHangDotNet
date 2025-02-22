@@ -612,5 +612,11 @@ namespace QuanLyNhaHang
         {
             LoadAdmin();
         }
+
+        private void btnTuyChon_Click(object sender, EventArgs e)
+        {
+            ProfileMonAn f = new ProfileMonAn();
+            f.ShowDialog();
+        }
     }
 }
