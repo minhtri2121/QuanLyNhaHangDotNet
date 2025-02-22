@@ -74,10 +74,12 @@ namespace QuanLyNhaHang
 
         void AddAccountBinding()
         {
+            txtIDNguoiDung.DataBindings.Clear();
             txtTenTk.DataBindings.Clear();
             txtTenHienThi.DataBindings.Clear();
             nmLoaiTK.DataBindings.Clear();
 
+            txtIDNguoiDung.DataBindings.Add(new Binding("Text", dtgvTaiKhoan.DataSource, "IDNguoiDung", true, DataSourceUpdateMode.Never));
             txtTenTk.DataBindings.Add(new Binding("Text", dtgvTaiKhoan.DataSource, "TenDangNhap", true, DataSourceUpdateMode.Never));
             txtTenHienThi.DataBindings.Add(new Binding("Text", dtgvTaiKhoan.DataSource, "TenNguoiDung", true, DataSourceUpdateMode.Never));
             nmLoaiTK.DataBindings.Add(new Binding("Value", dtgvTaiKhoan.DataSource, "Admin", true, DataSourceUpdateMode.Never));
@@ -108,9 +110,9 @@ namespace QuanLyNhaHang
             LoadAccount();
         }
 
-        void EditAccount(string @userName, string @displayName, int @type)
+        void EditAccount(string @userName, string @displayName, int @type, int id )
         {
-            if (AccountDAO.Instance.UpdateAccount(@userName, @displayName, @type))
+            if (AccountDAO.Instance.UpdateAccount(userName, displayName, type, id))
             {
                 MessageBox.Show("Cập nhật tài khoản thành công");
             }
@@ -369,11 +371,12 @@ namespace QuanLyNhaHang
 
         private void btnSuaTK_Click(object sender, EventArgs e)
         {
-            string userName = txtTenTk.Text;
+            int id = Convert.ToInt32(txtIDNguoiDung.Text);
+            string userName = txtTenTk?.Text?.ToString();
             string displayName = txtTenHienThi.Text;
             int type = (int)nmLoaiTK.Value;
 
-            EditAccount(@userName, @displayName, @type);
+            EditAccount(userName, displayName, type, id);
         }
 
         private void btnRePass_Click(object sender, EventArgs e)

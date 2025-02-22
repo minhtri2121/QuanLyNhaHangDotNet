@@ -1,11 +1,14 @@
 ﻿using QuanLyNhaHang.DTO;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Data.Entity.ModelConfiguration.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace QuanLyNhaHang.DAO
 {
@@ -34,7 +37,7 @@ namespace QuanLyNhaHang.DAO
             DataTable result = DataProvider.Instance.ExcuteQuery(query, new object[] { username, password });
             if (result.Rows.Count > 0)
             {
-                CurrentUser = new Account(result.Rows[0]); // Lưu tài khoản đăng nhập vào biến static
+                CurrentUser = new Account(result.Rows[0]);
                 return true;
             }
 
@@ -49,7 +52,7 @@ namespace QuanLyNhaHang.DAO
 
         public DataTable GetListAccount() 
         {
-            return DataProvider.Instance.ExcuteQuery("SELECT TenDangNhap, TenNguoiDung, CAST(Admin AS INT) AS Admin FROM Nguoi_Dung");
+            return DataProvider.Instance.ExcuteQuery("SELECT IDNguoiDung, TenDangNhap, TenNguoiDung, CAST(Admin AS INT) AS Admin FROM Nguoi_Dung");
         }
 
         public List<Account> GetListAccounts()
@@ -95,12 +98,35 @@ namespace QuanLyNhaHang.DAO
             return result > 0;
         }
 
-        public bool UpdateAccount(string name, string displayName, int type)
+        public bool UpdateAccount(string name, string displayName, int type, int id)
         {
-            string querry = string.Format("UPDATE dbo.NGUOI_DUNG SET  TenNguoiDung = N'{1}', Admin = {2}  WHERE  TenDangNhap= N'{0}'", name, displayName, type);
-            int result = DataProvider.Instance.ExcuteNonQuery(querry);
+            try
+            {
+                string checkAdminQuery = "SELECT COUNT(*) FROM NGUOI_DUNG WHERE Admin = 1";
+                int adminCount = (int)DataProvider.Instance.ExcuteNonScalar(checkAdminQuery);
 
-            return result > 0;
+                if (adminCount == 1)
+                {
+                    string checkCurrentAdminQuery = "SELECT COUNT(*) FROM NGUOI_DUNG WHERE Admin = 1 and IDNguoiDung = " + id;
+                    int currentType = (int)DataProvider.Instance.ExcuteNonScalar(checkCurrentAdminQuery);
+
+                    if (currentType == 1)
+                    {
+                        MessageBox.Show("Không thể chỉnh sửa vì đây là tài khoản Admin duy nhất!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return false;
+                    }
+                }
+
+                string querry = string.Format("UPDATE dbo.NGUOI_DUNG SET  TenNguoiDung = N'{1}', Admin = N'{2}', TenDangNhap = N'{0}'  WHERE  IDNguoiDung = {3}", name, displayName, type, id);
+                int result = DataProvider.Instance.ExcuteNonQuery(querry);
+                return result > 0;
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi, Đây là tài khoản ADMIN cuối cùng không được phép sửa!", "Cảnh Báo");
+                return false;
+            }
+
         }
 
         public bool DeleteAccount(string name)
