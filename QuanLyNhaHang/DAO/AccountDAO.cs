@@ -70,13 +70,17 @@ namespace QuanLyNhaHang.DAO
 
         public Account GetAccountByUserName(string username)
         {
-            DataTable data = DataProvider.Instance.ExcuteQuery("select * from NGUOI_DUNG where TenDangNhap = '" + username + "'");
-            foreach (DataRow item in data.Rows)
+            string query = "SELECT * FROM NGUOI_DUNG WHERE TenDangNhap = @username";
+
+            DataTable data = DataProvider.Instance.ExcuteQuery(query, new object[] { username });
+
+            if (data.Rows.Count > 0)
             {
-                return new Account(item);
+                return new Account(data.Rows[0]);
             }
             return null;
         }
+
 
         internal Account GetAccountByAdmin(object admin)
         {
