@@ -9,7 +9,7 @@ namespace QuanLyNhaHang.DTO
 {
     public class Bill
     {
-        public Bill(int idhoadon, DateTime? ngaylap, DateTime? giovao, DateTime? giora, string ca, int idnv, int idban, int idvat, int giamgia = 0)
+        public Bill(int idhoadon, DateTime? ngaylap, DateTime? giovao, DateTime? giora, string ca, int idnv, int idban, int giamgia = 0)
         {
             this.IdHoaDon = idhoadon;
             this.NgayLap = ngaylap;
@@ -18,7 +18,6 @@ namespace QuanLyNhaHang.DTO
             this.Ca = ca;
             this.IdNhanVien = idnv;
             this.IdBan = idban;
-            this.IdVAT = idvat;
             this.GiamGia = giamgia;
         }
 
@@ -36,7 +35,6 @@ namespace QuanLyNhaHang.DTO
             this.Ca = row["Ca"].ToString();
             this.IdNhanVien = (int)row["IDNguoiDung"];
             this.IdBan = (int)row["IDBan"];
-            this.IdVAT = row["IDVAT"] != DBNull.Value ? Convert.ToInt32(row["IDVAT"]) : 0;
             this.GiamGia = row["GiamGia"] != DBNull.Value ? Convert.ToInt32(row["GiamGia"]) : 0;
 
         }
@@ -48,7 +46,6 @@ namespace QuanLyNhaHang.DTO
         private string ca;
         private int idNhanVien;
         private int idBan;
-        private int idVAT;
         private int giamGia;
 
         public int IdHoaDon 
@@ -86,11 +83,6 @@ namespace QuanLyNhaHang.DTO
         {
             get { return idBan; }
             set { idBan = value; }
-        }
-        public int IdVAT
-        {
-            get { return idVAT; }
-            set { idVAT = value; }
         }
 
         public int GiamGia

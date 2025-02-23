@@ -540,7 +540,6 @@ namespace QuanLyNhaHang
         }
 
         #endregion
-
     }
 
 }
