@@ -265,5 +265,8 @@
   <ItemGroup>
     <Content Include="logo nhóm.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Database And Report\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
