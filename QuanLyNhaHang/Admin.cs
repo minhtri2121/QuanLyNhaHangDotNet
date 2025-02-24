@@ -498,39 +498,58 @@ namespace QuanLyNhaHang
         }
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtIDMon.Text))
+            // 1. Kiểm tra ID có nhập hay không
+            if (string.IsNullOrWhiteSpace(txtIDMon.Text))
             {
-                MessageBox.Show("Vui lòng nhập ID món cần xóa.");
+                MessageBox.Show("Vui lòng nhập ID món cần xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            int id;
-            if (!int.TryParse(txtIDMon.Text, out id))
+            // 2. Kiểm tra ID có hợp lệ không (phải là số)
+            if (!int.TryParse(txtIDMon.Text, out int id))
             {
-                MessageBox.Show("ID món không hợp lệ.");
+                MessageBox.Show("ID món không hợp lệ. Vui lòng nhập số nguyên.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
+            // 3. Kiểm tra xem ID món có tồn tại trong database hay không
+            string checkQuery = "SELECT COUNT(*) FROM MON WHERE IDMon = @ID";
+            int count = (int)DataProvider.Instance.ExcuteNonScalar(checkQuery, new object[] { id });
+
+            if (count == 0)
+            {
+                MessageBox.Show("Không tìm thấy món có ID này để xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 4. Xác nhận xóa
+            DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn xóa món có ID {id} không?",
+                                                  "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result != DialogResult.Yes)
+                return;
+
+            // 5. Thực hiện xóa món ăn
             try
             {
-                int rowsAffected = DataProvider.Instance.ExcuteNonQuery("DELETE FROM MON WHERE IDMon = " + id);
+                string deleteQuery = "DELETE FROM MON WHERE IDMon = @ID";
+                int rowsAffected = DataProvider.Instance.ExcuteNonQuery(deleteQuery, new object[] { id });
 
                 if (rowsAffected > 0)
                 {
-                    MessageBox.Show("Xóa món thành công.");
+                    MessageBox.Show("Xóa món thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadListFood(); // Cập nhật lại danh sách món
                 }
                 else
                 {
-                    MessageBox.Show("Không tìm thấy món có ID này để xóa.");
+                    MessageBox.Show("Không thể xóa món này.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi xóa món: " + ex.Message);
+                MessageBox.Show("Lỗi khi xóa món: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            LoadListFood();
         }
+
 
         private void btnTraCuuKho_Click(object sender, EventArgs e)
         {

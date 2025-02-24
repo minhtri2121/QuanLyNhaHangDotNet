@@ -46,5 +46,28 @@ namespace QuanLyNhaHang.DAO
             int result = DataProvider.Instance.ExcuteNonQuery("EXEC DeleteFoodinBillInfo @idhoadon , @idmon", new object[] { idhoadon, idmon });
             return result > 0;
         }
+
+        public List<BillInfo> GetBillDetails(int billID)
+        {
+            List<BillInfo> listBillInfo = new List<BillInfo>();
+
+            string query = "SELECT f.TenMon, bi.SoLuong, f.Gia FROM CTHOADON AS bi JOIN MON AS f ON bi.IDMon = f.IDMon WHERE bi.IDHoaDon = @billID";
+
+            DataTable data = DataProvider.Instance.ExcuteQuery(query, new object[] { billID });
+
+            foreach (DataRow row in data.Rows)
+            {
+                BillInfo billInfo = new BillInfo
+                {
+                    TenMon = row["TenMon"].ToString(),
+                    SoLuong = (int)row["SoLuong"],
+                    DonGia = Convert.ToInt32(row["Gia"])
+                };
+
+                listBillInfo.Add(billInfo);
+            }
+
+            return listBillInfo;
+        }
     }
 }

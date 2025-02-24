@@ -33,6 +33,8 @@ namespace QuanLyNhaHang.DTO
 
         }
 
+        public BillInfo() { }
+
         private int idHoaDon;
         private int idMon;
         private int soLuong;
@@ -59,6 +61,6 @@ namespace QuanLyNhaHang.DTO
             set { donGia = value; }
         }
 
-        public object TenMon { get; internal set; }
+        public string TenMon { get; internal set; }
     }
 }

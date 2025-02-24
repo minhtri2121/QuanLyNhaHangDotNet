@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyNhaHang.DAO;
 using System.Drawing;
+using System.Drawing.Printing;
 
 namespace QuanLyNhaHang
 {
@@ -23,6 +24,10 @@ namespace QuanLyNhaHang
                 loginAccount = value;           
             }
         }
+
+        private PrintDocument printDocument = new PrintDocument();
+        private string billContent = "";
+
 
         public FormTableManager(Account acc)
         {
@@ -445,6 +450,16 @@ namespace QuanLyNhaHang
                     ShowBill(table.ID);
                     LoadTable();
                     nmGiamGia.Value = 0;
+
+                    billContent = GenerateBillContent(table.Name, idBill, tongTien, giamGia);
+
+                    printDocument.PrintPage += new PrintPageEventHandler(PrintDocument_PrintPage);
+                    PrintDialog printDialog = new PrintDialog();
+                    printDialog.Document = printDocument;
+                    if (printDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        printDocument.Print();
+                    }
                 }
                 else
                 {
@@ -452,6 +467,48 @@ namespace QuanLyNhaHang
                 }
             }
         }
+
+        private string GenerateBillContent(string tableName, int billID, double totalPrice, int discount)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("======== HÓA ĐƠN THANH TOÁN ========");
+            sb.AppendLine($"Bàn: {tableName}");
+            sb.AppendLine($"Mã hóa đơn: {billID}");
+            sb.AppendLine("====================================");
+            sb.AppendLine("Tên món           | Số lượng | Giá");
+            sb.AppendLine("------------------------------------");
+
+            List<BillInfo> billDetails = BillInfoDAO.Instance.GetBillDetails(billID);
+
+            foreach (var item in billDetails)
+            {
+                string tenMonFormatted = (item.TenMon ?? "").PadRight(15);
+                string soLuongFormatted = item.SoLuong.ToString().PadRight(7);
+                string donGiaFormatted = item.DonGia.ToString("N0");
+
+                sb.AppendLine($"{tenMonFormatted} | {soLuongFormatted} | {donGiaFormatted} VNĐ");
+            }
+
+            sb.AppendLine("------------------------------------");
+            sb.AppendLine($"Giảm giá: {discount}%");
+            sb.AppendLine($"Tổng tiền: {totalPrice:N0} VNĐ");
+            sb.AppendLine("====================================");
+            sb.AppendLine("CẢM ƠN QUÝ KHÁCH! HẸN GẶP LẠI!");
+
+            return sb.ToString();
+        }
+
+
+        private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            Font font = new Font("Arial", 12);
+            float yPos = 50;
+            float leftMargin = e.MarginBounds.Left;
+            float topMargin = e.MarginBounds.Top;
+
+            e.Graphics.DrawString(billContent, font, Brushes.Black, leftMargin, yPos);
+        }
+
 
         private void btnSwitchTable_Click(object sender, EventArgs e)
         {

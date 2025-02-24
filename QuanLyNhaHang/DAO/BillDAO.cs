@@ -85,5 +85,8 @@ namespace QuanLyNhaHang.DAO
             string query = "EXEC DoanhThuByBanAndNguoiDung @fisrtDate , @finalDate  , @tenBan , @tenNguoiDung ";
             return DataProvider.Instance.ExcuteQuery(query, new object[] { date1, date2, tenBan, NguoiDung });
         }
+
+        
+
     }
 }
