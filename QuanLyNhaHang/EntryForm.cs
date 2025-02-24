@@ -172,83 +172,88 @@ namespace QuanLyNhaHang
             decimal giaNhap = nmGiaNhap.Value;
             string hanSuDung = dtpHsd.Value.ToString("yyyy-MM-dd");
 
-            using (SqlConnection connection = new SqlConnection(DataProvider.Instance.connectionString))
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thêm đơn hàng này vào phiếu nhập?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
             {
-                try
+                using (SqlConnection connection = new SqlConnection(DataProvider.Instance.connectionString))
                 {
-                    connection.Open();
-
-                    string checkQuery = "SELECT IDMatHang FROM MAT_HANG WHERE TenMatHang = @TenMatHang AND IDLoaiMH = @IDLoaiMH AND GiaNhap = @GiaNhap";
-                    SqlCommand checkCmd = new SqlCommand(checkQuery, connection);
-                    checkCmd.Parameters.AddWithValue("@TenMatHang", tenMatHang);
-                    checkCmd.Parameters.AddWithValue("@IDLoaiMH", idLoaiMatHang);
-                    checkCmd.Parameters.AddWithValue("@GiaNhap", giaNhap);
-
-                    object result = checkCmd.ExecuteScalar();
-                    int idMatHang;
-
-                    if (result != null)
+                    try
                     {
-                        idMatHang = Convert.ToInt32(result);
+                        connection.Open();
+
+                        string checkQuery = "SELECT IDMatHang FROM MAT_HANG WHERE TenMatHang = @TenMatHang AND IDLoaiMH = @IDLoaiMH AND GiaNhap = @GiaNhap";
+                        SqlCommand checkCmd = new SqlCommand(checkQuery, connection);
+                        checkCmd.Parameters.AddWithValue("@TenMatHang", tenMatHang);
+                        checkCmd.Parameters.AddWithValue("@IDLoaiMH", idLoaiMatHang);
+                        checkCmd.Parameters.AddWithValue("@GiaNhap", giaNhap);
+
+                        object resultQuery = checkCmd.ExecuteScalar();
+                        int idMatHang;
+
+                        if (resultQuery != null)
+                        {
+                            idMatHang = Convert.ToInt32(resultQuery);
+                        }
+                        else
+                        {
+                            string insertMatHangQuery = "INSERT INTO MAT_HANG (TenMatHang, GiaNhap, IDLoaiMH, HanSuDung) OUTPUT INSERTED.IDMatHang " +
+                                                        "VALUES (@TenMatHang, @GiaNhap, @IDLoaiMH, @HanSuDung)";
+                            SqlCommand insertCmd = new SqlCommand(insertMatHangQuery, connection);
+                            insertCmd.Parameters.AddWithValue("@TenMatHang", tenMatHang);
+                            insertCmd.Parameters.AddWithValue("@GiaNhap", giaNhap);
+                            insertCmd.Parameters.AddWithValue("@IDLoaiMH", idLoaiMatHang);
+                            insertCmd.Parameters.AddWithValue("@HanSuDung", hanSuDung);
+
+                            idMatHang = (int)insertCmd.ExecuteScalar();
+                        }
+
+                        string checkCTPNQuery = "SELECT COUNT(*) FROM CTPHIEUNHAP WHERE IDPhieuNhap = @IDPhieuNhap AND IDMatHang = @IDMatHang";
+                        SqlCommand checkCTPNCmd = new SqlCommand(checkCTPNQuery, connection);
+                        checkCTPNCmd.Parameters.AddWithValue("@IDPhieuNhap", idPhieuNhap);
+                        checkCTPNCmd.Parameters.AddWithValue("@IDMatHang", idMatHang);
+
+                        int count = (int)checkCTPNCmd.ExecuteScalar();
+
+                        if (count > 0)
+                        {
+                            string updateQuery = "UPDATE CTPHIEUNHAP " +
+                                                  "SET SoLuong = SoLuong + @SoLuong, DonGia = @DonGia * (SoLuong + @SoLuong) " +
+                                                  "WHERE IDPhieuNhap = @IDPhieuNhap AND IDMatHang = @IDMatHang";
+
+                            SqlCommand updateCmd = new SqlCommand(updateQuery, connection);
+                            updateCmd.Parameters.AddWithValue("@IDPhieuNhap", idPhieuNhap);
+                            updateCmd.Parameters.AddWithValue("@IDMatHang", idMatHang);
+                            updateCmd.Parameters.AddWithValue("@SoLuong", soLuong);
+                            updateCmd.Parameters.AddWithValue("@DonGia", giaNhap);
+
+                            updateCmd.ExecuteNonQuery();
+                            MessageBox.Show("Cập nhật số lượng mặt hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            string insertCTPNQuery = "INSERT INTO CTPHIEUNHAP (IDPhieuNhap, IDMatHang, SoLuong, DonGia) " +
+                                                    "VALUES (@IDPhieuNhap, @IDMatHang, @SoLuong, @DonGia)";
+
+                            SqlCommand insertCTPNCmd = new SqlCommand(insertCTPNQuery, connection);
+                            insertCTPNCmd.Parameters.AddWithValue("@IDPhieuNhap", idPhieuNhap);
+                            insertCTPNCmd.Parameters.AddWithValue("@IDMatHang", idMatHang);
+                            insertCTPNCmd.Parameters.AddWithValue("@SoLuong", soLuong);
+                            insertCTPNCmd.Parameters.AddWithValue("@DonGia", giaNhap * soLuong);
+
+                            insertCTPNCmd.ExecuteNonQuery();
+                            MessageBox.Show("Thêm mặt hàng vào phiếu nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        string insertMatHangQuery = "INSERT INTO MAT_HANG (TenMatHang, GiaNhap, IDLoaiMH, HanSuDung) OUTPUT INSERTED.IDMatHang " +
-                                                    "VALUES (@TenMatHang, @GiaNhap, @IDLoaiMH, @HanSuDung)";
-                        SqlCommand insertCmd = new SqlCommand(insertMatHangQuery, connection);
-                        insertCmd.Parameters.AddWithValue("@TenMatHang", tenMatHang);
-                        insertCmd.Parameters.AddWithValue("@GiaNhap", giaNhap);
-                        insertCmd.Parameters.AddWithValue("@IDLoaiMH", idLoaiMatHang);
-                        insertCmd.Parameters.AddWithValue("@HanSuDung", hanSuDung);
-
-                        idMatHang = (int)insertCmd.ExecuteScalar();
-                    }
-
-                    string checkCTPNQuery = "SELECT COUNT(*) FROM CTPHIEUNHAP WHERE IDPhieuNhap = @IDPhieuNhap AND IDMatHang = @IDMatHang";
-                    SqlCommand checkCTPNCmd = new SqlCommand(checkCTPNQuery, connection);
-                    checkCTPNCmd.Parameters.AddWithValue("@IDPhieuNhap", idPhieuNhap);
-                    checkCTPNCmd.Parameters.AddWithValue("@IDMatHang", idMatHang);
-
-                    int count = (int)checkCTPNCmd.ExecuteScalar();
-
-                    if (count > 0)
-                    {
-                        string updateQuery = "UPDATE CTPHIEUNHAP " +
-                                              "SET SoLuong = SoLuong + @SoLuong, DonGia = @DonGia * (SoLuong + @SoLuong) " +
-                                              "WHERE IDPhieuNhap = @IDPhieuNhap AND IDMatHang = @IDMatHang";
-
-                        SqlCommand updateCmd = new SqlCommand(updateQuery, connection);
-                        updateCmd.Parameters.AddWithValue("@IDPhieuNhap", idPhieuNhap);
-                        updateCmd.Parameters.AddWithValue("@IDMatHang", idMatHang);
-                        updateCmd.Parameters.AddWithValue("@SoLuong", soLuong);
-                        updateCmd.Parameters.AddWithValue("@DonGia", giaNhap);
-
-                        updateCmd.ExecuteNonQuery();
-                        MessageBox.Show("Cập nhật số lượng mặt hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        string insertCTPNQuery = "INSERT INTO CTPHIEUNHAP (IDPhieuNhap, IDMatHang, SoLuong, DonGia) " +
-                                                "VALUES (@IDPhieuNhap, @IDMatHang, @SoLuong, @DonGia)";
-
-                        SqlCommand insertCTPNCmd = new SqlCommand(insertCTPNQuery, connection);
-                        insertCTPNCmd.Parameters.AddWithValue("@IDPhieuNhap", idPhieuNhap);
-                        insertCTPNCmd.Parameters.AddWithValue("@IDMatHang", idMatHang);
-                        insertCTPNCmd.Parameters.AddWithValue("@SoLuong", soLuong);
-                        insertCTPNCmd.Parameters.AddWithValue("@DonGia", giaNhap* soLuong);
-
-                        insertCTPNCmd.ExecuteNonQuery();
-                        MessageBox.Show("Thêm mặt hàng vào phiếu nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+
+                XacNhan?.Invoke(this, EventArgs.Empty);
+                LoadShowEntryFormList(idPhieuNhap);
             }
-            XacNhan?.Invoke(this, EventArgs.Empty);
-
-            LoadShowEntryFormList(idPhieuNhap);
         }
 
         private void btnTaoPN_Click(object sender, EventArgs e)
@@ -264,46 +269,47 @@ namespace QuanLyNhaHang
 
             int idNCC = int.Parse(cbNhaCungCap.SelectedValue.ToString());
 
-            string query = "INSERT INTO PHIEU_NHAP (NgayLapPN, NguoiGiao, IDNCC) OUTPUT INSERTED.IDPhieuNhap VALUES (@NgayLapPN, @NguoiGiao, @IDNCC)";
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn tạo phiếu nhập này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            using (SqlConnection connection = new SqlConnection(DataProvider.Instance.connectionString))
+            if (result == DialogResult.Yes)
             {
-                try
+                string query = "INSERT INTO PHIEU_NHAP (NgayLapPN, NguoiGiao, IDNCC) OUTPUT INSERTED.IDPhieuNhap VALUES (@NgayLapPN, @NguoiGiao, @IDNCC)";
+
+                using (SqlConnection connection = new SqlConnection(DataProvider.Instance.connectionString))
                 {
-                    connection.Open();
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    try
                     {
-                        command.Parameters.AddWithValue("@NgayLapPN", ngayNhap);
-                        command.Parameters.AddWithValue("@NguoiGiao", nguoiGiao);
-                        command.Parameters.AddWithValue("@IDNCC", idNCC);
-
-                        object result = command.ExecuteScalar();
-
-                        if (result != null)
+                        connection.Open();
+                        using (SqlCommand command = new SqlCommand(query, connection))
                         {
-                            
-                            txtMaPhieuNhap.Text = result.ToString();
-                            MessageBox.Show("Tạo phiếu nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            command.Parameters.AddWithValue("@NgayLapPN", ngayNhap);
+                            command.Parameters.AddWithValue("@NguoiGiao", nguoiGiao);
+                            command.Parameters.AddWithValue("@IDNCC", idNCC);
 
-                            EnableDetailControls(true);
+                            object resultQuery = command.ExecuteScalar();
 
-                           
-                        }
-                        else
-                        {
-                            MessageBox.Show("Tạo phiếu nhập thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            EnableDetailControls(false);
+                            if (resultQuery != null)
+                            {
+                                txtMaPhieuNhap.Text = resultQuery.ToString();
+                                MessageBox.Show("Tạo phiếu nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                EnableDetailControls(true);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Tạo phiếu nhập thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                EnableDetailControls(false);
+                            }
                         }
                     }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            int idPhieuNhap = Convert.ToInt32(txtMaPhieuNhap.Text);
-            LoadShowEntryFormList(idPhieuNhap);
 
+                int idPhieuNhap = Convert.ToInt32(txtMaPhieuNhap.Text);
+                LoadShowEntryFormList(idPhieuNhap);
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)

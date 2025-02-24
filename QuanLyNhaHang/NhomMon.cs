@@ -39,10 +39,15 @@ namespace QuanLyNhaHang
                 return;
             }
 
-            string query = "INSERT NHOM_MON (TenNhomMon) VALUES( N'" + name + "' )";
-            DataProvider.Instance.ExcuteQuery(query);
-            LoadNhomMonIntoDtgv();
-            MessageBox.Show("Thêm nhóm món thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thêm nhóm món này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                string query = "INSERT NHOM_MON (TenNhomMon) VALUES( N'" + name + "' )";
+                DataProvider.Instance.ExcuteQuery(query);
+                LoadNhomMonIntoDtgv();
+                MessageBox.Show("Thêm nhóm món thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -60,10 +65,15 @@ namespace QuanLyNhaHang
                 return;
             }
 
-            string query = "UPDATE NHOM_MON SET TenNhomMon = N'" + name + "' WHERE IDNhomMon = " + id;
-            DataProvider.Instance.ExcuteQuery(query);
-            LoadNhomMonIntoDtgv();
-            MessageBox.Show("Cập nhật nhóm món thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn cập nhật nhóm món này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                string query = "UPDATE NHOM_MON SET TenNhomMon = N'" + name + "' WHERE IDNhomMon = " + id;
+                DataProvider.Instance.ExcuteQuery(query);
+                LoadNhomMonIntoDtgv();
+                MessageBox.Show("Cập nhật nhóm món thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -75,15 +85,14 @@ namespace QuanLyNhaHang
             }
 
             DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa nhóm món này không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.No)
-            {
-                return;
-            }
 
-            string query = "DELETE NHOM_MON WHERE IDNhomMon = " + id;
-            DataProvider.Instance.ExcuteQuery(query);
-            LoadNhomMonIntoDtgv();
-            MessageBox.Show("Xóa nhóm món thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (result == DialogResult.Yes)
+            {
+                string query = "DELETE NHOM_MON WHERE IDNhomMon = " + id;
+                DataProvider.Instance.ExcuteQuery(query);
+                LoadNhomMonIntoDtgv();
+                MessageBox.Show("Xóa nhóm món thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

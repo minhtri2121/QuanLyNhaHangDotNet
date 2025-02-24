@@ -39,16 +39,21 @@ namespace QuanLyNhaHang
                 return;
             }
 
-            try
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thêm loại mặt hàng này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
             {
-                string query = "INSERT INTO LOAI_MAT_HANG (TenLoaiMH) VALUES (N'" + tenLoai + "')";
-                DataProvider.Instance.ExcuteQuery(query);
-                MessageBox.Show("Thêm loại mặt hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadMatIntoDTGV();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi thêm loại mặt hàng: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                try
+                {
+                    string query = "INSERT INTO LOAI_MAT_HANG (TenLoaiMH) VALUES (N'" + tenLoai + "')";
+                    DataProvider.Instance.ExcuteQuery(query);
+                    MessageBox.Show("Thêm loại mặt hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadMatIntoDTGV();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi thêm loại mặt hàng: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -68,16 +73,21 @@ namespace QuanLyNhaHang
                 return;
             }
 
-            try
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn cập nhật loại mặt hàng này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
             {
-                string query = "UPDATE LOAI_MAT_HANG SET TenLoaiMH = N'" + tenLoai + "' WHERE IDLoaiMH = " + idMH;
-                DataProvider.Instance.ExcuteQuery(query);
-                MessageBox.Show("Cập nhật loại mặt hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadMatIntoDTGV();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi cập nhật loại mặt hàng: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                try
+                {
+                    string query = "UPDATE LOAI_MAT_HANG SET TenLoaiMH = N'" + tenLoai + "' WHERE IDLoaiMH = " + idMH;
+                    DataProvider.Instance.ExcuteQuery(query);
+                    MessageBox.Show("Cập nhật loại mặt hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadMatIntoDTGV();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi cập nhật loại mặt hàng: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -90,18 +100,20 @@ namespace QuanLyNhaHang
             }
 
             DialogResult confirm = MessageBox.Show("Bạn có chắc chắn muốn xóa loại mặt hàng này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (confirm != DialogResult.Yes) return;
 
-            try
+            if (confirm == DialogResult.Yes)
             {
-                string query = "DELETE FROM LOAI_MAT_HANG WHERE IDLoaiMH = " + idMH;
-                DataProvider.Instance.ExcuteQuery(query);
-                MessageBox.Show("Xóa loại mặt hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadMatIntoDTGV();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi xóa loại mặt hàng: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                try
+                {
+                    string query = "DELETE FROM LOAI_MAT_HANG WHERE IDLoaiMH = " + idMH;
+                    DataProvider.Instance.ExcuteQuery(query);
+                    MessageBox.Show("Xóa loại mặt hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadMatIntoDTGV();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi xóa loại mặt hàng: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

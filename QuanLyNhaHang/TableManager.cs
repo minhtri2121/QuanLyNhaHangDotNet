@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using QuanLyNhaHang.DAO;
 using System.Drawing;
 using System.Drawing.Printing;
+using System.IO;
 
 namespace QuanLyNhaHang
 {
@@ -131,7 +132,7 @@ namespace QuanLyNhaHang
             lsvBill.Columns.Add("Số lượng", (int)(totalWidth * 0.15));
             lsvBill.Columns.Add("Đơn giá", (int)(totalWidth * 0.19));
             lsvBill.Columns.Add("Thành tiền", (int)(totalWidth * 0.19));
-            lsvBill.Columns.Add("CategoryID", (int)(totalWidth * 0.17));
+            lsvBill.Columns.Add("Mã nhóm món", (int)(totalWidth * 0.17));
 
             lsvBill.View = View.Details;
         }
@@ -235,9 +236,23 @@ namespace QuanLyNhaHang
 
         void LoadComboBoxTable(ComboBox cb)
         {
-            cb.DataSource = TableDAO.Instance.LoadTableList();
+            // Tạo đối tượng "Chọn bàn"
+            Table selectTable = new Table() { ID = -1, Name = "Chọn bàn" };
+
+            // Nạp danh sách bàn từ cơ sở dữ liệu
+            List<Table> tableList = TableDAO.Instance.LoadTableList();
+
+            // Chèn "Chọn bàn" vào đầu danh sách
+            tableList.Insert(0, selectTable);
+
+            // Gán danh sách cho ComboBox
+            cb.DataSource = tableList;
             cb.DisplayMember = "Name";
+
+            // Thiết lập mục được chọn mặc định
+            cb.SelectedIndex = 0;
         }
+
 
         #endregion
 
@@ -403,11 +418,16 @@ namespace QuanLyNhaHang
                 MessageBox.Show("Xin chọn món để hủy!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            BillInfoDAO.Instance.DeleteBillInfo(idBill, idFood);
 
-            ShowBill(table.ID);
-            LoadTable();
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa món này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                BillInfoDAO.Instance.DeleteBillInfo(idBill, idFood);
+                ShowBill(table.ID);
+                LoadTable();
+            }
         }
+
 
         private void btnCheck_Click(object sender, EventArgs e)
         {
@@ -451,9 +471,13 @@ namespace QuanLyNhaHang
                     LoadTable();
                     nmGiamGia.Value = 0;
 
+                    // Chỉ tạo nội dung hóa đơn nếu thanh toán thành công
                     billContent = GenerateBillContent(table.Name, idBill, tongTien, giamGia);
 
-                    printDocument.PrintPage += new PrintPageEventHandler(PrintDocument_PrintPage);
+                    // Đăng ký sự kiện in một lần
+                    printDocument.PrintPage -= PrintDocument_PrintPage;
+                    printDocument.PrintPage += PrintDocument_PrintPage;
+
                     PrintDialog printDialog = new PrintDialog();
                     printDialog.Document = printDocument;
                     if (printDialog.ShowDialog() == DialogResult.OK)
@@ -471,44 +495,79 @@ namespace QuanLyNhaHang
         private string GenerateBillContent(string tableName, int billID, double totalPrice, int discount)
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine("======== HÓA ĐƠN THANH TOÁN ========");
-            sb.AppendLine($"Bàn: {tableName}");
-            sb.AppendLine($"Mã hóa đơn: {billID}");
-            sb.AppendLine("====================================");
-            sb.AppendLine("Tên món           | Số lượng | Giá");
-            sb.AppendLine("------------------------------------");
+
+            sb.AppendLine("==============================================");
+            sb.AppendLine("              HÓA ĐƠN THANH TOÁN              ");
+            sb.AppendLine("==============================================");
+            sb.AppendLine($" Bàn: {tableName}");
+            sb.AppendLine($" Mã hóa đơn: {billID}");
+            sb.AppendLine("==============================================");
+            sb.AppendLine(string.Format("{0,-25} | {1,-3} | {2,10}", "Tên món", "SL", "Giá"));
+            sb.AppendLine("----------------------------------------------");
 
             List<BillInfo> billDetails = BillInfoDAO.Instance.GetBillDetails(billID);
 
             foreach (var item in billDetails)
             {
-                string tenMonFormatted = (item.TenMon ?? "").PadRight(15);
-                string soLuongFormatted = item.SoLuong.ToString().PadRight(7);
-                string donGiaFormatted = item.DonGia.ToString("N0");
+                string tenMonFormatted = item.TenMon.Length > 22 ? item.TenMon.Substring(0, 19) + "..." : item.TenMon.PadRight(25);
+                string soLuongFormatted = item.SoLuong.ToString().PadRight(3);
+                string donGiaFormatted = (item.DonGia.ToString("N0") + " VNĐ").PadLeft(12);
 
-                sb.AppendLine($"{tenMonFormatted} | {soLuongFormatted} | {donGiaFormatted} VNĐ");
+                sb.AppendLine($"{tenMonFormatted} | {soLuongFormatted} | {donGiaFormatted}");
             }
 
-            sb.AppendLine("------------------------------------");
-            sb.AppendLine($"Giảm giá: {discount}%");
-            sb.AppendLine($"Tổng tiền: {totalPrice:N0} VNĐ");
-            sb.AppendLine("====================================");
-            sb.AppendLine("CẢM ƠN QUÝ KHÁCH! HẸN GẶP LẠI!");
+            sb.AppendLine("----------------------------------------------");
+            sb.AppendLine($" Giảm giá: {discount}%");
+            sb.AppendLine($" Tổng tiền: {totalPrice:N0} VNĐ");
+            sb.AppendLine("==============================================");
+            sb.AppendLine("        CẢM ƠN QUÝ KHÁCH! HẸN GẶP LẠI!        ");
+            sb.AppendLine("==============================================");
 
             return sb.ToString();
         }
 
 
+
         private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
-            Font font = new Font("Arial", 12);
-            float yPos = 50;
+            Font font = new Font("Courier New", 10, FontStyle.Bold);
+            float yPos = e.MarginBounds.Top;
             float leftMargin = e.MarginBounds.Left;
-            float topMargin = e.MarginBounds.Top;
 
-            e.Graphics.DrawString(billContent, font, Brushes.Black, leftMargin, yPos);
+            using (StringReader reader = new StringReader(billContent))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    e.Graphics.DrawString(line, font, Brushes.Black, leftMargin, yPos);
+                    yPos += font.Height + 2;
+                }
+            }
         }
 
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(billContent))
+            {
+                MessageBox.Show("Không có hóa đơn nào để in!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            PrintDocument printDoc = new PrintDocument();
+
+            PaperSize paperSize = new PaperSize("Custom", 280, 600);
+            printDoc.DefaultPageSettings.PaperSize = paperSize;
+
+            printDoc.PrintPage += PrintDocument_PrintPage;
+
+            PrintDialog printDialog = new PrintDialog();
+            printDialog.Document = printDoc;
+
+            if (printDialog.ShowDialog() == DialogResult.OK)
+            {
+                printDoc.Print();
+            }
+        }
 
         private void btnSwitchTable_Click(object sender, EventArgs e)
         {

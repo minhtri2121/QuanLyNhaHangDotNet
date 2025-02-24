@@ -95,6 +95,8 @@ namespace QuanLyNhaHang
             string query = "SELECT IDMon, TuKhoa, TenMon, TenNhomMon , TenDVT,FORMAT ( Gia ,'0') AS Gia\r\nFROM MON \r\nJOIN NHOM_MON ON MON.IDNhomMon = NHOM_MON.IDNhomMon\r\nJOIN DON_VI_TINH ON MON.IDDVT = DON_VI_TINH.IDDVT;";
 
             FoodList.DataSource = DataProvider.Instance.ExcuteQuery(query);
+
+            AddFoddBinding();
         }
         void AddAccount(string userName, string displayName, int type)
         {
@@ -283,17 +285,19 @@ namespace QuanLyNhaHang
 
             if ((int)Gia > 0 && idnhommon != null && iddvt != null)
             {
-                FoodDAO.Instance.InsertFood(tukhoa, tenmon, iddvt, idnhommon, (int)Gia);
-                MessageBox.Show("Thêm món ăn thành công.");
-                LoadListFood();
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thêm món ăn này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    FoodDAO.Instance.InsertFood(tukhoa, tenmon, iddvt, idnhommon, (int)Gia);
+                    MessageBox.Show("Thêm món ăn thành công.");
+                    LoadListFood();
+                }
             }
             else
-            if ((cbNhomMon.SelectedItem as Category)?.Id == null || (cbDVT.SelectedItem as DVT)?.Id == null || (int)Gia <= 0)
             {
                 string loi1 = "Lỗi, Vui lòng chọn đúng nhóm món";
-
                 string loi2 = "Lỗi, Vui lòng chọn đúng đơn vị tính";
-
                 string loi3 = "Lỗi, Giá nhỏ hơn hoặc bằng 0";
 
                 MessageBox.Show("Có lỗi khi Thêm món ăn.\n\nCó thể bạn đã sai khi nhập nhóm món và đơn vị tính hoặc giá!\n\nNhóm món: " + loi1 + "\n\nĐơn vị tính: " + loi2 + "\n\nGiá: " + loi3);
@@ -311,19 +315,22 @@ namespace QuanLyNhaHang
 
             if ((int)Gia > 0 && idnhommon != null && iddvt != null)
             {
-                FoodDAO.Instance.UpdateFood(idmon, tukhoa, tenmon, iddvt, idnhommon, (int)Gia);
-                MessageBox.Show("Sửa món ăn thành công.");
-                LoadListFood();
-                LoadAdmin();
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn sửa món ăn này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    FoodDAO.Instance.UpdateFood(idmon, tukhoa, tenmon, iddvt, idnhommon, (int)Gia);
+                    MessageBox.Show("Sửa món ăn thành công.");
+                    LoadListFood();
+                    LoadAdmin();
+                }
             }
             else
             {
                 if ((cbNhomMon.SelectedItem as Category)?.Id == null || (cbDVT.SelectedItem as DVT)?.Id == null || (int)Gia <= 0)
                 {
                     string loi1 = "Lỗi, Vui lòng chọn đúng nhóm món";
-
                     string loi2 = "Lỗi, Vui lòng chọn đúng đơn vị tính";
-
                     string loi3 = "Lỗi, Giá nhỏ hơn hoặc bằng 0";
 
                     MessageBox.Show("Có lỗi khi Sửa món ăn.\n\nCó thể bạn đã sai khi nhập nhóm món và đơn vị tính hoặc giá!\n\nNhóm món: " + loi1 + "\n\nĐơn vị tính: " + loi2 + "\n\nGiá: " + loi3);
@@ -360,13 +367,24 @@ namespace QuanLyNhaHang
             string displayName = txtTenHienThi.Text;
             int type = (int)nmLoaiTK.Value;
 
-            AddAccount(userName, displayName, type);
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thêm tài khoản này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                AddAccount(userName, displayName, type);
+            }
         }
 
         private void btnXoaTK_Click(object sender, EventArgs e)
         {
             string userName = txtTenTk.Text;
-            DeleteAccount(userName);
+
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xoá tài khoản này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                DeleteAccount(userName);
+            }
         }
 
         private void btnSuaTK_Click(object sender, EventArgs e)
@@ -376,7 +394,12 @@ namespace QuanLyNhaHang
             string displayName = txtTenHienThi.Text;
             int type = (int)nmLoaiTK.Value;
 
-            EditAccount(userName, displayName, type, id);
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn sửa thông tin tài khoản này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                EditAccount(userName, displayName, type, id);
+            }
         }
 
         private void btnRePass_Click(object sender, EventArgs e)
@@ -436,17 +459,23 @@ namespace QuanLyNhaHang
         {
             string name = txtNameTable.Text;
             int idzone = (cbKhuVuc.SelectedItem as Zone).Id;
-            if (TableDAO.instance.InsertTableFood(name, idzone))
+
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thêm bàn này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
             {
-                MessageBox.Show("Thêm bàn thành công");
-                LoadBanAn();
+                if (TableDAO.instance.InsertTableFood(name, idzone))
+                {
+                    MessageBox.Show("Thêm bàn thành công");
+                    LoadBanAn();
+                }
+                else
+                {
+                    MessageBox.Show("Thêm bàn thất bại");
+                }
+                LoadAdmin();
+                OnTableAdded?.Invoke(this, EventArgs.Empty);
             }
-            else
-            {
-                MessageBox.Show("Thêm bàn thất bại");
-            }
-            LoadAdmin();
-            OnTableAdded?.Invoke(this, EventArgs.Empty);
         }
 
         public event EventHandler OnTableUpdated;
@@ -454,24 +483,32 @@ namespace QuanLyNhaHang
         {
             string name = txtNameTable.Text;
             int? idzone = (cbKhuVuc.SelectedItem as Zone)?.Id;
+
             if (idzone == null)
             {
                 MessageBox.Show("Vui lòng chọn khu vực");
                 return;
             }
-            int id = Convert.ToInt32(txtIDTableName.Text);
-            if (TableDAO.instance.UpdateTableFood(id, name, idzone))
-            {
-                MessageBox.Show("Sửa bàn thành công");
-                LoadBanAn();
-            }
-            else
-            {
-                MessageBox.Show("Sửa bàn thất bại");
-            }
 
-            LoadAdmin();
-            OnTableUpdated?.Invoke(this, EventArgs.Empty);
+            int id = Convert.ToInt32(txtIDTableName.Text);
+
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn sửa thông tin bàn này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                if (TableDAO.instance.UpdateTableFood(id, name, idzone))
+                {
+                    MessageBox.Show("Sửa bàn thành công");
+                    LoadBanAn();
+                }
+                else
+                {
+                    MessageBox.Show("Sửa bàn thất bại");
+                }
+
+                LoadAdmin();
+                OnTableUpdated?.Invoke(this, EventArgs.Empty);
+            }
         }
 
         public event EventHandler OnTableDeleted;
@@ -479,40 +516,44 @@ namespace QuanLyNhaHang
         {
             int id = Convert.ToInt32(txtIDTableName.Text);
             string status = TableDAO.Instance.GetTableByStatus(id);
+
             if (status == "Có Người")
             {
                 MessageBox.Show("Bàn đang có người, không thể xoá!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (TableDAO.instance.DeleteTableFood(id))
+
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xoá bàn này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
             {
-                MessageBox.Show("Xoá bàn thành công");
-                LoadBanAn();
-                OnTableDeleted?.Invoke(this, EventArgs.Empty);
+                if (TableDAO.instance.DeleteTableFood(id))
+                {
+                    MessageBox.Show("Xoá bàn thành công");
+                    LoadBanAn();
+                    OnTableDeleted?.Invoke(this, EventArgs.Empty);
+                }
+                else
+                {
+                    MessageBox.Show("Xoá bàn thất bại");
+                }
+                LoadAdmin();
             }
-            else
-            {
-                MessageBox.Show("Xoá bàn thất bại");
-            }
-            LoadAdmin();
         }
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            // 1. Kiểm tra ID có nhập hay không
             if (string.IsNullOrWhiteSpace(txtIDMon.Text))
             {
                 MessageBox.Show("Vui lòng nhập ID món cần xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // 2. Kiểm tra ID có hợp lệ không (phải là số)
             if (!int.TryParse(txtIDMon.Text, out int id))
             {
                 MessageBox.Show("ID món không hợp lệ. Vui lòng nhập số nguyên.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // 3. Kiểm tra xem ID món có tồn tại trong database hay không
             string checkQuery = "SELECT COUNT(*) FROM MON WHERE IDMon = @ID";
             int count = (int)DataProvider.Instance.ExcuteNonScalar(checkQuery, new object[] { id });
 
@@ -522,13 +563,11 @@ namespace QuanLyNhaHang
                 return;
             }
 
-            // 4. Xác nhận xóa
             DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn xóa món có ID {id} không?",
                                                   "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result != DialogResult.Yes)
                 return;
 
-            // 5. Thực hiện xóa món ăn
             try
             {
                 string deleteQuery = "DELETE FROM MON WHERE IDMon = @ID";

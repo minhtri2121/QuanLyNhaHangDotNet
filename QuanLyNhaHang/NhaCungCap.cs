@@ -42,17 +42,21 @@ namespace QuanLyNhaHang
                 return;
             }
 
-            string query = "INSERT NHA_CUNG_CAP(TenNCC, DienThoai, DiaChi) Values(N' " + tenNCC + " ', ' " + SDT + " ', N' " + diaChi + " ')";
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thêm nhà cung cấp này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            DataProvider.Instance.ExcuteQuery(query);
-            AddNCCOn?.Invoke(this, EventArgs.Empty);
-            MessageBox.Show("Thêm nhà cung cấp thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            LoadNCCIntoDtgv();
-            AddNCCBinding();
+            if (result == DialogResult.Yes)
+            {
+                string query = "INSERT NHA_CUNG_CAP(TenNCC, DienThoai, DiaChi) Values(N' " + tenNCC + " ', ' " + SDT + " ', N' " + diaChi + " ')";
+                DataProvider.Instance.ExcuteQuery(query);
+                AddNCCOn?.Invoke(this, EventArgs.Empty);
+                MessageBox.Show("Thêm nhà cung cấp thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadNCCIntoDtgv();
+                AddNCCBinding();
 
-            txtTenNCC.Clear();
-            txtSDT.Clear();
-            txtDiaChi.Clear();
+                txtTenNCC.Clear();
+                txtSDT.Clear();
+                txtDiaChi.Clear();
+            }
         }
 
         private void txtSDT_KeyPress(object sender, KeyPressEventArgs e)
@@ -104,19 +108,21 @@ namespace QuanLyNhaHang
                 return;
             }
 
-            string query = "UPDATE NHA_CUNG_CAP SET TenNCC = N'" + tenNCC + "', DienThoai = '" + SDT + "', DiaChi = N'" + diaChi + "' WHERE IDNCC = " + idNCC;
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn cập nhật nhà cung cấp này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            DataProvider.Instance.ExcuteQuery(query);
+            if (result == DialogResult.Yes)
+            {
+                string query = "UPDATE NHA_CUNG_CAP SET TenNCC = N'" + tenNCC + "', DienThoai = '" + SDT + "', DiaChi = N'" + diaChi + "' WHERE IDNCC = " + idNCC;
+                DataProvider.Instance.ExcuteQuery(query);
+                MessageBox.Show("Cập nhật nhà cung cấp thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadNCCIntoDtgv();
+                AddNCCBinding();
 
-            MessageBox.Show("Cập nhật nhà cung cấp thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            LoadNCCIntoDtgv();
-            AddNCCBinding();
-
-            txtIDNCC.Clear();
-            txtTenNCC.Clear();
-            txtSDT.Clear();
-            txtDiaChi.Clear();
+                txtIDNCC.Clear();
+                txtTenNCC.Clear();
+                txtSDT.Clear();
+                txtDiaChi.Clear();
+            }
         }
 
         private void btnDeleteNCC_Click(object sender, EventArgs e)
@@ -128,10 +134,10 @@ namespace QuanLyNhaHang
             }
 
             DialogResult result = MessageBox.Show("Bạn có chắc muốn xóa nhà cung cấp này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
             if (result == DialogResult.Yes)
             {
                 string idNCC = txtIDNCC.Text;
-
                 DataProvider.Instance.ExcuteQuery("DELETE NHA_CUNG_CAP WHERE IDNCC =" + idNCC);
                 LoadNCCIntoDtgv();
                 AddNCCBinding();
@@ -142,6 +148,5 @@ namespace QuanLyNhaHang
                 txtDiaChi.Clear();
             }
         }
-
     }
 }

@@ -76,6 +76,7 @@
             this.txtTableStatus = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel17 = new System.Windows.Forms.Panel();
+            this.bntAddKV = new System.Windows.Forms.Button();
             this.panel35 = new System.Windows.Forms.Panel();
             this.cbKhuVuc = new System.Windows.Forms.ComboBox();
             this.lblKhuVuc = new System.Windows.Forms.Label();
@@ -129,13 +130,7 @@
             this.dtgvPhieuNhap = new System.Windows.Forms.DataGridView();
             this.label10 = new System.Windows.Forms.Label();
             this.txtNhaCungCap = new System.Windows.Forms.TextBox();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
-            this.bntAddKV = new System.Windows.Forms.Button();
             this.tcAdmin.SuspendLayout();
             this.tpDoanhThu.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -180,7 +175,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvChiTietPhieuNhap)).BeginInit();
             this.gbPhieuNhap.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvPhieuNhap)).BeginInit();
-            this.panel11.SuspendLayout();
             this.SuspendLayout();
             // 
             // tcAdmin
@@ -363,6 +357,7 @@
             // 
             // txtIDMon
             // 
+            this.txtIDMon.Cursor = System.Windows.Forms.Cursors.No;
             this.txtIDMon.Location = new System.Drawing.Point(163, 22);
             this.txtIDMon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtIDMon.Name = "txtIDMon";
@@ -567,7 +562,7 @@
             // 
             // dtgvMonAn
             // 
-            this.dtgvMonAn.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dtgvMonAn.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dtgvMonAn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvMonAn.Location = new System.Drawing.Point(0, 0);
             this.dtgvMonAn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -689,6 +684,16 @@
             this.panel17.Size = new System.Drawing.Size(435, 587);
             this.panel17.TabIndex = 7;
             // 
+            // bntAddKV
+            // 
+            this.bntAddKV.Location = new System.Drawing.Point(255, 278);
+            this.bntAddKV.Name = "bntAddKV";
+            this.bntAddKV.Size = new System.Drawing.Size(144, 46);
+            this.bntAddKV.TabIndex = 13;
+            this.bntAddKV.Text = "Thêm KV mới";
+            this.bntAddKV.UseVisualStyleBackColor = true;
+            this.bntAddKV.Click += new System.EventHandler(this.bntAddKV_Click);
+            // 
             // panel35
             // 
             this.panel35.Controls.Add(this.cbKhuVuc);
@@ -758,6 +763,7 @@
             // 
             // txtIDTableName
             // 
+            this.txtIDTableName.Cursor = System.Windows.Forms.Cursors.No;
             this.txtIDTableName.Location = new System.Drawing.Point(171, 18);
             this.txtIDTableName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtIDTableName.Name = "txtIDTableName";
@@ -891,6 +897,7 @@
             // 
             // txtIDNguoiDung
             // 
+            this.txtIDNguoiDung.Cursor = System.Windows.Forms.Cursors.No;
             this.txtIDNguoiDung.Location = new System.Drawing.Point(211, 18);
             this.txtIDNguoiDung.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtIDNguoiDung.Name = "txtIDNguoiDung";
@@ -1160,7 +1167,6 @@
             // 
             this.tpPhieuNhap.Controls.Add(this.gbCTPhieuNhap);
             this.tpPhieuNhap.Controls.Add(this.gbPhieuNhap);
-            this.tpPhieuNhap.Controls.Add(this.panel11);
             this.tpPhieuNhap.Location = new System.Drawing.Point(4, 25);
             this.tpPhieuNhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tpPhieuNhap.Name = "tpPhieuNhap";
@@ -1173,24 +1179,25 @@
             // gbCTPhieuNhap
             // 
             this.gbCTPhieuNhap.Controls.Add(this.dtgvChiTietPhieuNhap);
-            this.gbCTPhieuNhap.Location = new System.Drawing.Point(613, 89);
+            this.gbCTPhieuNhap.Location = new System.Drawing.Point(613, 4);
             this.gbCTPhieuNhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbCTPhieuNhap.Name = "gbCTPhieuNhap";
             this.gbCTPhieuNhap.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gbCTPhieuNhap.Size = new System.Drawing.Size(547, 593);
+            this.gbCTPhieuNhap.Size = new System.Drawing.Size(547, 678);
             this.gbCTPhieuNhap.TabIndex = 8;
             this.gbCTPhieuNhap.TabStop = false;
             this.gbCTPhieuNhap.Text = "Chi tiết";
             // 
             // dtgvChiTietPhieuNhap
             // 
+            this.dtgvChiTietPhieuNhap.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dtgvChiTietPhieuNhap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvChiTietPhieuNhap.Location = new System.Drawing.Point(5, 27);
             this.dtgvChiTietPhieuNhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtgvChiTietPhieuNhap.Name = "dtgvChiTietPhieuNhap";
             this.dtgvChiTietPhieuNhap.RowHeadersWidth = 51;
             this.dtgvChiTietPhieuNhap.RowTemplate.Height = 24;
-            this.dtgvChiTietPhieuNhap.Size = new System.Drawing.Size(535, 560);
+            this.dtgvChiTietPhieuNhap.Size = new System.Drawing.Size(535, 647);
             this.dtgvChiTietPhieuNhap.TabIndex = 0;
             // 
             // gbPhieuNhap
@@ -1200,11 +1207,11 @@
             this.gbPhieuNhap.Controls.Add(this.dtgvPhieuNhap);
             this.gbPhieuNhap.Controls.Add(this.label10);
             this.gbPhieuNhap.Controls.Add(this.txtNhaCungCap);
-            this.gbPhieuNhap.Location = new System.Drawing.Point(9, 89);
+            this.gbPhieuNhap.Location = new System.Drawing.Point(9, 4);
             this.gbPhieuNhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbPhieuNhap.Name = "gbPhieuNhap";
             this.gbPhieuNhap.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gbPhieuNhap.Size = new System.Drawing.Size(597, 593);
+            this.gbPhieuNhap.Size = new System.Drawing.Size(597, 678);
             this.gbPhieuNhap.TabIndex = 7;
             this.gbPhieuNhap.TabStop = false;
             this.gbPhieuNhap.Text = "Phiếu nhập";
@@ -1233,13 +1240,14 @@
             // 
             // dtgvPhieuNhap
             // 
+            this.dtgvPhieuNhap.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dtgvPhieuNhap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvPhieuNhap.Location = new System.Drawing.Point(0, 69);
             this.dtgvPhieuNhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtgvPhieuNhap.Name = "dtgvPhieuNhap";
             this.dtgvPhieuNhap.RowHeadersWidth = 51;
             this.dtgvPhieuNhap.RowTemplate.Height = 24;
-            this.dtgvPhieuNhap.Size = new System.Drawing.Size(595, 518);
+            this.dtgvPhieuNhap.Size = new System.Drawing.Size(595, 605);
             this.dtgvPhieuNhap.TabIndex = 2;
             this.dtgvPhieuNhap.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvPhieuNhap_CellClick);
             // 
@@ -1261,58 +1269,6 @@
             this.txtNhaCungCap.TabIndex = 0;
             this.txtNhaCungCap.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMaPhieuNhap_KeyDown);
             // 
-            // panel11
-            // 
-            this.panel11.Controls.Add(this.button1);
-            this.panel11.Controls.Add(this.button2);
-            this.panel11.Controls.Add(this.button3);
-            this.panel11.Controls.Add(this.button4);
-            this.panel11.Location = new System.Drawing.Point(5, 6);
-            this.panel11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(333, 78);
-            this.panel11.TabIndex = 6;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(249, 2);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(76, 71);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Xem";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(167, 2);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(76, 71);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Sửa";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(85, 2);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(76, 71);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "Xoá";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(3, 2);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(76, 71);
-            this.button4.TabIndex = 0;
-            this.button4.Text = "Thêm";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
             // entityCommand1
             // 
             this.entityCommand1.CommandTimeout = 0;
@@ -1320,16 +1276,6 @@
             this.entityCommand1.Connection = null;
             this.entityCommand1.EnablePlanCaching = true;
             this.entityCommand1.Transaction = null;
-            // 
-            // bntAddKV
-            // 
-            this.bntAddKV.Location = new System.Drawing.Point(255, 278);
-            this.bntAddKV.Name = "bntAddKV";
-            this.bntAddKV.Size = new System.Drawing.Size(144, 46);
-            this.bntAddKV.TabIndex = 13;
-            this.bntAddKV.Text = "Thêm KV mới";
-            this.bntAddKV.UseVisualStyleBackColor = true;
-            this.bntAddKV.Click += new System.EventHandler(this.bntAddKV_Click);
             // 
             // fAdmin
             // 
@@ -1404,7 +1350,6 @@
             this.gbPhieuNhap.ResumeLayout(false);
             this.gbPhieuNhap.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvPhieuNhap)).EndInit();
-            this.panel11.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1500,11 +1445,6 @@
         private System.Windows.Forms.DateTimePicker dtpKho2;
         private System.Windows.Forms.DateTimePicker dtpKho1;
         private System.Windows.Forms.TabPage tpPhieuNhap;
-        private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.GroupBox gbPhieuNhap;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtNhaCungCap;

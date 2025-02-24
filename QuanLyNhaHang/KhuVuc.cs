@@ -39,10 +39,15 @@ namespace QuanLyNhaHang
                 return;
             }
 
-            string q = "INSERT INTO KHU_VUC (TenKhuVuc) VALUES (N'" + name + "')";
-            DataProvider.Instance.ExcuteQuery(q);
-            LoadKVIntoDtgv();
-            MessageBox.Show("Thêm khu vực thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thêm khu vực này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                string q = "INSERT INTO KHU_VUC (TenKhuVuc) VALUES (N'" + name + "')";
+                DataProvider.Instance.ExcuteQuery(q);
+                LoadKVIntoDtgv();
+                MessageBox.Show("Thêm khu vực thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -60,10 +65,15 @@ namespace QuanLyNhaHang
                 return;
             }
 
-            string q = "UPDATE KHU_VUC SET TenKhuVuc = N'" + name + "' WHERE IDKhuVuc = " + id;
-            DataProvider.Instance.ExcuteQuery(q);
-            LoadKVIntoDtgv();
-            MessageBox.Show("Cập nhật khu vực thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn cập nhật khu vực này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                string q = "UPDATE KHU_VUC SET TenKhuVuc = N'" + name + "' WHERE IDKhuVuc = " + id;
+                DataProvider.Instance.ExcuteQuery(q);
+                LoadKVIntoDtgv();
+                MessageBox.Show("Cập nhật khu vực thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -75,15 +85,14 @@ namespace QuanLyNhaHang
             }
 
             DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa khu vực này không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.No)
-            {
-                return;
-            }
 
-            string q = "DELETE FROM KHU_VUC WHERE IDKhuVuc = " + id;
-            DataProvider.Instance.ExcuteQuery(q);
-            LoadKVIntoDtgv();
-            MessageBox.Show("Xóa khu vực thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (result == DialogResult.Yes)
+            {
+                string q = "DELETE FROM KHU_VUC WHERE IDKhuVuc = " + id;
+                DataProvider.Instance.ExcuteQuery(q);
+                LoadKVIntoDtgv();
+                MessageBox.Show("Xóa khu vực thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }
