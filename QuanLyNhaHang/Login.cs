@@ -19,6 +19,11 @@ namespace QuanLyNhaHang
         public FormLogin()
         {
             InitializeComponent();
+            pictureBox1.Dock = DockStyle.Fill;
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            panel1.BringToFront();
+            panel1.Parent = pictureBox1;
+            panel1.BackColor = Color.Transparent;
         }
         private void btnLogin_Click(object sender, EventArgs e)
         {
