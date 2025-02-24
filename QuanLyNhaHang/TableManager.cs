@@ -596,7 +596,33 @@ namespace QuanLyNhaHang
             LoadTable();
         }
 
+        private void thêmMónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnAddFood_Click(this, new EventArgs());
+        }
+
+        private void huỷMónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnXoaMon_Click(this, new EventArgs());
+        }
+
+        private void chuyểnBànToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnSwitchTable_Click(this, new EventArgs());
+        }
+
+        private void gộpBànToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnMergeTable_Click(this, new EventArgs());
+        }
+
+        private void thanhToánToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnCheck_Click(this, new EventArgs());
+        }
+
         #endregion
+
     }
 
 }
