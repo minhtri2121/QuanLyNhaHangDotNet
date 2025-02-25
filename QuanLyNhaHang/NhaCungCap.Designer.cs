@@ -48,6 +48,7 @@
             // dtgvNCC
             // 
             this.dtgvNCC.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgvNCC.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dtgvNCC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvNCC.Location = new System.Drawing.Point(12, 12);
             this.dtgvNCC.Name = "dtgvNCC";
@@ -93,12 +94,14 @@
             // 
             // btnDeleteNCC
             // 
+            this.btnDeleteNCC.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnDeleteNCC.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDeleteNCC.Location = new System.Drawing.Point(235, 315);
             this.btnDeleteNCC.Name = "btnDeleteNCC";
             this.btnDeleteNCC.Size = new System.Drawing.Size(81, 44);
             this.btnDeleteNCC.TabIndex = 5;
             this.btnDeleteNCC.Text = "Xoá";
-            this.btnDeleteNCC.UseVisualStyleBackColor = true;
+            this.btnDeleteNCC.UseVisualStyleBackColor = false;
             this.btnDeleteNCC.Click += new System.EventHandler(this.btnDeleteNCC_Click);
             // 
             // txtDiaChi
@@ -110,12 +113,14 @@
             // 
             // btnEditNCC
             // 
+            this.btnEditNCC.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnEditNCC.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEditNCC.Location = new System.Drawing.Point(122, 315);
             this.btnEditNCC.Name = "btnEditNCC";
             this.btnEditNCC.Size = new System.Drawing.Size(81, 44);
             this.btnEditNCC.TabIndex = 4;
             this.btnEditNCC.Text = "Sửa";
-            this.btnEditNCC.UseVisualStyleBackColor = true;
+            this.btnEditNCC.UseVisualStyleBackColor = false;
             this.btnEditNCC.Click += new System.EventHandler(this.btnEditNCC_Click);
             // 
             // label3
@@ -129,12 +134,14 @@
             // 
             // btnAddNCC
             // 
+            this.btnAddNCC.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAddNCC.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAddNCC.Location = new System.Drawing.Point(12, 315);
             this.btnAddNCC.Name = "btnAddNCC";
             this.btnAddNCC.Size = new System.Drawing.Size(81, 44);
             this.btnAddNCC.TabIndex = 3;
             this.btnAddNCC.Text = "Thêm";
-            this.btnAddNCC.UseVisualStyleBackColor = true;
+            this.btnAddNCC.UseVisualStyleBackColor = false;
             this.btnAddNCC.Click += new System.EventHandler(this.btnAddNCC_Click);
             // 
             // txtSDT
@@ -175,6 +182,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(828, 526);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dtgvNCC);

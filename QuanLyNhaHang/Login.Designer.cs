@@ -58,22 +58,26 @@
             // 
             // btnExit
             // 
+            this.btnExit.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnExit.Location = new System.Drawing.Point(412, 125);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(113, 46);
             this.btnExit.TabIndex = 3;
             this.btnExit.Text = "Thoát";
-            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnLogin
             // 
+            this.btnLogin.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLogin.Location = new System.Drawing.Point(282, 125);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(109, 46);
             this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Đăng nhập";
-            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // panel3

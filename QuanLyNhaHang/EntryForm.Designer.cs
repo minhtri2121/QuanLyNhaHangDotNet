@@ -98,12 +98,14 @@
             // 
             // btnUpdate
             // 
+            this.btnUpdate.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUpdate.Location = new System.Drawing.Point(6, 217);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(144, 54);
             this.btnUpdate.TabIndex = 11;
             this.btnUpdate.Text = "Thêm thông tin cho phiếu nhập";
-            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // panel9
@@ -134,12 +136,14 @@
             // 
             // btnTaoPN
             // 
+            this.btnTaoPN.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnTaoPN.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnTaoPN.Location = new System.Drawing.Point(416, 217);
             this.btnTaoPN.Name = "btnTaoPN";
             this.btnTaoPN.Size = new System.Drawing.Size(123, 54);
             this.btnTaoPN.TabIndex = 4;
             this.btnTaoPN.Text = "Tạo phiếu";
-            this.btnTaoPN.UseVisualStyleBackColor = true;
+            this.btnTaoPN.UseVisualStyleBackColor = false;
             this.btnTaoPN.Click += new System.EventHandler(this.btnTaoPN_Click);
             // 
             // panel4
@@ -292,22 +296,26 @@
             // 
             // btnXacNhan
             // 
+            this.btnXacNhan.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnXacNhan.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnXacNhan.Location = new System.Drawing.Point(406, 265);
             this.btnXacNhan.Name = "btnXacNhan";
             this.btnXacNhan.Size = new System.Drawing.Size(123, 54);
             this.btnXacNhan.TabIndex = 9;
             this.btnXacNhan.Text = "Thêm";
-            this.btnXacNhan.UseVisualStyleBackColor = true;
+            this.btnXacNhan.UseVisualStyleBackColor = false;
             this.btnXacNhan.Click += new System.EventHandler(this.btnXacNhan_Click);
             // 
             // btnHuy
             // 
+            this.btnHuy.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnHuy.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnHuy.Location = new System.Drawing.Point(277, 265);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(123, 54);
             this.btnHuy.TabIndex = 10;
             this.btnHuy.Text = "Huỷ";
-            this.btnHuy.UseVisualStyleBackColor = true;
+            this.btnHuy.UseVisualStyleBackColor = false;
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // panel6
@@ -417,6 +425,7 @@
             // 
             // dtgvHienThiPhieuNhap
             // 
+            this.dtgvHienThiPhieuNhap.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dtgvHienThiPhieuNhap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvHienThiPhieuNhap.Location = new System.Drawing.Point(15, 345);
             this.dtgvHienThiPhieuNhap.Name = "dtgvHienThiPhieuNhap";
@@ -429,6 +438,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(1134, 759);
             this.Controls.Add(this.dtgvHienThiPhieuNhap);
             this.Controls.Add(this.panel1);

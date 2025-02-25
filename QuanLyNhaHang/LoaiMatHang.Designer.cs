@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoaiMatHang));
             this.dtgvLMH = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtIDmh = new System.Windows.Forms.TextBox();
@@ -44,6 +45,7 @@
             // dtgvLMH
             // 
             this.dtgvLMH.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgvLMH.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dtgvLMH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvLMH.Location = new System.Drawing.Point(12, 12);
             this.dtgvLMH.Name = "dtgvLMH";
@@ -54,6 +56,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Gainsboro;
             this.panel1.Controls.Add(this.txtIDmh);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.btnDeleteLMH);
@@ -85,32 +88,38 @@
             // 
             // btnDeleteLMH
             // 
+            this.btnDeleteLMH.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnDeleteLMH.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDeleteLMH.Location = new System.Drawing.Point(235, 187);
             this.btnDeleteLMH.Name = "btnDeleteLMH";
             this.btnDeleteLMH.Size = new System.Drawing.Size(81, 44);
             this.btnDeleteLMH.TabIndex = 4;
             this.btnDeleteLMH.Text = "Xoá";
-            this.btnDeleteLMH.UseVisualStyleBackColor = true;
+            this.btnDeleteLMH.UseVisualStyleBackColor = false;
             this.btnDeleteLMH.Click += new System.EventHandler(this.btnDeleteLMH_Click);
             // 
             // btnEditLMH
             // 
+            this.btnEditLMH.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnEditLMH.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEditLMH.Location = new System.Drawing.Point(122, 187);
             this.btnEditLMH.Name = "btnEditLMH";
             this.btnEditLMH.Size = new System.Drawing.Size(81, 44);
             this.btnEditLMH.TabIndex = 3;
             this.btnEditLMH.Text = "Sửa";
-            this.btnEditLMH.UseVisualStyleBackColor = true;
+            this.btnEditLMH.UseVisualStyleBackColor = false;
             this.btnEditLMH.Click += new System.EventHandler(this.btnEditLMH_Click);
             // 
             // btnAddLMH
             // 
+            this.btnAddLMH.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAddLMH.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAddLMH.Location = new System.Drawing.Point(12, 187);
             this.btnAddLMH.Name = "btnAddLMH";
             this.btnAddLMH.Size = new System.Drawing.Size(81, 44);
             this.btnAddLMH.TabIndex = 2;
             this.btnAddLMH.Text = "Thêm";
-            this.btnAddLMH.UseVisualStyleBackColor = true;
+            this.btnAddLMH.UseVisualStyleBackColor = false;
             this.btnAddLMH.Click += new System.EventHandler(this.btnAddLMH_Click);
             // 
             // txtTenLoaiMH
@@ -136,6 +145,7 @@
             this.ClientSize = new System.Drawing.Size(828, 526);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dtgvLMH);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LoaiMatHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Loại Mặt Hàng";

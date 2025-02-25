@@ -32,6 +32,7 @@
             this.tcAdmin = new System.Windows.Forms.TabControl();
             this.tpDoanhThu = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnPrintDT = new System.Windows.Forms.Button();
             this.cbBan = new System.Windows.Forms.ComboBox();
             this.cbTenNguoiDung = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -67,7 +68,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.dtgvMonAn = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnXem = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
@@ -89,7 +89,6 @@
             this.panel14 = new System.Windows.Forms.Panel();
             this.dtgvBanAn = new System.Windows.Forms.DataGridView();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.btnXemTableFood = new System.Windows.Forms.Button();
             this.btnEditTableFood = new System.Windows.Forms.Button();
             this.btnDeleteTableFood = new System.Windows.Forms.Button();
             this.btnAddTableFood = new System.Windows.Forms.Button();
@@ -111,7 +110,6 @@
             this.panel25 = new System.Windows.Forms.Panel();
             this.dtgvTaiKhoan = new System.Windows.Forms.DataGridView();
             this.panel26 = new System.Windows.Forms.Panel();
-            this.btnXemTK = new System.Windows.Forms.Button();
             this.btnSuaTK = new System.Windows.Forms.Button();
             this.btnXoaTK = new System.Windows.Forms.Button();
             this.btnThemTK = new System.Windows.Forms.Button();
@@ -131,7 +129,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtNhaCungCap = new System.Windows.Forms.TextBox();
             this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
-            this.btnPrintDT = new System.Windows.Forms.Button();
             this.tcAdmin.SuspendLayout();
             this.tpDoanhThu.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -221,6 +218,19 @@
             this.panel2.Size = new System.Drawing.Size(295, 679);
             this.panel2.TabIndex = 1;
             // 
+            // btnPrintDT
+            // 
+            this.btnPrintDT.BackColor = System.Drawing.Color.White;
+            this.btnPrintDT.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnPrintDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintDT.Location = new System.Drawing.Point(28, 241);
+            this.btnPrintDT.Name = "btnPrintDT";
+            this.btnPrintDT.Size = new System.Drawing.Size(115, 55);
+            this.btnPrintDT.TabIndex = 5;
+            this.btnPrintDT.Text = "In";
+            this.btnPrintDT.UseVisualStyleBackColor = false;
+            this.btnPrintDT.Click += new System.EventHandler(this.btnPrintDT_Click);
+            // 
             // cbBan
             // 
             this.cbBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -255,6 +265,8 @@
             // 
             // btnTraCuu
             // 
+            this.btnTraCuu.BackColor = System.Drawing.Color.White;
+            this.btnTraCuu.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnTraCuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTraCuu.Location = new System.Drawing.Point(161, 241);
             this.btnTraCuu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -262,7 +274,7 @@
             this.btnTraCuu.Size = new System.Drawing.Size(115, 55);
             this.btnTraCuu.TabIndex = 4;
             this.btnTraCuu.Text = "Tra Cứu";
-            this.btnTraCuu.UseVisualStyleBackColor = true;
+            this.btnTraCuu.UseVisualStyleBackColor = false;
             this.btnTraCuu.Click += new System.EventHandler(this.btnTraCuu_Click);
             // 
             // dtpEnd
@@ -339,13 +351,15 @@
             // 
             // btnTuyChon
             // 
+            this.btnTuyChon.BackColor = System.Drawing.Color.White;
+            this.btnTuyChon.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnTuyChon.Location = new System.Drawing.Point(255, 400);
             this.btnTuyChon.Margin = new System.Windows.Forms.Padding(4);
             this.btnTuyChon.Name = "btnTuyChon";
             this.btnTuyChon.Size = new System.Drawing.Size(176, 53);
             this.btnTuyChon.TabIndex = 9;
             this.btnTuyChon.Text = "Tuỳ chọn khác";
-            this.btnTuyChon.UseVisualStyleBackColor = true;
+            this.btnTuyChon.UseVisualStyleBackColor = false;
             this.btnTuyChon.Click += new System.EventHandler(this.btnTuyChon_Click);
             // 
             // panel16
@@ -537,13 +551,15 @@
             // 
             // btnTim
             // 
+            this.btnTim.BackColor = System.Drawing.Color.White;
+            this.btnTim.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnTim.Location = new System.Drawing.Point(355, 2);
             this.btnTim.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTim.Name = "btnTim";
             this.btnTim.Size = new System.Drawing.Size(76, 71);
             this.btnTim.TabIndex = 4;
             this.btnTim.Text = "Tìm";
-            this.btnTim.UseVisualStyleBackColor = true;
+            this.btnTim.UseVisualStyleBackColor = false;
             this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
             // txtScFoodName
@@ -578,7 +594,6 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.btnXem);
             this.panel3.Controls.Add(this.btnSua);
             this.panel3.Controls.Add(this.btnXoa);
             this.panel3.Controls.Add(this.btnThem);
@@ -588,48 +603,43 @@
             this.panel3.Size = new System.Drawing.Size(717, 78);
             this.panel3.TabIndex = 0;
             // 
-            // btnXem
-            // 
-            this.btnXem.Location = new System.Drawing.Point(249, 2);
-            this.btnXem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnXem.Name = "btnXem";
-            this.btnXem.Size = new System.Drawing.Size(76, 71);
-            this.btnXem.TabIndex = 8;
-            this.btnXem.Text = "Xem";
-            this.btnXem.UseVisualStyleBackColor = true;
-            this.btnXem.Click += new System.EventHandler(this.btnXem_Click);
-            // 
             // btnSua
             // 
+            this.btnSua.BackColor = System.Drawing.Color.White;
+            this.btnSua.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSua.Location = new System.Drawing.Point(167, 2);
             this.btnSua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(76, 71);
             this.btnSua.TabIndex = 7;
             this.btnSua.Text = "Sửa";
-            this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.UseVisualStyleBackColor = false;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnXoa
             // 
+            this.btnXoa.BackColor = System.Drawing.Color.White;
+            this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnXoa.Location = new System.Drawing.Point(85, 2);
             this.btnXoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(76, 71);
             this.btnXoa.TabIndex = 6;
             this.btnXoa.Text = "Xoá";
-            this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.UseVisualStyleBackColor = false;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnThem
             // 
+            this.btnThem.BackColor = System.Drawing.Color.White;
+            this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnThem.Location = new System.Drawing.Point(3, 2);
             this.btnThem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(76, 71);
             this.btnThem.TabIndex = 5;
             this.btnThem.Text = "Thêm";
-            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.UseVisualStyleBackColor = false;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // tpBanAn
@@ -691,12 +701,14 @@
             // 
             // bntAddKV
             // 
+            this.bntAddKV.BackColor = System.Drawing.Color.White;
+            this.bntAddKV.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bntAddKV.Location = new System.Drawing.Point(255, 278);
             this.bntAddKV.Name = "bntAddKV";
             this.bntAddKV.Size = new System.Drawing.Size(144, 46);
             this.bntAddKV.TabIndex = 7;
             this.bntAddKV.Text = "Thêm KV mới";
-            this.bntAddKV.UseVisualStyleBackColor = true;
+            this.bntAddKV.UseVisualStyleBackColor = false;
             this.bntAddKV.Click += new System.EventHandler(this.bntAddKV_Click);
             // 
             // panel35
@@ -810,7 +822,6 @@
             // 
             // panel12
             // 
-            this.panel12.Controls.Add(this.btnXemTableFood);
             this.panel12.Controls.Add(this.btnEditTableFood);
             this.panel12.Controls.Add(this.btnDeleteTableFood);
             this.panel12.Controls.Add(this.btnAddTableFood);
@@ -820,48 +831,43 @@
             this.panel12.Size = new System.Drawing.Size(715, 78);
             this.panel12.TabIndex = 5;
             // 
-            // btnXemTableFood
-            // 
-            this.btnXemTableFood.Location = new System.Drawing.Point(249, 2);
-            this.btnXemTableFood.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnXemTableFood.Name = "btnXemTableFood";
-            this.btnXemTableFood.Size = new System.Drawing.Size(76, 71);
-            this.btnXemTableFood.TabIndex = 6;
-            this.btnXemTableFood.Text = "Xem";
-            this.btnXemTableFood.UseVisualStyleBackColor = true;
-            this.btnXemTableFood.Click += new System.EventHandler(this.btnXemTableFood_Click);
-            // 
             // btnEditTableFood
             // 
+            this.btnEditTableFood.BackColor = System.Drawing.Color.White;
+            this.btnEditTableFood.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEditTableFood.Location = new System.Drawing.Point(167, 2);
             this.btnEditTableFood.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEditTableFood.Name = "btnEditTableFood";
             this.btnEditTableFood.Size = new System.Drawing.Size(76, 71);
             this.btnEditTableFood.TabIndex = 5;
             this.btnEditTableFood.Text = "Sửa";
-            this.btnEditTableFood.UseVisualStyleBackColor = true;
+            this.btnEditTableFood.UseVisualStyleBackColor = false;
             this.btnEditTableFood.Click += new System.EventHandler(this.btnEditTableFood_Click);
             // 
             // btnDeleteTableFood
             // 
+            this.btnDeleteTableFood.BackColor = System.Drawing.Color.White;
+            this.btnDeleteTableFood.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDeleteTableFood.Location = new System.Drawing.Point(85, 2);
             this.btnDeleteTableFood.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDeleteTableFood.Name = "btnDeleteTableFood";
             this.btnDeleteTableFood.Size = new System.Drawing.Size(76, 71);
             this.btnDeleteTableFood.TabIndex = 4;
             this.btnDeleteTableFood.Text = "Xoá";
-            this.btnDeleteTableFood.UseVisualStyleBackColor = true;
+            this.btnDeleteTableFood.UseVisualStyleBackColor = false;
             this.btnDeleteTableFood.Click += new System.EventHandler(this.btnDeleteTableFood_Click);
             // 
             // btnAddTableFood
             // 
+            this.btnAddTableFood.BackColor = System.Drawing.Color.White;
+            this.btnAddTableFood.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAddTableFood.Location = new System.Drawing.Point(3, 2);
             this.btnAddTableFood.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddTableFood.Name = "btnAddTableFood";
             this.btnAddTableFood.Size = new System.Drawing.Size(76, 71);
             this.btnAddTableFood.TabIndex = 3;
             this.btnAddTableFood.Text = "Thêm";
-            this.btnAddTableFood.UseVisualStyleBackColor = true;
+            this.btnAddTableFood.UseVisualStyleBackColor = false;
             this.btnAddTableFood.Click += new System.EventHandler(this.btnAddTableFood_Click);
             // 
             // tpTaiKhoan
@@ -923,13 +929,15 @@
             // 
             // btnRePass
             // 
+            this.btnRePass.BackColor = System.Drawing.Color.White;
+            this.btnRePass.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRePass.Location = new System.Drawing.Point(301, 265);
             this.btnRePass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRePass.Name = "btnRePass";
             this.btnRePass.Size = new System.Drawing.Size(131, 71);
             this.btnRePass.TabIndex = 7;
             this.btnRePass.Text = "Đặt lại mật khẩu";
-            this.btnRePass.UseVisualStyleBackColor = true;
+            this.btnRePass.UseVisualStyleBackColor = false;
             this.btnRePass.Click += new System.EventHandler(this.btnRePass_Click);
             // 
             // panel22
@@ -1048,7 +1056,6 @@
             // 
             // panel26
             // 
-            this.panel26.Controls.Add(this.btnXemTK);
             this.panel26.Controls.Add(this.btnSuaTK);
             this.panel26.Controls.Add(this.btnXoaTK);
             this.panel26.Controls.Add(this.btnThemTK);
@@ -1058,48 +1065,43 @@
             this.panel26.Size = new System.Drawing.Size(715, 78);
             this.panel26.TabIndex = 8;
             // 
-            // btnXemTK
-            // 
-            this.btnXemTK.Location = new System.Drawing.Point(249, 2);
-            this.btnXemTK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnXemTK.Name = "btnXemTK";
-            this.btnXemTK.Size = new System.Drawing.Size(76, 71);
-            this.btnXemTK.TabIndex = 6;
-            this.btnXemTK.Text = "Xem";
-            this.btnXemTK.UseVisualStyleBackColor = true;
-            this.btnXemTK.Click += new System.EventHandler(this.btnXemTK_Click);
-            // 
             // btnSuaTK
             // 
+            this.btnSuaTK.BackColor = System.Drawing.Color.White;
+            this.btnSuaTK.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSuaTK.Location = new System.Drawing.Point(167, 2);
             this.btnSuaTK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSuaTK.Name = "btnSuaTK";
             this.btnSuaTK.Size = new System.Drawing.Size(76, 71);
             this.btnSuaTK.TabIndex = 5;
             this.btnSuaTK.Text = "Sửa";
-            this.btnSuaTK.UseVisualStyleBackColor = true;
+            this.btnSuaTK.UseVisualStyleBackColor = false;
             this.btnSuaTK.Click += new System.EventHandler(this.btnSuaTK_Click);
             // 
             // btnXoaTK
             // 
+            this.btnXoaTK.BackColor = System.Drawing.Color.White;
+            this.btnXoaTK.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnXoaTK.Location = new System.Drawing.Point(85, 2);
             this.btnXoaTK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXoaTK.Name = "btnXoaTK";
             this.btnXoaTK.Size = new System.Drawing.Size(76, 71);
             this.btnXoaTK.TabIndex = 4;
             this.btnXoaTK.Text = "Xoá";
-            this.btnXoaTK.UseVisualStyleBackColor = true;
+            this.btnXoaTK.UseVisualStyleBackColor = false;
             this.btnXoaTK.Click += new System.EventHandler(this.btnXoaTK_Click);
             // 
             // btnThemTK
             // 
+            this.btnThemTK.BackColor = System.Drawing.Color.White;
+            this.btnThemTK.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnThemTK.Location = new System.Drawing.Point(3, 2);
             this.btnThemTK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThemTK.Name = "btnThemTK";
             this.btnThemTK.Size = new System.Drawing.Size(76, 71);
             this.btnThemTK.TabIndex = 3;
             this.btnThemTK.Text = "Thêm";
-            this.btnThemTK.UseVisualStyleBackColor = true;
+            this.btnThemTK.UseVisualStyleBackColor = false;
             this.btnThemTK.Click += new System.EventHandler(this.btnThemTK_Click);
             // 
             // tpKho
@@ -1120,13 +1122,15 @@
             // 
             // btnTraCuuKho
             // 
-            this.btnTraCuuKho.Location = new System.Drawing.Point(527, 15);
+            this.btnTraCuuKho.BackColor = System.Drawing.Color.White;
+            this.btnTraCuuKho.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnTraCuuKho.Location = new System.Drawing.Point(527, 9);
             this.btnTraCuuKho.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTraCuuKho.Name = "btnTraCuuKho";
-            this.btnTraCuuKho.Size = new System.Drawing.Size(113, 23);
+            this.btnTraCuuKho.Size = new System.Drawing.Size(113, 34);
             this.btnTraCuuKho.TabIndex = 2;
             this.btnTraCuuKho.Text = "Tra cứu";
-            this.btnTraCuuKho.UseVisualStyleBackColor = true;
+            this.btnTraCuuKho.UseVisualStyleBackColor = false;
             this.btnTraCuuKho.Click += new System.EventHandler(this.btnTraCuuKho_Click);
             // 
             // label6
@@ -1226,24 +1230,28 @@
             // 
             // btnTaoPhieuNhap
             // 
-            this.btnTaoPhieuNhap.Location = new System.Drawing.Point(414, 23);
+            this.btnTaoPhieuNhap.BackColor = System.Drawing.Color.White;
+            this.btnTaoPhieuNhap.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnTaoPhieuNhap.Location = new System.Drawing.Point(414, 19);
             this.btnTaoPhieuNhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTaoPhieuNhap.Name = "btnTaoPhieuNhap";
-            this.btnTaoPhieuNhap.Size = new System.Drawing.Size(160, 27);
+            this.btnTaoPhieuNhap.Size = new System.Drawing.Size(160, 32);
             this.btnTaoPhieuNhap.TabIndex = 2;
             this.btnTaoPhieuNhap.Text = "Tạo phiếu nhập";
-            this.btnTaoPhieuNhap.UseVisualStyleBackColor = true;
+            this.btnTaoPhieuNhap.UseVisualStyleBackColor = false;
             this.btnTaoPhieuNhap.Click += new System.EventHandler(this.btnTaoPhieuNhap_Click);
             // 
             // btnTimPN
             // 
+            this.btnTimPN.BackColor = System.Drawing.Color.White;
+            this.btnTimPN.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnTimPN.Location = new System.Drawing.Point(315, 21);
             this.btnTimPN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTimPN.Name = "btnTimPN";
             this.btnTimPN.Size = new System.Drawing.Size(77, 30);
             this.btnTimPN.TabIndex = 1;
             this.btnTimPN.Text = "Tìm";
-            this.btnTimPN.UseVisualStyleBackColor = true;
+            this.btnTimPN.UseVisualStyleBackColor = false;
             this.btnTimPN.Click += new System.EventHandler(this.btnTimPN_Click);
             // 
             // dtgvPhieuNhap
@@ -1285,17 +1293,6 @@
             this.entityCommand1.Connection = null;
             this.entityCommand1.EnablePlanCaching = true;
             this.entityCommand1.Transaction = null;
-            // 
-            // btnPrintDT
-            // 
-            this.btnPrintDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrintDT.Location = new System.Drawing.Point(28, 241);
-            this.btnPrintDT.Name = "btnPrintDT";
-            this.btnPrintDT.Size = new System.Drawing.Size(115, 55);
-            this.btnPrintDT.TabIndex = 5;
-            this.btnPrintDT.Text = "In";
-            this.btnPrintDT.UseVisualStyleBackColor = true;
-            this.btnPrintDT.Click += new System.EventHandler(this.btnPrintDT_Click);
             // 
             // fAdmin
             // 
@@ -1391,7 +1388,6 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button btnXem;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnThem;
@@ -1419,7 +1415,6 @@
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.DataGridView dtgvBanAn;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Button btnXemTableFood;
         private System.Windows.Forms.Button btnEditTableFood;
         private System.Windows.Forms.Button btnDeleteTableFood;
         private System.Windows.Forms.Button btnAddTableFood;
@@ -1435,7 +1430,6 @@
         private System.Windows.Forms.Panel panel25;
         private System.Windows.Forms.DataGridView dtgvTaiKhoan;
         private System.Windows.Forms.Panel panel26;
-        private System.Windows.Forms.Button btnXemTK;
         private System.Windows.Forms.Button btnSuaTK;
         private System.Windows.Forms.Button btnXoaTK;
         private System.Windows.Forms.Button btnThemTK;

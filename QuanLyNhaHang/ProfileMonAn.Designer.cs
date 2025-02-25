@@ -34,31 +34,37 @@
             // 
             // btnNhomMon
             // 
+            this.btnNhomMon.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnNhomMon.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnNhomMon.Location = new System.Drawing.Point(12, 12);
             this.btnNhomMon.Name = "btnNhomMon";
             this.btnNhomMon.Size = new System.Drawing.Size(167, 162);
             this.btnNhomMon.TabIndex = 0;
             this.btnNhomMon.Text = "Nhóm món";
-            this.btnNhomMon.UseVisualStyleBackColor = true;
+            this.btnNhomMon.UseVisualStyleBackColor = false;
             this.btnNhomMon.Click += new System.EventHandler(this.btnNhomMon_Click);
             // 
             // btnDVT
             // 
+            this.btnDVT.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnDVT.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDVT.Location = new System.Drawing.Point(185, 12);
             this.btnDVT.Name = "btnDVT";
             this.btnDVT.Size = new System.Drawing.Size(167, 162);
             this.btnDVT.TabIndex = 1;
             this.btnDVT.Text = "Đơn vị tính";
-            this.btnDVT.UseVisualStyleBackColor = true;
+            this.btnDVT.UseVisualStyleBackColor = false;
             this.btnDVT.Click += new System.EventHandler(this.btnDVT_Click);
             // 
             // ProfileMonAn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(360, 181);
             this.Controls.Add(this.btnDVT);
             this.Controls.Add(this.btnNhomMon);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "ProfileMonAn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProfilePN";

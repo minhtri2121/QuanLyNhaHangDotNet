@@ -79,6 +79,8 @@
             // 
             // btnXoaMon
             // 
+            this.btnXoaMon.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnXoaMon.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnXoaMon.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoaMon.Location = new System.Drawing.Point(332, 68);
             this.btnXoaMon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -86,11 +88,12 @@
             this.btnXoaMon.Size = new System.Drawing.Size(115, 46);
             this.btnXoaMon.TabIndex = 4;
             this.btnXoaMon.Text = "Huỷ món";
-            this.btnXoaMon.UseVisualStyleBackColor = true;
+            this.btnXoaMon.UseVisualStyleBackColor = false;
             this.btnXoaMon.Click += new System.EventHandler(this.btnXoaMon_Click);
             // 
             // nmFoodCount
             // 
+            this.nmFoodCount.Cursor = System.Windows.Forms.Cursors.Default;
             this.nmFoodCount.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nmFoodCount.Location = new System.Drawing.Point(453, 19);
             this.nmFoodCount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -110,6 +113,8 @@
             // 
             // btnAddFood
             // 
+            this.btnAddFood.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAddFood.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAddFood.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddFood.Location = new System.Drawing.Point(332, 10);
             this.btnAddFood.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -117,11 +122,12 @@
             this.btnAddFood.Size = new System.Drawing.Size(115, 46);
             this.btnAddFood.TabIndex = 3;
             this.btnAddFood.Text = "Thêm món";
-            this.btnAddFood.UseVisualStyleBackColor = true;
+            this.btnAddFood.UseVisualStyleBackColor = false;
             this.btnAddFood.Click += new System.EventHandler(this.btnAddFood_Click);
             // 
             // cbFood
             // 
+            this.cbFood.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cbFood.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFood.FormattingEnabled = true;
             this.cbFood.Location = new System.Drawing.Point(3, 78);
@@ -132,6 +138,7 @@
             // 
             // cbCategory
             // 
+            this.cbCategory.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cbCategory.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCategory.FormattingEnabled = true;
             this.cbCategory.Location = new System.Drawing.Point(3, 18);
@@ -153,10 +160,10 @@
             this.panel3.Controls.Add(this.btnSwitchTable);
             this.panel3.Controls.Add(this.btnCheck);
             this.panel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(1167, 34);
+            this.panel3.Location = new System.Drawing.Point(1170, 34);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(248, 642);
+            this.panel3.Size = new System.Drawing.Size(245, 642);
             this.panel3.TabIndex = 3;
             // 
             // label1
@@ -170,20 +177,24 @@
             // 
             // btnMergeTable
             // 
+            this.btnMergeTable.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnMergeTable.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMergeTable.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnMergeTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMergeTable.Location = new System.Drawing.Point(127, 14);
+            this.btnMergeTable.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnMergeTable.Location = new System.Drawing.Point(127, 10);
             this.btnMergeTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMergeTable.Name = "btnMergeTable";
             this.btnMergeTable.Size = new System.Drawing.Size(117, 39);
             this.btnMergeTable.TabIndex = 12;
             this.btnMergeTable.Text = "Gộp bàn";
-            this.btnMergeTable.UseVisualStyleBackColor = true;
+            this.btnMergeTable.UseVisualStyleBackColor = false;
             this.btnMergeTable.Click += new System.EventHandler(this.btnMergeTable_Click);
             // 
             // nmGiamGia
             // 
             this.nmGiamGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nmGiamGia.Location = new System.Drawing.Point(132, 481);
+            this.nmGiamGia.Location = new System.Drawing.Point(131, 481);
             this.nmGiamGia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nmGiamGia.Name = "nmGiamGia";
             this.nmGiamGia.Size = new System.Drawing.Size(112, 30);
@@ -192,17 +203,18 @@
             // txtTongTien
             // 
             this.txtTongTien.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTongTien.Location = new System.Drawing.Point(3, 526);
+            this.txtTongTien.Location = new System.Drawing.Point(3, 518);
             this.txtTongTien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTongTien.Name = "txtTongTien";
             this.txtTongTien.ReadOnly = true;
-            this.txtTongTien.Size = new System.Drawing.Size(241, 36);
+            this.txtTongTien.Size = new System.Drawing.Size(239, 36);
             this.txtTongTien.TabIndex = 8;
             this.txtTongTien.Text = "0";
             this.txtTongTien.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // cbSwitchTable
             // 
+            this.cbSwitchTable.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cbSwitchTable.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSwitchTable.FormattingEnabled = true;
             this.cbSwitchTable.Location = new System.Drawing.Point(3, 64);
@@ -213,25 +225,33 @@
             // 
             // btnSwitchTable
             // 
+            this.btnSwitchTable.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSwitchTable.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSwitchTable.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSwitchTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSwitchTable.Location = new System.Drawing.Point(3, 14);
+            this.btnSwitchTable.ForeColor = System.Drawing.Color.Black;
+            this.btnSwitchTable.Location = new System.Drawing.Point(3, 10);
             this.btnSwitchTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSwitchTable.Name = "btnSwitchTable";
             this.btnSwitchTable.Size = new System.Drawing.Size(117, 39);
             this.btnSwitchTable.TabIndex = 6;
             this.btnSwitchTable.Text = "Chuyển bàn";
-            this.btnSwitchTable.UseVisualStyleBackColor = true;
+            this.btnSwitchTable.UseVisualStyleBackColor = false;
             this.btnSwitchTable.Click += new System.EventHandler(this.btnSwitchTable_Click);
             // 
             // btnCheck
             // 
-            this.btnCheck.Location = new System.Drawing.Point(3, 558);
+            this.btnCheck.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCheck.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCheck.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheck.Location = new System.Drawing.Point(3, 562);
             this.btnCheck.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCheck.Name = "btnCheck";
-            this.btnCheck.Size = new System.Drawing.Size(243, 80);
+            this.btnCheck.Size = new System.Drawing.Size(242, 80);
             this.btnCheck.TabIndex = 3;
             this.btnCheck.Text = "Thanh toán";
-            this.btnCheck.UseVisualStyleBackColor = true;
+            this.btnCheck.UseVisualStyleBackColor = false;
             this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
             // 
             // lsvBill
@@ -242,11 +262,11 @@
             this.lsvBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lsvBill.GridLines = true;
             this.lsvBill.HideSelection = false;
-            this.lsvBill.Location = new System.Drawing.Point(636, 166);
+            this.lsvBill.Location = new System.Drawing.Point(633, 166);
             this.lsvBill.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lsvBill.Name = "lsvBill";
             this.lsvBill.ShowGroups = false;
-            this.lsvBill.Size = new System.Drawing.Size(531, 511);
+            this.lsvBill.Size = new System.Drawing.Size(534, 511);
             this.lsvBill.TabIndex = 4;
             this.lsvBill.UseCompatibleStateImageBehavior = false;
             this.lsvBill.View = System.Windows.Forms.View.Details;
@@ -261,14 +281,14 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1415, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1415, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // aDMINToolStripMenuItem
             // 
             this.aDMINToolStripMenuItem.Name = "aDMINToolStripMenuItem";
-            this.aDMINToolStripMenuItem.Size = new System.Drawing.Size(72, 26);
+            this.aDMINToolStripMenuItem.Size = new System.Drawing.Size(72, 24);
             this.aDMINToolStripMenuItem.Text = "ADMIN";
             this.aDMINToolStripMenuItem.Click += new System.EventHandler(this.aDMINToolStripMenuItem_Click);
             // 
@@ -278,7 +298,7 @@
             this.thôngTinCáNhânToolStripMenuItem,
             this.đăngXuấtToolStripMenuItem});
             this.thôngTinTàiKhoảnToolStripMenuItem.Name = "thôngTinTàiKhoảnToolStripMenuItem";
-            this.thôngTinTàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(151, 26);
+            this.thôngTinTàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(151, 24);
             this.thôngTinTàiKhoảnToolStripMenuItem.Text = "Thông tin tài khoản";
             // 
             // thôngTinCáNhânToolStripMenuItem
@@ -304,14 +324,14 @@
             this.gộpBànToolStripMenuItem,
             this.thanhToánToolStripMenuItem});
             this.chứcNăngToolStripMenuItem.Name = "chứcNăngToolStripMenuItem";
-            this.chứcNăngToolStripMenuItem.Size = new System.Drawing.Size(93, 26);
+            this.chứcNăngToolStripMenuItem.Size = new System.Drawing.Size(93, 24);
             this.chứcNăngToolStripMenuItem.Text = "Chức năng";
             // 
             // thêmMónToolStripMenuItem
             // 
             this.thêmMónToolStripMenuItem.Name = "thêmMónToolStripMenuItem";
             this.thêmMónToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.thêmMónToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
+            this.thêmMónToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.thêmMónToolStripMenuItem.Text = "Thêm món";
             this.thêmMónToolStripMenuItem.Click += new System.EventHandler(this.thêmMónToolStripMenuItem_Click);
             // 
@@ -319,7 +339,7 @@
             // 
             this.huỷMónToolStripMenuItem.Name = "huỷMónToolStripMenuItem";
             this.huỷMónToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
-            this.huỷMónToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
+            this.huỷMónToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.huỷMónToolStripMenuItem.Text = "Huỷ món";
             this.huỷMónToolStripMenuItem.Click += new System.EventHandler(this.huỷMónToolStripMenuItem_Click);
             // 
@@ -327,7 +347,7 @@
             // 
             this.chuyểnBànToolStripMenuItem.Name = "chuyểnBànToolStripMenuItem";
             this.chuyểnBànToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.chuyểnBànToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
+            this.chuyểnBànToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.chuyểnBànToolStripMenuItem.Text = "Chuyển bàn";
             this.chuyểnBànToolStripMenuItem.Click += new System.EventHandler(this.chuyểnBànToolStripMenuItem_Click);
             // 
@@ -335,7 +355,7 @@
             // 
             this.gộpBànToolStripMenuItem.Name = "gộpBànToolStripMenuItem";
             this.gộpBànToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
-            this.gộpBànToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
+            this.gộpBànToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.gộpBànToolStripMenuItem.Text = "Gộp bàn";
             this.gộpBànToolStripMenuItem.Click += new System.EventHandler(this.gộpBànToolStripMenuItem_Click);
             // 
@@ -343,7 +363,7 @@
             // 
             this.thanhToánToolStripMenuItem.Name = "thanhToánToolStripMenuItem";
             this.thanhToánToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
-            this.thanhToánToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
+            this.thanhToánToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.thanhToánToolStripMenuItem.Text = "Thanh toán";
             this.thanhToánToolStripMenuItem.Click += new System.EventHandler(this.thanhToánToolStripMenuItem_Click);
             // 
@@ -353,7 +373,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flpTable.AutoScroll = true;
-            this.flpTable.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.flpTable.BackColor = System.Drawing.Color.Gainsboro;
             this.flpTable.Location = new System.Drawing.Point(12, 34);
             this.flpTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flpTable.Name = "flpTable";
@@ -364,12 +384,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(1415, 679);
             this.Controls.Add(this.lsvBill);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.flpTable);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

@@ -102,7 +102,7 @@ namespace QuanLyNhaHang
                 switch (item.Status)
                 {
                     case "Trống":
-                        btn.BackColor = Color.Cornsilk;
+                        btn.BackColor = Color.WhiteSmoke;
                         break;
                     default:
                         btn.BackColor = Color.Crimson;
@@ -236,20 +236,15 @@ namespace QuanLyNhaHang
 
         void LoadComboBoxTable(ComboBox cb)
         {
-            // Tạo đối tượng "Chọn bàn"
             Table selectTable = new Table() { ID = -1, Name = "Chọn bàn" };
 
-            // Nạp danh sách bàn từ cơ sở dữ liệu
             List<Table> tableList = TableDAO.Instance.LoadTableList();
 
-            // Chèn "Chọn bàn" vào đầu danh sách
             tableList.Insert(0, selectTable);
 
-            // Gán danh sách cho ComboBox
             cb.DataSource = tableList;
             cb.DisplayMember = "Name";
 
-            // Thiết lập mục được chọn mặc định
             cb.SelectedIndex = 0;
         }
 
@@ -471,10 +466,8 @@ namespace QuanLyNhaHang
                     LoadTable();
                     nmGiamGia.Value = 0;
 
-                    // Chỉ tạo nội dung hóa đơn nếu thanh toán thành công
                     billContent = GenerateBillContent(table.Name, idBill, tongTien, giamGia);
 
-                    // Đăng ký sự kiện in một lần
                     printDocument.PrintPage -= PrintDocument_PrintPage;
                     printDocument.PrintPage += PrintDocument_PrintPage;
 

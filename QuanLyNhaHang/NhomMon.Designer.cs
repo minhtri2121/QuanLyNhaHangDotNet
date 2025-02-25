@@ -44,7 +44,9 @@
             // dtgvNhomMon
             // 
             this.dtgvNhomMon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgvNhomMon.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dtgvNhomMon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvNhomMon.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dtgvNhomMon.Location = new System.Drawing.Point(12, 12);
             this.dtgvNhomMon.Name = "dtgvNhomMon";
             this.dtgvNhomMon.RowHeadersWidth = 51;
@@ -77,6 +79,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label4.Location = new System.Drawing.Point(19, 18);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(94, 16);
@@ -85,32 +88,38 @@
             // 
             // btnDelete
             // 
+            this.btnDelete.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDelete.Location = new System.Drawing.Point(235, 187);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(81, 44);
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "Xoá";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnEdit
             // 
+            this.btnEdit.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEdit.Location = new System.Drawing.Point(122, 187);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(81, 44);
             this.btnEdit.TabIndex = 3;
             this.btnEdit.Text = "Sửa";
-            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnAdd
             // 
+            this.btnAdd.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAdd.Location = new System.Drawing.Point(12, 187);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(81, 44);
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Thêm";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // txtName
@@ -123,6 +132,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Location = new System.Drawing.Point(19, 84);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(99, 16);
@@ -133,6 +143,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(828, 526);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dtgvNhomMon);
