@@ -68,7 +68,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ProfilePN";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ProfilePN";
+            this.Text = "Profile phiếu nhập";
             this.ResumeLayout(false);
 
         }
