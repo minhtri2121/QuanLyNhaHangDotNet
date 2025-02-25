@@ -155,5 +155,26 @@ namespace QuanLyNhaHang.DAO
                 return 1;
             }
         }
+
+        public string ResetPassword(string userInput, string displayName)
+        {
+            string query = "SELECT * FROM NGUOI_DUNG WHERE TenDangNhap = @userInput and TenNguoiDung = N'"+ displayName +"'";
+            DataTable data = DataProvider.Instance.ExcuteQuery(query, new object[] { userInput });
+
+            if (data.Rows.Count > 0)
+            {
+                string newPassword = GenerateRandomPassword();
+                string updateQuery = "UPDATE NGUOI_DUNG SET MatKhau = @newPassword WHERE TenDangNhap = @userInput and TenNguoiDung = N'"+displayName+"'";
+                DataProvider.Instance.ExcuteNonQuery(updateQuery, new object[] { newPassword, userInput });
+
+                return newPassword;
+            }
+            return null;
+        }
+
+        private string GenerateRandomPassword()
+        {
+            return "NewPass" + new Random().Next(1000, 9999).ToString();
+        }
     }
 }

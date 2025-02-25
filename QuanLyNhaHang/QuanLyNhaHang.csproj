@@ -158,6 +158,12 @@
     <Compile Include="DonViTinh.Designer.cs">
       <DependentUpon>DonViTinh.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormForgotPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormForgotPassword.Designer.cs">
+      <DependentUpon>FormForgotPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="KhuVuc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,6 +225,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DonViTinh.resx">
       <DependentUpon>DonViTinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormForgotPassword.resx">
+      <DependentUpon>FormForgotPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KhuVuc.resx">
       <DependentUpon>KhuVuc.cs</DependentUpon>
