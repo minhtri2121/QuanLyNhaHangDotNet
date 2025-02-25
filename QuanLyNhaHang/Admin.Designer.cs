@@ -227,7 +227,7 @@
             this.cbBan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbBan.Name = "cbBan";
             this.cbBan.Size = new System.Drawing.Size(248, 30);
-            this.cbBan.TabIndex = 5;
+            this.cbBan.TabIndex = 3;
             this.cbBan.Text = "Tên bàn";
             // 
             // cbTenNguoiDung
@@ -238,7 +238,7 @@
             this.cbTenNguoiDung.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbTenNguoiDung.Name = "cbTenNguoiDung";
             this.cbTenNguoiDung.Size = new System.Drawing.Size(248, 30);
-            this.cbTenNguoiDung.TabIndex = 4;
+            this.cbTenNguoiDung.TabIndex = 2;
             this.cbTenNguoiDung.Text = "Tên nhân viên";
             // 
             // label1
@@ -258,7 +258,7 @@
             this.btnTraCuu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTraCuu.Name = "btnTraCuu";
             this.btnTraCuu.Size = new System.Drawing.Size(248, 55);
-            this.btnTraCuu.TabIndex = 2;
+            this.btnTraCuu.TabIndex = 4;
             this.btnTraCuu.Text = "Tra Cứu";
             this.btnTraCuu.UseVisualStyleBackColor = true;
             this.btnTraCuu.Click += new System.EventHandler(this.btnTraCuu_Click);
@@ -294,6 +294,7 @@
             // 
             // dtgvDoanhThu
             // 
+            this.dtgvDoanhThu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvDoanhThu.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dtgvDoanhThu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvDoanhThu.Location = new System.Drawing.Point(3, 2);
@@ -340,7 +341,7 @@
             this.btnTuyChon.Margin = new System.Windows.Forms.Padding(4);
             this.btnTuyChon.Name = "btnTuyChon";
             this.btnTuyChon.Size = new System.Drawing.Size(176, 53);
-            this.btnTuyChon.TabIndex = 6;
+            this.btnTuyChon.TabIndex = 9;
             this.btnTuyChon.Text = "Tuỳ chọn khác";
             this.btnTuyChon.UseVisualStyleBackColor = true;
             this.btnTuyChon.Click += new System.EventHandler(this.btnTuyChon_Click);
@@ -363,7 +364,7 @@
             this.txtIDMon.Name = "txtIDMon";
             this.txtIDMon.ReadOnly = true;
             this.txtIDMon.Size = new System.Drawing.Size(239, 22);
-            this.txtIDMon.TabIndex = 3;
+            this.txtIDMon.TabIndex = 10;
             // 
             // label9
             // 
@@ -392,7 +393,7 @@
             this.cbDVT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbDVT.Name = "cbDVT";
             this.cbDVT.Size = new System.Drawing.Size(239, 24);
-            this.cbDVT.TabIndex = 2;
+            this.cbDVT.TabIndex = 3;
             // 
             // label8
             // 
@@ -425,7 +426,7 @@
             0});
             this.nmGia.Name = "nmGia";
             this.nmGia.Size = new System.Drawing.Size(239, 22);
-            this.nmGia.TabIndex = 1;
+            this.nmGia.TabIndex = 4;
             // 
             // lblGia
             // 
@@ -453,7 +454,7 @@
             this.txtTuKhoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTuKhoa.Name = "txtTuKhoa";
             this.txtTuKhoa.Size = new System.Drawing.Size(239, 22);
-            this.txtTuKhoa.TabIndex = 3;
+            this.txtTuKhoa.TabIndex = 0;
             // 
             // lblTuKhoa
             // 
@@ -481,7 +482,7 @@
             this.txtTenMon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTenMon.Name = "txtTenMon";
             this.txtTenMon.Size = new System.Drawing.Size(239, 22);
-            this.txtTenMon.TabIndex = 4;
+            this.txtTenMon.TabIndex = 1;
             // 
             // lblFoodName
             // 
@@ -510,7 +511,7 @@
             this.cbNhomMon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbNhomMon.Name = "cbNhomMon";
             this.cbNhomMon.Size = new System.Drawing.Size(239, 24);
-            this.cbNhomMon.TabIndex = 1;
+            this.cbNhomMon.TabIndex = 2;
             // 
             // lblIdFood
             // 
@@ -562,6 +563,7 @@
             // 
             // dtgvMonAn
             // 
+            this.dtgvMonAn.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvMonAn.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dtgvMonAn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvMonAn.Location = new System.Drawing.Point(0, 0);
@@ -590,7 +592,7 @@
             this.btnXem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXem.Name = "btnXem";
             this.btnXem.Size = new System.Drawing.Size(76, 71);
-            this.btnXem.TabIndex = 3;
+            this.btnXem.TabIndex = 8;
             this.btnXem.Text = "Xem";
             this.btnXem.UseVisualStyleBackColor = true;
             this.btnXem.Click += new System.EventHandler(this.btnXem_Click);
@@ -601,7 +603,7 @@
             this.btnSua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(76, 71);
-            this.btnSua.TabIndex = 2;
+            this.btnSua.TabIndex = 7;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
@@ -612,7 +614,7 @@
             this.btnXoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(76, 71);
-            this.btnXoa.TabIndex = 1;
+            this.btnXoa.TabIndex = 6;
             this.btnXoa.Text = "Xoá";
             this.btnXoa.UseVisualStyleBackColor = true;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
@@ -623,7 +625,7 @@
             this.btnThem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(76, 71);
-            this.btnThem.TabIndex = 0;
+            this.btnThem.TabIndex = 5;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
@@ -655,6 +657,7 @@
             // 
             // txtTableStatus
             // 
+            this.txtTableStatus.Cursor = System.Windows.Forms.Cursors.No;
             this.txtTableStatus.Location = new System.Drawing.Point(173, 18);
             this.txtTableStatus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTableStatus.Name = "txtTableStatus";
@@ -689,7 +692,7 @@
             this.bntAddKV.Location = new System.Drawing.Point(255, 278);
             this.bntAddKV.Name = "bntAddKV";
             this.bntAddKV.Size = new System.Drawing.Size(144, 46);
-            this.bntAddKV.TabIndex = 13;
+            this.bntAddKV.TabIndex = 7;
             this.bntAddKV.Text = "Thêm KV mới";
             this.bntAddKV.UseVisualStyleBackColor = true;
             this.bntAddKV.Click += new System.EventHandler(this.bntAddKV_Click);
@@ -739,7 +742,7 @@
             this.txtNameTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNameTable.Name = "txtNameTable";
             this.txtNameTable.Size = new System.Drawing.Size(199, 22);
-            this.txtNameTable.TabIndex = 2;
+            this.txtNameTable.TabIndex = 0;
             // 
             // label2
             // 
@@ -792,6 +795,7 @@
             // 
             // dtgvBanAn
             // 
+            this.dtgvBanAn.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvBanAn.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dtgvBanAn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvBanAn.Location = new System.Drawing.Point(3, 2);
@@ -820,7 +824,7 @@
             this.btnXemTableFood.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXemTableFood.Name = "btnXemTableFood";
             this.btnXemTableFood.Size = new System.Drawing.Size(76, 71);
-            this.btnXemTableFood.TabIndex = 3;
+            this.btnXemTableFood.TabIndex = 6;
             this.btnXemTableFood.Text = "Xem";
             this.btnXemTableFood.UseVisualStyleBackColor = true;
             this.btnXemTableFood.Click += new System.EventHandler(this.btnXemTableFood_Click);
@@ -831,7 +835,7 @@
             this.btnEditTableFood.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEditTableFood.Name = "btnEditTableFood";
             this.btnEditTableFood.Size = new System.Drawing.Size(76, 71);
-            this.btnEditTableFood.TabIndex = 2;
+            this.btnEditTableFood.TabIndex = 5;
             this.btnEditTableFood.Text = "Sửa";
             this.btnEditTableFood.UseVisualStyleBackColor = true;
             this.btnEditTableFood.Click += new System.EventHandler(this.btnEditTableFood_Click);
@@ -842,7 +846,7 @@
             this.btnDeleteTableFood.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDeleteTableFood.Name = "btnDeleteTableFood";
             this.btnDeleteTableFood.Size = new System.Drawing.Size(76, 71);
-            this.btnDeleteTableFood.TabIndex = 1;
+            this.btnDeleteTableFood.TabIndex = 4;
             this.btnDeleteTableFood.Text = "Xoá";
             this.btnDeleteTableFood.UseVisualStyleBackColor = true;
             this.btnDeleteTableFood.Click += new System.EventHandler(this.btnDeleteTableFood_Click);
@@ -853,7 +857,7 @@
             this.btnAddTableFood.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddTableFood.Name = "btnAddTableFood";
             this.btnAddTableFood.Size = new System.Drawing.Size(76, 71);
-            this.btnAddTableFood.TabIndex = 0;
+            this.btnAddTableFood.TabIndex = 3;
             this.btnAddTableFood.Text = "Thêm";
             this.btnAddTableFood.UseVisualStyleBackColor = true;
             this.btnAddTableFood.Click += new System.EventHandler(this.btnAddTableFood_Click);
@@ -921,7 +925,7 @@
             this.btnRePass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRePass.Name = "btnRePass";
             this.btnRePass.Size = new System.Drawing.Size(131, 71);
-            this.btnRePass.TabIndex = 12;
+            this.btnRePass.TabIndex = 7;
             this.btnRePass.Text = "Đặt lại mật khẩu";
             this.btnRePass.UseVisualStyleBackColor = true;
             this.btnRePass.Click += new System.EventHandler(this.btnRePass_Click);
@@ -947,7 +951,7 @@
             0});
             this.nmLoaiTK.Name = "nmLoaiTK";
             this.nmLoaiTK.Size = new System.Drawing.Size(120, 22);
-            this.nmLoaiTK.TabIndex = 1;
+            this.nmLoaiTK.TabIndex = 2;
             // 
             // label5
             // 
@@ -975,7 +979,7 @@
             this.txtTenHienThi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTenHienThi.Name = "txtTenHienThi";
             this.txtTenHienThi.Size = new System.Drawing.Size(199, 22);
-            this.txtTenHienThi.TabIndex = 2;
+            this.txtTenHienThi.TabIndex = 1;
             // 
             // lbl
             // 
@@ -1003,7 +1007,7 @@
             this.txtTenTk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTenTk.Name = "txtTenTk";
             this.txtTenTk.Size = new System.Drawing.Size(199, 22);
-            this.txtTenTk.TabIndex = 2;
+            this.txtTenTk.TabIndex = 0;
             // 
             // label7
             // 
@@ -1027,6 +1031,7 @@
             // dtgvTaiKhoan
             // 
             this.dtgvTaiKhoan.AllowUserToOrderColumns = true;
+            this.dtgvTaiKhoan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvTaiKhoan.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dtgvTaiKhoan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvTaiKhoan.Location = new System.Drawing.Point(3, 2);
@@ -1057,7 +1062,7 @@
             this.btnXemTK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXemTK.Name = "btnXemTK";
             this.btnXemTK.Size = new System.Drawing.Size(76, 71);
-            this.btnXemTK.TabIndex = 3;
+            this.btnXemTK.TabIndex = 6;
             this.btnXemTK.Text = "Xem";
             this.btnXemTK.UseVisualStyleBackColor = true;
             this.btnXemTK.Click += new System.EventHandler(this.btnXemTK_Click);
@@ -1068,7 +1073,7 @@
             this.btnSuaTK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSuaTK.Name = "btnSuaTK";
             this.btnSuaTK.Size = new System.Drawing.Size(76, 71);
-            this.btnSuaTK.TabIndex = 2;
+            this.btnSuaTK.TabIndex = 5;
             this.btnSuaTK.Text = "Sửa";
             this.btnSuaTK.UseVisualStyleBackColor = true;
             this.btnSuaTK.Click += new System.EventHandler(this.btnSuaTK_Click);
@@ -1079,7 +1084,7 @@
             this.btnXoaTK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXoaTK.Name = "btnXoaTK";
             this.btnXoaTK.Size = new System.Drawing.Size(76, 71);
-            this.btnXoaTK.TabIndex = 1;
+            this.btnXoaTK.TabIndex = 4;
             this.btnXoaTK.Text = "Xoá";
             this.btnXoaTK.UseVisualStyleBackColor = true;
             this.btnXoaTK.Click += new System.EventHandler(this.btnXoaTK_Click);
@@ -1090,7 +1095,7 @@
             this.btnThemTK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThemTK.Name = "btnThemTK";
             this.btnThemTK.Size = new System.Drawing.Size(76, 71);
-            this.btnThemTK.TabIndex = 0;
+            this.btnThemTK.TabIndex = 3;
             this.btnThemTK.Text = "Thêm";
             this.btnThemTK.UseVisualStyleBackColor = true;
             this.btnThemTK.Click += new System.EventHandler(this.btnThemTK_Click);
@@ -1117,7 +1122,7 @@
             this.btnTraCuuKho.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTraCuuKho.Name = "btnTraCuuKho";
             this.btnTraCuuKho.Size = new System.Drawing.Size(113, 23);
-            this.btnTraCuuKho.TabIndex = 4;
+            this.btnTraCuuKho.TabIndex = 2;
             this.btnTraCuuKho.Text = "Tra cứu";
             this.btnTraCuuKho.UseVisualStyleBackColor = true;
             this.btnTraCuuKho.Click += new System.EventHandler(this.btnTraCuuKho_Click);
@@ -1137,7 +1142,7 @@
             this.dtpKho2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpKho2.Name = "dtpKho2";
             this.dtpKho2.Size = new System.Drawing.Size(200, 22);
-            this.dtpKho2.TabIndex = 2;
+            this.dtpKho2.TabIndex = 1;
             // 
             // dtpKho1
             // 
@@ -1145,7 +1150,7 @@
             this.dtpKho1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpKho1.Name = "dtpKho1";
             this.dtpKho1.Size = new System.Drawing.Size(200, 22);
-            this.dtpKho1.TabIndex = 1;
+            this.dtpKho1.TabIndex = 0;
             // 
             // dtgvKho
             // 
@@ -1190,6 +1195,7 @@
             // 
             // dtgvChiTietPhieuNhap
             // 
+            this.dtgvChiTietPhieuNhap.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvChiTietPhieuNhap.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dtgvChiTietPhieuNhap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvChiTietPhieuNhap.Location = new System.Drawing.Point(5, 27);
@@ -1222,7 +1228,7 @@
             this.btnTaoPhieuNhap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTaoPhieuNhap.Name = "btnTaoPhieuNhap";
             this.btnTaoPhieuNhap.Size = new System.Drawing.Size(160, 27);
-            this.btnTaoPhieuNhap.TabIndex = 4;
+            this.btnTaoPhieuNhap.TabIndex = 2;
             this.btnTaoPhieuNhap.Text = "Tạo phiếu nhập";
             this.btnTaoPhieuNhap.UseVisualStyleBackColor = true;
             this.btnTaoPhieuNhap.Click += new System.EventHandler(this.btnTaoPhieuNhap_Click);
@@ -1233,13 +1239,14 @@
             this.btnTimPN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTimPN.Name = "btnTimPN";
             this.btnTimPN.Size = new System.Drawing.Size(77, 30);
-            this.btnTimPN.TabIndex = 3;
+            this.btnTimPN.TabIndex = 1;
             this.btnTimPN.Text = "Tìm";
             this.btnTimPN.UseVisualStyleBackColor = true;
             this.btnTimPN.Click += new System.EventHandler(this.btnTimPN_Click);
             // 
             // dtgvPhieuNhap
             // 
+            this.dtgvPhieuNhap.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvPhieuNhap.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dtgvPhieuNhap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvPhieuNhap.Location = new System.Drawing.Point(0, 69);

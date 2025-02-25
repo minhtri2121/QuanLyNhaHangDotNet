@@ -101,7 +101,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(6, 217);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(144, 54);
-            this.btnUpdate.TabIndex = 8;
+            this.btnUpdate.TabIndex = 11;
             this.btnUpdate.Text = "Thêm thông tin cho phiếu nhập";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -113,7 +113,7 @@
             this.panel9.Location = new System.Drawing.Point(3, 168);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(539, 43);
-            this.panel9.TabIndex = 5;
+            this.panel9.TabIndex = 3;
             // 
             // txtShipper
             // 
@@ -149,7 +149,7 @@
             this.panel4.Location = new System.Drawing.Point(3, 119);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(539, 43);
-            this.panel4.TabIndex = 3;
+            this.panel4.TabIndex = 2;
             // 
             // cbNhaCungCap
             // 
@@ -157,7 +157,7 @@
             this.cbNhaCungCap.Location = new System.Drawing.Point(212, 10);
             this.cbNhaCungCap.Name = "cbNhaCungCap";
             this.cbNhaCungCap.Size = new System.Drawing.Size(310, 24);
-            this.cbNhaCungCap.TabIndex = 2;
+            this.cbNhaCungCap.TabIndex = 1;
             // 
             // lblNhaCungCap
             // 
@@ -176,7 +176,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 21);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(539, 43);
-            this.panel2.TabIndex = 1;
+            this.panel2.TabIndex = 0;
             // 
             // txtMaPhieuNhap
             // 
@@ -184,7 +184,7 @@
             this.txtMaPhieuNhap.Name = "txtMaPhieuNhap";
             this.txtMaPhieuNhap.ReadOnly = true;
             this.txtMaPhieuNhap.Size = new System.Drawing.Size(310, 22);
-            this.txtMaPhieuNhap.TabIndex = 2;
+            this.txtMaPhieuNhap.TabIndex = 0;
             // 
             // lblUserName
             // 
@@ -203,14 +203,14 @@
             this.panel1.Location = new System.Drawing.Point(12, 82);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(539, 43);
-            this.panel1.TabIndex = 2;
+            this.panel1.TabIndex = 1;
             // 
             // dtpkNgayNhap
             // 
             this.dtpkNgayNhap.Location = new System.Drawing.Point(215, 10);
             this.dtpkNgayNhap.Name = "dtpkNgayNhap";
             this.dtpkNgayNhap.Size = new System.Drawing.Size(310, 22);
-            this.dtpkNgayNhap.TabIndex = 3;
+            this.dtpkNgayNhap.TabIndex = 0;
             // 
             // lblNgayNhap
             // 
@@ -271,14 +271,14 @@
             this.panel10.Location = new System.Drawing.Point(6, 216);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(539, 43);
-            this.panel10.TabIndex = 6;
+            this.panel10.TabIndex = 8;
             // 
             // dtpHsd
             // 
             this.dtpHsd.Location = new System.Drawing.Point(215, 10);
             this.dtpHsd.Name = "dtpHsd";
             this.dtpHsd.Size = new System.Drawing.Size(201, 22);
-            this.dtpHsd.TabIndex = 1;
+            this.dtpHsd.TabIndex = 8;
             // 
             // label2
             // 
@@ -295,7 +295,7 @@
             this.btnXacNhan.Location = new System.Drawing.Point(406, 265);
             this.btnXacNhan.Name = "btnXacNhan";
             this.btnXacNhan.Size = new System.Drawing.Size(123, 54);
-            this.btnXacNhan.TabIndex = 5;
+            this.btnXacNhan.TabIndex = 9;
             this.btnXacNhan.Text = "Thêm";
             this.btnXacNhan.UseVisualStyleBackColor = true;
             this.btnXacNhan.Click += new System.EventHandler(this.btnXacNhan_Click);
@@ -305,7 +305,7 @@
             this.btnHuy.Location = new System.Drawing.Point(277, 265);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(123, 54);
-            this.btnHuy.TabIndex = 4;
+            this.btnHuy.TabIndex = 10;
             this.btnHuy.Text = "Huỷ";
             this.btnHuy.UseVisualStyleBackColor = true;
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
@@ -317,14 +317,14 @@
             this.panel6.Location = new System.Drawing.Point(6, 119);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(539, 43);
-            this.panel6.TabIndex = 3;
+            this.panel6.TabIndex = 6;
             // 
             // nmSoLuong
             // 
             this.nmSoLuong.Location = new System.Drawing.Point(218, 10);
             this.nmSoLuong.Name = "nmSoLuong";
             this.nmSoLuong.Size = new System.Drawing.Size(65, 22);
-            this.nmSoLuong.TabIndex = 1;
+            this.nmSoLuong.TabIndex = 6;
             // 
             // lblSoLuong
             // 
@@ -343,7 +343,7 @@
             this.panel7.Location = new System.Drawing.Point(6, 70);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(539, 43);
-            this.panel7.TabIndex = 3;
+            this.panel7.TabIndex = 5;
             // 
             // cbLoaiMatHang
             // 
@@ -351,7 +351,7 @@
             this.cbLoaiMatHang.Location = new System.Drawing.Point(218, 10);
             this.cbLoaiMatHang.Name = "cbLoaiMatHang";
             this.cbLoaiMatHang.Size = new System.Drawing.Size(307, 24);
-            this.cbLoaiMatHang.TabIndex = 1;
+            this.cbLoaiMatHang.TabIndex = 5;
             // 
             // lblTenLoaiMatHang
             // 
@@ -370,14 +370,14 @@
             this.panel8.Location = new System.Drawing.Point(6, 21);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(539, 43);
-            this.panel8.TabIndex = 3;
+            this.panel8.TabIndex = 5;
             // 
             // txtTenMatHang
             // 
             this.txtTenMatHang.Location = new System.Drawing.Point(215, 11);
             this.txtTenMatHang.Name = "txtTenMatHang";
             this.txtTenMatHang.Size = new System.Drawing.Size(310, 22);
-            this.txtTenMatHang.TabIndex = 2;
+            this.txtTenMatHang.TabIndex = 5;
             // 
             // lblTenMatHang
             // 
@@ -396,14 +396,14 @@
             this.panel5.Location = new System.Drawing.Point(6, 168);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(539, 43);
-            this.panel5.TabIndex = 2;
+            this.panel5.TabIndex = 7;
             // 
             // nmGiaNhap
             // 
             this.nmGiaNhap.Location = new System.Drawing.Point(216, 10);
             this.nmGiaNhap.Name = "nmGiaNhap";
             this.nmGiaNhap.Size = new System.Drawing.Size(307, 22);
-            this.nmGiaNhap.TabIndex = 2;
+            this.nmGiaNhap.TabIndex = 7;
             // 
             // lblGiaNhap
             // 

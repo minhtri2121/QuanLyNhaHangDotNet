@@ -53,6 +53,7 @@ namespace QuanLyNhaHang
             nmSoLuong.Enabled = enable;
             nmGiaNhap.Enabled = enable;
             btnXacNhan.Enabled = enable;
+            dtpHsd.Enabled = enable;
         }
         private bool IsEntryFormCompleted()
         {
@@ -325,6 +326,5 @@ namespace QuanLyNhaHang
             List<DTO.ShowEntryForm> showEntryForms = ShowEntryFormDAO.Instance.LoadShowEntryFormList(idPhieuNhap);
             dtgvHienThiPhieuNhap.DataSource = showEntryForms;
         }
-
     }
 }

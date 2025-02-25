@@ -96,7 +96,7 @@
             this.btnDeleteNCC.Location = new System.Drawing.Point(235, 315);
             this.btnDeleteNCC.Name = "btnDeleteNCC";
             this.btnDeleteNCC.Size = new System.Drawing.Size(81, 44);
-            this.btnDeleteNCC.TabIndex = 4;
+            this.btnDeleteNCC.TabIndex = 5;
             this.btnDeleteNCC.Text = "Xoá";
             this.btnDeleteNCC.UseVisualStyleBackColor = true;
             this.btnDeleteNCC.Click += new System.EventHandler(this.btnDeleteNCC_Click);
@@ -106,14 +106,14 @@
             this.txtDiaChi.Location = new System.Drawing.Point(45, 239);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(237, 22);
-            this.txtDiaChi.TabIndex = 5;
+            this.txtDiaChi.TabIndex = 2;
             // 
             // btnEditNCC
             // 
             this.btnEditNCC.Location = new System.Drawing.Point(122, 315);
             this.btnEditNCC.Name = "btnEditNCC";
             this.btnEditNCC.Size = new System.Drawing.Size(81, 44);
-            this.btnEditNCC.TabIndex = 3;
+            this.btnEditNCC.TabIndex = 4;
             this.btnEditNCC.Text = "Sửa";
             this.btnEditNCC.UseVisualStyleBackColor = true;
             this.btnEditNCC.Click += new System.EventHandler(this.btnEditNCC_Click);
@@ -132,7 +132,7 @@
             this.btnAddNCC.Location = new System.Drawing.Point(12, 315);
             this.btnAddNCC.Name = "btnAddNCC";
             this.btnAddNCC.Size = new System.Drawing.Size(81, 44);
-            this.btnAddNCC.TabIndex = 2;
+            this.btnAddNCC.TabIndex = 3;
             this.btnAddNCC.Text = "Thêm";
             this.btnAddNCC.UseVisualStyleBackColor = true;
             this.btnAddNCC.Click += new System.EventHandler(this.btnAddNCC_Click);
@@ -142,7 +142,7 @@
             this.txtSDT.Location = new System.Drawing.Point(45, 174);
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(237, 22);
-            this.txtSDT.TabIndex = 3;
+            this.txtSDT.TabIndex = 1;
             this.txtSDT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSDT_KeyPress);
             this.txtSDT.Leave += new System.EventHandler(this.txtSDT_Leave);
             // 
@@ -160,7 +160,7 @@
             this.txtTenNCC.Location = new System.Drawing.Point(45, 109);
             this.txtTenNCC.Name = "txtTenNCC";
             this.txtTenNCC.Size = new System.Drawing.Size(237, 22);
-            this.txtTenNCC.TabIndex = 1;
+            this.txtTenNCC.TabIndex = 0;
             // 
             // label1
             // 
