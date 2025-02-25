@@ -81,7 +81,7 @@
             // 
             this.btnXoaMon.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnXoaMon.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnXoaMon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoaMon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoaMon.Location = new System.Drawing.Point(332, 68);
             this.btnXoaMon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXoaMon.Name = "btnXoaMon";
@@ -115,7 +115,7 @@
             // 
             this.btnAddFood.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnAddFood.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAddFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddFood.Location = new System.Drawing.Point(332, 10);
             this.btnAddFood.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddFood.Name = "btnAddFood";
@@ -180,7 +180,7 @@
             this.btnMergeTable.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnMergeTable.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMergeTable.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnMergeTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMergeTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMergeTable.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnMergeTable.Location = new System.Drawing.Point(127, 10);
             this.btnMergeTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -228,7 +228,7 @@
             this.btnSwitchTable.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnSwitchTable.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSwitchTable.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSwitchTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSwitchTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSwitchTable.ForeColor = System.Drawing.Color.Black;
             this.btnSwitchTable.Location = new System.Drawing.Point(3, 10);
             this.btnSwitchTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
