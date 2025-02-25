@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -39,7 +40,7 @@
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.lblUserName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.cbShowPass = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -48,6 +49,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.cbShowPass);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnExit);
             this.panel1.Controls.Add(this.btnLogin);
@@ -55,14 +57,26 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(882, 261);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(558, 208);
+            this.panel1.Size = new System.Drawing.Size(710, 208);
             this.panel1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label1.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.label1.Location = new System.Drawing.Point(96, 174);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(96, 16);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Quên mật khẩu";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnExit
             // 
             this.btnExit.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnExit.Location = new System.Drawing.Point(437, 125);
+            this.btnExit.Location = new System.Drawing.Point(406, 159);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(113, 46);
             this.btnExit.TabIndex = 3;
@@ -74,7 +88,7 @@
             // 
             this.btnLogin.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnLogin.Location = new System.Drawing.Point(240, 125);
+            this.btnLogin.Location = new System.Drawing.Point(240, 159);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(109, 46);
             this.btnLogin.TabIndex = 2;
@@ -151,17 +165,17 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
-            // label1
+            // cbShowPass
             // 
-            this.label1.AutoSize = true;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label1.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.label1.Location = new System.Drawing.Point(96, 155);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 16);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Quên mật khẩu";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.cbShowPass.AutoSize = true;
+            this.cbShowPass.ForeColor = System.Drawing.Color.White;
+            this.cbShowPass.Location = new System.Drawing.Point(240, 123);
+            this.cbShowPass.Name = "cbShowPass";
+            this.cbShowPass.Size = new System.Drawing.Size(114, 20);
+            this.cbShowPass.TabIndex = 5;
+            this.cbShowPass.Text = "Hiện mật khẩu";
+            this.cbShowPass.UseVisualStyleBackColor = true;
+            this.cbShowPass.CheckedChanged += new System.EventHandler(this.cbShowPass_CheckedChanged);
             // 
             // FormLogin
             // 
@@ -202,5 +216,6 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox cbShowPass;
     }
 }

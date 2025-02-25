@@ -77,7 +77,7 @@
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(276, 193);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(148, 39);
+            this.button1.Size = new System.Drawing.Size(165, 39);
             this.button1.TabIndex = 4;
             this.button1.Text = "Lấy lại mật khẩu";
             this.button1.UseVisualStyleBackColor = true;
