@@ -129,7 +129,7 @@ namespace QuanLyNhaHang
             int totalWidth = lsvBill.Width;
 
             lsvBill.Columns.Add("Tên món", (int)(totalWidth * 0.3));
-            lsvBill.Columns.Add("Số lượng", (int)(totalWidth * 0.15));
+            lsvBill.Columns.Add("SL", (int)(totalWidth * 0.15));
             lsvBill.Columns.Add("Đơn giá", (int)(totalWidth * 0.19));
             lsvBill.Columns.Add("Thành tiền", (int)(totalWidth * 0.19));
             lsvBill.Columns.Add("Mã nhóm món", (int)(totalWidth * 0.17));
@@ -681,7 +681,6 @@ namespace QuanLyNhaHang
         }
 
         #endregion
-
     }
 
 }

@@ -131,6 +131,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtNhaCungCap = new System.Windows.Forms.TextBox();
             this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
+            this.btnPrintDT = new System.Windows.Forms.Button();
             this.tcAdmin.SuspendLayout();
             this.tpDoanhThu.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -207,6 +208,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnPrintDT);
             this.panel2.Controls.Add(this.cbBan);
             this.panel2.Controls.Add(this.cbTenNguoiDung);
             this.panel2.Controls.Add(this.label1);
@@ -254,10 +256,10 @@
             // btnTraCuu
             // 
             this.btnTraCuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTraCuu.Location = new System.Drawing.Point(28, 241);
+            this.btnTraCuu.Location = new System.Drawing.Point(161, 241);
             this.btnTraCuu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTraCuu.Name = "btnTraCuu";
-            this.btnTraCuu.Size = new System.Drawing.Size(248, 55);
+            this.btnTraCuu.Size = new System.Drawing.Size(115, 55);
             this.btnTraCuu.TabIndex = 4;
             this.btnTraCuu.Text = "Tra Cứu";
             this.btnTraCuu.UseVisualStyleBackColor = true;
@@ -1284,6 +1286,17 @@
             this.entityCommand1.EnablePlanCaching = true;
             this.entityCommand1.Transaction = null;
             // 
+            // btnPrintDT
+            // 
+            this.btnPrintDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintDT.Location = new System.Drawing.Point(28, 241);
+            this.btnPrintDT.Name = "btnPrintDT";
+            this.btnPrintDT.Size = new System.Drawing.Size(115, 55);
+            this.btnPrintDT.TabIndex = 5;
+            this.btnPrintDT.Text = "In";
+            this.btnPrintDT.UseVisualStyleBackColor = true;
+            this.btnPrintDT.Click += new System.EventHandler(this.btnPrintDT_Click);
+            // 
             // fAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1465,5 +1478,6 @@
         private System.Windows.Forms.TextBox txtIDNguoiDung;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button bntAddKV;
+        private System.Windows.Forms.Button btnPrintDT;
     }
 }

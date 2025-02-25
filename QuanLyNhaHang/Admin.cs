@@ -4,11 +4,14 @@ using System.Data;
 using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Data.SqlClient;
 using System.Diagnostics.Eventing.Reader;
+using System.Drawing.Printing;
+using System.Drawing;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using QuanLyNhaHang.DAO;
 using QuanLyNhaHang.DTO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
+using System.Linq;
 
 namespace QuanLyNhaHang
 {
@@ -70,7 +73,11 @@ namespace QuanLyNhaHang
 
             this.txtNhaCungCap.KeyDown += new KeyEventHandler(this.txtMaPhieuNhap_KeyDown);
 
+            printDocument.PrintPage += new PrintPageEventHandler(PrintDocument_PrintPage);
+
         }
+
+        private PrintDocument printDocument = new PrintDocument();
 
         void AddAccountBinding()
         {
@@ -681,6 +688,104 @@ namespace QuanLyNhaHang
         {
             KhuVuc f = new KhuVuc();
             f.ShowDialog();
+        }
+
+        private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            Font titleFont = new Font("Arial", 14, FontStyle.Bold);
+            Font font = new Font("Arial", 8);
+            Font boldFont = new Font("Arial", 8, FontStyle.Bold);
+            Brush brush = Brushes.Black;
+            Pen pen = new Pen(Color.Black);
+
+            float startX;
+            float startY = e.MarginBounds.Top;
+            float cellHeight = font.GetHeight() + 6;
+
+            float[] columnWidths = { 80, 130, 40, 100, 70, 100, 80, 60 };
+            float totalWidth = columnWidths.Sum();
+            float pageWidth = e.MarginBounds.Width;
+
+            startX = e.MarginBounds.Left + (pageWidth - totalWidth) / 2;
+
+            string reportTitle = "Báo cáo doanh thu";
+            SizeF titleSize = g.MeasureString(reportTitle, titleFont);
+            float titleX = e.MarginBounds.Left + (pageWidth - titleSize.Width) / 2;
+            g.DrawString(reportTitle, titleFont, brush, titleX, startY);
+
+            startY += titleSize.Height + 10;
+
+            float currentX = startX;
+            float currentY = startY;
+
+            for (int i = 0; i < dtgvDoanhThu.Columns.Count; i++)
+            {
+                g.DrawRectangle(pen, currentX, currentY, columnWidths[i], cellHeight);
+                g.DrawString(dtgvDoanhThu.Columns[i].HeaderText, font, brush, currentX + 2, currentY + 2);
+                currentX += columnWidths[i];
+            }
+
+            currentY += cellHeight;
+
+            decimal totalAmount = 0;
+
+            foreach (DataGridViewRow row in dtgvDoanhThu.Rows)
+            {
+                if (row.IsNewRow) continue;
+                currentX = startX;
+
+                for (int i = 0; i < dtgvDoanhThu.Columns.Count; i++)
+                {
+                    g.DrawRectangle(pen, currentX, currentY, columnWidths[i], cellHeight);
+                    g.DrawString(row.Cells[i].Value?.ToString() ?? string.Empty, font, brush, currentX + 2, currentY + 2);
+
+                    if (i == 6)
+                    {
+                        if (decimal.TryParse(row.Cells[i].Value?.ToString(), out decimal amount))
+                        {
+                            totalAmount += amount;
+                        }
+                    }
+
+                    currentX += columnWidths[i];
+                }
+
+                currentY += cellHeight;
+
+                if (currentY + cellHeight > e.MarginBounds.Bottom)
+                {
+                    e.HasMorePages = true; 
+                    return;
+                }
+            }
+
+            currentX = startX;
+            g.DrawRectangle(pen, currentX, currentY, totalWidth, cellHeight);
+            g.DrawString("Tổng cộng:", boldFont, brush, currentX + 2, currentY + 2);
+
+            for (int i = 0; i < 6; i++)
+            {
+                currentX += columnWidths[i];
+            }
+
+            g.DrawRectangle(pen, currentX, currentY, columnWidths[6], cellHeight);
+            g.DrawString(totalAmount.ToString("N0"), boldFont, brush, currentX + 2, currentY + 2);
+
+            currentY += cellHeight;
+        }
+
+
+
+        private void btnPrintDT_Click(object sender, EventArgs e)
+        {
+            PrintDialog printDialog = new PrintDialog();
+            printDialog.Document = printDocument;
+
+            if (printDialog.ShowDialog() == DialogResult.OK)
+            {
+                printDocument.Print();
+            }
         }
     }
 }
