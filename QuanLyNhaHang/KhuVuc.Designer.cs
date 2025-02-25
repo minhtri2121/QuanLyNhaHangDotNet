@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KhuVuc));
             this.dtgvKhuVuc = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtID = new System.Windows.Forms.TextBox();
@@ -144,6 +145,7 @@
             this.ClientSize = new System.Drawing.Size(828, 526);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dtgvKhuVuc);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "KhuVuc";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nhóm Món";
