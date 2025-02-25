@@ -87,6 +87,42 @@ namespace QuanLyNhaHang
         {
             UpdateAccount();
         }
+
+        private void cbShowPass1_CheckedChanged(object sender, EventArgs e)
+        {
+            if(cbShowPass1.Checked)
+            {
+                txtPassWord.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txtPassWord.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void cbShowNewPass_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbShowNewPass.Checked)
+            {
+                txtNewPass.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txtNewPass.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void cbRePass_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbRePass.Checked)
+            {
+                txtReNewPass.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txtReNewPass.UseSystemPasswordChar = true;
+            }
+        }
     }
     public class AccountEvent:EventArgs
     {

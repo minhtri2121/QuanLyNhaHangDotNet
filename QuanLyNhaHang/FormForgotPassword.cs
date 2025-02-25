@@ -41,6 +41,7 @@ namespace QuanLyNhaHang
 
             if (!string.IsNullOrEmpty(newPassword))
             {
+                Clipboard.SetText(newPassword); 
                 MessageBox.Show($"Mật khẩu mới của bạn là: {newPassword}\nVui lòng đổi mật khẩu sau khi đăng nhập!");
                 this.Close();
             }

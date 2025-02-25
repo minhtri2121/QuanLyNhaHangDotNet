@@ -67,5 +67,17 @@ namespace QuanLyNhaHang
             FormForgotPassword f = new FormForgotPassword();
             f.Show();
         }
+
+        private void cbShowPass_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbShowPass.Checked)
+            {
+                txtPassword.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txtPassword.UseSystemPasswordChar = true;
+            }
+        }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPhieuNhap));
             this.gbPhieuNhap = new System.Windows.Forms.GroupBox();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -445,9 +446,10 @@
             this.Controls.Add(this.gbChiTietPhieuNhap);
             this.Controls.Add(this.gbPhieuNhap);
             this.Controls.Add(this.panel3);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormPhieuNhap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "EntryForm";
+            this.Text = "Phiếu nhập";
             this.Load += new System.EventHandler(this.FormPhieuNhap_Load);
             this.gbPhieuNhap.ResumeLayout(false);
             this.panel9.ResumeLayout(false);

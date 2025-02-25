@@ -46,6 +46,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
+            this.cbShowPass1 = new System.Windows.Forms.CheckBox();
+            this.cbShowNewPass = new System.Windows.Forms.CheckBox();
+            this.cbRePass = new System.Windows.Forms.CheckBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -84,7 +87,7 @@
             // 
             this.panel1.Controls.Add(this.txtNewPass);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(12, 195);
+            this.panel1.Location = new System.Drawing.Point(13, 221);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(550, 55);
             this.panel1.TabIndex = 3;
@@ -164,7 +167,7 @@
             // 
             this.panel5.Controls.Add(this.txtReNewPass);
             this.panel5.Controls.Add(this.label4);
-            this.panel5.Location = new System.Drawing.Point(13, 256);
+            this.panel5.Location = new System.Drawing.Point(13, 304);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(550, 55);
             this.panel5.TabIndex = 4;
@@ -190,7 +193,7 @@
             // btnExit
             // 
             this.btnExit.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(457, 327);
+            this.btnExit.Location = new System.Drawing.Point(459, 405);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(81, 41);
             this.btnExit.TabIndex = 6;
@@ -201,7 +204,7 @@
             // btnUpdate
             // 
             this.btnUpdate.Font = new System.Drawing.Font("Arial Narrow", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(355, 327);
+            this.btnUpdate.Location = new System.Drawing.Point(357, 405);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(80, 41);
             this.btnUpdate.TabIndex = 5;
@@ -209,11 +212,47 @@
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
+            // cbShowPass1
+            // 
+            this.cbShowPass1.AutoSize = true;
+            this.cbShowPass1.Location = new System.Drawing.Point(228, 195);
+            this.cbShowPass1.Name = "cbShowPass1";
+            this.cbShowPass1.Size = new System.Drawing.Size(114, 20);
+            this.cbShowPass1.TabIndex = 3;
+            this.cbShowPass1.Text = "Hiện mật khẩu";
+            this.cbShowPass1.UseVisualStyleBackColor = true;
+            this.cbShowPass1.CheckedChanged += new System.EventHandler(this.cbShowPass1_CheckedChanged);
+            // 
+            // cbShowNewPass
+            // 
+            this.cbShowNewPass.AutoSize = true;
+            this.cbShowNewPass.Location = new System.Drawing.Point(228, 278);
+            this.cbShowNewPass.Name = "cbShowNewPass";
+            this.cbShowNewPass.Size = new System.Drawing.Size(114, 20);
+            this.cbShowNewPass.TabIndex = 7;
+            this.cbShowNewPass.Text = "Hiện mật khẩu";
+            this.cbShowNewPass.UseVisualStyleBackColor = true;
+            this.cbShowNewPass.CheckedChanged += new System.EventHandler(this.cbShowNewPass_CheckedChanged);
+            // 
+            // cbRePass
+            // 
+            this.cbRePass.AutoSize = true;
+            this.cbRePass.Location = new System.Drawing.Point(228, 365);
+            this.cbRePass.Name = "cbRePass";
+            this.cbRePass.Size = new System.Drawing.Size(114, 20);
+            this.cbRePass.TabIndex = 8;
+            this.cbRePass.Text = "Hiện mật khẩu";
+            this.cbRePass.UseVisualStyleBackColor = true;
+            this.cbRePass.CheckedChanged += new System.EventHandler(this.cbRePass_CheckedChanged);
+            // 
             // fAccountProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(569, 380);
+            this.ClientSize = new System.Drawing.Size(569, 477);
+            this.Controls.Add(this.cbRePass);
+            this.Controls.Add(this.cbShowNewPass);
+            this.Controls.Add(this.cbShowPass1);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.panel5);
@@ -236,6 +275,7 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -258,5 +298,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.CheckBox cbShowPass1;
+        private System.Windows.Forms.CheckBox cbShowNewPass;
+        private System.Windows.Forms.CheckBox cbRePass;
     }
 }

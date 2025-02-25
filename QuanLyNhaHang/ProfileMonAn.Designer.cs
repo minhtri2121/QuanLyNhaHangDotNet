@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProfileMonAn));
             this.btnNhomMon = new System.Windows.Forms.Button();
             this.btnDVT = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -65,6 +66,7 @@
             this.Controls.Add(this.btnDVT);
             this.Controls.Add(this.btnNhomMon);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ProfileMonAn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProfilePN";
