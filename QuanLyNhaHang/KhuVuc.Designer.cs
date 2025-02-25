@@ -148,7 +148,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "KhuVuc";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Nhóm Món";
+            this.Text = "Khu vực";
             ((System.ComponentModel.ISupportInitialize)(this.dtgvKhuVuc)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

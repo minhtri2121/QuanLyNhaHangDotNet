@@ -69,7 +69,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ProfileMonAn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ProfilePN";
+            this.Text = "Profile nhóm món";
             this.ResumeLayout(false);
 
         }
