@@ -81,7 +81,7 @@
             // 
             this.btnXoaMon.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnXoaMon.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnXoaMon.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoaMon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoaMon.Location = new System.Drawing.Point(332, 68);
             this.btnXoaMon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXoaMon.Name = "btnXoaMon";
@@ -115,7 +115,7 @@
             // 
             this.btnAddFood.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnAddFood.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAddFood.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddFood.Location = new System.Drawing.Point(332, 10);
             this.btnAddFood.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddFood.Name = "btnAddFood";
@@ -128,7 +128,7 @@
             // cbFood
             // 
             this.cbFood.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbFood.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFood.FormattingEnabled = true;
             this.cbFood.Location = new System.Drawing.Point(3, 78);
             this.cbFood.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -139,7 +139,7 @@
             // cbCategory
             // 
             this.cbCategory.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cbCategory.Font = new System.Drawing.Font("Arial Narrow", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCategory.FormattingEnabled = true;
             this.cbCategory.Location = new System.Drawing.Point(3, 18);
             this.cbCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -331,7 +331,7 @@
             // 
             this.thêmMónToolStripMenuItem.Name = "thêmMónToolStripMenuItem";
             this.thêmMónToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.thêmMónToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.thêmMónToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
             this.thêmMónToolStripMenuItem.Text = "Thêm món";
             this.thêmMónToolStripMenuItem.Click += new System.EventHandler(this.thêmMónToolStripMenuItem_Click);
             // 
@@ -339,7 +339,7 @@
             // 
             this.huỷMónToolStripMenuItem.Name = "huỷMónToolStripMenuItem";
             this.huỷMónToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
-            this.huỷMónToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.huỷMónToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
             this.huỷMónToolStripMenuItem.Text = "Huỷ món";
             this.huỷMónToolStripMenuItem.Click += new System.EventHandler(this.huỷMónToolStripMenuItem_Click);
             // 
@@ -347,7 +347,7 @@
             // 
             this.chuyểnBànToolStripMenuItem.Name = "chuyểnBànToolStripMenuItem";
             this.chuyểnBànToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.chuyểnBànToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.chuyểnBànToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
             this.chuyểnBànToolStripMenuItem.Text = "Chuyển bàn";
             this.chuyểnBànToolStripMenuItem.Click += new System.EventHandler(this.chuyểnBànToolStripMenuItem_Click);
             // 
@@ -355,7 +355,7 @@
             // 
             this.gộpBànToolStripMenuItem.Name = "gộpBànToolStripMenuItem";
             this.gộpBànToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
-            this.gộpBànToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.gộpBànToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
             this.gộpBànToolStripMenuItem.Text = "Gộp bàn";
             this.gộpBànToolStripMenuItem.Click += new System.EventHandler(this.gộpBànToolStripMenuItem_Click);
             // 
@@ -363,7 +363,7 @@
             // 
             this.thanhToánToolStripMenuItem.Name = "thanhToánToolStripMenuItem";
             this.thanhToánToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
-            this.thanhToánToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.thanhToánToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
             this.thanhToánToolStripMenuItem.Text = "Thanh toán";
             this.thanhToánToolStripMenuItem.Click += new System.EventHandler(this.thanhToánToolStripMenuItem_Click);
             // 
