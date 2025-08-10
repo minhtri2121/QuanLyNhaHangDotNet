@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbShowPass = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
@@ -40,7 +41,6 @@
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.lblUserName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.cbShowPass = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -60,9 +60,22 @@
             this.panel1.Size = new System.Drawing.Size(710, 208);
             this.panel1.TabIndex = 0;
             // 
+            // cbShowPass
+            // 
+            this.cbShowPass.AutoSize = true;
+            this.cbShowPass.ForeColor = System.Drawing.Color.White;
+            this.cbShowPass.Location = new System.Drawing.Point(240, 123);
+            this.cbShowPass.Name = "cbShowPass";
+            this.cbShowPass.Size = new System.Drawing.Size(114, 20);
+            this.cbShowPass.TabIndex = 5;
+            this.cbShowPass.Text = "Hiện mật khẩu";
+            this.cbShowPass.UseVisualStyleBackColor = true;
+            this.cbShowPass.CheckedChanged += new System.EventHandler(this.cbShowPass_CheckedChanged);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label1.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.label1.Location = new System.Drawing.Point(96, 174);
@@ -164,18 +177,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
-            // 
-            // cbShowPass
-            // 
-            this.cbShowPass.AutoSize = true;
-            this.cbShowPass.ForeColor = System.Drawing.Color.White;
-            this.cbShowPass.Location = new System.Drawing.Point(240, 123);
-            this.cbShowPass.Name = "cbShowPass";
-            this.cbShowPass.Size = new System.Drawing.Size(114, 20);
-            this.cbShowPass.TabIndex = 5;
-            this.cbShowPass.Text = "Hiện mật khẩu";
-            this.cbShowPass.UseVisualStyleBackColor = true;
-            this.cbShowPass.CheckedChanged += new System.EventHandler(this.cbShowPass_CheckedChanged);
             // 
             // FormLogin
             // 

@@ -640,7 +640,7 @@ namespace QuanLyNhaHang
 
             if (string.IsNullOrEmpty(nhaCungCap))
             {
-                MessageBox.Show("Vui lòng nhập mã phiếu nhập cần tìm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng nhập nhà cung cấp cho phiêu nhập cần tìm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -656,6 +656,7 @@ namespace QuanLyNhaHang
             {
                 MessageBox.Show("Không tìm thấy phiếu nhập!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dtgvPhieuNhap.DataSource = null;
+                LoadAdmin();
             }
         } 
         private void txtMaPhieuNhap_KeyDown(object sender, KeyEventArgs e)
